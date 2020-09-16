@@ -23,17 +23,6 @@ namespace POS
         {
 
         }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Login_Load(object sender, EventArgs e)
         {
 
@@ -66,8 +55,8 @@ namespace POS
                 {
                     Properties.Settings.Default.username = TxtUserName.Text;
                     this.Hide();
-                    //Form1 fm = new Form1();
-                    //fm.Show();
+                    Home fm = new Home();
+                    fm.Show();
                 }
                 else
                 {
@@ -92,6 +81,11 @@ namespace POS
             }
             password = s.ToString();
             return password;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
