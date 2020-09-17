@@ -67,6 +67,10 @@
             this.textBoxNewPassword = new System.Windows.Forms.TextBox();
             this.labelReNewPassword = new System.Windows.Forms.Label();
             this.labelNewPassword = new System.Windows.Forms.Label();
+            this.labelUserName = new System.Windows.Forms.Label();
+            this.textBoxUserName = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.userDetailsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOSDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.storeDataBindingSource)).BeginInit();
@@ -88,7 +92,7 @@
             // 
             // textBoxNIC
             // 
-            this.textBoxNIC.Location = new System.Drawing.Point(190, 38);
+            this.textBoxNIC.Location = new System.Drawing.Point(190, 35);
             this.textBoxNIC.Name = "textBoxNIC";
             this.textBoxNIC.Size = new System.Drawing.Size(121, 20);
             this.textBoxNIC.TabIndex = 1;
@@ -132,6 +136,7 @@
             this.comboBoxNIC.Size = new System.Drawing.Size(121, 21);
             this.comboBoxNIC.TabIndex = 5;
             this.comboBoxNIC.ValueMember = "NIC";
+            this.comboBoxNIC.SelectedIndexChanged += new System.EventHandler(this.comboBoxNIC_SelectedIndexChanged);
             // 
             // userDetailsBindingSource
             // 
@@ -353,9 +358,14 @@
             this.button2.TabIndex = 24;
             this.button2.Text = "Save";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.comboBox1);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.textBoxUserName);
+            this.groupBox2.Controls.Add(this.labelUserName);
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.textBoxReNewPassword);
             this.groupBox2.Controls.Add(this.textBoxNewPassword);
@@ -364,7 +374,7 @@
             this.groupBox2.ForeColor = System.Drawing.Color.Red;
             this.groupBox2.Location = new System.Drawing.Point(468, 36);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(265, 207);
+            this.groupBox2.Size = new System.Drawing.Size(273, 228);
             this.groupBox2.TabIndex = 25;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Login Details";
@@ -372,7 +382,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(105, 101);
+            this.button1.Location = new System.Drawing.Point(107, 182);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 26;
@@ -381,14 +391,14 @@
             // 
             // textBoxReNewPassword
             // 
-            this.textBoxReNewPassword.Location = new System.Drawing.Point(105, 62);
+            this.textBoxReNewPassword.Location = new System.Drawing.Point(107, 150);
             this.textBoxReNewPassword.Name = "textBoxReNewPassword";
             this.textBoxReNewPassword.Size = new System.Drawing.Size(121, 20);
             this.textBoxReNewPassword.TabIndex = 25;
             // 
             // textBoxNewPassword
             // 
-            this.textBoxNewPassword.Location = new System.Drawing.Point(105, 31);
+            this.textBoxNewPassword.Location = new System.Drawing.Point(105, 112);
             this.textBoxNewPassword.Name = "textBoxNewPassword";
             this.textBoxNewPassword.Size = new System.Drawing.Size(121, 20);
             this.textBoxNewPassword.TabIndex = 24;
@@ -396,7 +406,7 @@
             // labelReNewPassword
             // 
             this.labelReNewPassword.AutoSize = true;
-            this.labelReNewPassword.Location = new System.Drawing.Point(6, 69);
+            this.labelReNewPassword.Location = new System.Drawing.Point(6, 150);
             this.labelReNewPassword.Name = "labelReNewPassword";
             this.labelReNewPassword.Size = new System.Drawing.Size(95, 13);
             this.labelReNewPassword.TabIndex = 5;
@@ -405,17 +415,54 @@
             // labelNewPassword
             // 
             this.labelNewPassword.AutoSize = true;
-            this.labelNewPassword.Location = new System.Drawing.Point(6, 38);
+            this.labelNewPassword.Location = new System.Drawing.Point(6, 119);
             this.labelNewPassword.Name = "labelNewPassword";
             this.labelNewPassword.Size = new System.Drawing.Size(78, 13);
             this.labelNewPassword.TabIndex = 4;
             this.labelNewPassword.Text = "New Password";
             // 
+            // labelUserName
+            // 
+            this.labelUserName.AutoSize = true;
+            this.labelUserName.Location = new System.Drawing.Point(6, 45);
+            this.labelUserName.Name = "labelUserName";
+            this.labelUserName.Size = new System.Drawing.Size(57, 13);
+            this.labelUserName.TabIndex = 27;
+            this.labelUserName.Text = "UserName";
+            // 
+            // textBoxUserName
+            // 
+            this.textBoxUserName.Location = new System.Drawing.Point(105, 38);
+            this.textBoxUserName.Name = "textBoxUserName";
+            this.textBoxUserName.Size = new System.Drawing.Size(121, 20);
+            this.textBoxUserName.TabIndex = 28;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 82);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 13);
+            this.label2.TabIndex = 29;
+            this.label2.Text = "UserType";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Admin",
+            "Supervisor",
+            "Cashier"});
+            this.comboBox1.Location = new System.Drawing.Point(105, 74);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 30;
+            // 
             // UserManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(828, 496);
+            this.ClientSize = new System.Drawing.Size(829, 520);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
@@ -475,5 +522,9 @@
         private System.Windows.Forms.Label labelNewPassword;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBoxUserName;
+        private System.Windows.Forms.Label labelUserName;
     }
 }
