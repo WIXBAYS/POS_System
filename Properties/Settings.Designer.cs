@@ -45,5 +45,16 @@ namespace POS.Properties {
                 this["username"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-J3943PI\\SQLEXPRESS01;Initial Catalog=POS;Persist Security Inf" +
+            "o=True;User ID=sa;Password=M@nP0w3R@MSPL")]
+        public string POSConnectionString {
+            get {
+                return ((string)(this["POSConnectionString"]));
+            }
+        }
     }
 }

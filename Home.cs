@@ -110,5 +110,18 @@ namespace POS
             lg.Show();
             this.Dispose();
         }
+
+        private void userToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            UserManage um = new UserManage();
+            um.MdiParent = this;
+            um.Text = "User Manage";
+            um.Show();
+            um.WindowState= System.Windows.Forms.FormWindowState.Maximized;
+
+            //um.Show();
+            //this.Dispose();
+        }
     }
 }
