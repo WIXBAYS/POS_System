@@ -66,10 +66,7 @@ namespace POS
         {
         }
 
-        private void StatusBarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            statusStrip.Visible = statusBarToolStripMenuItem.Checked;
-        }
+
 
         private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -119,9 +116,15 @@ namespace POS
             um.Text = "User Manage";
             um.Show();
             um.WindowState= System.Windows.Forms.FormWindowState.Maximized;
-
-            //um.Show();
-            //this.Dispose();
         }
+
+        private void venderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Vendor_Management vm = new Vendor_Management();
+            vm.MdiParent = this;
+            vm.Show();      
+        }
+
+       
     }
 }
