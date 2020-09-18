@@ -38,17 +38,13 @@ namespace POS
             if (checkBoxNew.Checked)
             {
                 textBoxNIC.Visible = true;
-                labelNICTxt.Visible = true;
                 comboBoxNIC.Visible = false;
-                labelNICCombo.Visible = false;
                 ResetAll();
             }
             else
             {
                 textBoxNIC.Visible = false;
-                labelNICTxt.Visible = false;
                 comboBoxNIC.Visible = true;
-                labelNICCombo.Visible = true;
             }
         }
 
@@ -119,7 +115,7 @@ namespace POS
         {
             try
             {
-                String NIC = comboBoxNIC.SelectedValue.ToString();
+                String NIC = comboBoxNIC.Text.ToString();
 
                 User usr = new User();
                 SqlDataReader sdrusr = usr.GetUserDetails(NIC);
@@ -186,6 +182,11 @@ namespace POS
                 MessageBox.Show("Invalid fields. Please check");
                 return;
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

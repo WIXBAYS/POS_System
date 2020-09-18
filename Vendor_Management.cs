@@ -174,6 +174,7 @@ namespace POS
 
         private void button1_Click(object sender, EventArgs e)
         {
+
             this.Close();
         }
 
@@ -210,7 +211,9 @@ namespace POS
         {      
             try
             {
-                string vendor_id = comboBoxName.SelectedValue.ToString();
+                string vendor_id = "";
+                if (comboBoxName.Text !="")
+                vendor_id=comboBoxName.SelectedValue.ToString();
                 Vender vn = new Vender();
                 SqlDataReader sqd = vn.GetVenderDetails(vendor_id);
 
@@ -235,6 +238,11 @@ namespace POS
             {
                 return;
             }
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

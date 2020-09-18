@@ -111,20 +111,28 @@ namespace POS
         private void userToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            UserManage um = new UserManage();
-            um.MdiParent = this;
-            um.Text = "User Manage";
-            um.Show();
-            um.WindowState= System.Windows.Forms.FormWindowState.Maximized;
+            //UserManage um = new UserManage();
+            //um.MdiParent = this;
+            //um.Text = "User Manage";
+            //um.WindowState= System.Windows.Forms.FormWindowState.Normal;
+            //um.Show();
+
+            UserManage childForm = new UserManage();
+            childForm.ShowDialog(this);
         }
 
         private void venderToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Vendor_Management vm = new Vendor_Management();
-            vm.MdiParent = this;
-            vm.Show();      
+            //Vendor_Management vm = new Vendor_Management();
+            //vm.MdiParent = this;
+            //vm.WindowState = System.Windows.Forms.FormWindowState.Normal;
+
+            //vm.Show();
+
+
+            Vendor_Management childForm = new Vendor_Management();
+            childForm.ShowDialog(this);
         }
 
-       
     }
 }
