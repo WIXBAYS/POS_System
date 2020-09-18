@@ -134,5 +134,16 @@ namespace POS
             childForm.ShowDialog(this);
         }
 
+        private void catagoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Catagory_Management childForm = new Catagory_Management();
+            childForm.ShowDialog(this);
+        }
+
+        private void itemsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Item_Management childForm = new Item_Management();
+            childForm.ShowDialog(this);
+        }
     }
 }

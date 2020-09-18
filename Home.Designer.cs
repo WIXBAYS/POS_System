@@ -32,6 +32,8 @@
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.venderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.catagoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.itemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
@@ -44,14 +46,17 @@
             // menuStrip
             // 
             this.menuStrip.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.menuStrip.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.venderToolStripMenuItem,
             this.userToolStripMenuItem,
+            this.itemsToolStripMenuItem,
+            this.catagoryToolStripMenuItem,
             this.helpMenu});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuStrip.Size = new System.Drawing.Size(926, 25);
+            this.menuStrip.Size = new System.Drawing.Size(926, 27);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "MenuStrip";
             // 
@@ -59,17 +64,31 @@
             // 
             this.venderToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.3F);
             this.venderToolStripMenuItem.Name = "venderToolStripMenuItem";
-            this.venderToolStripMenuItem.Size = new System.Drawing.Size(62, 21);
-            this.venderToolStripMenuItem.Text = "Vendor";
+            this.venderToolStripMenuItem.Size = new System.Drawing.Size(68, 23);
+            this.venderToolStripMenuItem.Text = "Vendors";
             this.venderToolStripMenuItem.Click += new System.EventHandler(this.venderToolStripMenuItem_Click);
             // 
             // userToolStripMenuItem
             // 
             this.userToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.3F);
             this.userToolStripMenuItem.Name = "userToolStripMenuItem";
-            this.userToolStripMenuItem.Size = new System.Drawing.Size(47, 21);
-            this.userToolStripMenuItem.Text = "User";
+            this.userToolStripMenuItem.Size = new System.Drawing.Size(53, 23);
+            this.userToolStripMenuItem.Text = "Users";
             this.userToolStripMenuItem.Click += new System.EventHandler(this.userToolStripMenuItem_Click);
+            // 
+            // catagoryToolStripMenuItem
+            // 
+            this.catagoryToolStripMenuItem.Name = "catagoryToolStripMenuItem";
+            this.catagoryToolStripMenuItem.Size = new System.Drawing.Size(86, 23);
+            this.catagoryToolStripMenuItem.Text = "Catagories";
+            this.catagoryToolStripMenuItem.Click += new System.EventHandler(this.catagoryToolStripMenuItem_Click);
+            // 
+            // itemsToolStripMenuItem
+            // 
+            this.itemsToolStripMenuItem.Name = "itemsToolStripMenuItem";
+            this.itemsToolStripMenuItem.Size = new System.Drawing.Size(55, 23);
+            this.itemsToolStripMenuItem.Text = "Items";
+            this.itemsToolStripMenuItem.Click += new System.EventHandler(this.itemsToolStripMenuItem_Click);
             // 
             // helpMenu
             // 
@@ -77,7 +96,7 @@
             this.toolStripSeparator8});
             this.helpMenu.Font = new System.Drawing.Font("Segoe UI", 9.3F);
             this.helpMenu.Name = "helpMenu";
-            this.helpMenu.Size = new System.Drawing.Size(61, 21);
+            this.helpMenu.Size = new System.Drawing.Size(61, 23);
             this.helpMenu.Text = "Logout";
             this.helpMenu.Click += new System.EventHandler(this.helpMenu_Click);
             // 
@@ -135,6 +154,8 @@
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.ToolStripMenuItem userToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem venderToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem catagoryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem itemsToolStripMenuItem;
     }
 }
 

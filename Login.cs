@@ -88,11 +88,11 @@ namespace POS
             Application.Exit();
         }
 
-        private void button1_MouseClick(object sender, MouseEventArgs e)
+ 
+        private void TxtPassword_KeyUp(object sender, KeyEventArgs e)
         {
-
+            if (e.KeyCode == Keys.Enter)
+                button1_Click_1(null, null);
         }
-
-        
     }
 }

@@ -76,7 +76,6 @@ namespace POS
             }
         }
 
-
         //Desc:- insert a new record to a table according to a supplied query string and array of parameters
         public int insertRecord(String query, ref SqlParameter[] sqlParams)
         {
@@ -92,7 +91,7 @@ namespace POS
                     con.Close();
                     return x;
                 }
-                catch
+                catch(Exception e)
                 {
 
                     return -1;

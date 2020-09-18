@@ -115,7 +115,5 @@ namespace POS
                 return null;
             }
         }
-
-
     }
 }

@@ -294,14 +294,13 @@
             this.label8.Size = new System.Drawing.Size(217, 25);
             this.label8.TabIndex = 30;
             this.label8.Text = "Manage Vender Details";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // Vendor_Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(494, 556);
+            this.ClientSize = new System.Drawing.Size(494, 517);
             this.ControlBox = false;
             this.Controls.Add(this.label8);
             this.Controls.Add(this.textBoxNameUpdate);
@@ -328,7 +327,6 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Vendor_Management";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Vendor Management";
             this.Load += new System.EventHandler(this.Vendor_Management_Load);
             ((System.ComponentModel.ISupportInitialize)(this.venderDetailsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetVendorList)).EndInit();

@@ -48,10 +48,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Item_Management.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Item_Management.Designer.cs">
+      <DependentUpon>Item_Management.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConnectionManager.cs" />
     <Compile Include="DataInsertManager.cs" />
     <Compile Include="DataReaderManager.cs" />
     <Compile Include="DataUpdateManager.cs" />
+    <Compile Include="Catagory_Management.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catagory_Management.Designer.cs">
+      <DependentUpon>Catagory_Management.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POSDataSetItems.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>POSDataSetItems.xsd</DependentUpon>
+    </Compile>
     <Compile Include="POSDataSetVendorList.cs">
       <DependentUpon>POSDataSetVendorList.xsd</DependentUpon>
     </Compile>
@@ -108,8 +125,14 @@
     <Compile Include="Vendor_Management.Designer.cs">
       <DependentUpon>Vendor_Management.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Item_Management.resx">
+      <DependentUpon>Item_Management.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catagory_Management.resx">
+      <DependentUpon>Catagory_Management.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Loading.resx">
       <DependentUpon>Loading.cs</DependentUpon>
@@ -146,6 +169,17 @@
     </None>
     <None Include="POSDataSet.xss">
       <DependentUpon>POSDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="POSDataSetItems.xsc">
+      <DependentUpon>POSDataSetItems.xsd</DependentUpon>
+    </None>
+    <None Include="POSDataSetItems.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>POSDataSetItems.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="POSDataSetItems.xss">
+      <DependentUpon>POSDataSetItems.xsd</DependentUpon>
     </None>
     <None Include="POSDataSetSTORE.xsc">
       <DependentUpon>POSDataSetSTORE.xsd</DependentUpon>

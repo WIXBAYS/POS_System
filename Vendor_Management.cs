@@ -174,7 +174,6 @@ namespace POS
 
         private void button1_Click(object sender, EventArgs e)
         {
-
             this.Close();
         }
 
@@ -238,11 +237,6 @@ namespace POS
             {
                 return;
             }
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

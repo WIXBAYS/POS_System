@@ -50,6 +50,7 @@
             this.TxtPassword.PasswordChar = '*';
             this.TxtPassword.Size = new System.Drawing.Size(179, 20);
             this.TxtPassword.TabIndex = 2;
+            this.TxtPassword.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtPassword_KeyUp);
             // 
             // label1
             // 
