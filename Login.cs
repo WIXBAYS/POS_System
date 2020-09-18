@@ -87,5 +87,12 @@ namespace POS
         {
             Application.Exit();
         }
+
+        private void button1_MouseClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        
     }
 }

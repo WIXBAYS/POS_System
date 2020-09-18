@@ -41,6 +41,7 @@ namespace POS
                 labelNICTxt.Visible = true;
                 comboBoxNIC.Visible = false;
                 labelNICCombo.Visible = false;
+                ResetAll();
             }
             else
             {
@@ -66,10 +67,52 @@ namespace POS
             String Street = textBoxStreet.Text;
             String City = textBoxCity.Text;
             String District = textBoxDistrict.Text;
-            String StireID = comboBoxStore.SelectedValue.ToString();
-            if (checkBoxNew.Checked) NIC = textBoxNIC.Text;
-            else NIC = comboBoxNIC.SelectedValue.ToString();
+            int StoreID = int.Parse(comboBoxStore.SelectedValue.ToString());
+            String UserName = textBoxUserName.Text;
+            String UserType = comboBoxUserType.Text;
+            int success = 0;
+            User usr = new User();
+            if (checkBoxNew.Checked)
+            {
+                NIC = textBoxNIC.Text;
+                if (UserName!="" && UserType!="")
+                    success =usr.insertUser(UserName, "934b535800b1cba8f96a5d72f72f1611", NIC, UserType, FirstName, LastName, ContactNo, AddressNo, Street, City, District, StoreID);
+                
+                else
+                {
+                    MessageBox.Show("Please provide UserName and UserType");
+                    return;
+                }
+            }
+            else
+            {
+                NIC = comboBoxNIC.SelectedValue.ToString();
+                success = usr.updatetUser(NIC, checkBoxActive.Checked, FirstName, LastName, ContactNo, AddressNo, Street, City, District, StoreID);
+            }
 
+            if (success > 0)
+            {
+                MessageBox.Show("Successfully Saved");
+                ResetAll();
+            }
+            else MessageBox.Show("Error In Save");
+
+
+
+        }
+        public void ResetAll()
+        {
+            textBoxUserName.Text = "";
+            checkBoxActive.Checked = true;
+            comboBoxUserType.Text = "";
+            textBoxFristName.Text = "";
+            textBoxLastName.Text = "";
+            textBoxContactNo.Text = "";
+            textBoxaddressNo.Text = "";
+            textBoxStreet.Text = "";
+            textBoxCity.Text = "";
+            textBoxDistrict.Text = "";
+            comboBoxStore.SelectedItem = "";
         }
 
         private void comboBoxNIC_SelectedIndexChanged(object sender, EventArgs e)
@@ -84,9 +127,60 @@ namespace POS
 
                 {
                     textBoxUserName.Text = sdrusr.GetString(0);
+                    checkBoxActive.Checked = sdrusr.GetBoolean(1);
+                    comboBoxUserType.SelectedItem= sdrusr.GetString(2);
+                    textBoxFristName.Text = sdrusr.GetString(3);
+                    textBoxLastName.Text = sdrusr.GetString(4);
+                    textBoxContactNo.Text = sdrusr.GetString(5);
+                    textBoxaddressNo.Text = sdrusr.GetString(6);
+                    textBoxStreet.Text = sdrusr.GetString(7);
+                    textBoxCity.Text = sdrusr.GetString(8);
+                    textBoxDistrict.Text = sdrusr.GetString(9);
+                    comboBoxStore.SelectedItem = sdrusr.GetInt32(10);
 
                 }
                 sdrusr.Close();
+            }
+        }
+
+        public string Encript(string password)
+        {
+            System.Security.Cryptography.MD5CryptoServiceProvider objCript = new System.Security.Cryptography.MD5CryptoServiceProvider();
+            byte[] bs = System.Text.Encoding.UTF8.GetBytes(password);
+            bs = objCript.ComputeHash(bs);
+            System.Text.StringBuilder s = new System.Text.StringBuilder();
+
+            foreach (byte b in bs)
+            {
+                s.Append(b.ToString("x2").ToLower());
+            }
+            password = s.ToString();
+            return password;
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            String UserName = textBoxUserName.Text;
+            String UserType = comboBoxUserType.Text.ToString();
+            String NewPassword = textBoxNewPassword.Text;
+            String ReNewPassword = textBoxReNewPassword.Text;
+
+            if (NewPassword != "" && NewPassword == ReNewPassword)
+            {
+                User usr = new User();
+                int success = usr.updatetPassword(Encript(NewPassword), UserName.Trim(), UserType);
+                if (success > 0)
+                {
+                    MessageBox.Show("Successfully Saved");
+                    comboBoxUserType.Text = "";
+                    textBoxNewPassword.Text = "";
+                    textBoxReNewPassword.Text = "";
+                }
+                else MessageBox.Show("Error In Save");
+            }
+            else
+            {
+                MessageBox.Show("Invalid fields. Please check");
+                return;
             }
         }
     }
