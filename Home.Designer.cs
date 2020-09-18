@@ -51,21 +51,23 @@
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuStrip.Size = new System.Drawing.Size(926, 24);
+            this.menuStrip.Size = new System.Drawing.Size(926, 25);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "MenuStrip";
             // 
             // venderToolStripMenuItem
             // 
+            this.venderToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.3F);
             this.venderToolStripMenuItem.Name = "venderToolStripMenuItem";
-            this.venderToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+            this.venderToolStripMenuItem.Size = new System.Drawing.Size(62, 21);
             this.venderToolStripMenuItem.Text = "Vendor";
             this.venderToolStripMenuItem.Click += new System.EventHandler(this.venderToolStripMenuItem_Click);
             // 
             // userToolStripMenuItem
             // 
+            this.userToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.3F);
             this.userToolStripMenuItem.Name = "userToolStripMenuItem";
-            this.userToolStripMenuItem.Size = new System.Drawing.Size(42, 20);
+            this.userToolStripMenuItem.Size = new System.Drawing.Size(47, 21);
             this.userToolStripMenuItem.Text = "User";
             this.userToolStripMenuItem.Click += new System.EventHandler(this.userToolStripMenuItem_Click);
             // 
@@ -73,8 +75,9 @@
             // 
             this.helpMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripSeparator8});
+            this.helpMenu.Font = new System.Drawing.Font("Segoe UI", 9.3F);
             this.helpMenu.Name = "helpMenu";
-            this.helpMenu.Size = new System.Drawing.Size(57, 20);
+            this.helpMenu.Size = new System.Drawing.Size(61, 21);
             this.helpMenu.Text = "Logout";
             this.helpMenu.Click += new System.EventHandler(this.helpMenu_Click);
             // 
@@ -103,6 +106,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(926, 557);
             this.ControlBox = false;
             this.Controls.Add(this.statusStrip);

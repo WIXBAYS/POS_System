@@ -117,30 +117,34 @@ namespace POS
 
         private void comboBoxNIC_SelectedIndexChanged(object sender, EventArgs e)
         {
-            String NIC = comboBoxNIC.SelectedValue.ToString();
-
-            User usr = new User();
-            SqlDataReader sdrusr = usr.GetUserDetails(NIC);
-            if (sdrusr != null)
+            try
             {
-                while (sdrusr.Read())
+                String NIC = comboBoxNIC.SelectedValue.ToString();
 
+                User usr = new User();
+                SqlDataReader sdrusr = usr.GetUserDetails(NIC);
+                if (sdrusr != null)
                 {
-                    textBoxUserName.Text = sdrusr.GetString(0);
-                    checkBoxActive.Checked = sdrusr.GetBoolean(1);
-                    comboBoxUserType.SelectedItem= sdrusr.GetString(2);
-                    textBoxFristName.Text = sdrusr.GetString(3);
-                    textBoxLastName.Text = sdrusr.GetString(4);
-                    textBoxContactNo.Text = sdrusr.GetString(5);
-                    textBoxaddressNo.Text = sdrusr.GetString(6);
-                    textBoxStreet.Text = sdrusr.GetString(7);
-                    textBoxCity.Text = sdrusr.GetString(8);
-                    textBoxDistrict.Text = sdrusr.GetString(9);
-                    comboBoxStore.SelectedItem = sdrusr.GetInt32(10);
+                    while (sdrusr.Read())
 
+                    {
+                        textBoxUserName.Text = sdrusr.GetString(0);
+                        checkBoxActive.Checked = sdrusr.GetBoolean(1);
+                        comboBoxUserType.SelectedItem = sdrusr.GetString(2);
+                        textBoxFristName.Text = sdrusr.GetString(3);
+                        textBoxLastName.Text = sdrusr.GetString(4);
+                        textBoxContactNo.Text = sdrusr.GetString(5);
+                        textBoxaddressNo.Text = sdrusr.GetString(6);
+                        textBoxStreet.Text = sdrusr.GetString(7);
+                        textBoxCity.Text = sdrusr.GetString(8);
+                        textBoxDistrict.Text = sdrusr.GetString(9);
+                        comboBoxStore.SelectedItem = sdrusr.GetInt32(10);
+
+                    }
+                    sdrusr.Close();
                 }
-                sdrusr.Close();
             }
+            catch { }
         }
 
         public string Encript(string password)

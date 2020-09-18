@@ -52,6 +52,12 @@
     <Compile Include="DataInsertManager.cs" />
     <Compile Include="DataReaderManager.cs" />
     <Compile Include="DataUpdateManager.cs" />
+    <Compile Include="POSDataSetVendorList.cs">
+      <DependentUpon>POSDataSetVendorList.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="POSDataSetVendorList.Designer.cs">
+      <DependentUpon>POSDataSetVendorList.cs</DependentUpon>
+    </Compile>
     <Compile Include="User.cs" />
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
@@ -95,6 +101,13 @@
     <Compile Include="UserManage.Designer.cs">
       <DependentUpon>UserManage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vender.cs" />
+    <Compile Include="Vendor_Management.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vendor_Management.Designer.cs">
+      <DependentUpon>Vendor_Management.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
@@ -120,6 +133,9 @@
     <EmbeddedResource Include="UserManage.resx">
       <DependentUpon>UserManage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vendor_Management.resx">
+      <DependentUpon>Vendor_Management.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="POSDataSet.xsc">
       <DependentUpon>POSDataSet.xsd</DependentUpon>
     </None>
@@ -141,6 +157,17 @@
     </None>
     <None Include="POSDataSetSTORE.xss">
       <DependentUpon>POSDataSetSTORE.xsd</DependentUpon>
+    </None>
+    <None Include="POSDataSetVendorList.xsc">
+      <DependentUpon>POSDataSetVendorList.xsd</DependentUpon>
+    </None>
+    <None Include="POSDataSetVendorList.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>POSDataSetVendorList1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="POSDataSetVendorList.xss">
+      <DependentUpon>POSDataSetVendorList.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
