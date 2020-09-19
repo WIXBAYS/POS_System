@@ -87,26 +87,13 @@ namespace POS
             {
 
                 DataInsertManager DIM = new DataInsertManager();
-                bool checkedstatus = false;
-                if(checkBoxActive.Checked == true)
-                {
-                    checkedstatus = true;
-                }
+                
+                String TextName= textBoxName.Text;
+                String Discription = textBoxLineDiscription.Text;
+                bool CheckedStatus = checkBoxActive.Checked;
+                Item item = new Item();
 
-                SqlParameter[] parraarray = new SqlParameter[3];
-                string query = "INSERT INTO[dbo].[Items]([ITEM_NAME],[ITEM_DISCRIPTION],[ITEM_STATUS])VALUES(@ITEM_NAME, @Item_Discription, @ItemStatus)";
-
-                SqlParameter sqlParamname = new SqlParameter("@ITEM_NAME", SqlDbType.VarChar);
-                sqlParamname.Value = textBoxName.Text;
-                parraarray[0] = sqlParamname;
-                SqlParameter sqlParamdescrip = new SqlParameter("@Item_Discription", SqlDbType.VarChar);
-                sqlParamdescrip.Value = textBoxLineDiscription.Text;
-                parraarray[1] = sqlParamdescrip;
-                SqlParameter sqlParamstatus = new SqlParameter("@ItemStatus", SqlDbType.Bit);
-                sqlParamstatus.Value = checkedstatus;
-                parraarray[2] = sqlParamstatus;
-
-                int x = DIM.insertRecord(query,ref parraarray);
+                int x = item.insertItem(TextName, Discription, CheckedStatus);
 
                 if (x>0)
                 {
@@ -136,28 +123,15 @@ namespace POS
                 SqlParameter[] parraarray = new SqlParameter[4];
                 DataUpdateManager DUM = new DataUpdateManager();
 
-                bool checkedstatus = false;
-                if (checkBoxActive.Checked == true)
-                {
-                    checkedstatus = true;
-                }
+                
+                String TextName = textBoxNameUpdate.Text;
+                String Discription = textBoxLineDiscription.Text;
+                bool CheckedStatus = checkBoxActive.Checked;
+                String ComboName = comboBoxName.SelectedValue.ToString();
 
-                string query = "UPDATE [dbo].[Items] SET [ITEM_NAME] = @ITEM_NAME ,[ITEM_DISCRIPTION] = @Item_Discription ,[ITEM_STATUS] = @ItemStatus WHERE [ITEM_ID] = @Item_ID";
-                SqlParameter sqlParamname = new SqlParameter("@ITEM_NAME", SqlDbType.VarChar);
-                sqlParamname.Value = textBoxNameUpdate.Text;
-                parraarray[0] = sqlParamname;
-                SqlParameter sqlParamdescrip = new SqlParameter("@Item_Discription", SqlDbType.VarChar);
-                sqlParamdescrip.Value = textBoxLineDiscription.Text;
-                parraarray[1] = sqlParamdescrip;
-                SqlParameter sqlParamstatus = new SqlParameter("@ItemStatus", SqlDbType.Bit);
-                sqlParamstatus.Value = checkedstatus;
-                parraarray[2] = sqlParamstatus;
-                SqlParameter sqlParamsItemID = new SqlParameter("@Item_ID", SqlDbType.Int);
-                sqlParamsItemID.Value = comboBoxName.SelectedValue.ToString();
-                parraarray[3] = sqlParamsItemID;
-
-                int x = DUM.updateRecord(query, ref parraarray);
-            
+                Item item = new Item();
+                int x = item.updateItem(TextName, Discription, CheckedStatus, ComboName);
+                
                 if (x>0)
                 {
                     MessageBox.Show("Item " + textBoxName.Text + " Successfully Updated");
@@ -221,12 +195,8 @@ namespace POS
                 if (comboBoxName.Text != "")
                     Item_ID = comboBoxName.SelectedValue.ToString();
 
-                String query = "SELECT [ITEM_NAME],[ITEM_DISCRIPTION],[ITEM_STATUS] FROM [dbo].[Items] where [ITEM_ID]=@Item_ID";
-                SqlParameter sqlParam = new SqlParameter("@Item_ID", SqlDbType.Int);
-                sqlParam.Value = Item_ID;
-
-                DataReaderManager DRM = new DataReaderManager();
-                SqlDataReader sqd = DRM.getDataReader(query, ref sqlParam);
+                Item item = new Item();
+                SqlDataReader sqd = item.GetItemDetails(Item_ID);
 
                 if (sqd != null)
                 {
