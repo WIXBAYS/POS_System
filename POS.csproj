@@ -65,6 +65,11 @@
     <Compile Include="Catagory_Management.Designer.cs">
       <DependentUpon>Catagory_Management.cs</DependentUpon>
     </Compile>
+    <Compile Include="POSDataSetItemCataagory.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>POSDataSetItemCataagory.xsd</DependentUpon>
+    </Compile>
     <Compile Include="POSDataSetItems.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -170,6 +175,17 @@
     </None>
     <None Include="POSDataSet.xss">
       <DependentUpon>POSDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="POSDataSetItemCataagory.xsc">
+      <DependentUpon>POSDataSetItemCataagory.xsd</DependentUpon>
+    </None>
+    <None Include="POSDataSetItemCataagory.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>POSDataSetItemCataagory.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="POSDataSetItemCataagory.xss">
+      <DependentUpon>POSDataSetItemCataagory.xsd</DependentUpon>
     </None>
     <None Include="POSDataSetItems.xsc">
       <DependentUpon>POSDataSetItems.xsd</DependentUpon>

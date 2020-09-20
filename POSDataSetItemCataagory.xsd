@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="POSDataSetItemCataagory" targetNamespace="http://tempuri.org/POSDataSetItemCataagory.xsd" xmlns:mstns="http://tempuri.org/POSDataSetItemCataagory.xsd" xmlns="http://tempuri.org/POSDataSetItemCataagory.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="POSConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="POSConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.POS.Properties.Settings.GlobalReference.Default.POSConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Item_CatagoryTableAdapter" GeneratorDataComponentClassName="Item_CatagoryTableAdapter" Name="Item_Catagory" UserDataComponentName="Item_CatagoryTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="POSConnectionString (Settings)" DbObjectName="POS.dbo.Item_Catagory" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ITEMCAT_ID, CATAGORY_NAME FROM dbo.Item_Catagory</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ITEMCAT_ID" DataSetColumn="ITEMCAT_ID" />
+              <Mapping SourceColumn="CATAGORY_NAME" DataSetColumn="CATAGORY_NAME" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="POSConnectionString (Settings)" DbObjectName="POS.dbo.Item_Catagory" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ITEMCAT_ID, CATAGORY_NAME FROM dbo.Item_Catagory Order By CATAGORY_NAME </CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="POSDataSetItemCataagory" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="POSDataSetItemCataagory" msprop:Generator_UserDSName="POSDataSetItemCataagory">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Item_Catagory" msprop:Generator_TableClassName="Item_CatagoryDataTable" msprop:Generator_TableVarName="tableItem_Catagory" msprop:Generator_RowChangedName="Item_CatagoryRowChanged" msprop:Generator_TablePropName="Item_Catagory" msprop:Generator_RowDeletingName="Item_CatagoryRowDeleting" msprop:Generator_RowChangingName="Item_CatagoryRowChanging" msprop:Generator_RowEvHandlerName="Item_CatagoryRowChangeEventHandler" msprop:Generator_RowDeletedName="Item_CatagoryRowDeleted" msprop:Generator_RowClassName="Item_CatagoryRow" msprop:Generator_UserTableName="Item_Catagory" msprop:Generator_RowEvArgName="Item_CatagoryRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ITEMCAT_ID" msprop:Generator_ColumnVarNameInTable="columnITEMCAT_ID" msprop:Generator_ColumnPropNameInRow="ITEMCAT_ID" msprop:Generator_ColumnPropNameInTable="ITEMCAT_IDColumn" msprop:Generator_UserColumnName="ITEMCAT_ID" type="xs:int" />
+              <xs:element name="CATAGORY_NAME" msprop:Generator_ColumnVarNameInTable="columnCATAGORY_NAME" msprop:Generator_ColumnPropNameInRow="CATAGORY_NAME" msprop:Generator_ColumnPropNameInTable="CATAGORY_NAMEColumn" msprop:Generator_UserColumnName="CATAGORY_NAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -119,10 +119,6 @@ namespace POS
         {
             if (TextVAlidation())
             {
-
-                SqlParameter[] parraarray = new SqlParameter[4];
-                DataUpdateManager DUM = new DataUpdateManager();
-
                 
                 String TextName = textBoxNameUpdate.Text;
                 String Discription = textBoxLineDiscription.Text;

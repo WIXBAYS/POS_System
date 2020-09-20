@@ -85,7 +85,7 @@ namespace POS
                     con.Close();
                     return x;
                 }
-                catch
+                catch(Exception e)
                 {
                     return -1;
                 }
