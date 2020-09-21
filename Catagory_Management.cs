@@ -265,6 +265,14 @@ namespace POS
             else
                 textBoxSelling.BackColor = Color.White;
 
+            if (comboBoxunits.Text.Trim() == String.Empty)
+            {
+                comboBoxunits.BackColor = Color.LightPink;
+                valid = false;
+            }
+            else
+                comboBoxunits.BackColor = Color.White;
+
             return valid;
         }
 

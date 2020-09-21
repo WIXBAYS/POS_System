@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="POSDataSet1" targetNamespace="http://tempuri.org/POSDataSet1.xsd" xmlns:mstns="http://tempuri.org/POSDataSet1.xsd" xmlns="http://tempuri.org/POSDataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="POSConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="POSConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.POS.Properties.Settings.GlobalReference.Default.POSConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Vender_DetailsTableAdapter" GeneratorDataComponentClassName="Vender_DetailsTableAdapter" Name="Vender_Details" UserDataComponentName="Vender_DetailsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="POSConnectionString (Settings)" DbObjectName="POS.dbo.Vender_Details" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT VENDER_ID, VENDER_NAME FROM dbo.Vender_Details</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="VENDER_ID" DataSetColumn="VENDER_ID" />
+              <Mapping SourceColumn="VENDER_NAME" DataSetColumn="VENDER_NAME" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="POSDataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="POSDataSet1" msprop:Generator_UserDSName="POSDataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Vender_Details" msprop:Generator_TableClassName="Vender_DetailsDataTable" msprop:Generator_TableVarName="tableVender_Details" msprop:Generator_TablePropName="Vender_Details" msprop:Generator_RowDeletingName="Vender_DetailsRowDeleting" msprop:Generator_RowChangingName="Vender_DetailsRowChanging" msprop:Generator_RowEvHandlerName="Vender_DetailsRowChangeEventHandler" msprop:Generator_RowDeletedName="Vender_DetailsRowDeleted" msprop:Generator_UserTableName="Vender_Details" msprop:Generator_RowChangedName="Vender_DetailsRowChanged" msprop:Generator_RowEvArgName="Vender_DetailsRowChangeEvent" msprop:Generator_RowClassName="Vender_DetailsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="VENDER_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnVENDER_ID" msprop:Generator_ColumnPropNameInRow="VENDER_ID" msprop:Generator_ColumnPropNameInTable="VENDER_IDColumn" msprop:Generator_UserColumnName="VENDER_ID" type="xs:int" />
+              <xs:element name="VENDER_NAME" msprop:Generator_ColumnVarNameInTable="columnVENDER_NAME" msprop:Generator_ColumnPropNameInRow="VENDER_NAME" msprop:Generator_ColumnPropNameInTable="VENDER_NAMEColumn" msprop:Generator_UserColumnName="VENDER_NAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

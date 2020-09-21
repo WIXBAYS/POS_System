@@ -32,6 +32,9 @@
             this.button_cancel = new System.Windows.Forms.Button();
             this.textBoxNameUpdate = new System.Windows.Forms.TextBox();
             this.comboBoxName = new System.Windows.Forms.ComboBox();
+            this.itemCatagoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pOSDataSetItemCataagoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pOSDataSetItemCataagory = new POS.POSDataSetItemCataagory();
             this.checkBox_new = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -53,13 +56,10 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.comboBoxunits = new System.Windows.Forms.ComboBox();
-            this.pOSDataSetItemCataagory = new POS.POSDataSetItemCataagory();
-            this.pOSDataSetItemCataagoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.itemCatagoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.item_CatagoryTableAdapter = new POS.POSDataSetItemCataagoryTableAdapters.Item_CatagoryTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetItemCataagory)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetItemCataagoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemCatagoryBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetItemCataagoryBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetItemCataagory)).BeginInit();
             this.SuspendLayout();
             // 
             // button_cancel
@@ -77,7 +77,7 @@
             // textBoxNameUpdate
             // 
             this.textBoxNameUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNameUpdate.Location = new System.Drawing.Point(122, 151);
+            this.textBoxNameUpdate.Location = new System.Drawing.Point(122, 184);
             this.textBoxNameUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxNameUpdate.Name = "textBoxNameUpdate";
             this.textBoxNameUpdate.Size = new System.Drawing.Size(284, 22);
@@ -90,13 +90,28 @@
             this.comboBoxName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxName.FormattingEnabled = true;
-            this.comboBoxName.Location = new System.Drawing.Point(122, 105);
+            this.comboBoxName.Location = new System.Drawing.Point(122, 138);
             this.comboBoxName.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxName.Name = "comboBoxName";
             this.comboBoxName.Size = new System.Drawing.Size(284, 23);
             this.comboBoxName.TabIndex = 47;
             this.comboBoxName.ValueMember = "ITEMCAT_ID";
             this.comboBoxName.SelectedIndexChanged += new System.EventHandler(this.comboBoxName_SelectedIndexChanged);
+            // 
+            // itemCatagoryBindingSource
+            // 
+            this.itemCatagoryBindingSource.DataMember = "Item_Catagory";
+            this.itemCatagoryBindingSource.DataSource = this.pOSDataSetItemCataagoryBindingSource;
+            // 
+            // pOSDataSetItemCataagoryBindingSource
+            // 
+            this.pOSDataSetItemCataagoryBindingSource.DataSource = this.pOSDataSetItemCataagory;
+            this.pOSDataSetItemCataagoryBindingSource.Position = 0;
+            // 
+            // pOSDataSetItemCataagory
+            // 
+            this.pOSDataSetItemCataagory.DataSetName = "POSDataSetItemCataagory";
+            this.pOSDataSetItemCataagory.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // checkBox_new
             // 
@@ -126,7 +141,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(19, 112);
+            this.label1.Location = new System.Drawing.Point(19, 145);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(103, 16);
@@ -146,7 +161,7 @@
             // textBoxName
             // 
             this.textBoxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxName.Location = new System.Drawing.Point(122, 106);
+            this.textBoxName.Location = new System.Drawing.Point(122, 139);
             this.textBoxName.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(284, 22);
@@ -266,7 +281,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(24, 142);
+            this.label8.Location = new System.Drawing.Point(24, 175);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(0, 16);
@@ -274,20 +289,23 @@
             // 
             // comboBoxItemList
             // 
+            this.comboBoxItemList.DataSource = this.itemCatagoryBindingSource;
+            this.comboBoxItemList.DisplayMember = "CATAGORY_NAME";
             this.comboBoxItemList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxItemList.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxItemList.FormattingEnabled = true;
-            this.comboBoxItemList.Location = new System.Drawing.Point(122, 193);
+            this.comboBoxItemList.Location = new System.Drawing.Point(122, 89);
             this.comboBoxItemList.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxItemList.Name = "comboBoxItemList";
             this.comboBoxItemList.Size = new System.Drawing.Size(284, 23);
             this.comboBoxItemList.TabIndex = 63;
+            this.comboBoxItemList.ValueMember = "ITEMCAT_ID";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(19, 193);
+            this.label9.Location = new System.Drawing.Point(19, 89);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(73, 16);
@@ -324,10 +342,7 @@
             this.comboBoxunits.FormattingEnabled = true;
             this.comboBoxunits.Items.AddRange(new object[] {
             "Kg",
-            "g",
-            "mg",
             "L",
-            "ml",
             "Units"});
             this.comboBoxunits.Location = new System.Drawing.Point(122, 277);
             this.comboBoxunits.Margin = new System.Windows.Forms.Padding(4);
@@ -335,21 +350,6 @@
             this.comboBoxunits.Size = new System.Drawing.Size(108, 23);
             this.comboBoxunits.TabIndex = 68;
             this.comboBoxunits.ValueMember = "VENDER_ID";
-            // 
-            // pOSDataSetItemCataagory
-            // 
-            this.pOSDataSetItemCataagory.DataSetName = "POSDataSetItemCataagory";
-            this.pOSDataSetItemCataagory.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // pOSDataSetItemCataagoryBindingSource
-            // 
-            this.pOSDataSetItemCataagoryBindingSource.DataSource = this.pOSDataSetItemCataagory;
-            this.pOSDataSetItemCataagoryBindingSource.Position = 0;
-            // 
-            // itemCatagoryBindingSource
-            // 
-            this.itemCatagoryBindingSource.DataMember = "Item_Catagory";
-            this.itemCatagoryBindingSource.DataSource = this.pOSDataSetItemCataagoryBindingSource;
             // 
             // item_CatagoryTableAdapter
             // 
@@ -389,9 +389,9 @@
             this.Name = "Catagory_Management";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.Catagory_Management_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetItemCataagory)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetItemCataagoryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemCatagoryBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetItemCataagoryBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetItemCataagory)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

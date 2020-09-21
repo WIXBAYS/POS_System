@@ -48,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GRN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GRN.Designer.cs">
+      <DependentUpon>GRN.cs</DependentUpon>
+    </Compile>
     <Compile Include="Item.cs" />
     <Compile Include="Item_Management.cs">
       <SubType>Form</SubType>
@@ -65,6 +71,11 @@
     <Compile Include="Catagory_Management.Designer.cs">
       <DependentUpon>Catagory_Management.cs</DependentUpon>
     </Compile>
+    <Compile Include="POSDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>POSDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="POSDataSetItemCataagory.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -81,6 +92,7 @@
     <Compile Include="POSDataSetVendorList.Designer.cs">
       <DependentUpon>POSDataSetVendorList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Stock.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
@@ -131,6 +143,9 @@
     <Compile Include="Vendor_Management.Designer.cs">
       <DependentUpon>Vendor_Management.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="GRN.resx">
+      <DependentUpon>GRN.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Item_Management.resx">
       <DependentUpon>Item_Management.cs</DependentUpon>
     </EmbeddedResource>
@@ -175,6 +190,17 @@
     </None>
     <None Include="POSDataSet.xss">
       <DependentUpon>POSDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="POSDataSet1.xsc">
+      <DependentUpon>POSDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="POSDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>POSDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="POSDataSet1.xss">
+      <DependentUpon>POSDataSet1.xsd</DependentUpon>
     </None>
     <None Include="POSDataSetItemCataagory.xsc">
       <DependentUpon>POSDataSetItemCataagory.xsd</DependentUpon>
@@ -235,6 +261,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="wb.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

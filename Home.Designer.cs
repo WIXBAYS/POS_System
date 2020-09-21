@@ -32,13 +32,14 @@
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.venderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.catagoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.itemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.catagoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.gRNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -52,7 +53,8 @@
             this.userToolStripMenuItem,
             this.itemsToolStripMenuItem,
             this.catagoryToolStripMenuItem,
-            this.helpMenu});
+            this.helpMenu,
+            this.gRNToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
@@ -76,19 +78,19 @@
             this.userToolStripMenuItem.Text = "Users";
             this.userToolStripMenuItem.Click += new System.EventHandler(this.userToolStripMenuItem_Click);
             // 
-            // catagoryToolStripMenuItem
-            // 
-            this.catagoryToolStripMenuItem.Name = "catagoryToolStripMenuItem";
-            this.catagoryToolStripMenuItem.Size = new System.Drawing.Size(86, 23);
-            this.catagoryToolStripMenuItem.Text = "Catagories";
-            this.catagoryToolStripMenuItem.Click += new System.EventHandler(this.catagoryToolStripMenuItem_Click);
-            // 
             // itemsToolStripMenuItem
             // 
             this.itemsToolStripMenuItem.Name = "itemsToolStripMenuItem";
             this.itemsToolStripMenuItem.Size = new System.Drawing.Size(55, 23);
             this.itemsToolStripMenuItem.Text = "Items";
             this.itemsToolStripMenuItem.Click += new System.EventHandler(this.itemsToolStripMenuItem_Click);
+            // 
+            // catagoryToolStripMenuItem
+            // 
+            this.catagoryToolStripMenuItem.Name = "catagoryToolStripMenuItem";
+            this.catagoryToolStripMenuItem.Size = new System.Drawing.Size(86, 23);
+            this.catagoryToolStripMenuItem.Text = "Catagories";
+            this.catagoryToolStripMenuItem.Click += new System.EventHandler(this.catagoryToolStripMenuItem_Click);
             // 
             // helpMenu
             // 
@@ -103,7 +105,7 @@
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(57, 6);
+            this.toolStripSeparator8.Size = new System.Drawing.Size(177, 6);
             // 
             // statusStrip
             // 
@@ -120,6 +122,13 @@
             this.toolStripStatusLabel.Name = "toolStripStatusLabel";
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
+            // 
+            // gRNToolStripMenuItem
+            // 
+            this.gRNToolStripMenuItem.Name = "gRNToolStripMenuItem";
+            this.gRNToolStripMenuItem.Size = new System.Drawing.Size(49, 23);
+            this.gRNToolStripMenuItem.Text = "GRN";
+            this.gRNToolStripMenuItem.Click += new System.EventHandler(this.gRNToolStripMenuItem_Click);
             // 
             // Home
             // 
@@ -156,6 +165,7 @@
         private System.Windows.Forms.ToolStripMenuItem venderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem catagoryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem itemsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gRNToolStripMenuItem;
     }
 }
 

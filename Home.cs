@@ -145,5 +145,11 @@ namespace POS
             Item_Management childForm = new Item_Management();
             childForm.ShowDialog(this);
         }
+
+        private void gRNToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TxtTotal grn = new TxtTotal();
+            grn.ShowDialog(this);
+        }
     }
 }
