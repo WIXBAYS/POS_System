@@ -25,6 +25,25 @@ namespace POS
         private void timer1_Tick(object sender, EventArgs e)
         {
             this.progressBarLoading.Increment(2);
+            if (progressBarLoading.Value == 10)
+            {
+                labelLoading.Text = "Loading......";
+            }
+
+            if(progressBarLoading.Value == 30)
+            {
+                labelLoading.Text = "Resources......";
+            }
+
+            if (progressBarLoading.Value == 50)
+            {
+                labelLoading.Text = "Files......";
+            }
+
+            if (progressBarLoading.Value == 70)
+            {
+                labelLoading.Text = "Finalizing......";
+            }
 
             if (progressBarLoading.Value > 99)
             {

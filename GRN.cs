@@ -74,7 +74,7 @@ namespace POS
 
         private void button_cancel_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void comboBoxName_SelectedIndexChanged(object sender, EventArgs e)

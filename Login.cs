@@ -93,6 +93,6 @@ namespace POS
         {
             if (e.KeyCode == Keys.Enter)
                 button1_Click_1(null, null);
-        }
+        }     
     }
 }

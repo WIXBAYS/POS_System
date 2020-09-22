@@ -76,9 +76,20 @@ namespace POS
                 bool CheckedStatus = checkBoxActive.Checked;
                 String Discription = textBoxLineDiscription.Text;
 
-                int x = item.insertItemCatagory(TextcatName,ItemID,Barcode,Unit,buying,Selling,Discription,CheckedStatus);
+                SqlDataReader sdr = item.GetMaxCatID();
+                int cat_id = 0;
+                if (sdr != null)
+                {
+                    while (sdr.Read())
+                    {
+                        cat_id = sdr.GetInt32(0);
+                    }
+                }
 
-                if (x > 0)
+                int x = item.insertItemCatagory(TextcatName,ItemID,Barcode,Unit,buying,Selling,Discription,CheckedStatus);
+                int y = item.insertStockBalanceDefault(cat_id+1 ,0);
+
+                if (x > 0 &&  y>0)
                 {
                     MessageBox.Show("Item Catagory " + textBoxName.Text + " Successfully Created");
                     TextClear();

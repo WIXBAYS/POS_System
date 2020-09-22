@@ -36,25 +36,25 @@
             this.catagoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.gRNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.gRNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip
             // 
-            this.menuStrip.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.menuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.menuStrip.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.venderToolStripMenuItem,
             this.userToolStripMenuItem,
             this.itemsToolStripMenuItem,
             this.catagoryToolStripMenuItem,
-            this.helpMenu,
-            this.gRNToolStripMenuItem});
+            this.gRNToolStripMenuItem,
+            this.helpMenu});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
@@ -107,6 +107,13 @@
             this.toolStripSeparator8.Name = "toolStripSeparator8";
             this.toolStripSeparator8.Size = new System.Drawing.Size(177, 6);
             // 
+            // gRNToolStripMenuItem
+            // 
+            this.gRNToolStripMenuItem.Name = "gRNToolStripMenuItem";
+            this.gRNToolStripMenuItem.Size = new System.Drawing.Size(49, 23);
+            this.gRNToolStripMenuItem.Text = "GRN";
+            this.gRNToolStripMenuItem.Click += new System.EventHandler(this.gRNToolStripMenuItem_Click);
+            // 
             // statusStrip
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -123,18 +130,11 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
-            // gRNToolStripMenuItem
-            // 
-            this.gRNToolStripMenuItem.Name = "gRNToolStripMenuItem";
-            this.gRNToolStripMenuItem.Size = new System.Drawing.Size(49, 23);
-            this.gRNToolStripMenuItem.Text = "GRN";
-            this.gRNToolStripMenuItem.Click += new System.EventHandler(this.gRNToolStripMenuItem_Click);
-            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(926, 557);
             this.ControlBox = false;
             this.Controls.Add(this.statusStrip);

@@ -65,11 +65,12 @@
             // 
             // textBoxNameUpdate
             // 
+            this.textBoxNameUpdate.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxNameUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxNameUpdate.Location = new System.Drawing.Point(176, 148);
             this.textBoxNameUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxNameUpdate.Name = "textBoxNameUpdate";
-            this.textBoxNameUpdate.Size = new System.Drawing.Size(284, 22);
+            this.textBoxNameUpdate.Size = new System.Drawing.Size(284, 15);
             this.textBoxNameUpdate.TabIndex = 41;
             // 
             // comboBoxName
@@ -100,11 +101,12 @@
             // checkBox_new
             // 
             this.checkBox_new.AutoSize = true;
+            this.checkBox_new.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.checkBox_new.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox_new.Location = new System.Drawing.Point(176, 70);
             this.checkBox_new.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox_new.Name = "checkBox_new";
-            this.checkBox_new.Size = new System.Drawing.Size(54, 20);
+            this.checkBox_new.Size = new System.Drawing.Size(51, 20);
             this.checkBox_new.TabIndex = 39;
             this.checkBox_new.Text = "New";
             this.checkBox_new.UseVisualStyleBackColor = true;
@@ -166,6 +168,8 @@
             // 
             // buttonsave
             // 
+            this.buttonsave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.buttonsave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonsave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonsave.Location = new System.Drawing.Point(372, 370);
             this.buttonsave.Margin = new System.Windows.Forms.Padding(4);
@@ -179,16 +183,18 @@
             // checkBoxActive
             // 
             this.checkBoxActive.AutoSize = true;
+            this.checkBoxActive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.checkBoxActive.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxActive.Location = new System.Drawing.Point(176, 322);
             this.checkBoxActive.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxActive.Name = "checkBoxActive";
-            this.checkBoxActive.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxActive.Size = new System.Drawing.Size(12, 11);
             this.checkBoxActive.TabIndex = 44;
             this.checkBoxActive.UseVisualStyleBackColor = true;
             // 
             // textBoxLineDiscription
             // 
+            this.textBoxLineDiscription.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxLineDiscription.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxLineDiscription.Location = new System.Drawing.Point(176, 186);
             this.textBoxLineDiscription.Margin = new System.Windows.Forms.Padding(4);

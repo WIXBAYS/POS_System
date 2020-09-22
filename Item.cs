@@ -103,6 +103,13 @@ namespace POS
             return drm.getDataReader(query, ref sqlParam);
         }
 
+        public SqlDataReader GetMaxCatID()
+        {
+            String query = "SELECT MAX([ITEMCAT_ID]) FROM [dbo].[Item_Catagory]";
+            DataReaderManager drm = new DataReaderManager();
+            return drm.getDataReader(query);
+        }
+
         public int updateItemCatagory(String Catagory_NAME, String ITEM_ID, String Barcode_No, String Unit, float Buying, float Selling, String Item_Discription, Boolean ItemStatus, String Catagory_ID)
         {
             String selectCommand = "UPDATE [dbo].[Item_Catagory] SET [CATAGORY_NAME] = @Catagory_NAME, [ITEM_ID] = @ITEM_ID, BARCODE = @Barcode_No, [UNIT] = @Unit, [BUYING_COST] = @Buying, [SELLING_COST]= @Selling ,[CAT_DISCRIPTION] = @Catagory_Discription ,[CAT_STATUS] = @ItemStatus , [UPDATED_DATE] = @UpdateddDate WHERE [ITEMCAT_ID] = @Catagory_ID";
@@ -133,6 +140,23 @@ namespace POS
 
             DataUpdateManager dum = new DataUpdateManager();
             return dum.updateRecord(selectCommand, ref sqlParams);
+        }
+
+        public int insertStockBalanceDefault(int Catagory_ID, Decimal Balnce)
+        {
+            String selectCommand = "INSERT INTO [dbo].[Stock_Balance]([ITEMCAT_ID],[BALANCE])VALUES(@Catagory_ID,@Balance)";
+
+            SqlParameter[] sqlParams = new SqlParameter[] {
+                                            new SqlParameter("@Catagory_ID", SqlDbType.Int),
+                                            new SqlParameter("@Balance", SqlDbType.Decimal),                                   
+                                       };
+
+            sqlParams[0].Value = Catagory_ID;
+            sqlParams[1].Value = Balnce;
+
+
+            DataInsertManager dim = new DataInsertManager();
+            return dim.insertRecord(selectCommand, ref sqlParams);
         }
     }
 }

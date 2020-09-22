@@ -92,6 +92,11 @@
     <Compile Include="POSDataSetVendorList.Designer.cs">
       <DependentUpon>POSDataSetVendorList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Stock.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Home.cs">
@@ -163,14 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Store_Registration.resx">
       <DependentUpon>Store_Registration.cs</DependentUpon>
     </EmbeddedResource>
@@ -263,6 +263,16 @@
     <Folder Include="App_Code\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Login.png" />
+    <None Include="Resources\Exit.png" />
+    <None Include="Resources\LoginSide.jpg" />
+    <None Include="Resources\WixbayLogo.png" />
+    <None Include="Resources\WixbayLogo Resize.png" />
+    <None Include="Resources\WixbayLogoCrop.png" />
+    <None Include="Resources\LoginpageImage.png" />
+    <None Include="Resources\LoginpageImage2.png" />
+    <None Include="Resources\LoadingPage.jpg" />
+    <None Include="Resources\LoadingPage1.jpg" />
     <Content Include="wb.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
