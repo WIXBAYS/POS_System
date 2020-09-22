@@ -148,7 +148,7 @@ namespace POS
 
         private void gRNToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TxtTotal grn = new TxtTotal();
+            GNR grn = new GNR();
             grn.ShowDialog(this);
         }
     }

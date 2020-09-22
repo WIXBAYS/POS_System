@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace POS
 {
-    public partial class TxtTotal : Form
+    public partial class GNR : Form
     {
-        public TxtTotal()
+        public GNR()
         {
             InitializeComponent();
         }
@@ -64,7 +64,7 @@ namespace POS
                 MessageBox.Show(" Successfully Added");
                 dataGridViewAll.ClearSelection();
                 textBoxQuantity.Text = "";
-                comboBoxName.Text = "";
+                textBoxCatName.Text = "";
                 textBoxBuying.Text = "";
                 textBoxSelling.Text = "";
                 comboBoxunits.Text = "";
@@ -77,37 +77,6 @@ namespace POS
             this.Close();
         }
 
-        private void comboBoxName_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            comboBoxunits.Items.Clear();
-            comboBoxunits.Text = "";
-            String Category_id = comboBoxName.SelectedValue.ToString().Trim();
-            String Unit;
-            SqlDataReader sdr = new Item().GetItemCatagoryDetails(Category_id);
-            sdr.Read();
-            Unit = sdr.GetString(3);
-            textBoxBuying.Text = sdr.GetDouble(4).ToString();
-            textBoxSelling.Text = sdr.GetDouble(5).ToString();
-            sdr.Close();
-            if (Unit.Equals("L"))
-            {
-                comboBoxunits.Items.Add("L");
-                comboBoxunits.Items.Add("ml");
-            }
-            else if (Unit.Equals("Kg"))
-            {
-                comboBoxunits.Items.Add("Kg");
-                comboBoxunits.Items.Add("g");
-                comboBoxunits.Items.Add("mg");
-            }
-            else
-            {
-                comboBoxunits.Items.Add("Units");
-            }
-
-
-        }
-
         private void button_update_Click(object sender, EventArgs e)
         {
             Decimal Cost = 0.0m;
@@ -116,7 +85,7 @@ namespace POS
             if (comboBoxunits.Text.Equals("L") || comboBoxunits.Text.Equals("Kg") || comboBoxunits.Text.Equals("Units")) Cost = decimal.Parse(textBoxQuantity.Text) * decimal.Parse(textBoxBuying.Text);
             else if (comboBoxunits.Text.Equals("ml") || comboBoxunits.Text.Equals("g")) Cost = decimal.Parse(textBoxQuantity.Text) * decimal.Parse(textBoxBuying.Text)/1000;
             else if(comboBoxunits.Text.Equals("mg")) Cost = decimal.Parse(textBoxQuantity.Text) * decimal.Parse(textBoxBuying.Text) / 1000000;
-            dataGridViewAll.Rows.Add(comboBoxName.SelectedValue.ToString().Trim(), comboBoxName.Text.Trim(), textBoxQuantity.Text.Trim(), comboBoxunits.Text, Cost);
+            dataGridViewAll.Rows.Add(textBoxCatID.Text.Trim(), textBoxCatName.Text.Trim(), textBoxQuantity.Text.Trim(), comboBoxunits.Text, Cost);
 
 
             decimal sum = 0;
@@ -192,5 +161,47 @@ namespace POS
 
         }
 
+        private void textBoxBarcode_TextChanged(object sender, EventArgs e)
+        {
+            comboBoxunits.Items.Clear();
+            comboBoxunits.Text = "";
+            String Barcode = textBoxBarcode.Text.Trim();
+            String Unit;
+            SqlDataReader sdr = new Item().GetCatagoryDetailsByBarcode(Barcode);
+            if (sdr != null)
+            {
+                sdr.Read();
+                Unit = sdr.GetString(3);
+                textBoxCatName.Text = sdr.GetString(1);
+                textBoxBuying.Text = sdr.GetDouble(4).ToString();
+                textBoxSelling.Text = sdr.GetDouble(5).ToString();
+                textBoxCatID.Text = sdr.GetInt32(2).ToString();
+                sdr.Close();
+                if (Unit.Equals("L"))
+                {
+                    comboBoxunits.Items.Add("L");
+                    comboBoxunits.Items.Add("ml");
+                }
+                else if (Unit.Equals("Kg"))
+                {
+                    comboBoxunits.Items.Add("Kg");
+                    comboBoxunits.Items.Add("g");
+                    comboBoxunits.Items.Add("mg");
+                }
+                else
+                {
+                    comboBoxunits.Items.Add("Units");
+                }
+            }
+            else
+            {
+                textBoxQuantity.Clear();
+                textBoxCatName.Clear();
+                textBoxBuying.Clear();
+                textBoxSelling.Clear();
+                comboBoxunits.Text = "";
+                textBoxCatID.Clear();
+            }
         }
+    }
 }

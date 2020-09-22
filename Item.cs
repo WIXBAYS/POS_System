@@ -158,5 +158,15 @@ namespace POS
             DataInsertManager dim = new DataInsertManager();
             return dim.insertRecord(selectCommand, ref sqlParams);
         }
+
+        public SqlDataReader GetCatagoryDetailsByBarcode(String Barcode)
+        {
+            String query = "SELECT Item_Catagory.BARCODE, Item_Catagory.CATAGORY_NAME, Item_Catagory.ITEMCAT_ID, Item_Catagory.UNIT, Item_Catagory.BUYING_COST, Item_Catagory.SELLING_COST, Items.ITEM_NAME FROM Item_Catagory INNER JOIN Items ON Item_Catagory.ITEM_ID = Items.ITEM_ID where Item_Catagory.BARCODE = @Barcode and Item_Catagory.CAT_STATUS = 1";
+            SqlParameter sqlParam = new SqlParameter("@Barcode", SqlDbType.VarChar);
+            sqlParam.Value = Barcode;
+
+            DataReaderManager drm = new DataReaderManager();
+            return drm.getDataReader(query, ref sqlParam);
+        }
     }
 }

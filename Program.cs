@@ -15,9 +15,9 @@ namespace POS
         static void Main()
         {
             Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+            //Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Loading());
-            //Application.Run(new Catagory_Management());
+            Application.Run(new GNR());
         }
     }
 }
