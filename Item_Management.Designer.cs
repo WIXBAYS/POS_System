@@ -71,7 +71,7 @@
             this.textBoxNameUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxNameUpdate.Name = "textBoxNameUpdate";
             this.textBoxNameUpdate.Size = new System.Drawing.Size(284, 15);
-            this.textBoxNameUpdate.TabIndex = 41;
+            this.textBoxNameUpdate.TabIndex = 3;
             // 
             // comboBoxName
             // 
@@ -84,7 +84,7 @@
             this.comboBoxName.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxName.Name = "comboBoxName";
             this.comboBoxName.Size = new System.Drawing.Size(284, 23);
-            this.comboBoxName.TabIndex = 40;
+            this.comboBoxName.TabIndex = 2;
             this.comboBoxName.ValueMember = "ITEM_ID";
             this.comboBoxName.SelectedIndexChanged += new System.EventHandler(this.comboBoxName_SelectedIndexChanged);
             // 
@@ -107,7 +107,7 @@
             this.checkBox_new.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox_new.Name = "checkBox_new";
             this.checkBox_new.Size = new System.Drawing.Size(51, 20);
-            this.checkBox_new.TabIndex = 39;
+            this.checkBox_new.TabIndex = 1;
             this.checkBox_new.Text = "New";
             this.checkBox_new.UseVisualStyleBackColor = true;
             this.checkBox_new.CheckedChanged += new System.EventHandler(this.checkBox_new_CheckedChanged);
@@ -175,7 +175,7 @@
             this.buttonsave.Margin = new System.Windows.Forms.Padding(4);
             this.buttonsave.Name = "buttonsave";
             this.buttonsave.Size = new System.Drawing.Size(88, 52);
-            this.buttonsave.TabIndex = 43;
+            this.buttonsave.TabIndex = 6;
             this.buttonsave.Text = "Save";
             this.buttonsave.UseVisualStyleBackColor = true;
             this.buttonsave.Click += new System.EventHandler(this.buttonsave_Click);
@@ -189,7 +189,7 @@
             this.checkBoxActive.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxActive.Name = "checkBoxActive";
             this.checkBoxActive.Size = new System.Drawing.Size(12, 11);
-            this.checkBoxActive.TabIndex = 44;
+            this.checkBoxActive.TabIndex = 5;
             this.checkBoxActive.UseVisualStyleBackColor = true;
             // 
             // textBoxLineDiscription
@@ -201,7 +201,7 @@
             this.textBoxLineDiscription.Multiline = true;
             this.textBoxLineDiscription.Name = "textBoxLineDiscription";
             this.textBoxLineDiscription.Size = new System.Drawing.Size(284, 109);
-            this.textBoxLineDiscription.TabIndex = 37;
+            this.textBoxLineDiscription.TabIndex = 4;
             // 
             // label3
             // 

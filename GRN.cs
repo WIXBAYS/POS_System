@@ -16,6 +16,7 @@ namespace POS
         public GNR()
         {
             InitializeComponent();
+            textBoxBarcode.Select();
         }
 
         private void buttonsave_Click(object sender, EventArgs e)
@@ -64,11 +65,12 @@ namespace POS
                 MessageBox.Show(" Successfully Added");
                 dataGridViewAll.ClearSelection();
                 textBoxQuantity.Text = "";
-                textBoxCatName.Text = "";
+                textBoxBarcode.Text = "";
                 textBoxBuying.Text = "";
                 textBoxSelling.Text = "";
                 comboBoxunits.Text = "";
-
+                comboBoxCatID.Text = "";
+                comboBoxVender.Text = "";
             }
         }
 
@@ -85,7 +87,7 @@ namespace POS
             if (comboBoxunits.Text.Equals("L") || comboBoxunits.Text.Equals("Kg") || comboBoxunits.Text.Equals("Units")) Cost = decimal.Parse(textBoxQuantity.Text) * decimal.Parse(textBoxBuying.Text);
             else if (comboBoxunits.Text.Equals("ml") || comboBoxunits.Text.Equals("g")) Cost = decimal.Parse(textBoxQuantity.Text) * decimal.Parse(textBoxBuying.Text)/1000;
             else if(comboBoxunits.Text.Equals("mg")) Cost = decimal.Parse(textBoxQuantity.Text) * decimal.Parse(textBoxBuying.Text) / 1000000;
-            dataGridViewAll.Rows.Add(textBoxCatID.Text.Trim(), textBoxCatName.Text.Trim(), textBoxQuantity.Text.Trim(), comboBoxunits.Text, Cost);
+            dataGridViewAll.Rows.Add(comboBoxCatID.SelectedValue.ToString().Trim(), comboBoxCatID.Text.Trim(), textBoxQuantity.Text.Trim(), comboBoxunits.Text, Cost);
 
 
             decimal sum = 0;
@@ -95,6 +97,13 @@ namespace POS
             }
             textBoxTotal.Text = sum.ToString();
             }
+
+            textBoxQuantity.Text = "";
+            textBoxBarcode.Text = "";
+            textBoxBuying.Text = "";
+            textBoxSelling.Text = "";
+            comboBoxunits.Text = "";
+            comboBoxCatID.Text = "";
         }
 
         private void GRN_Load(object sender, EventArgs e)
@@ -172,10 +181,11 @@ namespace POS
             {
                 sdr.Read();
                 Unit = sdr.GetString(3);
-                textBoxCatName.Text = sdr.GetString(1);
+                //textBoxCatName.Text = sdr.GetString(1);
                 textBoxBuying.Text = sdr.GetDouble(4).ToString();
                 textBoxSelling.Text = sdr.GetDouble(5).ToString();
-                textBoxCatID.Text = sdr.GetInt32(2).ToString();
+                comboBoxCatID.SelectedValue= sdr.GetInt32(2).ToString();
+                comboBoxCatID.Text = sdr.GetString(1).ToString();
                 sdr.Close();
                 if (Unit.Equals("L"))
                 {
@@ -196,12 +206,59 @@ namespace POS
             else
             {
                 textBoxQuantity.Clear();
-                textBoxCatName.Clear();
+                //textBoxCatName.Clear();
                 textBoxBuying.Clear();
                 textBoxSelling.Clear();
                 comboBoxunits.Text = "";
-                textBoxCatID.Clear();
+                comboBoxCatID.Text = "";
+                //textBoxCatID.Clear();
             }
+        }
+
+        private void comboBoxCatID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBoxunits.Items.Clear();
+            comboBoxunits.Text = "";
+            textBoxBarcode.Text = "";
+            String CatID = comboBoxCatID.SelectedValue.ToString().Trim();
+            String Unit;
+            SqlDataReader sdr = new Item().GetItemCatagoryDetails(CatID);
+            if (sdr != null)
+            {
+                sdr.Read();
+                Unit = sdr.GetString(3);
+                textBoxBarcode.Text = sdr.GetString(0);
+                textBoxBuying.Text = sdr.GetDouble(4).ToString();
+                textBoxSelling.Text = sdr.GetDouble(5).ToString();
+                
+                sdr.Close();
+                if (Unit.Equals("L"))
+                {
+                    comboBoxunits.Items.Add("L");
+                    comboBoxunits.Items.Add("ml");
+                }
+                else if (Unit.Equals("Kg"))
+                {
+                    comboBoxunits.Items.Add("Kg");
+                    comboBoxunits.Items.Add("g");
+                    comboBoxunits.Items.Add("mg");
+                }
+                else
+                {
+                    comboBoxunits.Items.Add("Units");
+                }
+            }
+            else
+            {
+                textBoxQuantity.Clear();
+                //textBoxCatName.Clear();
+                textBoxBuying.Clear();
+                textBoxSelling.Clear();
+                comboBoxunits.Text = "";
+                comboBoxCatID.Text = "";
+                //textBoxCatID.Clear();
+            }
+
         }
     }
 }

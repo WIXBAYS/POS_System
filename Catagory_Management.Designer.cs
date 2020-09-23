@@ -69,7 +69,7 @@
             this.button_cancel.Margin = new System.Windows.Forms.Padding(4);
             this.button_cancel.Name = "button_cancel";
             this.button_cancel.Size = new System.Drawing.Size(88, 52);
-            this.button_cancel.TabIndex = 32;
+            this.button_cancel.TabIndex = 12;
             this.button_cancel.Text = "Cancel";
             this.button_cancel.UseVisualStyleBackColor = true;
             this.button_cancel.Click += new System.EventHandler(this.button_cancel_Click);
@@ -81,7 +81,7 @@
             this.textBoxNameUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxNameUpdate.Name = "textBoxNameUpdate";
             this.textBoxNameUpdate.Size = new System.Drawing.Size(284, 22);
-            this.textBoxNameUpdate.TabIndex = 48;
+            this.textBoxNameUpdate.TabIndex = 4;
             // 
             // comboBoxName
             // 
@@ -90,11 +90,11 @@
             this.comboBoxName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxName.FormattingEnabled = true;
-            this.comboBoxName.Location = new System.Drawing.Point(122, 138);
+            this.comboBoxName.Location = new System.Drawing.Point(122, 139);
             this.comboBoxName.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxName.Name = "comboBoxName";
             this.comboBoxName.Size = new System.Drawing.Size(284, 23);
-            this.comboBoxName.TabIndex = 47;
+            this.comboBoxName.TabIndex = 2;
             this.comboBoxName.ValueMember = "ITEMCAT_ID";
             this.comboBoxName.SelectedIndexChanged += new System.EventHandler(this.comboBoxName_SelectedIndexChanged);
             // 
@@ -156,7 +156,7 @@
             this.textBoxLineDiscription.Multiline = true;
             this.textBoxLineDiscription.Name = "textBoxLineDiscription";
             this.textBoxLineDiscription.Size = new System.Drawing.Size(364, 134);
-            this.textBoxLineDiscription.TabIndex = 45;
+            this.textBoxLineDiscription.TabIndex = 10;
             // 
             // textBoxName
             // 
@@ -165,7 +165,7 @@
             this.textBoxName.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(284, 22);
-            this.textBoxName.TabIndex = 44;
+            this.textBoxName.TabIndex = 3;
             // 
             // textBoxBuying
             // 
@@ -174,7 +174,7 @@
             this.textBoxBuying.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxBuying.Name = "textBoxBuying";
             this.textBoxBuying.Size = new System.Drawing.Size(108, 22);
-            this.textBoxBuying.TabIndex = 49;
+            this.textBoxBuying.TabIndex = 7;
             this.textBoxBuying.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxBuying_KeyPress);
             // 
             // textBoxSelling
@@ -184,7 +184,7 @@
             this.textBoxSelling.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxSelling.Name = "textBoxSelling";
             this.textBoxSelling.Size = new System.Drawing.Size(108, 22);
-            this.textBoxSelling.TabIndex = 50;
+            this.textBoxSelling.TabIndex = 8;
             this.textBoxSelling.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxSelling_KeyPress);
             // 
             // label3
@@ -219,7 +219,7 @@
             this.checkBoxActive.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxActive.Name = "checkBoxActive";
             this.checkBoxActive.Size = new System.Drawing.Size(15, 14);
-            this.checkBoxActive.TabIndex = 54;
+            this.checkBoxActive.TabIndex = 9;
             this.checkBoxActive.UseVisualStyleBackColor = true;
             // 
             // label5
@@ -240,7 +240,7 @@
             this.buttonsave.Margin = new System.Windows.Forms.Padding(4);
             this.buttonsave.Name = "buttonsave";
             this.buttonsave.Size = new System.Drawing.Size(88, 52);
-            this.buttonsave.TabIndex = 57;
+            this.buttonsave.TabIndex = 11;
             this.buttonsave.Text = "Save";
             this.buttonsave.UseVisualStyleBackColor = true;
             this.buttonsave.Click += new System.EventHandler(this.buttonsave_Click);
@@ -264,7 +264,7 @@
             this.textBoxBarcode.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxBarcode.Name = "textBoxBarcode";
             this.textBoxBarcode.Size = new System.Drawing.Size(284, 22);
-            this.textBoxBarcode.TabIndex = 58;
+            this.textBoxBarcode.TabIndex = 5;
             // 
             // label6
             // 
@@ -298,7 +298,7 @@
             this.comboBoxItemList.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxItemList.Name = "comboBoxItemList";
             this.comboBoxItemList.Size = new System.Drawing.Size(284, 23);
-            this.comboBoxItemList.TabIndex = 63;
+            this.comboBoxItemList.TabIndex = 1;
             this.comboBoxItemList.ValueMember = "ITEMCAT_ID";
             // 
             // label9
@@ -348,7 +348,7 @@
             this.comboBoxunits.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxunits.Name = "comboBoxunits";
             this.comboBoxunits.Size = new System.Drawing.Size(108, 23);
-            this.comboBoxunits.TabIndex = 68;
+            this.comboBoxunits.TabIndex = 6;
             this.comboBoxunits.ValueMember = "VENDER_ID";
             // 
             // item_CatagoryTableAdapter

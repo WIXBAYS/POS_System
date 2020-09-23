@@ -45,7 +45,6 @@
             this.item_CatagoryTableAdapter = new POS.POSDataSetItemCataagoryTableAdapters.Item_CatagoryTableAdapter();
             this.labelTotal = new System.Windows.Forms.Label();
             this.textBoxTotal = new System.Windows.Forms.TextBox();
-            this.textBoxCatName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxBuying = new System.Windows.Forms.TextBox();
             this.textBoxSelling = new System.Windows.Forms.TextBox();
@@ -65,7 +64,7 @@
             this.vender_DetailsTableAdapter = new POS.POSDataSet1TableAdapters.Vender_DetailsTableAdapter();
             this.label8 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBoxCatID = new System.Windows.Forms.TextBox();
+            this.comboBoxCatID = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.itemCatagoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetItemCataagoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetItemCataagory)).BeginInit();
@@ -106,6 +105,7 @@
             this.dataGridViewAll.Name = "dataGridViewAll";
             this.dataGridViewAll.Size = new System.Drawing.Size(409, 249);
             this.dataGridViewAll.TabIndex = 83;
+            this.dataGridViewAll.TabStop = false;
             this.dataGridViewAll.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAll_CellContentClick);
             // 
             // ID
@@ -154,6 +154,7 @@
             this.buttonsave.Name = "buttonsave";
             this.buttonsave.Size = new System.Drawing.Size(88, 52);
             this.buttonsave.TabIndex = 86;
+            this.buttonsave.TabStop = false;
             this.buttonsave.Text = "Finalize";
             this.buttonsave.UseVisualStyleBackColor = false;
             this.buttonsave.Click += new System.EventHandler(this.buttonsave_Click);
@@ -166,6 +167,7 @@
             this.button_cancel.Name = "button_cancel";
             this.button_cancel.Size = new System.Drawing.Size(88, 52);
             this.button_cancel.TabIndex = 84;
+            this.button_cancel.TabStop = false;
             this.button_cancel.Text = "Cancel";
             this.button_cancel.UseVisualStyleBackColor = true;
             this.button_cancel.Click += new System.EventHandler(this.button_cancel_Click);
@@ -196,24 +198,14 @@
             this.textBoxTotal.ReadOnly = true;
             this.textBoxTotal.Size = new System.Drawing.Size(159, 22);
             this.textBoxTotal.TabIndex = 90;
+            this.textBoxTotal.TabStop = false;
             this.textBoxTotal.TextChanged += new System.EventHandler(this.textBoxTotal_TextChanged);
-            // 
-            // textBoxCatName
-            // 
-            this.textBoxCatName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxCatName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.textBoxCatName.Location = new System.Drawing.Point(126, 126);
-            this.textBoxCatName.Margin = new System.Windows.Forms.Padding(4);
-            this.textBoxCatName.Name = "textBoxCatName";
-            this.textBoxCatName.ReadOnly = true;
-            this.textBoxCatName.Size = new System.Drawing.Size(284, 17);
-            this.textBoxCatName.TabIndex = 70;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(20, 126);
+            this.label1.Location = new System.Drawing.Point(20, 129);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(103, 16);
@@ -229,6 +221,7 @@
             this.textBoxBuying.Name = "textBoxBuying";
             this.textBoxBuying.Size = new System.Drawing.Size(108, 17);
             this.textBoxBuying.TabIndex = 73;
+            this.textBoxBuying.TabStop = false;
             // 
             // textBoxSelling
             // 
@@ -239,6 +232,7 @@
             this.textBoxSelling.Name = "textBoxSelling";
             this.textBoxSelling.Size = new System.Drawing.Size(108, 17);
             this.textBoxSelling.TabIndex = 74;
+            this.textBoxSelling.TabStop = false;
             // 
             // labelSellingCost
             // 
@@ -266,18 +260,18 @@
             // 
             this.textBoxBarcode.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxBarcode.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.textBoxBarcode.Location = new System.Drawing.Point(126, 161);
+            this.textBoxBarcode.Location = new System.Drawing.Point(126, 162);
             this.textBoxBarcode.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxBarcode.Name = "textBoxBarcode";
             this.textBoxBarcode.Size = new System.Drawing.Size(284, 17);
-            this.textBoxBarcode.TabIndex = 77;
+            this.textBoxBarcode.TabIndex = 1;
             this.textBoxBarcode.TextChanged += new System.EventHandler(this.textBoxBarcode_TextChanged);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(20, 162);
+            this.label10.Location = new System.Drawing.Point(20, 163);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(81, 16);
@@ -304,7 +298,7 @@
             this.comboBoxunits.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxunits.Name = "comboBoxunits";
             this.comboBoxunits.Size = new System.Drawing.Size(99, 21);
-            this.comboBoxunits.TabIndex = 82;
+            this.comboBoxunits.TabIndex = 3;
             this.comboBoxunits.ValueMember = "VENDER_ID";
             // 
             // button_update
@@ -315,7 +309,7 @@
             this.button_update.Margin = new System.Windows.Forms.Padding(4);
             this.button_update.Name = "button_update";
             this.button_update.Size = new System.Drawing.Size(88, 52);
-            this.button_update.TabIndex = 85;
+            this.button_update.TabIndex = 4;
             this.button_update.Text = "Add To Stock";
             this.button_update.UseVisualStyleBackColor = false;
             this.button_update.Click += new System.EventHandler(this.button_update_Click);
@@ -328,7 +322,7 @@
             this.textBoxQuantity.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxQuantity.Name = "textBoxQuantity";
             this.textBoxQuantity.Size = new System.Drawing.Size(90, 17);
-            this.textBoxQuantity.TabIndex = 87;
+            this.textBoxQuantity.TabIndex = 2;
             // 
             // labelQuantity
             // 
@@ -363,6 +357,7 @@
             this.comboBoxVender.Name = "comboBoxVender";
             this.comboBoxVender.Size = new System.Drawing.Size(284, 21);
             this.comboBoxVender.TabIndex = 92;
+            this.comboBoxVender.TabStop = false;
             this.comboBoxVender.ValueMember = "VENDER_ID";
             // 
             // venderDetailsBindingSource
@@ -401,16 +396,18 @@
             this.label3.TabIndex = 94;
             this.label3.Text = "Unit";
             // 
-            // textBoxCatID
+            // comboBoxCatID
             // 
-            this.textBoxCatID.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxCatID.Enabled = false;
-            this.textBoxCatID.Location = new System.Drawing.Point(126, 128);
-            this.textBoxCatID.Name = "textBoxCatID";
-            this.textBoxCatID.ReadOnly = true;
-            this.textBoxCatID.Size = new System.Drawing.Size(246, 13);
-            this.textBoxCatID.TabIndex = 95;
-            this.textBoxCatID.Visible = false;
+            this.comboBoxCatID.DataSource = this.itemCatagoryBindingSource;
+            this.comboBoxCatID.DisplayMember = "CATAGORY_NAME";
+            this.comboBoxCatID.FormattingEnabled = true;
+            this.comboBoxCatID.Location = new System.Drawing.Point(126, 124);
+            this.comboBoxCatID.Name = "comboBoxCatID";
+            this.comboBoxCatID.Size = new System.Drawing.Size(284, 21);
+            this.comboBoxCatID.TabIndex = 96;
+            this.comboBoxCatID.TabStop = false;
+            this.comboBoxCatID.ValueMember = "ITEMCAT_ID";
+            this.comboBoxCatID.SelectedIndexChanged += new System.EventHandler(this.comboBoxCatID_SelectedIndexChanged);
             // 
             // GNR
             // 
@@ -419,7 +416,7 @@
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(865, 450);
             this.ControlBox = false;
-            this.Controls.Add(this.textBoxCatID);
+            this.Controls.Add(this.comboBoxCatID);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.comboBoxVender);
@@ -441,7 +438,6 @@
             this.Controls.Add(this.textBoxSelling);
             this.Controls.Add(this.textBoxBuying);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBoxCatName);
             this.Name = "GNR";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.GRN_Load);
@@ -466,7 +462,6 @@
         private POSDataSetItemCataagoryTableAdapters.Item_CatagoryTableAdapter item_CatagoryTableAdapter;
         private System.Windows.Forms.Label labelTotal;
         private System.Windows.Forms.TextBox textBoxTotal;
-        private System.Windows.Forms.TextBox textBoxCatName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxBuying;
         private System.Windows.Forms.TextBox textBoxSelling;
@@ -493,6 +488,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Unit;
         private System.Windows.Forms.DataGridViewTextBoxColumn BuyingCost;
         private System.Windows.Forms.DataGridViewImageColumn ColumnDelete;
-        private System.Windows.Forms.TextBox textBoxCatID;
+        private System.Windows.Forms.ComboBox comboBoxCatID;
     }
 }
