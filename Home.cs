@@ -151,5 +151,11 @@ namespace POS
             GNR grn = new GNR();
             grn.ShowDialog(this);
         }
+
+        private void invoiceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Invoice invoi = new Invoice();
+            invoi.ShowDialog(this);
+        }
     }
 }

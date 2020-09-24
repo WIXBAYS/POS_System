@@ -74,5 +74,27 @@ namespace POS
             DataReaderManager drm = new DataReaderManager();
             return drm.getDataReader(query);
         }
+
+        public int InsertIvoice(int INVOICE_NO, decimal Amount, decimal Discount, decimal TaxAmount, DateTime EnterderDate)
+        {
+            String selectCommand = "INSERT INTO [dbo].[Invoice_Data]([INVOICE_ID],[INVOICE_TOTAL],[DISCOUNT_AMOUNT],[TAX_AMOUNT],[INVOICE_DATE])VALUES(@INVOICE_ID,@INVOICE_TOTAL,@DISCOUNT_AMOUNT,@TAX_AMOUNT,@INVOICE_DATE)";
+
+            SqlParameter[] sqlParams = new SqlParameter[] {
+                                            new SqlParameter("@INVOICE_ID", SqlDbType.Int),          
+                                            new SqlParameter("@INVOICE_TOTAL", SqlDbType.Decimal),
+                                            new SqlParameter("@DISCOUNT_AMOUNT", SqlDbType.Decimal),
+                                            new SqlParameter("@TAX_AMOUNT", SqlDbType.Decimal),                             
+                                            new SqlParameter("@INVOICE_DATE", SqlDbType.DateTime),                                      
+                                       };
+
+            sqlParams[0].Value = INVOICE_NO;
+            sqlParams[1].Value = Amount;
+            sqlParams[2].Value = Discount;
+            sqlParams[3].Value = TaxAmount;   
+            sqlParams[4].Value = EnterderDate;
+
+            DataInsertManager dim = new DataInsertManager();
+            return dim.insertRecord(selectCommand, ref sqlParams);
+        }
     }
 }

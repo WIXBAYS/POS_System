@@ -33,8 +33,6 @@ namespace POS
             }
             catch { }
 
-
-
             int y = 0;
             int x = 0;
             int Invoce_No = Current_Invoice_No + 1;
@@ -206,12 +204,10 @@ namespace POS
             else
             {
                 textBoxQuantity.Clear();
-                //textBoxCatName.Clear();
                 textBoxBuying.Clear();
                 textBoxSelling.Clear();
                 comboBoxunits.Text = "";
                 comboBoxCatID.Text = "";
-                //textBoxCatID.Clear();
             }
         }
 

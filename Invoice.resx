@@ -118,12 +118,18 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <metadata name="itemCatagoryBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>490, 17</value>
+    <value>1074, 17</value>
   </metadata>
   <metadata name="pOSDataSetItemCataagoryBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>214, 17</value>
+    <value>798, 17</value>
   </metadata>
   <metadata name="pOSDataSetItemCataagory.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>601, 17</value>
+  </metadata>
+  <metadata name="venderDetailsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>192, 17</value>
+  </metadata>
+  <metadata name="pOSDataSetVendorList.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
   <metadata name="ID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -139,6 +145,9 @@
     <value>True</value>
   </metadata>
   <metadata name="BuyingCost.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Grid_Discount.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="ColumnDelete.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -167,16 +176,32 @@
         rX+ab1Hx3Xn5a5gbj9BYfQPlhYVMmGuA/wHYDvfiUzuqjgAAAABJRU5ErkJggg==
 </value>
   </data>
-  <metadata name="item_CatagoryTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>694, 17</value>
-  </metadata>
-  <metadata name="venderDetailsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 56</value>
-  </metadata>
-  <metadata name="pOSDataSet1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>897, 17</value>
-  </metadata>
+  <data name="dataGridViewImageColumn1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        xAAADsQBlSsOGwAAA8xJREFUOE+FlGtMlXUcx4+X1kLIBUlgQKgVhhtrXDKVrF6oLBjJJZSLoCbGdGvQ
+        Jhqty/KyVfYmXW0NNVhvaiJj40WyxMRa3BG5HA43sXETIVYd4JwDz//T7zzPw23o/G7Pi//ts+/v9lhY
+        oOnhIRxtLebq0XL09zPRaTNXhuaAjq4u7mfEMrh7O+OVV83dh8veYePO1nBsIUGM1lebuybQKbDh9Hic
+        5T+gXfuZwZQY/q6q1C88SHZbJz3bInFkJTGdmULHlkhG62r0M8uMhDmSEYervAhVV4G6XopWUkjf9kjG
+        G41LC+X4144t/CWm9ieh8nJQh/fhituBLfR5Jm1WLJOtt+mP34a6dllgV9BKL6LKiuDHc3St82NsQU6n
+        pxy0+nriPJAMue+h7d+DSk+ChLdoW/UYNy5dMEIeuVpOf+IO1BUDporOoYrPw/df0Rn6AuPtLUz09tIe
+        Esx09h7IE9gBge0TcEIsrYFrKf2kgDGl5osy/Osv9L4WLs6+1WHaNydR586gTuXTEx1F59YwnNmpujMl
+        MC1DYHsTaH/Ki8uff8o9k7OobYb/+E3C9IXCr3WYdqYA7eRxpnMP4cpOg/ez551lJNG33MLF4x8war53
+        axHQraG6amwb18PpDwV2ApV/1Ej+0YPibC9amuTsnXhur/biUsEJHOa7WS0BunWvvkbCjMCVly0wCTEn
+        E+UuQFoi7I6hLdifsi9PL3I2qwcC7VKAjs2bcBxORR0xnKn0RJQ403a9To2fD931debtxVoCdLeGNfQ5
+        nIcEIjlTB1OlAAJLikPF7UTtehO1+WWanvVnbGjAfDWvRUCXY4pWP09c76ZINXOkAO6cJehhajFvoO2U
+        L/oV2BIFG4KotlgYudNrvjY0B7R3dmGL2IgzS/KUdwQtK8WoZnI8VslZrb83vBoh7iLQwkJhUwia95PU
+        Pu3DkK3DpJjAie4uuqPDmdRhxgRo0hakJ9Mi1Sz74hTW32/S8MwaeHGdDlPBgRCwlullFhoDAhhoajKA
+        zoFB+gQ2lSl5kjDdTas7k6a96+6zj44xpl+Fv1qaqZUwWSNuA/3RfFbDKg9cstfs7S1/oA4s/8lYWdf7
+        GXMpg27MZqxMgCeFx3KX9NndxgZqxbW2Yhl4eKBWLBdbFv6Ur6K42Ah56GYl1qgwZt6OgUSZzSB/Sj77
+        mPs6Yql6a2to8PVlxu3WDVu5kp/OnsUuZ3NFGay6jnVDIO1ej1NSkD83mw9TT9UNbj3hoafADZtNyxzQ
+        rX+ab1Hx3Xn5a5gbj9BYfQPlhYVMmGuA/wHYDvfiUzuqjgAAAABJRU5ErkJggg==
+</value>
+  </data>
   <metadata name="vender_DetailsTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>222, 56</value>
+    <value>397, 17</value>
+  </metadata>
+  <metadata name="item_CatagoryTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 56</value>
   </metadata>
 </root>

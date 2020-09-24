@@ -299,7 +299,6 @@
             this.comboBoxunits.Name = "comboBoxunits";
             this.comboBoxunits.Size = new System.Drawing.Size(99, 21);
             this.comboBoxunits.TabIndex = 3;
-            this.comboBoxunits.ValueMember = "VENDER_ID";
             // 
             // button_update
             // 
