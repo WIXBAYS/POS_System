@@ -227,6 +227,7 @@ namespace POS
                 textBoxSelling.Clear();
                 comboBoxunits.Items.Clear();
                 comboBoxCatID.Text = "";
+                textBox1.Clear();
             }
         }
 
