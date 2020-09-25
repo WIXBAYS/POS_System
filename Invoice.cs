@@ -18,6 +18,7 @@ namespace POS
         public Invoice()
         {
             InitializeComponent();
+            textBoxBC.Select();
         }
 
         private void button_cancel_Click(object sender, EventArgs e)
@@ -54,7 +55,7 @@ namespace POS
                         sdr.Read();
 
                         Unit = sdr.GetString(3);
-                        textBoxBarcode.Text = sdr.GetString(0);
+                        textBoxBC.Text = sdr.GetString(0);
                         textBoxSelling.Text = sdr.GetDouble(5).ToString();
 
                         sdr.Close();
@@ -103,52 +104,8 @@ namespace POS
             executionenable = true;
         }
 
-        private void textBoxBarcode_TextChanged(object sender, EventArgs e)
-        {
-
-            if (executionenable)
-            {
-                lockExecution();
-                comboBoxunits.Items.Clear();
-                comboBoxunits.Text = "";
-                String Barcode = textBoxBarcode.Text.Trim();
-                String Unit;
-                SqlDataReader sdr = new Item().GetCatagoryDetailsByBarcode(Barcode);
-                if (sdr != null)
-                {
-                    sdr.Read();
-                    Unit = sdr.GetString(3);
-
-                    textBoxSelling.Text = sdr.GetDouble(5).ToString();
-                    textBoxbuy.Text = sdr.GetDouble(4).ToString();
-                    comboBoxCatID.SelectedValue = sdr.GetInt32(2).ToString();
-                    comboBoxCatID.Text = sdr.GetString(1).ToString();
-
-                    sdr.Close();
-                    if (Unit.Equals("L"))
-                    {
-                        comboBoxunits.Items.Add("L");
-                        comboBoxunits.Items.Add("ml");
-                    }
-                    else if (Unit.Equals("Kg"))
-                    {
-                        comboBoxunits.Items.Add("Kg");
-                        comboBoxunits.Items.Add("g");
-                        comboBoxunits.Items.Add("mg");
-                    }
-                    else
-                    {
-                        comboBoxunits.Items.Add("Units");
-                    }
-                }
-                else
-                {
-                    ClearTextForm();
-                }
-
-                ReleaseExecution();
-            }
-        }
+        
+       
 
         private void button_update_Click(object sender, EventArgs e)
         {
@@ -169,7 +126,7 @@ namespace POS
                 textBoxTotal.Text = sum.ToString();
 
                 textBoxQuantity.Clear();
-                textBoxBarcode.Clear();
+                textBoxBC.Clear();
                 textBoxSelling.Clear();
                 textBoxbuy.Clear();
                 comboBoxCatID.Text = "";
@@ -253,17 +210,19 @@ namespace POS
                     if (x > 0)
                     { 
                         y = stock.UpdateStockBalance(Convert.ToInt32(dataGridViewAll.Rows[i].Cells[0].Value), Quantity * -1);
-                        z = stock.InsertIvoice(Invoce_No,decimal.Parse(textBoxTotal.Text),0,0,DateTime.Now);
+                        
                     }
                 }
                 else { MessageBox.Show(" Stock Balance Error"); }
+                
             }
+            z = stock.InsertIvoice(Invoce_No, decimal.Parse(textBoxTotal.Text), 0, 0, DateTime.Now);
             if (x > 0 && y > 0 && z > 0)
             {
                 MessageBox.Show(" Successfully Added");
                 dataGridViewAll.ClearSelection();
                 textBoxQuantity.Clear();
-                textBoxBarcode.Clear();
+                textBoxBC.Clear();
                 dataGridViewAll.Text = "";
                 textBoxSelling.Clear();
                 comboBoxunits.Items.Clear();
@@ -285,6 +244,58 @@ namespace POS
                 textBoxTotal.Text = sum.ToString();
             }
             catch { }
+        }
+
+        private void textBoxtextBoxBarcode_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxBC_TextChanged_1(object sender, EventArgs e)
+        {
+            if (executionenable)
+            {
+                lockExecution();
+                comboBoxunits.Items.Clear();
+                comboBoxunits.Text = "";
+                String Barcode = textBoxBC.Text.Trim();
+                String Unit;
+                SqlDataReader sdr = new Item().GetCatagoryDetailsByBarcode(Barcode);
+                if (sdr != null)
+                {
+                    sdr.Read();
+                    Unit = sdr.GetString(3);
+
+                    textBoxSelling.Text = sdr.GetDouble(5).ToString();
+                    textBoxbuy.Text = sdr.GetDouble(4).ToString();
+                    comboBoxCatID.SelectedValue = sdr.GetInt32(2).ToString();
+                    comboBoxCatID.Text = sdr.GetString(1).ToString();
+
+                    sdr.Close();
+                    if (Unit.Equals("L"))
+                    {
+                        comboBoxunits.Items.Add("L");
+                        comboBoxunits.Items.Add("ml");
+                    }
+                    else if (Unit.Equals("Kg"))
+                    {
+                        comboBoxunits.Items.Add("Kg");
+                        comboBoxunits.Items.Add("g");
+                        comboBoxunits.Items.Add("mg");
+                    }
+                    else
+                    {
+                        comboBoxunits.Items.Add("Units");
+                    }
+                }
+                else
+                {
+                    ClearTextForm();
+                }
+
+                ReleaseExecution();
+            }
+
         }
     }
 }

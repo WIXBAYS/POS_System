@@ -46,8 +46,14 @@
             this.button_update = new System.Windows.Forms.Button();
             this.button_cancel = new System.Windows.Forms.Button();
             this.dataGridViewAll = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Catagory_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BuyingCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Grid_Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDelete = new System.Windows.Forms.DataGridViewImageColumn();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBoxBarcode = new System.Windows.Forms.TextBox();
             this.labelSellingCost = new System.Windows.Forms.Label();
             this.textBoxSelling = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -62,13 +68,7 @@
             this.comboBoxunits = new System.Windows.Forms.ComboBox();
             this.buttoncash = new System.Windows.Forms.Button();
             this.textBoxVendorName = new System.Windows.Forms.TextBox();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Catagory_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BuyingCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Grid_Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDelete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.textBoxBC = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.itemCatagoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetItemCataagoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetItemCataagory)).BeginInit();
@@ -172,7 +172,7 @@
             this.textBoxQuantity.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxQuantity.Name = "textBoxQuantity";
             this.textBoxQuantity.Size = new System.Drawing.Size(123, 17);
-            this.textBoxQuantity.TabIndex = 98;
+            this.textBoxQuantity.TabIndex = 1;
             // 
             // buttoncard
             // 
@@ -196,7 +196,7 @@
             this.button_update.Margin = new System.Windows.Forms.Padding(4);
             this.button_update.Name = "button_update";
             this.button_update.Size = new System.Drawing.Size(88, 52);
-            this.button_update.TabIndex = 100;
+            this.button_update.TabIndex = 3;
             this.button_update.Text = "Bill";
             this.button_update.UseVisualStyleBackColor = false;
             this.button_update.Click += new System.EventHandler(this.button_update_Click);
@@ -248,6 +248,50 @@
             this.dataGridViewAll.TabStop = false;
             this.dataGridViewAll.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAll_CellContentClick);
             // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
+            // 
+            // Catagory_Name
+            // 
+            this.Catagory_Name.HeaderText = "Category Name";
+            this.Catagory_Name.Name = "Catagory_Name";
+            this.Catagory_Name.ReadOnly = true;
+            // 
+            // Quantity
+            // 
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
+            this.Quantity.ReadOnly = true;
+            // 
+            // Unit
+            // 
+            this.Unit.HeaderText = "Unit";
+            this.Unit.Name = "Unit";
+            this.Unit.ReadOnly = true;
+            // 
+            // BuyingCost
+            // 
+            this.BuyingCost.HeaderText = "Sub Total";
+            this.BuyingCost.Name = "BuyingCost";
+            this.BuyingCost.ReadOnly = true;
+            // 
+            // Grid_Discount
+            // 
+            this.Grid_Discount.HeaderText = "Discount";
+            this.Grid_Discount.Name = "Grid_Discount";
+            this.Grid_Discount.ReadOnly = true;
+            // 
+            // ColumnDelete
+            // 
+            this.ColumnDelete.HeaderText = "Remove";
+            this.ColumnDelete.Image = ((System.Drawing.Image)(resources.GetObject("ColumnDelete.Image")));
+            this.ColumnDelete.Name = "ColumnDelete";
+            this.ColumnDelete.ReadOnly = true;
+            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -258,17 +302,6 @@
             this.label10.Size = new System.Drawing.Size(81, 16);
             this.label10.TabIndex = 106;
             this.label10.Text = "Barcode No";
-            // 
-            // textBoxBarcode
-            // 
-            this.textBoxBarcode.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxBarcode.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.textBoxBarcode.Location = new System.Drawing.Point(184, 123);
-            this.textBoxBarcode.Margin = new System.Windows.Forms.Padding(4);
-            this.textBoxBarcode.Name = "textBoxBarcode";
-            this.textBoxBarcode.Size = new System.Drawing.Size(284, 17);
-            this.textBoxBarcode.TabIndex = 97;
-            this.textBoxBarcode.TextChanged += new System.EventHandler(this.textBoxBarcode_TextChanged);
             // 
             // labelSellingCost
             // 
@@ -390,7 +423,7 @@
             this.comboBoxunits.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxunits.Name = "comboBoxunits";
             this.comboBoxunits.Size = new System.Drawing.Size(99, 21);
-            this.comboBoxunits.TabIndex = 124;
+            this.comboBoxunits.TabIndex = 2;
             // 
             // buttoncash
             // 
@@ -416,49 +449,13 @@
             this.textBoxVendorName.TabIndex = 126;
             this.textBoxVendorName.Visible = false;
             // 
-            // ID
+            // textBoxBC
             // 
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Visible = false;
-            // 
-            // Catagory_Name
-            // 
-            this.Catagory_Name.HeaderText = "Category Name";
-            this.Catagory_Name.Name = "Catagory_Name";
-            this.Catagory_Name.ReadOnly = true;
-            // 
-            // Quantity
-            // 
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.Name = "Quantity";
-            this.Quantity.ReadOnly = true;
-            // 
-            // Unit
-            // 
-            this.Unit.HeaderText = "Unit";
-            this.Unit.Name = "Unit";
-            this.Unit.ReadOnly = true;
-            // 
-            // BuyingCost
-            // 
-            this.BuyingCost.HeaderText = "Sub Total";
-            this.BuyingCost.Name = "BuyingCost";
-            this.BuyingCost.ReadOnly = true;
-            // 
-            // Grid_Discount
-            // 
-            this.Grid_Discount.HeaderText = "Discount";
-            this.Grid_Discount.Name = "Grid_Discount";
-            this.Grid_Discount.ReadOnly = true;
-            // 
-            // ColumnDelete
-            // 
-            this.ColumnDelete.HeaderText = "Remove";
-            this.ColumnDelete.Image = ((System.Drawing.Image)(resources.GetObject("ColumnDelete.Image")));
-            this.ColumnDelete.Name = "ColumnDelete";
-            this.ColumnDelete.ReadOnly = true;
+            this.textBoxBC.Location = new System.Drawing.Point(184, 123);
+            this.textBoxBC.Name = "textBoxBC";
+            this.textBoxBC.Size = new System.Drawing.Size(284, 20);
+            this.textBoxBC.TabIndex = 127;
+            this.textBoxBC.TextChanged += new System.EventHandler(this.textBoxBC_TextChanged_1);
             // 
             // Invoice
             // 
@@ -467,6 +464,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1239, 517);
             this.ControlBox = false;
+            this.Controls.Add(this.textBoxBC);
             this.Controls.Add(this.textBoxVendorName);
             this.Controls.Add(this.buttoncash);
             this.Controls.Add(this.comboBoxunits);
@@ -486,7 +484,6 @@
             this.Controls.Add(this.button_cancel);
             this.Controls.Add(this.dataGridViewAll);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBoxBarcode);
             this.Controls.Add(this.labelSellingCost);
             this.Controls.Add(this.textBoxSelling);
             this.Controls.Add(this.label1);
@@ -518,7 +515,6 @@
         private System.Windows.Forms.Button button_cancel;
         private System.Windows.Forms.DataGridView dataGridViewAll;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBoxBarcode;
         private System.Windows.Forms.Label labelSellingCost;
         private System.Windows.Forms.TextBox textBoxSelling;
         private System.Windows.Forms.Label label1;
@@ -545,5 +541,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn BuyingCost;
         private System.Windows.Forms.DataGridViewTextBoxColumn Grid_Discount;
         private System.Windows.Forms.DataGridViewImageColumn ColumnDelete;
+        private System.Windows.Forms.TextBox textBoxBC;
     }
 }
