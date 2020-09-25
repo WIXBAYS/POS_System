@@ -54,7 +54,6 @@
             this.Grid_Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnDelete = new System.Windows.Forms.DataGridViewImageColumn();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBoxBarcode = new System.Windows.Forms.TextBox();
             this.labelSellingCost = new System.Windows.Forms.Label();
             this.textBoxSelling = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -69,7 +68,7 @@
             this.comboBoxunits = new System.Windows.Forms.ComboBox();
             this.buttoncash = new System.Windows.Forms.Button();
             this.textBoxVendorName = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxBC = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.itemCatagoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetItemCataagoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetItemCataagory)).BeginInit();
@@ -87,7 +86,7 @@
             this.comboBoxCatID.Location = new System.Drawing.Point(184, 83);
             this.comboBoxCatID.Name = "comboBoxCatID";
             this.comboBoxCatID.Size = new System.Drawing.Size(284, 21);
-            this.comboBoxCatID.TabIndex = 0;
+            this.comboBoxCatID.TabIndex = 117;
             this.comboBoxCatID.TabStop = false;
             this.comboBoxCatID.ValueMember = "ITEMCAT_ID";
             this.comboBoxCatID.SelectedIndexChanged += new System.EventHandler(this.comboBoxCatID_SelectedIndexChanged);
@@ -125,7 +124,7 @@
             this.label8.Location = new System.Drawing.Point(564, 9);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(126, 39);
-            this.label8.TabIndex = 0;
+            this.label8.TabIndex = 115;
             this.label8.Text = "Invoice";
             // 
             // textBoxTotal
@@ -139,7 +138,7 @@
             this.textBoxTotal.Name = "textBoxTotal";
             this.textBoxTotal.ReadOnly = true;
             this.textBoxTotal.Size = new System.Drawing.Size(159, 15);
-            this.textBoxTotal.TabIndex = 0;
+            this.textBoxTotal.TabIndex = 112;
             this.textBoxTotal.TabStop = false;
             // 
             // labelTotal
@@ -151,7 +150,7 @@
             this.labelTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTotal.Name = "labelTotal";
             this.labelTotal.Size = new System.Drawing.Size(44, 16);
-            this.labelTotal.TabIndex = 0;
+            this.labelTotal.TabIndex = 111;
             this.labelTotal.Text = "Total";
             // 
             // labelQuantity
@@ -173,7 +172,7 @@
             this.textBoxQuantity.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxQuantity.Name = "textBoxQuantity";
             this.textBoxQuantity.Size = new System.Drawing.Size(123, 17);
-            this.textBoxQuantity.TabIndex = 2;
+            this.textBoxQuantity.TabIndex = 1;
             // 
             // buttoncard
             // 
@@ -183,7 +182,7 @@
             this.buttoncard.Margin = new System.Windows.Forms.Padding(4);
             this.buttoncard.Name = "buttoncard";
             this.buttoncard.Size = new System.Drawing.Size(88, 52);
-            this.buttoncard.TabIndex = 0;
+            this.buttoncard.TabIndex = 109;
             this.buttoncard.TabStop = false;
             this.buttoncard.Text = "Card";
             this.buttoncard.UseVisualStyleBackColor = false;
@@ -197,7 +196,7 @@
             this.button_update.Margin = new System.Windows.Forms.Padding(4);
             this.button_update.Name = "button_update";
             this.button_update.Size = new System.Drawing.Size(88, 52);
-            this.button_update.TabIndex = 4;
+            this.button_update.TabIndex = 3;
             this.button_update.Text = "Bill";
             this.button_update.UseVisualStyleBackColor = false;
             this.button_update.Click += new System.EventHandler(this.button_update_Click);
@@ -210,7 +209,7 @@
             this.button_cancel.Margin = new System.Windows.Forms.Padding(4);
             this.button_cancel.Name = "button_cancel";
             this.button_cancel.Size = new System.Drawing.Size(88, 52);
-            this.button_cancel.TabIndex = 0;
+            this.button_cancel.TabIndex = 108;
             this.button_cancel.TabStop = false;
             this.button_cancel.Text = "Exit";
             this.button_cancel.UseVisualStyleBackColor = false;
@@ -245,7 +244,7 @@
             this.dataGridViewAll.Name = "dataGridViewAll";
             this.dataGridViewAll.ReadOnly = true;
             this.dataGridViewAll.Size = new System.Drawing.Size(726, 418);
-            this.dataGridViewAll.TabIndex = 0;
+            this.dataGridViewAll.TabIndex = 107;
             this.dataGridViewAll.TabStop = false;
             this.dataGridViewAll.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAll_CellContentClick);
             // 
@@ -301,19 +300,8 @@
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(81, 16);
-            this.label10.TabIndex = 0;
+            this.label10.TabIndex = 106;
             this.label10.Text = "Barcode No";
-            // 
-            // textBoxBarcode
-            // 
-            this.textBoxBarcode.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxBarcode.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.textBoxBarcode.Location = new System.Drawing.Point(184, 123);
-            this.textBoxBarcode.Margin = new System.Windows.Forms.Padding(4);
-            this.textBoxBarcode.Name = "textBoxBarcode";
-            this.textBoxBarcode.Size = new System.Drawing.Size(284, 17);
-            this.textBoxBarcode.TabIndex = 1;
-            this.textBoxBarcode.TextChanged += new System.EventHandler(this.textBoxBarcode_TextChanged);
             // 
             // labelSellingCost
             // 
@@ -335,7 +323,7 @@
             this.textBoxSelling.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxSelling.Name = "textBoxSelling";
             this.textBoxSelling.Size = new System.Drawing.Size(123, 17);
-            this.textBoxSelling.TabIndex = 0;
+            this.textBoxSelling.TabIndex = 103;
             this.textBoxSelling.TabStop = false;
             // 
             // label1
@@ -346,7 +334,7 @@
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(103, 16);
-            this.label1.TabIndex = 0;
+            this.label1.TabIndex = 101;
             this.label1.Text = "Catagory Name";
             // 
             // dataGridViewImageColumn1
@@ -368,7 +356,7 @@
             this.textBoxDiscount.Name = "textBoxDiscount";
             this.textBoxDiscount.ReadOnly = true;
             this.textBoxDiscount.Size = new System.Drawing.Size(159, 15);
-            this.textBoxDiscount.TabIndex = 0;
+            this.textBoxDiscount.TabIndex = 120;
             this.textBoxDiscount.TabStop = false;
             // 
             // label2
@@ -380,7 +368,7 @@
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(68, 16);
-            this.label2.TabIndex = 0;
+            this.label2.TabIndex = 119;
             this.label2.Text = "Discount";
             // 
             // textBoxTax
@@ -394,7 +382,7 @@
             this.textBoxTax.Name = "textBoxTax";
             this.textBoxTax.ReadOnly = true;
             this.textBoxTax.Size = new System.Drawing.Size(159, 15);
-            this.textBoxTax.TabIndex = 0;
+            this.textBoxTax.TabIndex = 122;
             this.textBoxTax.TabStop = false;
             // 
             // label3
@@ -406,7 +394,7 @@
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(34, 16);
-            this.label3.TabIndex = 0;
+            this.label3.TabIndex = 121;
             this.label3.Text = "Tax";
             // 
             // vender_DetailsTableAdapter
@@ -424,7 +412,7 @@
             this.textBoxbuy.Location = new System.Drawing.Point(40, 238);
             this.textBoxbuy.Name = "textBoxbuy";
             this.textBoxbuy.Size = new System.Drawing.Size(123, 13);
-            this.textBoxbuy.TabIndex = 0;
+            this.textBoxbuy.TabIndex = 123;
             // 
             // comboBoxunits
             // 
@@ -435,7 +423,7 @@
             this.comboBoxunits.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxunits.Name = "comboBoxunits";
             this.comboBoxunits.Size = new System.Drawing.Size(99, 21);
-            this.comboBoxunits.TabIndex = 3;
+            this.comboBoxunits.TabIndex = 2;
             // 
             // buttoncash
             // 
@@ -445,7 +433,7 @@
             this.buttoncash.Margin = new System.Windows.Forms.Padding(4);
             this.buttoncash.Name = "buttoncash";
             this.buttoncash.Size = new System.Drawing.Size(88, 52);
-            this.buttoncash.TabIndex = 0;
+            this.buttoncash.TabIndex = 125;
             this.buttoncash.TabStop = false;
             this.buttoncash.Text = "Cash";
             this.buttoncash.UseVisualStyleBackColor = false;
@@ -458,17 +446,16 @@
             this.textBoxVendorName.Location = new System.Drawing.Point(184, 238);
             this.textBoxVendorName.Name = "textBoxVendorName";
             this.textBoxVendorName.Size = new System.Drawing.Size(123, 13);
-            this.textBoxVendorName.TabIndex = 0;
+            this.textBoxVendorName.TabIndex = 126;
             this.textBoxVendorName.Visible = false;
             // 
-            // textBox1
+            // textBoxBC
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(41, 271);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(123, 13);
-            this.textBox1.TabIndex = 0;
+            this.textBoxBC.Location = new System.Drawing.Point(184, 123);
+            this.textBoxBC.Name = "textBoxBC";
+            this.textBoxBC.Size = new System.Drawing.Size(284, 20);
+            this.textBoxBC.TabIndex = 127;
+            this.textBoxBC.TextChanged += new System.EventHandler(this.textBoxBC_TextChanged_1);
             // 
             // Invoice
             // 
@@ -477,7 +464,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1239, 517);
             this.ControlBox = false;
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxBC);
             this.Controls.Add(this.textBoxVendorName);
             this.Controls.Add(this.buttoncash);
             this.Controls.Add(this.comboBoxunits);
@@ -497,7 +484,6 @@
             this.Controls.Add(this.button_cancel);
             this.Controls.Add(this.dataGridViewAll);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBoxBarcode);
             this.Controls.Add(this.labelSellingCost);
             this.Controls.Add(this.textBoxSelling);
             this.Controls.Add(this.label1);
@@ -529,7 +515,6 @@
         private System.Windows.Forms.Button button_cancel;
         private System.Windows.Forms.DataGridView dataGridViewAll;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBoxBarcode;
         private System.Windows.Forms.Label labelSellingCost;
         private System.Windows.Forms.TextBox textBoxSelling;
         private System.Windows.Forms.Label label1;
@@ -556,6 +541,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn BuyingCost;
         private System.Windows.Forms.DataGridViewTextBoxColumn Grid_Discount;
         private System.Windows.Forms.DataGridViewImageColumn ColumnDelete;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxBC;
     }
 }
