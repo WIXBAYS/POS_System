@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PrinterUtility;
 
 namespace POS
 {
@@ -227,7 +228,6 @@ namespace POS
                 textBoxSelling.Clear();
                 comboBoxunits.Items.Clear();
                 comboBoxCatID.Text = "";
-                textBox1.Clear();
             }
         }
 
@@ -250,6 +250,14 @@ namespace POS
         private void textBoxtextBoxBarcode_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void Printing()
+        {
+            //PrinterUtility.EscPosEpsonCommands.EscPosEpson obj = new PrinterUtility.EscPosEpsonCommands.EscPosEpson();
+            //var Byteversion = 
+            //Byteversion = 
+            //PrinterUtility.PrintExtensions.Print(Byteversion, POS.Properties.Settings.Default.);
         }
 
         private void textBoxBC_TextChanged_1(object sender, EventArgs e)
