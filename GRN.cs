@@ -55,7 +55,12 @@ namespace POS
                 else if (Units.Equals("mg")) Quantity = Quantity / 1000000;
                 
                 x = stock.InsertTransaction(Invoce_No, Convert.ToInt32(dataGridViewAll.Rows[i].Cells[0].Value), Quantity, "STOCK_ADD", Quantity, 0, Current_Stock_Balance, (Quantity + Current_Stock_Balance), Properties.Settings.Default.username, DateTime.Parse("1900-01-01"), comboBoxVender.SelectedValue.ToString().Trim());
-                if (x > 0) y = stock.UpdateStockBalance(Convert.ToInt32(dataGridViewAll.Rows[i].Cells[0].Value), Quantity);
+                if (x > 0)
+                {
+                    y = stock.UpdateStockBalance(Convert.ToInt32(dataGridViewAll.Rows[i].Cells[0].Value), Quantity);
+                    int z = stock.Delete_GRN_Temp();
+
+                }
                 
             }
             if (x > 0 && y > 0)
@@ -69,6 +74,7 @@ namespace POS
                 comboBoxunits.Text = "";
                 comboBoxCatID.Text = "";
                 comboBoxVender.Text = "";
+                buttonGNReport.Visible = false;
             }
         }
 
@@ -82,18 +88,25 @@ namespace POS
             Decimal Cost = 0.0m;
             if (TextVAlidation())
             { 
-            if (comboBoxunits.Text.Equals("L") || comboBoxunits.Text.Equals("Kg") || comboBoxunits.Text.Equals("Units")) Cost = decimal.Parse(textBoxQuantity.Text) * decimal.Parse(textBoxBuying.Text);
-            else if (comboBoxunits.Text.Equals("ml") || comboBoxunits.Text.Equals("g")) Cost = decimal.Parse(textBoxQuantity.Text) * decimal.Parse(textBoxBuying.Text)/1000;
-            else if(comboBoxunits.Text.Equals("mg")) Cost = decimal.Parse(textBoxQuantity.Text) * decimal.Parse(textBoxBuying.Text) / 1000000;
-            dataGridViewAll.Rows.Add(comboBoxCatID.SelectedValue.ToString().Trim(), comboBoxCatID.Text.Trim(), textBoxQuantity.Text.Trim(), comboBoxunits.Text, Cost);
+                if (comboBoxunits.Text.Equals("L") || comboBoxunits.Text.Equals("Kg") || comboBoxunits.Text.Equals("Units")) Cost = decimal.Parse(textBoxQuantity.Text) * decimal.Parse(textBoxBuying.Text);
+                else if (comboBoxunits.Text.Equals("ml") || comboBoxunits.Text.Equals("g")) Cost = decimal.Parse(textBoxQuantity.Text) * decimal.Parse(textBoxBuying.Text)/1000;
+                else if(comboBoxunits.Text.Equals("mg")) Cost = decimal.Parse(textBoxQuantity.Text) * decimal.Parse(textBoxBuying.Text) / 1000000;
+                dataGridViewAll.Rows.Add(comboBoxCatID.SelectedValue.ToString().Trim(), comboBoxCatID.Text.Trim(), textBoxQuantity.Text.Trim(), comboBoxunits.Text, Cost);
+                Stock stock = new Stock();
 
+                int x = stock.Insert_GNR_Temp(int.Parse(comboBoxCatID.SelectedValue.ToString().Trim()),Decimal.Parse(textBoxQuantity.Text.Trim()), comboBoxunits.Text, Cost, int.Parse(comboBoxVender.SelectedValue.ToString()));
 
-            decimal sum = 0;
-            for (int i = 0; i < dataGridViewAll.Rows.Count; ++i)
-            {
-                sum += Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[4].Value);
-            }
-            textBoxTotal.Text = sum.ToString();
+                if(x>0)
+                {
+                    buttonGNReport.Visible = true;
+                }
+
+                decimal sum = 0;
+                for (int i = 0; i < dataGridViewAll.Rows.Count; ++i)
+                {
+                    sum += Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[4].Value);
+                }
+                textBoxTotal.Text = sum.ToString();
             }
 
             textBoxQuantity.Text = "";
@@ -256,5 +269,11 @@ namespace POS
             }
 
         }
-    }
+
+        private void buttonGNReport_Click(object sender, EventArgs e)
+        {
+            GNR_Report GNRREP = new GNR_Report();
+            GNRREP.Show();
+        }
+    //}
 }
