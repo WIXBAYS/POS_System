@@ -157,5 +157,11 @@ namespace POS
             Invoice invoi = new Invoice();
             invoi.ShowDialog(this);
         }
+
+        private void stockReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Stock_Report str = new Stock_Report();
+            str.ShowDialog(this);
+        }
     }
 }

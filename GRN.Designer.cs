@@ -65,6 +65,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBoxCatID = new System.Windows.Forms.ComboBox();
+            this.buttonGNReport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.itemCatagoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetItemCataagoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetItemCataagory)).BeginInit();
@@ -408,6 +409,20 @@
             this.comboBoxCatID.ValueMember = "ITEMCAT_ID";
             this.comboBoxCatID.SelectedIndexChanged += new System.EventHandler(this.comboBoxCatID_SelectedIndexChanged);
             // 
+            // buttonGNReport
+            // 
+            this.buttonGNReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.buttonGNReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonGNReport.Location = new System.Drawing.Point(322, 303);
+            this.buttonGNReport.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonGNReport.Name = "buttonGNReport";
+            this.buttonGNReport.Size = new System.Drawing.Size(88, 52);
+            this.buttonGNReport.TabIndex = 97;
+            this.buttonGNReport.Text = "GNR Report";
+            this.buttonGNReport.UseVisualStyleBackColor = false;
+            this.buttonGNReport.Visible = false;
+            this.buttonGNReport.Click += new System.EventHandler(this.buttonGNReport_Click);
+            // 
             // GNR
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -415,6 +430,7 @@
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(865, 450);
             this.ControlBox = false;
+            this.Controls.Add(this.buttonGNReport);
             this.Controls.Add(this.comboBoxCatID);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label8);
@@ -488,5 +504,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn BuyingCost;
         private System.Windows.Forms.DataGridViewImageColumn ColumnDelete;
         private System.Windows.Forms.ComboBox comboBoxCatID;
+        private System.Windows.Forms.Button buttonGNReport;
     }
 }

@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="POSDataSetStockBlance" targetNamespace="http://tempuri.org/POSDataSetStockBlance.xsd" xmlns:mstns="http://tempuri.org/POSDataSetStockBlance.xsd" xmlns="http://tempuri.org/POSDataSetStockBlance.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="POSConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="POSConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.POS.Properties.Settings.GlobalReference.Default.POSConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Stock_BalanceTableAdapter" GeneratorDataComponentClassName="Stock_BalanceTableAdapter" Name="Stock_Balance" UserDataComponentName="Stock_BalanceTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="POSConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Items.ITEM_NAME, Item_Catagory.CATAGORY_NAME, Item_Catagory.BUYING_COST, Item_Catagory.SELLING_COST, Item_Catagory.UPDATED_DATE, Stock_Balance.BALANCE
+FROM            Stock_Balance INNER JOIN
+                         Item_Catagory ON Stock_Balance.ITEMCAT_ID = Item_Catagory.ITEMCAT_ID INNER JOIN
+                         Items ON Item_Catagory.ITEM_ID = Items.ITEM_ID
+						 where Item_Catagory.CAT_STATUS = 1</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="BALANCE" DataSetColumn="BALANCE" />
+              <Mapping SourceColumn="ITEM_NAME" DataSetColumn="ITEM_NAME" />
+              <Mapping SourceColumn="CATAGORY_NAME" DataSetColumn="CATAGORY_NAME" />
+              <Mapping SourceColumn="BUYING_COST" DataSetColumn="BUYING_COST" />
+              <Mapping SourceColumn="SELLING_COST" DataSetColumn="SELLING_COST" />
+              <Mapping SourceColumn="UPDATED_DATE" DataSetColumn="UPDATED_DATE" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="POSDataSetStockBlance" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="POSDataSetStockBlance" msprop:Generator_UserDSName="POSDataSetStockBlance">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Stock_Balance" msprop:Generator_TableClassName="Stock_BalanceDataTable" msprop:Generator_TableVarName="tableStock_Balance" msprop:Generator_RowChangedName="Stock_BalanceRowChanged" msprop:Generator_TablePropName="Stock_Balance" msprop:Generator_RowDeletingName="Stock_BalanceRowDeleting" msprop:Generator_RowChangingName="Stock_BalanceRowChanging" msprop:Generator_RowEvHandlerName="Stock_BalanceRowChangeEventHandler" msprop:Generator_RowDeletedName="Stock_BalanceRowDeleted" msprop:Generator_RowClassName="Stock_BalanceRow" msprop:Generator_UserTableName="Stock_Balance" msprop:Generator_RowEvArgName="Stock_BalanceRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="BALANCE" msprop:Generator_ColumnVarNameInTable="columnBALANCE" msprop:Generator_ColumnPropNameInRow="BALANCE" msprop:Generator_ColumnPropNameInTable="BALANCEColumn" msprop:Generator_UserColumnName="BALANCE" type="xs:decimal" />
+              <xs:element name="ITEM_NAME" msprop:Generator_ColumnVarNameInTable="columnITEM_NAME" msprop:Generator_ColumnPropNameInRow="ITEM_NAME" msprop:Generator_ColumnPropNameInTable="ITEM_NAMEColumn" msprop:Generator_UserColumnName="ITEM_NAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CATAGORY_NAME" msprop:Generator_ColumnVarNameInTable="columnCATAGORY_NAME" msprop:Generator_ColumnPropNameInRow="CATAGORY_NAME" msprop:Generator_ColumnPropNameInTable="CATAGORY_NAMEColumn" msprop:Generator_UserColumnName="CATAGORY_NAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BUYING_COST" msprop:Generator_ColumnVarNameInTable="columnBUYING_COST" msprop:Generator_ColumnPropNameInRow="BUYING_COST" msprop:Generator_ColumnPropNameInTable="BUYING_COSTColumn" msprop:Generator_UserColumnName="BUYING_COST" type="xs:double" />
+              <xs:element name="SELLING_COST" msprop:Generator_ColumnVarNameInTable="columnSELLING_COST" msprop:Generator_ColumnPropNameInRow="SELLING_COST" msprop:Generator_ColumnPropNameInTable="SELLING_COSTColumn" msprop:Generator_UserColumnName="SELLING_COST" type="xs:double" />
+              <xs:element name="UPDATED_DATE" msprop:Generator_ColumnVarNameInTable="columnUPDATED_DATE" msprop:Generator_ColumnPropNameInRow="UPDATED_DATE" msprop:Generator_ColumnPropNameInTable="UPDATED_DATEColumn" msprop:Generator_UserColumnName="UPDATED_DATE" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
