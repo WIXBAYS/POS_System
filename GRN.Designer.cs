@@ -200,7 +200,7 @@
             this.textBoxTotal.Size = new System.Drawing.Size(159, 22);
             this.textBoxTotal.TabIndex = 90;
             this.textBoxTotal.TabStop = false;
-            this.textBoxTotal.TextChanged += new System.EventHandler(this.textBoxTotal_TextChanged);
+
             // 
             // label1
             // 
@@ -413,7 +413,7 @@
             // 
             this.buttonGNReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.buttonGNReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonGNReport.Location = new System.Drawing.Point(322, 303);
+            this.buttonGNReport.Location = new System.Drawing.Point(662, 385);
             this.buttonGNReport.Margin = new System.Windows.Forms.Padding(4);
             this.buttonGNReport.Name = "buttonGNReport";
             this.buttonGNReport.Size = new System.Drawing.Size(88, 52);

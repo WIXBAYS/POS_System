@@ -38,12 +38,13 @@
             this.invoiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stockReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dailySalesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.dailySalesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gRNReprtsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -116,7 +117,8 @@
             // 
             this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.stockReportToolStripMenuItem,
-            this.dailySalesToolStripMenuItem});
+            this.dailySalesToolStripMenuItem,
+            this.gRNReprtsToolStripMenuItem});
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
             this.reportsToolStripMenuItem.Size = new System.Drawing.Size(68, 23);
             this.reportsToolStripMenuItem.Text = "Reports";
@@ -127,6 +129,13 @@
             this.stockReportToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.stockReportToolStripMenuItem.Text = "Stock Report";
             this.stockReportToolStripMenuItem.Click += new System.EventHandler(this.stockReportToolStripMenuItem_Click);
+            // 
+            // dailySalesToolStripMenuItem
+            // 
+            this.dailySalesToolStripMenuItem.Name = "dailySalesToolStripMenuItem";
+            this.dailySalesToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.dailySalesToolStripMenuItem.Text = "Daily Sales";
+            this.dailySalesToolStripMenuItem.Click += new System.EventHandler(this.dailySalesToolStripMenuItem_Click);
             // 
             // helpMenu
             // 
@@ -141,7 +150,7 @@
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator8.Size = new System.Drawing.Size(57, 6);
             // 
             // statusStrip
             // 
@@ -159,12 +168,12 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
-            // dailySalesToolStripMenuItem
+            // gRNReprtsToolStripMenuItem
             // 
-            this.dailySalesToolStripMenuItem.Name = "dailySalesToolStripMenuItem";
-            this.dailySalesToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
-            this.dailySalesToolStripMenuItem.Text = "Daily Sales";
-            this.dailySalesToolStripMenuItem.Click += new System.EventHandler(this.dailySalesToolStripMenuItem_Click);
+            this.gRNReprtsToolStripMenuItem.Name = "gRNReprtsToolStripMenuItem";
+            this.gRNReprtsToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.gRNReprtsToolStripMenuItem.Text = "GRN Reprts";
+            this.gRNReprtsToolStripMenuItem.Click += new System.EventHandler(this.gRNReprtsToolStripMenuItem_Click);
             // 
             // Home
             // 
@@ -206,6 +215,7 @@
         private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem stockReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dailySalesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gRNReprtsToolStripMenuItem;
     }
 }
 

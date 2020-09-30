@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="POSDataSetGRN_ID_List" targetNamespace="http://tempuri.org/POSDataSetGRN_ID_List.xsd" xmlns:mstns="http://tempuri.org/POSDataSetGRN_ID_List.xsd" xmlns="http://tempuri.org/POSDataSetGRN_ID_List.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="POSConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="POSConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.POS.Properties.Settings.GlobalReference.Default.POSConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TransactionTableAdapter" GeneratorDataComponentClassName="TransactionTableAdapter" Name="Transaction" UserDataComponentName="TransactionTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="POSConnectionString (Settings)" DbObjectName="POS.dbo.[Transaction]" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT DISTINCT INVOICE_NO ,CONCAT([INVOICE_NO] ,' - ',[ENTERED_DATE]) AS Combine FROM dbo.[Transaction]</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="INVOICE_NO" DataSetColumn="INVOICE_NO" />
+              <Mapping SourceColumn="Combine" DataSetColumn="Combine" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="POSDataSetGRN_ID_List" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="POSDataSetGRN_ID_List" msprop:Generator_UserDSName="POSDataSetGRN_ID_List">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Transaction" msprop:Generator_TableClassName="TransactionDataTable" msprop:Generator_TableVarName="tableTransaction" msprop:Generator_TablePropName="Transaction" msprop:Generator_RowDeletingName="TransactionRowDeleting" msprop:Generator_RowChangingName="TransactionRowChanging" msprop:Generator_RowEvHandlerName="TransactionRowChangeEventHandler" msprop:Generator_RowDeletedName="TransactionRowDeleted" msprop:Generator_UserTableName="Transaction" msprop:Generator_RowChangedName="TransactionRowChanged" msprop:Generator_RowEvArgName="TransactionRowChangeEvent" msprop:Generator_RowClassName="TransactionRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="INVOICE_NO" msprop:Generator_ColumnVarNameInTable="columnINVOICE_NO" msprop:Generator_ColumnPropNameInRow="INVOICE_NO" msprop:Generator_ColumnPropNameInTable="INVOICE_NOColumn" msprop:Generator_UserColumnName="INVOICE_NO" type="xs:int" />
+              <xs:element name="Combine" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCombine" msprop:Generator_ColumnPropNameInRow="Combine" msprop:Generator_ColumnPropNameInTable="CombineColumn" msprop:Generator_UserColumnName="Combine" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="55" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

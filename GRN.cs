@@ -19,6 +19,8 @@ namespace POS
             textBoxBarcode.Select();
         }
 
+        int GNR_No_For_Reort = 0;
+
         private void buttonsave_Click(object sender, EventArgs e)
         {
             Stock stock = new Stock();
@@ -46,8 +48,6 @@ namespace POS
                     sdr1.Close();
                 }
                 catch { }
-                //stock.InsertTransaction(Invoce_No,
-
 
                 decimal Quantity = Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[2].Value);
                 string Units = dataGridViewAll.Rows[i].Cells[3].Value.ToString().Trim();
@@ -58,8 +58,7 @@ namespace POS
                 if (x > 0)
                 {
                     y = stock.UpdateStockBalance(Convert.ToInt32(dataGridViewAll.Rows[i].Cells[0].Value), Quantity);
-                    int z = stock.Delete_GRN_Temp();
-
+                    GNR_No_For_Reort = GRN_No;
                 }
                 
             }
@@ -74,7 +73,7 @@ namespace POS
                 comboBoxunits.Text = "";
                 comboBoxCatID.Text = "";
                 comboBoxVender.Text = "";
-                buttonGNReport.Visible = false;
+                buttonGNReport.Visible = true;
             }
         }
 
@@ -93,13 +92,6 @@ namespace POS
                 else if(comboBoxunits.Text.Equals("mg")) Cost = decimal.Parse(textBoxQuantity.Text) * decimal.Parse(textBoxBuying.Text) / 1000000;
                 dataGridViewAll.Rows.Add(comboBoxCatID.SelectedValue.ToString().Trim(), comboBoxCatID.Text.Trim(), textBoxQuantity.Text.Trim(), comboBoxunits.Text, Cost);
                 Stock stock = new Stock();
-
-                int x = stock.Insert_GNR_Temp(int.Parse(comboBoxCatID.SelectedValue.ToString().Trim()),Decimal.Parse(textBoxQuantity.Text.Trim()), comboBoxunits.Text, Cost, int.Parse(comboBoxVender.SelectedValue.ToString()));
-
-                if(x>0)
-                {
-                    buttonGNReport.Visible = true;
-                }
 
                 decimal sum = 0;
                 for (int i = 0; i < dataGridViewAll.Rows.Count; ++i)
@@ -123,11 +115,6 @@ namespace POS
             this.vender_DetailsTableAdapter.Fill(this.pOSDataSet1.Vender_Details);
             // TODO: This line of code loads data into the 'pOSDataSetItemCataagory.Item_Catagory' table. You can move, or remove it, as needed.
             this.item_CatagoryTableAdapter.Fill(this.pOSDataSetItemCataagory.Item_Catagory);
-
-        }
-
-        private void textBoxTotal_TextChanged(object sender, EventArgs e)
-        {
 
         }
 
@@ -192,7 +179,7 @@ namespace POS
             {
                 sdr.Read();
                 Unit = sdr.GetString(3);
-                //textBoxCatName.Text = sdr.GetString(1);
+
                 textBoxBuying.Text = sdr.GetDouble(4).ToString();
                 textBoxSelling.Text = sdr.GetDouble(5).ToString();
                 comboBoxCatID.SelectedValue= sdr.GetInt32(2).ToString();
@@ -213,6 +200,8 @@ namespace POS
                 {
                     comboBoxunits.Items.Add("Units");
                 }
+
+                buttonGNReport.Visible = false;
             }
             else
             {
@@ -256,24 +245,27 @@ namespace POS
                 {
                     comboBoxunits.Items.Add("Units");
                 }
+
+                buttonGNReport.Visible = false;
             }
             else
             {
                 textBoxQuantity.Clear();
-                //textBoxCatName.Clear();
                 textBoxBuying.Clear();
                 textBoxSelling.Clear();
                 comboBoxunits.Text = "";
                 comboBoxCatID.Text = "";
-                //textBoxCatID.Clear();
             }
 
         }
 
         private void buttonGNReport_Click(object sender, EventArgs e)
         {
-            GNR_Report GNRREP = new GNR_Report();
-            GNRREP.Show();
+            if (GNR_No_For_Reort > 0)
+            {
+                GRN_Report GNRREP = new GRN_Report(GNR_No_For_Reort);
+                GNRREP.Show();
+            }
         }
     }
 }

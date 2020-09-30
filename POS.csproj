@@ -76,11 +76,11 @@
     <Compile Include="Daily_Sales.Designer.cs">
       <DependentUpon>Daily_Sales.cs</DependentUpon>
     </Compile>
-    <Compile Include="GNR_Report.cs">
+    <Compile Include="GRN_Report.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GNR_Report.Designer.cs">
-      <DependentUpon>GNR_Report.cs</DependentUpon>
+    <Compile Include="GRN_Report.Designer.cs">
+      <DependentUpon>GRN_Report.cs</DependentUpon>
     </Compile>
     <Compile Include="GRN.cs">
       <SubType>Form</SubType>
@@ -120,6 +120,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>POSDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="POSDataSetGRN_ID_List.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>POSDataSetGRN_ID_List.xsd</DependentUpon>
     </Compile>
     <Compile Include="POSDataSetItemCataagory.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -213,8 +218,8 @@
     <EmbeddedResource Include="Daily_Sales.resx">
       <DependentUpon>Daily_Sales.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GNR_Report.resx">
-      <DependentUpon>GNR_Report.cs</DependentUpon>
+    <EmbeddedResource Include="GRN_Report.resx">
+      <DependentUpon>GRN_Report.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GNR_Report_GNR_Form.rdlc" />
     <EmbeddedResource Include="GRN.resx">
@@ -289,6 +294,17 @@
     </None>
     <None Include="POSDataSet2.xss">
       <DependentUpon>POSDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="POSDataSetGRN_ID_List.xsc">
+      <DependentUpon>POSDataSetGRN_ID_List.xsd</DependentUpon>
+    </None>
+    <None Include="POSDataSetGRN_ID_List.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>POSDataSetGRN_ID_List.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="POSDataSetGRN_ID_List.xss">
+      <DependentUpon>POSDataSetGRN_ID_List.xsd</DependentUpon>
     </None>
     <None Include="POSDataSetItemCataagory.xsc">
       <DependentUpon>POSDataSetItemCataagory.xsd</DependentUpon>

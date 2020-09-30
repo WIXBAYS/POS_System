@@ -113,35 +113,5 @@ namespace POS
             DataInsertManager dim = new DataInsertManager();
             return dim.insertRecord(selectCommand, ref sqlParams);
         }
-
-        public int Insert_GNR_Temp(int ITEMCAT_ID, decimal CAT_QUANTITY, String Unit, decimal BUYING_COST, int VENDER)
-        {
-            String selectCommand = "INSERT INTO [dbo].[GNR_Temp]([ITEMCAT_ID],[QUANTITY],[UNIT],[BUYINGCOST],[VENDER_ID])VALUES (@ITEMCAT_ID,@CAT_QUANTITY,@Unit,@BUYING_COST,@VENDER)";
-
-            SqlParameter[] sqlParams = new SqlParameter[] {
-                                            new SqlParameter("@ITEMCAT_ID", SqlDbType.Int),
-                                            new SqlParameter("@CAT_QUANTITY", SqlDbType.Decimal),
-                                            new SqlParameter("@Unit", SqlDbType.Char),
-                                            new SqlParameter("@BUYING_COST", SqlDbType.Decimal),
-                                            new SqlParameter("@VENDER", SqlDbType.Int),                       
-                                       };
-
-            sqlParams[0].Value = ITEMCAT_ID;
-            sqlParams[1].Value = CAT_QUANTITY;
-            sqlParams[2].Value = Unit;
-            sqlParams[3].Value = BUYING_COST;
-            sqlParams[4].Value = VENDER;
-
-            DataInsertManager dim = new DataInsertManager();
-            return dim.insertRecord(selectCommand, ref sqlParams);
-        }
-
-        public int Delete_GRN_Temp()
-        {
-            String selectCommand = "DELETE FROM [dbo].[GNR_Temp]";
-
-            DataUpdateManager dum = new DataUpdateManager();
-            return dum.updateRecord(selectCommand);
-        }
     }
 }

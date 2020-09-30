@@ -82,7 +82,14 @@ namespace POS
                 {
                     while (sdr.Read())
                     {
-                        cat_id = sdr.GetInt32(0);
+                        try
+                        {
+                            cat_id = sdr.GetInt32(0);
+                        }
+                        catch
+                        {
+                            cat_id = 1;
+                        }
                     }
                 }
 

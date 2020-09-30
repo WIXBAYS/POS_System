@@ -169,5 +169,11 @@ namespace POS
             Daily_Sales str = new Daily_Sales();
             str.ShowDialog(this);
         }
+
+        private void gRNReprtsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GRN_Report GRN_Report = new GRN_Report(0);
+            GRN_Report.ShowDialog(this);
+        }
     }
 }
