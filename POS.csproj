@@ -58,6 +58,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -69,6 +70,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Daily_Sales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Daily_Sales.Designer.cs">
+      <DependentUpon>Daily_Sales.cs</DependentUpon>
+    </Compile>
     <Compile Include="GNR_Report.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,6 +210,9 @@
     <Compile Include="Vendor_Management.Designer.cs">
       <DependentUpon>Vendor_Management.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Daily_Sales.resx">
+      <DependentUpon>Daily_Sales.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GNR_Report.resx">
       <DependentUpon>GNR_Report.cs</DependentUpon>
     </EmbeddedResource>

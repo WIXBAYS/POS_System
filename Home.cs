@@ -163,5 +163,11 @@ namespace POS
             Stock_Report str = new Stock_Report();
             str.ShowDialog(this);
         }
+
+        private void dailySalesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Daily_Sales str = new Daily_Sales();
+            str.ShowDialog(this);
+        }
     }
 }

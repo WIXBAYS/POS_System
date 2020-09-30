@@ -22,20 +22,20 @@ namespace POS
         private void buttonsave_Click(object sender, EventArgs e)
         {
             Stock stock = new Stock();
-            int Current_Invoice_No = 0;
+            int Current_GRN_No = 0;
             decimal Current_Stock_Balance = 0.0m;
-            SqlDataReader sdr= stock.GetMaxInvoiceNo();
+            SqlDataReader sdr= stock.GetMaxGRNNo();
             try
             {
                 sdr.Read();
-                Current_Invoice_No = sdr.GetInt32(0);
+                Current_GRN_No = sdr.GetInt32(0);
                 sdr.Close();
             }
             catch { }
 
             int y = 0;
             int x = 0;
-            int Invoce_No = Current_Invoice_No + 1;
+            int GRN_No = Current_GRN_No + 1;
             for (int i = 0; i < dataGridViewAll.Rows.Count - 1; ++i)
             {
                 SqlDataReader sdr1 = stock.GetStockBalance(Convert.ToInt32(dataGridViewAll.Rows[i].Cells[0].Value));
@@ -54,7 +54,7 @@ namespace POS
                 if (Units.Equals("g") || Units.Equals("ml")) Quantity = Quantity / 1000;
                 else if (Units.Equals("mg")) Quantity = Quantity / 1000000;
                 
-                x = stock.InsertTransaction(Invoce_No, Convert.ToInt32(dataGridViewAll.Rows[i].Cells[0].Value), Quantity, "STOCK_ADD", Quantity, 0, Current_Stock_Balance, (Quantity + Current_Stock_Balance), Properties.Settings.Default.username, DateTime.Parse("1900-01-01"), comboBoxVender.SelectedValue.ToString().Trim());
+                x = stock.InsertTransaction(GRN_No, Convert.ToInt32(dataGridViewAll.Rows[i].Cells[0].Value), Quantity, "STOCK_ADD", Quantity, 0, Current_Stock_Balance, (Quantity + Current_Stock_Balance), Properties.Settings.Default.username, DateTime.Parse("1900-01-01"), comboBoxVender.SelectedValue.ToString().Trim());
                 if (x > 0)
                 {
                     y = stock.UpdateStockBalance(Convert.ToInt32(dataGridViewAll.Rows[i].Cells[0].Value), Quantity);
@@ -275,5 +275,5 @@ namespace POS
             GNR_Report GNRREP = new GNR_Report();
             GNRREP.Show();
         }
-    //}
+    }
 }

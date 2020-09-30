@@ -41,6 +41,15 @@ namespace POS
             return dim.insertRecord(selectCommand, ref sqlParams);
         }
 
+        public SqlDataReader GetDailySales(DateTime DateVal)
+        {
+            String query = "DECLARE	@return_value int EXEC	@return_value = [dbo].[sp_rpt_Daily_Sales] @Date = '"+ DateVal.ToShortDateString()+ "' SELECT	'Return Value' = @return_value";
+        
+
+            DataReaderManager drm = new DataReaderManager();
+            return drm.getDataReader(query);
+        }
+
         public SqlDataReader GetStockBalance(int ITEMCAT_ID)
         {
             String query = "SELECT  [BALANCE]  FROM [POS].[dbo].[Stock_Balance] WHERE [ITEMCAT_ID]=@ITEMCAT_ID";
@@ -69,7 +78,15 @@ namespace POS
 
         public SqlDataReader GetMaxInvoiceNo()
         {
-            String query = "SELECT MAX([INVOICE_NO])  FROM [POS].[dbo].[Transaction]"; 
+            String query = "SELECT MAX([INVOICE_NO])  FROM [POS].[dbo].[Transaction] WHERE [TRANSACTION_TYPE]='Customer_Invoice'"; 
+
+            DataReaderManager drm = new DataReaderManager();
+            return drm.getDataReader(query);
+        }
+
+        public SqlDataReader GetMaxGRNNo()
+        {
+            String query = "SELECT MAX([INVOICE_NO])  FROM [POS].[dbo].[Transaction] WHERE [TRANSACTION_TYPE]='STOCK_ADD'";
 
             DataReaderManager drm = new DataReaderManager();
             return drm.getDataReader(query);
