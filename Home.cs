@@ -154,8 +154,16 @@ namespace POS
 
         private void invoiceToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Invoice invoi = new Invoice();
-            invoi.ShowDialog(this);
+            //Invoice invoi = new Invoice();
+            //invoi.ShowDialog(this);
+
+            Invoice cf = new Invoice();
+            cf.MdiParent = this;
+            cf.ClientSize = new System.Drawing.Size(2000, 800);
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            cf.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            cf.Dock = DockStyle.Fill;
+            cf.Show();
         }
 
         private void stockReportToolStripMenuItem_Click(object sender, EventArgs e)
