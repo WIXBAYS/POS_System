@@ -19,7 +19,6 @@ namespace POS
         public Invoice()
         {
             InitializeComponent();
-            textBoxBC.Select();
         }
 
         private void button_cancel_Click(object sender, EventArgs e)
@@ -36,62 +35,11 @@ namespace POS
 
         }
 
-        private void comboBoxCatID_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (executionenable)
-            {
-                lockExecution();
-
-                if (comboBoxCatID.SelectedValue != null)
-                {
-                    comboBoxunits.Items.Clear();
-                    comboBoxunits.Text = "";
-
-                    String catID = comboBoxCatID.SelectedValue.ToString();
-                    String Unit;
-                    SqlDataReader sdr = new Item().GetItemCatagoryDetails(catID);
-
-                    if (sdr != null)
-                    {
-                        sdr.Read();
-
-                        Unit = sdr.GetString(3);
-                        textBoxBC.Text = sdr.GetString(0);
-                        textBoxSelling.Text = sdr.GetDouble(5).ToString();
-
-                        sdr.Close();
-                        if (Unit.Equals("L"))
-                        {
-                            comboBoxunits.Items.Add("L");
-                            comboBoxunits.Items.Add("ml");
-                        }
-                        else if (Unit.Equals("Kg"))
-                        {
-                            comboBoxunits.Items.Add("Kg");
-                            comboBoxunits.Items.Add("g");
-                            comboBoxunits.Items.Add("mg");
-                        }
-                        else
-                        {
-                            comboBoxunits.Items.Add("Units");
-                        }
-                    }
-                    else
-                    {
-                        ClearTextForm();
-                    }
-                }
-
-                ReleaseExecution();
-            }
-        }
 
         private void ClearTextForm()
         {
             textBoxQuantity.Clear();
             textBoxSelling.Clear();
-            comboBoxunits.Items.Clear();
-            comboBoxunits.Text = "";
             comboBoxCatID.Text = "";
         }
 
@@ -105,34 +53,61 @@ namespace POS
             executionenable = true;
         }
 
-        
-       
+
+
 
         private void button_update_Click(object sender, EventArgs e)
         {
             Decimal Cost = 0.0m;
-            if (TextVAlidation())
-            {
 
-                if (comboBoxunits.Text.Equals("L") || comboBoxunits.Text.Equals("Kg") || comboBoxunits.Text.Equals("Units")) Cost = decimal.Parse(textBoxQuantity.Text) * decimal.Parse(textBoxSelling.Text);
-                else if (comboBoxunits.Text.Equals("ml") || comboBoxunits.Text.Equals("g")) Cost = decimal.Parse(textBoxQuantity.Text) * decimal.Parse(textBoxSelling.Text) / 1000;
-                else if (comboBoxunits.Text.Equals("mg")) Cost = decimal.Parse(textBoxQuantity.Text) * decimal.Parse(textBoxSelling.Text) / 1000000;
-                dataGridViewAll.Rows.Add(comboBoxCatID.SelectedValue.ToString().Trim(), comboBoxCatID.Text.Trim(), textBoxQuantity.Text.Trim(), comboBoxunits.Text, Cost);
+                string CatID = comboBoxCatID.SelectedValue.ToString().Trim();
+                SqlDataReader sdrsec = new Item().GetItemCatagoryDetails(CatID);
+                if (sdrsec != null)
+                {
+                    try
+                    {
+                        String DiscountCol = "";
+                    String CategoryName = "";
+                    String Unit = "";
+                    Double UnitPrice = 0;
+                    Double DiscountAmnt1 = 0;
+                        sdrsec.Read();
+                        CategoryName = sdrsec.GetString(1).Trim();
+                        Unit = sdrsec.GetString(3).Trim();
+                        UnitPrice = sdrsec.GetDouble(5);
+                        Double DiscountAmount = sdrsec.GetDouble(8);
+                        String DiscountType = sdrsec.GetString(9).ToString().Trim();
+                        if (DiscountType.Equals("AMNT"))
+                        {
+                            DiscountCol = DiscountAmount + "/=";
+                            DiscountAmnt1 = DiscountAmount;
+                        }
+                        if (DiscountType.Equals("PR"))
+                        {
+                            DiscountCol = DiscountAmount + "%";
+                            DiscountAmnt1 = (sdrsec.GetDouble(5) * DiscountAmount / 100);
+                        }
+                    dataGridViewAll.Rows.Add("N/A", CategoryName, Unit, UnitPrice, DiscountCol, DiscountAmnt1.ToString(),textBoxQuantity.Text, ((UnitPrice-DiscountAmnt1) * double.Parse(textBoxQuantity.Text)).ToString());
+                }
+                    catch { }
+               
 
                 decimal sum = 0;
+                decimal netdiscountp = 0;
+                decimal netdiscountline = 0;
                 for (int i = 0; i < dataGridViewAll.Rows.Count; ++i)
                 {
-                    sum += Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[4].Value);
+                    sum += Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[7].Value);
+                    netdiscountp += Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[5].Value);
                 }
                 textBoxTotal.Text = sum.ToString();
+                textBoxNetDiscountP.Text = Math.Round((netdiscountp / sum), 2).ToString();
+                textBoxtTlLineDiscount.Text = Math.Round((netdiscountp / sum), 2).ToString();
 
                 textBoxQuantity.Clear();
-                textBoxBC.Clear();
-                textBoxSelling.Clear();
-                textBoxbuy.Clear();
+                //textBoxSelling.Clear();
+                //textBoxbuy.Clear();
                 comboBoxCatID.Text = "";
-                comboBoxunits.Items.Clear();
-                comboBoxunits.Text = "";
             }
         }
 
@@ -148,13 +123,7 @@ namespace POS
             else
                 textBoxQuantity.BackColor = Color.White;
 
-            if (comboBoxunits.Text.Trim() == String.Empty)
-            {
-                comboBoxunits.BackColor = Color.LightPink;
-                valid = false;
-            }
-            else
-                comboBoxunits.BackColor = Color.White;
+
             return valid;
         }
 
@@ -198,7 +167,7 @@ namespace POS
                     sdr1.Close();
                 }
                 catch { }
-   
+
                 decimal Quantity = Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[2].Value);
                 string Units = dataGridViewAll.Rows[i].Cells[3].Value.ToString().Trim();
                 if (Units.Equals("g") || Units.Equals("ml")) Quantity = Quantity / 1000;
@@ -209,13 +178,13 @@ namespace POS
 
                     x = stock.InsertTransaction(Invoce_No, Convert.ToInt32(dataGridViewAll.Rows[i].Cells[0].Value), Quantity, "Customer_Invoice", Quantity, 0, Current_Stock_Balance, (Current_Stock_Balance - Quantity), Properties.Settings.Default.username, DateTime.Parse("1900-01-01"), "0");
                     if (x > 0)
-                    { 
+                    {
                         y = stock.UpdateStockBalance(Convert.ToInt32(dataGridViewAll.Rows[i].Cells[0].Value), Quantity * -1);
-                        
+
                     }
                 }
                 else { MessageBox.Show(" Stock Balance Error"); }
-                
+
             }
             z = stock.InsertIvoice(Invoce_No, decimal.Parse(textBoxTotal.Text), 0, 0, DateTime.Now);
             if (x > 0 && y > 0 && z > 0)
@@ -223,10 +192,8 @@ namespace POS
                 MessageBox.Show(" Successfully Added");
                 dataGridViewAll.ClearSelection();
                 textBoxQuantity.Clear();
-                textBoxBC.Clear();
                 dataGridViewAll.Text = "";
                 textBoxSelling.Clear();
-                comboBoxunits.Items.Clear();
                 comboBoxCatID.Text = "";
             }
         }
@@ -238,13 +205,113 @@ namespace POS
                 int x = dataGridViewAll.CurrentRow.Index;
                 dataGridViewAll.Rows.Remove(dataGridViewAll.Rows[x]);
                 decimal sum = 0;
+                decimal netdiscountp = 0;
+                decimal netdiscountline = 0;
                 for (int i = 0; i < dataGridViewAll.Rows.Count; ++i)
                 {
-                    sum += Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[4].Value);
+                    sum += Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[7].Value);
+                    netdiscountp += Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[5].Value);
                 }
                 textBoxTotal.Text = sum.ToString();
+                textBoxNetDiscountP.Text = Math.Round((netdiscountp / sum), 2).ToString();
+                textBoxtTlLineDiscount.Text = Math.Round((netdiscountp / sum), 2).ToString();
             }
             catch { }
+        }
+
+        private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            var currentcellVal = dataGridViewAll.CurrentCellAddress;
+            labelCurrentx.Text = currentcellVal.X.ToString();
+            labelCurrenty.Text = currentcellVal.Y.ToString();
+            labelInGrid.Text = "yes";
+            int currecty = currentcellVal.Y;
+            if (e.ColumnIndex == 7)
+            {
+                var currentcell = dataGridViewAll.CurrentCellAddress;
+                Double UnitPrice = Convert.ToDouble(dataGridViewAll.Rows[currentcell.Y].Cells[3].Value);
+                Double DiscountAmount = Convert.ToDouble(dataGridViewAll.Rows[currentcell.Y].Cells[5].Value);
+                Double Quantity = Convert.ToDouble(dataGridViewAll.Rows[currentcell.Y].Cells[6].Value);
+                if (Quantity != 0)
+                {
+                    Double Total = (UnitPrice - DiscountAmount) * Quantity;
+
+
+                    DataGridViewTextBoxCell celTTL = (DataGridViewTextBoxCell)dataGridViewAll.Rows[currentcell.Y].Cells[7];
+                    celTTL.Value = Total.ToString();
+                    decimal sum = 0;
+                    decimal netdiscountp = 0;
+                    decimal netdiscountline = 0;
+                    for (int i = 0; i < dataGridViewAll.Rows.Count; ++i)
+                    {
+                        sum += Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[7].Value);
+                        netdiscountp += Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[5].Value);
+                    }
+                    textBoxTotal.Text = sum.ToString();
+                    textBoxNetDiscountP.Text = Math.Round((netdiscountp / sum), 2).ToString();
+                    textBoxtTlLineDiscount.Text = Math.Round((netdiscountp / sum), 2).ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Quantity", "Error");
+                }
+            }
+            if (e.ColumnIndex == 1)
+            {
+                var currentcell = dataGridViewAll.CurrentCellAddress;
+
+                //var sendingCB = sender as DataGridViewComboBoxEditingControl;
+                DataGridViewTextBoxCell celUP = (DataGridViewTextBoxCell)dataGridViewAll.Rows[currentcell.Y].Cells[3];
+                DataGridViewTextBoxCell celU = (DataGridViewTextBoxCell)dataGridViewAll.Rows[currentcell.Y].Cells[2];
+                DataGridViewTextBoxCell celCN = (DataGridViewTextBoxCell)dataGridViewAll.Rows[currentcell.Y].Cells[1];
+                DataGridViewTextBoxCell celD = (DataGridViewTextBoxCell)dataGridViewAll.Rows[currentcell.Y].Cells[4];
+                DataGridViewTextBoxCell celDA = (DataGridViewTextBoxCell)dataGridViewAll.Rows[currentcell.Y].Cells[5];
+                string BarCode = Convert.ToString(dataGridViewAll.Rows[currentcell.Y].Cells[0].Value);
+
+
+                SqlDataReader sdrsec = new Item().GetCatagoryDetailsByBarcode(BarCode);
+                if (sdrsec != null)
+                {
+                    try
+                    {
+                        String DiscountCol = "";
+                        Double DiscountAmnt1 = 0;
+                        sdrsec.Read();
+                        celCN.Value = sdrsec.GetString(1);
+                        celU.Value = sdrsec.GetString(3);
+                        celUP.Value = sdrsec.GetDouble(5).ToString().Trim();
+                        Double DiscountAmount = sdrsec.GetDouble(7);
+                        String DiscountType = sdrsec.GetString(8).ToString().Trim();
+                        if (DiscountType.Equals("AMNT"))
+                        {
+                            DiscountCol = DiscountAmount + "/=";
+                            DiscountAmnt1 = DiscountAmount;
+                        }
+                        if (DiscountType.Equals("PR"))
+                        {
+                            DiscountCol = DiscountAmount + "%";
+                            DiscountAmnt1 = (sdrsec.GetDouble(5) * DiscountAmount / 100);
+                        }
+
+                        celD.Value = DiscountCol;
+                        celDA.Value = DiscountAmnt1.ToString();
+                        sdrsec.Dispose();
+                        sdrsec.Close();
+                    }
+                    catch
+                    {
+
+                        MessageBox.Show("Item Not Registered", "Error");
+
+                        dataGridViewAll.Rows[currentcell.Y].Cells[0].Value = "";
+
+                    }
+                }
+                else
+                {
+
+                }
+            }
         }
 
         private void textBoxtextBoxBarcode_TextChanged(object sender, EventArgs e)
@@ -260,51 +327,515 @@ namespace POS
             //PrinterUtility.PrintExtensions.Print(Byteversion, POS.Properties.Settings.Default.);
         }
 
-        private void textBoxBC_TextChanged_1(object sender, EventArgs e)
+
+        
+
+        private void button1_Click(object sender, EventArgs e)
         {
-            if (executionenable)
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (labelInGrid.Text.Equals("no"))
             {
-                lockExecution();
-                comboBoxunits.Items.Clear();
-                comboBoxunits.Text = "";
-                String Barcode = textBoxBC.Text.Trim();
-                String Unit;
-                SqlDataReader sdr = new Item().GetCatagoryDetailsByBarcode(Barcode);
-                if (sdr != null)
+                //if (Hiddenlabel.Text.Equals("textBoxBC"))
+                //{
+                //    textBoxBC.Text += "8";
+                //}
+                if (Hiddenlabel.Text.Equals("textBoxPW"))
                 {
-                    sdr.Read();
-                    Unit = sdr.GetString(3);
-
-                    textBoxSelling.Text = sdr.GetDouble(5).ToString();
-                    textBoxbuy.Text = sdr.GetDouble(4).ToString();
-                    comboBoxCatID.SelectedValue = sdr.GetInt32(2).ToString();
-                    comboBoxCatID.Text = sdr.GetString(1).ToString();
-
-                    sdr.Close();
-                    if (Unit.Equals("L"))
-                    {
-                        comboBoxunits.Items.Add("L");
-                        comboBoxunits.Items.Add("ml");
-                    }
-                    else if (Unit.Equals("Kg"))
-                    {
-                        comboBoxunits.Items.Add("Kg");
-                        comboBoxunits.Items.Add("g");
-                        comboBoxunits.Items.Add("mg");
-                    }
-                    else
-                    {
-                        comboBoxunits.Items.Add("Units");
-                    }
+                    TxtPassword.Text += "8";
                 }
-                else
+            }
+            else
+            {
+                try
                 {
-                    ClearTextForm();
+                    DataGridViewTextBoxCell celcrnt = (DataGridViewTextBoxCell)dataGridViewAll.Rows[int.Parse(labelCurrenty.Text)].Cells[int.Parse(labelCurrentx.Text)];
+                    string crnt = "";
+                    try
+                    {
+                        crnt = celcrnt.Value.ToString();
+                    }
+                    catch { }
+                    celcrnt.Value = crnt + "8";
                 }
-
-                ReleaseExecution();
+                catch { }
             }
 
         }
+
+        private void textBox7_TextChanged(object sender, MouseEventArgs e)
+        {
+            labelInGrid.Text = "no";
+            Hiddenlabel.Text = "textBoxPW";
+        }
+        private void textBox7_TextChanged(object sender, EventArgs e)
+        {
+            labelInGrid.Text = "no";
+            Hiddenlabel.Text = "textBoxPW";
+        }
+
+
+
+        private void textBox7_TabIndexChanged(object sender, EventArgs e)
+        {
+            labelInGrid.Text = "no";
+            Hiddenlabel.Text = "textBoxPW";
+        }
+
+        private void buttonNP7_Click(object sender, EventArgs e)
+        {
+            if (labelInGrid.Text.Equals("no"))
+            {
+                //if (Hiddenlabel.Text.Equals("textBoxBC"))
+                //{
+                //    textBoxBC.Text += "7";
+                //}
+                if (Hiddenlabel.Text.Equals("textBoxPW"))
+                {
+                    TxtPassword.Text += "7";
+                }
+            }
+            else
+            {
+                try
+                {
+                    DataGridViewTextBoxCell celcrnt = (DataGridViewTextBoxCell)dataGridViewAll.Rows[int.Parse(labelCurrenty.Text)].Cells[int.Parse(labelCurrentx.Text)];
+                    string crnt = "";
+                    try
+                    {
+                        crnt = celcrnt.Value.ToString();
+                    }
+                    catch { }
+                    celcrnt.Value = crnt + "7";
+                }
+                catch { }
+            }
+
+        }
+
+
+
+        private void textBoxBC_TabIndexChanged(object sender, EventArgs e)
+        {
+            labelInGrid.Text = "no";
+            Hiddenlabel.Text = "textBoxBC";
+        }
+
+        private void buttonNP9_Click(object sender, EventArgs e)
+        {
+            if (labelInGrid.Text.Equals("no"))
+            {
+                //if (Hiddenlabel.Text.Equals("textBoxBC"))
+                //{
+                //    textBoxBC.Text += "9";
+                //}
+                if (Hiddenlabel.Text.Equals("textBoxPW"))
+                {
+                    TxtPassword.Text += "9";
+                }
+            }
+            else
+            {
+                try
+                {
+                    DataGridViewTextBoxCell celcrnt = (DataGridViewTextBoxCell)dataGridViewAll.Rows[int.Parse(labelCurrenty.Text)].Cells[int.Parse(labelCurrentx.Text)];
+                    string crnt = "";
+                    try
+                    {
+                        crnt = celcrnt.Value.ToString();
+                    }
+                    catch { }
+                    celcrnt.Value = crnt + "9";
+                }
+                catch { }
+            }
+        }
+
+        private void buttonNP4_Click(object sender, EventArgs e)
+        {
+            if (labelInGrid.Text.Equals("no"))
+            {
+                //if (Hiddenlabel.Text.Equals("textBoxBC"))
+                //{
+                //    textBoxBC.Text += "4";
+                //}
+                if (Hiddenlabel.Text.Equals("textBoxPW"))
+                {
+                    TxtPassword.Text += "4";
+                }
+            }
+            else
+            {
+                try
+                {
+                    DataGridViewTextBoxCell celcrnt = (DataGridViewTextBoxCell)dataGridViewAll.Rows[int.Parse(labelCurrenty.Text)].Cells[int.Parse(labelCurrentx.Text)];
+                    string crnt = "";
+                    try
+                    {
+                        crnt = celcrnt.Value.ToString();
+                    }
+                    catch { }
+                    celcrnt.Value = crnt + "4";
+                }
+                catch { }
+            }
+        }
+
+        private void buttonNP5_Click(object sender, EventArgs e)
+        {
+            if (labelInGrid.Text.Equals("no"))
+            {
+                
+                if (Hiddenlabel.Text.Equals("textBoxPW"))
+                {
+                    TxtPassword.Text += "5";
+                }
+            }
+            else
+            {
+                try
+                {
+                    DataGridViewTextBoxCell celcrnt = (DataGridViewTextBoxCell)dataGridViewAll.Rows[int.Parse(labelCurrenty.Text)].Cells[int.Parse(labelCurrentx.Text)];
+                    string crnt = "";
+                    try
+                    {
+                        crnt = celcrnt.Value.ToString();
+                    }
+                    catch { }
+                    celcrnt.Value = crnt + "5";
+                }
+                catch { }
+            }
+        }
+
+        private void buttonNP6_Click(object sender, EventArgs e)
+        {
+            if (labelInGrid.Text.Equals("no"))
+            {
+                
+                if (Hiddenlabel.Text.Equals("textBoxPW"))
+                {
+                    TxtPassword.Text += "6";
+                }
+            }
+            else
+            {
+                try
+                {
+                    DataGridViewTextBoxCell celcrnt = (DataGridViewTextBoxCell)dataGridViewAll.Rows[int.Parse(labelCurrenty.Text)].Cells[int.Parse(labelCurrentx.Text)];
+                    string crnt = "";
+                    try
+                    {
+                        crnt = celcrnt.Value.ToString();
+                    }
+                    catch { }
+                    celcrnt.Value = crnt + "6";
+                }
+                catch { }
+            }
+        }
+
+        private void buttonNP1_Click(object sender, EventArgs e)
+        {
+            if (labelInGrid.Text.Equals("no"))
+            {
+
+                if (Hiddenlabel.Text.Equals("textBoxPW"))
+                {
+                    TxtPassword.Text += "1";
+                }
+            }
+            else
+            {
+                try
+                {
+                    DataGridViewTextBoxCell celcrnt = (DataGridViewTextBoxCell)dataGridViewAll.Rows[int.Parse(labelCurrenty.Text)].Cells[int.Parse(labelCurrentx.Text)];
+                    string crnt = "";
+                    try
+                    {
+                        crnt = celcrnt.Value.ToString();
+                    }
+                    catch { }
+                    celcrnt.Value = crnt + "1";
+                }
+                catch { }
+            }
+        }
+
+        private void buttonNP2_Click(object sender, EventArgs e)
+        {
+            if (labelInGrid.Text.Equals("no"))
+            {
+
+                if (Hiddenlabel.Text.Equals("textBoxPW"))
+                {
+                    TxtPassword.Text += "2";
+                }
+            }
+            else
+            {
+                try
+                {
+                    DataGridViewTextBoxCell celcrnt = (DataGridViewTextBoxCell)dataGridViewAll.Rows[int.Parse(labelCurrenty.Text)].Cells[int.Parse(labelCurrentx.Text)];
+                    string crnt = "";
+                    try
+                    {
+                        crnt = celcrnt.Value.ToString();
+                    }
+                    catch { }
+                    celcrnt.Value = crnt + "2";
+                }
+                catch { }
+            }
+        }
+
+        private void buttonNP3_Click(object sender, EventArgs e)
+        {
+            if (labelInGrid.Text.Equals("no"))
+            {
+                
+                if (Hiddenlabel.Text.Equals("textBoxPW"))
+                {
+                    TxtPassword.Text += "3";
+                }
+            }
+            else
+            {
+                try
+                {
+                    DataGridViewTextBoxCell celcrnt = (DataGridViewTextBoxCell)dataGridViewAll.Rows[int.Parse(labelCurrenty.Text)].Cells[int.Parse(labelCurrentx.Text)];
+                    string crnt = "";
+                    try
+                    {
+                        crnt = celcrnt.Value.ToString();
+                    }
+                    catch { }
+                    celcrnt.Value = crnt + "3";
+                }
+                catch { }
+            }
+        }
+
+        private void buttonNP0_Click(object sender, EventArgs e)
+        {
+            if (labelInGrid.Text.Equals("no"))
+            {
+                
+                if (Hiddenlabel.Text.Equals("textBoxPW"))
+                {
+                    TxtPassword.Text += "0";
+                }
+            }
+            else
+            {
+                try
+                {
+                    DataGridViewTextBoxCell celcrnt = (DataGridViewTextBoxCell)dataGridViewAll.Rows[int.Parse(labelCurrenty.Text)].Cells[int.Parse(labelCurrentx.Text)];
+                    string crnt = "";
+                    try
+                    {
+                        crnt = celcrnt.Value.ToString();
+                    }
+                    catch { }
+                    celcrnt.Value = crnt + "0";
+                }
+                catch { }
+            }
+        }
+
+        private void buttonNPDot_Click(object sender, EventArgs e)
+        {
+            if (labelInGrid.Text.Equals("no"))
+            {
+                
+                if (Hiddenlabel.Text.Equals("textBoxPW"))
+                {
+                    TxtPassword.Text += ".";
+                }
+            }
+            else
+            {
+                try
+                {
+                    DataGridViewTextBoxCell celcrnt = (DataGridViewTextBoxCell)dataGridViewAll.Rows[int.Parse(labelCurrenty.Text)].Cells[int.Parse(labelCurrentx.Text)];
+                    string crnt = "";
+                    try
+                    {
+                        crnt = celcrnt.Value.ToString();
+                    }
+                    catch { }
+                    celcrnt.Value = crnt + ".";
+                }
+                catch { }
+            }
+
+        }
+
+        private void buttonNP00_Click(object sender, EventArgs e)
+        {
+            if (labelInGrid.Text.Equals("no"))
+            {
+                
+                if (Hiddenlabel.Text.Equals("textBoxPW"))
+                {
+                    TxtPassword.Text += "00";
+                }
+            }
+            else
+            {
+                try
+                {
+
+                    DataGridViewTextBoxCell celcrnt = (DataGridViewTextBoxCell)dataGridViewAll.Rows[int.Parse(labelCurrenty.Text)].Cells[int.Parse(labelCurrentx.Text)];
+                    string crnt = "";
+                    try
+                    {
+                        crnt = celcrnt.Value.ToString();
+                    }
+                    catch { }
+                    celcrnt.Value = crnt + "00";
+                }
+                catch { }
+        }
+
+        }
+
+        private void buttonNPStar_Click(object sender, EventArgs e)
+        {
+            if (labelInGrid.Text.Equals("no"))
+            {
+                
+                if (Hiddenlabel.Text.Equals("textBoxPW"))
+                {
+                    TxtPassword.Text += "*";
+                }
+            }
+            else
+            {
+                try
+                {
+                    DataGridViewTextBoxCell celcrnt = (DataGridViewTextBoxCell)dataGridViewAll.Rows[int.Parse(labelCurrenty.Text)].Cells[int.Parse(labelCurrentx.Text)];
+                    string crnt = "";
+                    try
+                    {
+                        crnt = celcrnt.Value.ToString();
+                    }
+                    catch { }
+                    celcrnt.Value = crnt + "*";
+                }
+                catch { }
+            }
+        }
+
+        private void buttonNPMinus_Click(object sender, EventArgs e)
+        {
+            if (labelInGrid.Text.Equals("no"))
+            {
+                
+                if (Hiddenlabel.Text.Equals("textBoxPW"))
+                {
+                    TxtPassword.Text += "-";
+                }
+            }
+            else
+            {
+                try
+                {
+                    DataGridViewTextBoxCell celcrnt = (DataGridViewTextBoxCell)dataGridViewAll.Rows[int.Parse(labelCurrenty.Text)].Cells[int.Parse(labelCurrentx.Text)];
+                    string crnt = "";
+                    try
+                    {
+                        crnt = celcrnt.Value.ToString();
+                    }
+                    catch { }
+                    celcrnt.Value = crnt + "-";
+                }
+                catch { }
+            }
+        }
+
+        private void buttonNPBack_Click(object sender, EventArgs e)
+        {
+            if (labelInGrid.Text.Equals("no"))
+            {
+                
+                if (Hiddenlabel.Text.Equals("textBoxPW"))
+                {
+                    try
+                    {
+                        TxtPassword.Text = TxtPassword.Text.Remove(TxtPassword.Text.Length - 1, 1);
+                    }
+                    catch { }
+                }
+            }
+            else
+            {
+                try
+                {
+                    DataGridViewTextBoxCell celcrnt = (DataGridViewTextBoxCell)dataGridViewAll.Rows[int.Parse(labelCurrenty.Text)].Cells[int.Parse(labelCurrentx.Text)];
+                    string crnt = "";
+                    try
+                    {
+                        crnt = celcrnt.Value.ToString();
+                        celcrnt.Value = crnt.Remove(crnt.Length - 1, 1);
+                    }
+                    catch { }
+                }
+                catch { }
+
+            }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (TxtUserName.Text == "" || TxtPassword.Text == "")
+            {
+                MessageBox.Show("Please provide UserName and Password");
+                return;
+            }
+            try
+            {
+                //Create SqlConnection
+                SqlDataReader sdr = new User().CheckLogin(TxtUserName.Text, Encript(TxtPassword.Text));
+                String UserName = "";
+                if (sdr != null)
+                {
+                    sdr.Read();
+                    UserName = sdr.GetString(0);
+                    sdr.Close();
+                }
+                if (!UserName.Equals(""))
+                {
+                    Properties.Settings.Default.username = TxtUserName.Text;
+                    MessageBox.Show("Login Changed!");
+                }
+                else
+                {
+                    MessageBox.Show("Login Failed!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        public string Encript(string password)
+        {
+            System.Security.Cryptography.MD5CryptoServiceProvider objCript = new System.Security.Cryptography.MD5CryptoServiceProvider();
+            byte[] bs = System.Text.Encoding.UTF8.GetBytes(password);
+            bs = objCript.ComputeHash(bs);
+            System.Text.StringBuilder s = new System.Text.StringBuilder();
+
+            foreach (byte b in bs)
+            {
+                s.Append(b.ToString("x2").ToLower());
+            }
+            password = s.ToString();
+            return password;
+        }
     }
+    
 }

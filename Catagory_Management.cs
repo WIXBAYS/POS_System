@@ -47,12 +47,15 @@ namespace POS
                         textBoxSelling.Text = sqd.GetDouble(5).ToString();
                         checkBoxActive.Checked = sqd.GetBoolean(6);
                         comboBoxItemList.SelectedIndex = comboBoxItemList.FindString(sqd.GetString(7));
+                        textBoxDiscount.Text = sqd.GetDouble(8).ToString();
+                        comboBoxDiscountType.SelectedIndex = comboBoxDiscountType.FindString(sqd.GetString(9).Trim());
                         comboBoxName.Refresh();
                     }
                     sqd.Close();
 
                     comboBoxItemList.Enabled = true;
                     comboBoxunits.Enabled = true;
+                    comboBoxDiscountType.Enabled = true;
                 }
             }
             catch(Exception g)
@@ -75,6 +78,8 @@ namespace POS
                 float buying = float.Parse(textBoxBuying.Text);
                 bool CheckedStatus = checkBoxActive.Checked;
                 String Discription = textBoxLineDiscription.Text;
+                float Discount = float.Parse(textBoxDiscount.Text);
+                String DiscountType = comboBoxDiscountType.SelectedItem.ToString();
 
                 SqlDataReader sdr = item.GetMaxCatID();
                 int cat_id = 0;
@@ -93,7 +98,7 @@ namespace POS
                     }
                 }
 
-                int x = item.insertItemCatagory(TextcatName,ItemID,Barcode,Unit,buying,Selling,Discription,CheckedStatus);
+                int x = item.insertItemCatagory(TextcatName,ItemID,Barcode,Unit,buying,Selling,Discription,CheckedStatus, Discount, DiscountType);
                 int y = item.insertStockBalanceDefault(cat_id+1 ,0);
 
                 if (x > 0 &&  y>0)
@@ -109,6 +114,7 @@ namespace POS
                     comboBoxName.Refresh();
                     comboBoxItemList.Enabled = false;
                     comboBoxunits.Enabled = false;
+                    comboBoxDiscountType.Enabled = false;
 
                 }
                 else
@@ -130,12 +136,14 @@ namespace POS
                 float buying = float.Parse(textBoxBuying.Text);
                 String Discription = textBoxLineDiscription.Text;
                 bool CheckedStatus = checkBoxActive.Checked;
+                float Discount = float.Parse(textBoxDiscount.Text);
+                String DiscountType = comboBoxDiscountType.SelectedItem.ToString();
 
                 String Catagory_ID = comboBoxName.SelectedValue.ToString();
 
 
                 Item item = new Item();
-                int x = item.updateItemCatagory(TextcatName,ItemID,Barcode,Unit,buying,Selling,Discription,CheckedStatus,Catagory_ID);
+                int x = item.updateItemCatagory(TextcatName,ItemID,Barcode,Unit,buying,Selling,Discription,CheckedStatus,Catagory_ID, Discount, DiscountType);
 
                 if (x > 0)
                 {
@@ -150,6 +158,7 @@ namespace POS
                     comboBoxName.Refresh();
                     comboBoxItemList.Enabled = false;
                     comboBoxunits.Enabled = false;
+                    comboBoxDiscountType.Enabled = false;
                 }
                 else
                 {
@@ -170,6 +179,7 @@ namespace POS
             textBoxNameUpdate.Show();
             comboBoxItemList.Enabled = false;
             comboBoxunits.Enabled = false;
+            comboBoxDiscountType.Enabled = false;
 
             SqlDataReader sqd = item.GetItemList();
             var Items = new Dictionary<string, string>();
@@ -199,6 +209,7 @@ namespace POS
                 checkBoxActive.Checked = true;
                 comboBoxItemList.Enabled = true;
                 comboBoxunits.Enabled = true;
+                comboBoxDiscountType.Enabled = true;
 
             }
             else
@@ -211,6 +222,7 @@ namespace POS
                 TextClear();
                 comboBoxItemList.Enabled = false;
                 comboBoxunits.Enabled = false;
+                comboBoxDiscountType.Enabled = false;
             }
         }
 
@@ -222,6 +234,7 @@ namespace POS
             textBoxBuying.Clear();
             textBoxBarcode.Clear();
             textBoxSelling.Clear();
+            textBoxDiscount.Clear();
             checkBoxActive.Checked = false;
         }
 

@@ -107,6 +107,23 @@ namespace POS
             DataUpdateManager dum = new DataUpdateManager();
             return dum.updateRecord(selectCommand, ref sqlParams);
         }
+
+        public SqlDataReader CheckLogin( String USER_NAME, String PASSWORD)
+        {
+            String selectCommand = "SELECT [USER_NAME]  FROM [User_Details]  WHERE   [USER_NAME] = @username AND  [PASSWORD] = @password";
+
+            SqlParameter[] sqlParams = new SqlParameter[] {
+                                            new SqlParameter("@username", SqlDbType.VarChar ),
+                                            new SqlParameter("@password", SqlDbType.VarChar)
+                                       };
+
+            sqlParams[0].Value = USER_NAME;
+            sqlParams[1].Value = PASSWORD; 
+
+
+            DataReaderManager drm = new DataReaderManager();
+            return drm.getDataReader(selectCommand, ref sqlParams);
+        }
     }
     
 }

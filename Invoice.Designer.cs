@@ -40,50 +40,43 @@
             this.textBoxTotal = new System.Windows.Forms.TextBox();
             this.labelTotal = new System.Windows.Forms.Label();
             this.labelQuantity = new System.Windows.Forms.Label();
-            this.textBoxQuantity = new System.Windows.Forms.TextBox();
             this.buttoncard = new System.Windows.Forms.Button();
             this.button_update = new System.Windows.Forms.Button();
             this.button_cancel = new System.Windows.Forms.Button();
             this.dataGridViewAll = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnBarCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Catagory_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Unit_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BuyingCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Grid_Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Discount_Amout = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BuyingCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnDelete = new System.Windows.Forms.DataGridViewImageColumn();
             this.Edit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label10 = new System.Windows.Forms.Label();
             this.labelSellingCost = new System.Windows.Forms.Label();
             this.textBoxSelling = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.textBoxTax = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.vender_DetailsTableAdapter = new POS.POSDataSetVendorListTableAdapters.Vender_DetailsTableAdapter();
             this.item_CatagoryTableAdapter = new POS.POSDataSetItemCataagoryTableAdapters.Item_CatagoryTableAdapter();
             this.textBoxbuy = new System.Windows.Forms.TextBox();
-            this.comboBoxunits = new System.Windows.Forms.ComboBox();
             this.buttoncash = new System.Windows.Forms.Button();
             this.textBoxVendorName = new System.Windows.Forms.TextBox();
-            this.textBoxBC = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
+            this.buttonNP8 = new System.Windows.Forms.Button();
+            this.buttonNP9 = new System.Windows.Forms.Button();
+            this.buttonNP6 = new System.Windows.Forms.Button();
+            this.buttonNP5 = new System.Windows.Forms.Button();
+            this.buttonNP4 = new System.Windows.Forms.Button();
+            this.buttonNP3 = new System.Windows.Forms.Button();
+            this.buttonNP2 = new System.Windows.Forms.Button();
+            this.buttonNP1 = new System.Windows.Forms.Button();
+            this.buttonNP0 = new System.Windows.Forms.Button();
+            this.buttonNPDot = new System.Windows.Forms.Button();
+            this.buttonNPEnter = new System.Windows.Forms.Button();
+            this.buttonNP00 = new System.Windows.Forms.Button();
+            this.buttonNPStar = new System.Windows.Forms.Button();
+            this.buttonNPMinus = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
             this.button17 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
@@ -92,27 +85,32 @@
             this.button21 = new System.Windows.Forms.Button();
             this.button22 = new System.Windows.Forms.Button();
             this.button23 = new System.Windows.Forms.Button();
-            this.button24 = new System.Windows.Forms.Button();
+            this.buttonNPBack = new System.Windows.Forms.Button();
             this.button26 = new System.Windows.Forms.Button();
             this.button27 = new System.Windows.Forms.Button();
             this.button28 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxtTlLineDiscount = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxNetDiscountP = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.TxtPassword = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBoxQuantity = new System.Windows.Forms.TextBox();
+            this.Hiddenlabel = new System.Windows.Forms.Label();
+            this.buttonNP7 = new System.Windows.Forms.Button();
+            this.labelCurrenty = new System.Windows.Forms.Label();
+            this.labelCurrentx = new System.Windows.Forms.Label();
+            this.labelInGrid = new System.Windows.Forms.Label();
+            this.TxtUserName = new System.Windows.Forms.TextBox();
+            this.buttonChangeLogin = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.itemCatagoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetItemCataagoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetItemCataagory)).BeginInit();
@@ -134,7 +132,6 @@
             this.comboBoxCatID.TabIndex = 117;
             this.comboBoxCatID.TabStop = false;
             this.comboBoxCatID.ValueMember = "ITEMCAT_ID";
-            this.comboBoxCatID.SelectedIndexChanged += new System.EventHandler(this.comboBoxCatID_SelectedIndexChanged);
             // 
             // itemCatagoryBindingSource
             // 
@@ -168,7 +165,7 @@
             this.textBoxTotal.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxTotal.ForeColor = System.Drawing.Color.Red;
-            this.textBoxTotal.Location = new System.Drawing.Point(740, 456);
+            this.textBoxTotal.Location = new System.Drawing.Point(740, 396);
             this.textBoxTotal.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxTotal.Name = "textBoxTotal";
             this.textBoxTotal.ReadOnly = true;
@@ -182,7 +179,7 @@
             this.labelTotal.AutoSize = true;
             this.labelTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTotal.ForeColor = System.Drawing.Color.DarkRed;
-            this.labelTotal.Location = new System.Drawing.Point(575, 455);
+            this.labelTotal.Location = new System.Drawing.Point(575, 395);
             this.labelTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTotal.Name = "labelTotal";
             this.labelTotal.Size = new System.Drawing.Size(44, 16);
@@ -193,24 +190,12 @@
             // 
             this.labelQuantity.AutoSize = true;
             this.labelQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelQuantity.Location = new System.Drawing.Point(41, 119);
+            this.labelQuantity.Location = new System.Drawing.Point(7, 74);
             this.labelQuantity.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelQuantity.Name = "labelQuantity";
             this.labelQuantity.Size = new System.Drawing.Size(53, 16);
             this.labelQuantity.TabIndex = 110;
             this.labelQuantity.Text = "Quantiy";
-            this.labelQuantity.Visible = false;
-            // 
-            // textBoxQuantity
-            // 
-            this.textBoxQuantity.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.textBoxQuantity.Location = new System.Drawing.Point(188, 121);
-            this.textBoxQuantity.Margin = new System.Windows.Forms.Padding(4);
-            this.textBoxQuantity.Name = "textBoxQuantity";
-            this.textBoxQuantity.Size = new System.Drawing.Size(123, 17);
-            this.textBoxQuantity.TabIndex = 1;
-            this.textBoxQuantity.Visible = false;
             // 
             // buttoncard
             // 
@@ -237,7 +222,7 @@
             this.button_update.Name = "button_update";
             this.button_update.Size = new System.Drawing.Size(100, 79);
             this.button_update.TabIndex = 3;
-            this.button_update.Text = "Bill";
+            this.button_update.Text = "Add";
             this.button_update.UseVisualStyleBackColor = false;
             this.button_update.Click += new System.EventHandler(this.button_update_Click);
             // 
@@ -258,21 +243,19 @@
             // 
             // dataGridViewAll
             // 
-            this.dataGridViewAll.AllowUserToAddRows = false;
-            this.dataGridViewAll.AllowUserToDeleteRows = false;
             this.dataGridViewAll.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewAll.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridViewAll.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewAll.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewAll.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID,
+            this.ColumnBarCode,
             this.Catagory_Name,
-            this.Quantity,
-            this.Unit,
+            this.ColumnUnit,
             this.Unit_Price,
-            this.BuyingCost,
             this.Grid_Discount,
             this.Discount_Amout,
+            this.Quantity,
+            this.BuyingCost,
             this.ColumnDelete,
             this.Edit});
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
@@ -286,48 +269,33 @@
             this.dataGridViewAll.GridColor = System.Drawing.SystemColors.ButtonFace;
             this.dataGridViewAll.Location = new System.Drawing.Point(16, 37);
             this.dataGridViewAll.Name = "dataGridViewAll";
-            this.dataGridViewAll.ReadOnly = true;
             this.dataGridViewAll.Size = new System.Drawing.Size(888, 244);
             this.dataGridViewAll.TabIndex = 107;
             this.dataGridViewAll.TabStop = false;
             this.dataGridViewAll.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAll_CellContentClick);
+            this.dataGridViewAll.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEnter);
             // 
-            // ID
+            // ColumnBarCode
             // 
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Visible = false;
+            this.ColumnBarCode.HeaderText = "BarCode";
+            this.ColumnBarCode.Name = "ColumnBarCode";
             // 
             // Catagory_Name
             // 
             this.Catagory_Name.HeaderText = "Category Name";
             this.Catagory_Name.Name = "Catagory_Name";
-            this.Catagory_Name.ReadOnly = true;
             // 
-            // Quantity
+            // ColumnUnit
             // 
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.Name = "Quantity";
-            this.Quantity.ReadOnly = true;
-            // 
-            // Unit
-            // 
-            this.Unit.HeaderText = "Unit";
-            this.Unit.Name = "Unit";
-            this.Unit.ReadOnly = true;
+            this.ColumnUnit.HeaderText = "Unit";
+            this.ColumnUnit.Name = "ColumnUnit";
+            this.ColumnUnit.ReadOnly = true;
             // 
             // Unit_Price
             // 
             this.Unit_Price.HeaderText = "Unit Price";
             this.Unit_Price.Name = "Unit_Price";
             this.Unit_Price.ReadOnly = true;
-            // 
-            // BuyingCost
-            // 
-            this.BuyingCost.HeaderText = "Sub Total";
-            this.BuyingCost.Name = "BuyingCost";
-            this.BuyingCost.ReadOnly = true;
             // 
             // Grid_Discount
             // 
@@ -341,29 +309,26 @@
             this.Discount_Amout.Name = "Discount_Amout";
             this.Discount_Amout.ReadOnly = true;
             // 
+            // Quantity
+            // 
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
+            // 
+            // BuyingCost
+            // 
+            this.BuyingCost.HeaderText = "Sub Total";
+            this.BuyingCost.Name = "BuyingCost";
+            // 
             // ColumnDelete
             // 
             this.ColumnDelete.HeaderText = "Delete";
             this.ColumnDelete.Image = ((System.Drawing.Image)(resources.GetObject("ColumnDelete.Image")));
             this.ColumnDelete.Name = "ColumnDelete";
-            this.ColumnDelete.ReadOnly = true;
             // 
             // Edit
             // 
             this.Edit.HeaderText = "Edit";
             this.Edit.Name = "Edit";
-            this.Edit.ReadOnly = true;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(7, 72);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(81, 16);
-            this.label10.TabIndex = 106;
-            this.label10.Text = "Barcode No";
             // 
             // labelSellingCost
             // 
@@ -409,34 +374,6 @@
             this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn1.Width = 45;
             // 
-            // textBoxTax
-            // 
-            this.textBoxTax.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.textBoxTax.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.textBoxTax.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxTax.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTax.ForeColor = System.Drawing.Color.Red;
-            this.textBoxTax.Location = new System.Drawing.Point(739, 395);
-            this.textBoxTax.Margin = new System.Windows.Forms.Padding(4);
-            this.textBoxTax.Name = "textBoxTax";
-            this.textBoxTax.ReadOnly = true;
-            this.textBoxTax.Size = new System.Drawing.Size(159, 15);
-            this.textBoxTax.TabIndex = 122;
-            this.textBoxTax.TabStop = false;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.DarkRed;
-            this.label3.Location = new System.Drawing.Point(575, 394);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(34, 16);
-            this.label3.TabIndex = 121;
-            this.label3.Text = "Tax";
-            // 
             // vender_DetailsTableAdapter
             // 
             this.vender_DetailsTableAdapter.ClearBeforeFill = true;
@@ -454,18 +391,6 @@
             this.textBoxbuy.Name = "textBoxbuy";
             this.textBoxbuy.Size = new System.Drawing.Size(123, 13);
             this.textBoxbuy.TabIndex = 123;
-            // 
-            // comboBoxunits
-            // 
-            this.comboBoxunits.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBoxunits.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.comboBoxunits.FormattingEnabled = true;
-            this.comboBoxunits.Location = new System.Drawing.Point(319, 119);
-            this.comboBoxunits.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBoxunits.Name = "comboBoxunits";
-            this.comboBoxunits.Size = new System.Drawing.Size(99, 21);
-            this.comboBoxunits.TabIndex = 2;
-            this.comboBoxunits.Visible = false;
             // 
             // buttoncash
             // 
@@ -493,208 +418,214 @@
             this.textBoxVendorName.TabIndex = 126;
             this.textBoxVendorName.Visible = false;
             // 
-            // textBoxBC
+            // buttonNP8
             // 
-            this.textBoxBC.Location = new System.Drawing.Point(117, 72);
-            this.textBoxBC.Name = "textBoxBC";
-            this.textBoxBC.Size = new System.Drawing.Size(167, 20);
-            this.textBoxBC.TabIndex = 127;
-            this.textBoxBC.TextChanged += new System.EventHandler(this.textBoxBC_TextChanged_1);
+            this.buttonNP8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonNP8.BackColor = System.Drawing.Color.DarkGray;
+            this.buttonNP8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNP8.ForeColor = System.Drawing.Color.Red;
+            this.buttonNP8.Location = new System.Drawing.Point(1086, 289);
+            this.buttonNP8.Name = "buttonNP8";
+            this.buttonNP8.Size = new System.Drawing.Size(88, 79);
+            this.buttonNP8.TabIndex = 129;
+            this.buttonNP8.TabStop = false;
+            this.buttonNP8.Text = "8";
+            this.buttonNP8.UseVisualStyleBackColor = false;
+            this.buttonNP8.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button1
+            // buttonNP9
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.DarkGray;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Red;
-            this.button1.Location = new System.Drawing.Point(997, 289);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(88, 79);
-            this.button1.TabIndex = 128;
-            this.button1.Text = "7";
-            this.button1.UseVisualStyleBackColor = false;
+            this.buttonNP9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonNP9.BackColor = System.Drawing.Color.DarkGray;
+            this.buttonNP9.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNP9.ForeColor = System.Drawing.Color.Red;
+            this.buttonNP9.Location = new System.Drawing.Point(1175, 289);
+            this.buttonNP9.Name = "buttonNP9";
+            this.buttonNP9.Size = new System.Drawing.Size(88, 79);
+            this.buttonNP9.TabIndex = 130;
+            this.buttonNP9.TabStop = false;
+            this.buttonNP9.Text = "9";
+            this.buttonNP9.UseVisualStyleBackColor = false;
+            this.buttonNP9.Click += new System.EventHandler(this.buttonNP9_Click);
             // 
-            // button2
+            // buttonNP6
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.BackColor = System.Drawing.Color.DarkGray;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.Red;
-            this.button2.Location = new System.Drawing.Point(1086, 289);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(88, 79);
-            this.button2.TabIndex = 129;
-            this.button2.Text = "8";
-            this.button2.UseVisualStyleBackColor = false;
+            this.buttonNP6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonNP6.BackColor = System.Drawing.Color.DarkGray;
+            this.buttonNP6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNP6.ForeColor = System.Drawing.Color.Red;
+            this.buttonNP6.Location = new System.Drawing.Point(1175, 372);
+            this.buttonNP6.Name = "buttonNP6";
+            this.buttonNP6.Size = new System.Drawing.Size(88, 79);
+            this.buttonNP6.TabIndex = 133;
+            this.buttonNP6.TabStop = false;
+            this.buttonNP6.Text = "6";
+            this.buttonNP6.UseVisualStyleBackColor = false;
+            this.buttonNP6.Click += new System.EventHandler(this.buttonNP6_Click);
             // 
-            // button3
+            // buttonNP5
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.BackColor = System.Drawing.Color.DarkGray;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.Red;
-            this.button3.Location = new System.Drawing.Point(1175, 289);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(88, 79);
-            this.button3.TabIndex = 130;
-            this.button3.Text = "9";
-            this.button3.UseVisualStyleBackColor = false;
+            this.buttonNP5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonNP5.BackColor = System.Drawing.Color.DarkGray;
+            this.buttonNP5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNP5.ForeColor = System.Drawing.Color.Red;
+            this.buttonNP5.Location = new System.Drawing.Point(1086, 372);
+            this.buttonNP5.Name = "buttonNP5";
+            this.buttonNP5.Size = new System.Drawing.Size(88, 79);
+            this.buttonNP5.TabIndex = 132;
+            this.buttonNP5.TabStop = false;
+            this.buttonNP5.Text = "5";
+            this.buttonNP5.UseVisualStyleBackColor = false;
+            this.buttonNP5.Click += new System.EventHandler(this.buttonNP5_Click);
             // 
-            // button4
+            // buttonNP4
             // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.BackColor = System.Drawing.Color.DarkGray;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.Red;
-            this.button4.Location = new System.Drawing.Point(1175, 372);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(88, 79);
-            this.button4.TabIndex = 133;
-            this.button4.Text = "6";
-            this.button4.UseVisualStyleBackColor = false;
+            this.buttonNP4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonNP4.BackColor = System.Drawing.Color.DarkGray;
+            this.buttonNP4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNP4.ForeColor = System.Drawing.Color.Red;
+            this.buttonNP4.Location = new System.Drawing.Point(997, 372);
+            this.buttonNP4.Name = "buttonNP4";
+            this.buttonNP4.Size = new System.Drawing.Size(88, 79);
+            this.buttonNP4.TabIndex = 131;
+            this.buttonNP4.TabStop = false;
+            this.buttonNP4.Text = "4";
+            this.buttonNP4.UseVisualStyleBackColor = false;
+            this.buttonNP4.Click += new System.EventHandler(this.buttonNP4_Click);
             // 
-            // button5
+            // buttonNP3
             // 
-            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button5.BackColor = System.Drawing.Color.DarkGray;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.Red;
-            this.button5.Location = new System.Drawing.Point(1086, 372);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(88, 79);
-            this.button5.TabIndex = 132;
-            this.button5.Text = "5";
-            this.button5.UseVisualStyleBackColor = false;
+            this.buttonNP3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonNP3.BackColor = System.Drawing.Color.DarkGray;
+            this.buttonNP3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNP3.ForeColor = System.Drawing.Color.Red;
+            this.buttonNP3.Location = new System.Drawing.Point(1175, 455);
+            this.buttonNP3.Name = "buttonNP3";
+            this.buttonNP3.Size = new System.Drawing.Size(88, 79);
+            this.buttonNP3.TabIndex = 136;
+            this.buttonNP3.TabStop = false;
+            this.buttonNP3.Text = "3";
+            this.buttonNP3.UseVisualStyleBackColor = false;
+            this.buttonNP3.Click += new System.EventHandler(this.buttonNP3_Click);
             // 
-            // button6
+            // buttonNP2
             // 
-            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button6.BackColor = System.Drawing.Color.DarkGray;
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.Color.Red;
-            this.button6.Location = new System.Drawing.Point(997, 372);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(88, 79);
-            this.button6.TabIndex = 131;
-            this.button6.Text = "4";
-            this.button6.UseVisualStyleBackColor = false;
+            this.buttonNP2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonNP2.BackColor = System.Drawing.Color.DarkGray;
+            this.buttonNP2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNP2.ForeColor = System.Drawing.Color.Red;
+            this.buttonNP2.Location = new System.Drawing.Point(1086, 455);
+            this.buttonNP2.Name = "buttonNP2";
+            this.buttonNP2.Size = new System.Drawing.Size(88, 79);
+            this.buttonNP2.TabIndex = 135;
+            this.buttonNP2.TabStop = false;
+            this.buttonNP2.Text = "2";
+            this.buttonNP2.UseVisualStyleBackColor = false;
+            this.buttonNP2.Click += new System.EventHandler(this.buttonNP2_Click);
             // 
-            // button7
+            // buttonNP1
             // 
-            this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button7.BackColor = System.Drawing.Color.DarkGray;
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.Color.Red;
-            this.button7.Location = new System.Drawing.Point(1175, 455);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(88, 79);
-            this.button7.TabIndex = 136;
-            this.button7.Text = "3";
-            this.button7.UseVisualStyleBackColor = false;
+            this.buttonNP1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonNP1.BackColor = System.Drawing.Color.DarkGray;
+            this.buttonNP1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNP1.ForeColor = System.Drawing.Color.Red;
+            this.buttonNP1.Location = new System.Drawing.Point(997, 455);
+            this.buttonNP1.Name = "buttonNP1";
+            this.buttonNP1.Size = new System.Drawing.Size(88, 79);
+            this.buttonNP1.TabIndex = 134;
+            this.buttonNP1.TabStop = false;
+            this.buttonNP1.Text = "1";
+            this.buttonNP1.UseVisualStyleBackColor = false;
+            this.buttonNP1.Click += new System.EventHandler(this.buttonNP1_Click);
             // 
-            // button8
+            // buttonNP0
             // 
-            this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button8.BackColor = System.Drawing.Color.DarkGray;
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.Color.Red;
-            this.button8.Location = new System.Drawing.Point(1086, 455);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(88, 79);
-            this.button8.TabIndex = 135;
-            this.button8.Text = "2";
-            this.button8.UseVisualStyleBackColor = false;
+            this.buttonNP0.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonNP0.BackColor = System.Drawing.Color.DarkGray;
+            this.buttonNP0.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNP0.ForeColor = System.Drawing.Color.Red;
+            this.buttonNP0.Location = new System.Drawing.Point(997, 538);
+            this.buttonNP0.Name = "buttonNP0";
+            this.buttonNP0.Size = new System.Drawing.Size(88, 79);
+            this.buttonNP0.TabIndex = 137;
+            this.buttonNP0.TabStop = false;
+            this.buttonNP0.Text = "0";
+            this.buttonNP0.UseVisualStyleBackColor = false;
+            this.buttonNP0.Click += new System.EventHandler(this.buttonNP0_Click);
             // 
-            // button9
+            // buttonNPDot
             // 
-            this.button9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button9.BackColor = System.Drawing.Color.DarkGray;
-            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.ForeColor = System.Drawing.Color.Red;
-            this.button9.Location = new System.Drawing.Point(997, 455);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(88, 79);
-            this.button9.TabIndex = 134;
-            this.button9.Text = "1";
-            this.button9.UseVisualStyleBackColor = false;
+            this.buttonNPDot.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonNPDot.BackColor = System.Drawing.Color.DarkGray;
+            this.buttonNPDot.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNPDot.ForeColor = System.Drawing.Color.Red;
+            this.buttonNPDot.Location = new System.Drawing.Point(1086, 538);
+            this.buttonNPDot.Name = "buttonNPDot";
+            this.buttonNPDot.Size = new System.Drawing.Size(88, 79);
+            this.buttonNPDot.TabIndex = 138;
+            this.buttonNPDot.TabStop = false;
+            this.buttonNPDot.Text = ".";
+            this.buttonNPDot.UseVisualStyleBackColor = false;
+            this.buttonNPDot.Click += new System.EventHandler(this.buttonNPDot_Click);
             // 
-            // button10
+            // buttonNPEnter
             // 
-            this.button10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button10.BackColor = System.Drawing.Color.DarkGray;
-            this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button10.ForeColor = System.Drawing.Color.Red;
-            this.button10.Location = new System.Drawing.Point(997, 538);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(88, 79);
-            this.button10.TabIndex = 137;
-            this.button10.Text = "0";
-            this.button10.UseVisualStyleBackColor = false;
+            this.buttonNPEnter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonNPEnter.BackColor = System.Drawing.Color.LightCyan;
+            this.buttonNPEnter.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNPEnter.ForeColor = System.Drawing.Color.DarkGreen;
+            this.buttonNPEnter.Location = new System.Drawing.Point(1175, 538);
+            this.buttonNPEnter.Name = "buttonNPEnter";
+            this.buttonNPEnter.Size = new System.Drawing.Size(88, 79);
+            this.buttonNPEnter.TabIndex = 139;
+            this.buttonNPEnter.TabStop = false;
+            this.buttonNPEnter.Text = "Enter";
+            this.buttonNPEnter.UseVisualStyleBackColor = false;
             // 
-            // button11
+            // buttonNP00
             // 
-            this.button11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button11.BackColor = System.Drawing.Color.DarkGray;
-            this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button11.ForeColor = System.Drawing.Color.Red;
-            this.button11.Location = new System.Drawing.Point(1086, 538);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(88, 79);
-            this.button11.TabIndex = 138;
-            this.button11.Text = ".";
-            this.button11.UseVisualStyleBackColor = false;
+            this.buttonNP00.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonNP00.BackColor = System.Drawing.Color.DarkGray;
+            this.buttonNP00.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNP00.ForeColor = System.Drawing.Color.Red;
+            this.buttonNP00.Location = new System.Drawing.Point(906, 539);
+            this.buttonNP00.Name = "buttonNP00";
+            this.buttonNP00.Size = new System.Drawing.Size(88, 79);
+            this.buttonNP00.TabIndex = 143;
+            this.buttonNP00.TabStop = false;
+            this.buttonNP00.Text = "00";
+            this.buttonNP00.UseVisualStyleBackColor = false;
+            this.buttonNP00.Click += new System.EventHandler(this.buttonNP00_Click);
             // 
-            // button12
+            // buttonNPStar
             // 
-            this.button12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button12.BackColor = System.Drawing.Color.LightCyan;
-            this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button12.ForeColor = System.Drawing.Color.DarkGreen;
-            this.button12.Location = new System.Drawing.Point(1175, 538);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(88, 79);
-            this.button12.TabIndex = 139;
-            this.button12.Text = "Enter";
-            this.button12.UseVisualStyleBackColor = false;
+            this.buttonNPStar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonNPStar.BackColor = System.Drawing.Color.DarkGray;
+            this.buttonNPStar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNPStar.ForeColor = System.Drawing.Color.Red;
+            this.buttonNPStar.Location = new System.Drawing.Point(906, 456);
+            this.buttonNPStar.Name = "buttonNPStar";
+            this.buttonNPStar.Size = new System.Drawing.Size(88, 79);
+            this.buttonNPStar.TabIndex = 142;
+            this.buttonNPStar.TabStop = false;
+            this.buttonNPStar.Text = "*";
+            this.buttonNPStar.UseVisualStyleBackColor = false;
+            this.buttonNPStar.Click += new System.EventHandler(this.buttonNPStar_Click);
             // 
-            // button13
+            // buttonNPMinus
             // 
-            this.button13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button13.BackColor = System.Drawing.Color.DarkGray;
-            this.button13.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button13.ForeColor = System.Drawing.Color.Red;
-            this.button13.Location = new System.Drawing.Point(906, 539);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(88, 79);
-            this.button13.TabIndex = 143;
-            this.button13.Text = "00";
-            this.button13.UseVisualStyleBackColor = false;
-            // 
-            // button14
-            // 
-            this.button14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button14.BackColor = System.Drawing.Color.DarkGray;
-            this.button14.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button14.ForeColor = System.Drawing.Color.Red;
-            this.button14.Location = new System.Drawing.Point(906, 456);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(88, 79);
-            this.button14.TabIndex = 142;
-            this.button14.Text = "*";
-            this.button14.UseVisualStyleBackColor = false;
-            // 
-            // button15
-            // 
-            this.button15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button15.BackColor = System.Drawing.Color.DarkGray;
-            this.button15.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button15.ForeColor = System.Drawing.Color.Red;
-            this.button15.Location = new System.Drawing.Point(906, 373);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(88, 79);
-            this.button15.TabIndex = 141;
-            this.button15.Text = "-";
-            this.button15.UseVisualStyleBackColor = false;
+            this.buttonNPMinus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonNPMinus.BackColor = System.Drawing.Color.DarkGray;
+            this.buttonNPMinus.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNPMinus.ForeColor = System.Drawing.Color.Red;
+            this.buttonNPMinus.Location = new System.Drawing.Point(906, 373);
+            this.buttonNPMinus.Name = "buttonNPMinus";
+            this.buttonNPMinus.Size = new System.Drawing.Size(88, 79);
+            this.buttonNPMinus.TabIndex = 141;
+            this.buttonNPMinus.TabStop = false;
+            this.buttonNPMinus.Text = "-";
+            this.buttonNPMinus.UseVisualStyleBackColor = false;
+            this.buttonNPMinus.Click += new System.EventHandler(this.buttonNPMinus_Click);
             // 
             // button16
             // 
@@ -706,6 +637,7 @@
             this.button16.Name = "button16";
             this.button16.Size = new System.Drawing.Size(88, 79);
             this.button16.TabIndex = 140;
+            this.button16.TabStop = false;
             this.button16.Text = "Clear";
             this.button16.UseVisualStyleBackColor = false;
             // 
@@ -719,6 +651,7 @@
             this.button17.Name = "button17";
             this.button17.Size = new System.Drawing.Size(88, 79);
             this.button17.TabIndex = 147;
+            this.button17.TabStop = false;
             this.button17.Text = "Cancel";
             this.button17.UseVisualStyleBackColor = false;
             // 
@@ -732,6 +665,7 @@
             this.button18.Name = "button18";
             this.button18.Size = new System.Drawing.Size(88, 79);
             this.button18.TabIndex = 146;
+            this.button18.TabStop = false;
             this.button18.Text = "Open Drawer";
             this.button18.UseVisualStyleBackColor = false;
             // 
@@ -745,6 +679,7 @@
             this.button19.Name = "button19";
             this.button19.Size = new System.Drawing.Size(88, 79);
             this.button19.TabIndex = 145;
+            this.button19.TabStop = false;
             this.button19.Text = "Print";
             this.button19.UseVisualStyleBackColor = false;
             // 
@@ -758,6 +693,7 @@
             this.button20.Name = "button20";
             this.button20.Size = new System.Drawing.Size(88, 79);
             this.button20.TabIndex = 144;
+            this.button20.TabStop = false;
             this.button20.Text = "Recall";
             this.button20.UseVisualStyleBackColor = false;
             // 
@@ -771,6 +707,7 @@
             this.button21.Name = "button21";
             this.button21.Size = new System.Drawing.Size(88, 79);
             this.button21.TabIndex = 151;
+            this.button21.TabStop = false;
             this.button21.Text = "Voucher";
             this.button21.UseVisualStyleBackColor = false;
             // 
@@ -784,6 +721,7 @@
             this.button22.Name = "button22";
             this.button22.Size = new System.Drawing.Size(88, 79);
             this.button22.TabIndex = 150;
+            this.button22.TabStop = false;
             this.button22.Text = "Line Discount";
             this.button22.UseVisualStyleBackColor = false;
             // 
@@ -797,21 +735,24 @@
             this.button23.Name = "button23";
             this.button23.Size = new System.Drawing.Size(88, 79);
             this.button23.TabIndex = 149;
+            this.button23.TabStop = false;
             this.button23.Text = "Bill Close";
             this.button23.UseVisualStyleBackColor = false;
             // 
-            // button24
+            // buttonNPBack
             // 
-            this.button24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button24.BackColor = System.Drawing.Color.DarkGray;
-            this.button24.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button24.ForeColor = System.Drawing.Color.Red;
-            this.button24.Location = new System.Drawing.Point(907, 289);
-            this.button24.Name = "button24";
-            this.button24.Size = new System.Drawing.Size(88, 79);
-            this.button24.TabIndex = 148;
-            this.button24.Text = "Back";
-            this.button24.UseVisualStyleBackColor = false;
+            this.buttonNPBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonNPBack.BackColor = System.Drawing.Color.DarkGray;
+            this.buttonNPBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNPBack.ForeColor = System.Drawing.Color.Red;
+            this.buttonNPBack.Location = new System.Drawing.Point(907, 289);
+            this.buttonNPBack.Name = "buttonNPBack";
+            this.buttonNPBack.Size = new System.Drawing.Size(88, 79);
+            this.buttonNPBack.TabIndex = 148;
+            this.buttonNPBack.TabStop = false;
+            this.buttonNPBack.Text = "Back";
+            this.buttonNPBack.UseVisualStyleBackColor = false;
+            this.buttonNPBack.Click += new System.EventHandler(this.buttonNPBack_Click);
             // 
             // button26
             // 
@@ -823,6 +764,7 @@
             this.button26.Name = "button26";
             this.button26.Size = new System.Drawing.Size(88, 79);
             this.button26.TabIndex = 154;
+            this.button26.TabStop = false;
             this.button26.Text = "Net Discount";
             this.button26.UseVisualStyleBackColor = false;
             // 
@@ -836,6 +778,7 @@
             this.button27.Name = "button27";
             this.button27.Size = new System.Drawing.Size(88, 79);
             this.button27.TabIndex = 153;
+            this.button27.TabStop = false;
             this.button27.Text = "Line Discount Amount";
             this.button27.UseVisualStyleBackColor = false;
             // 
@@ -849,23 +792,24 @@
             this.button28.Name = "button28";
             this.button28.Size = new System.Drawing.Size(88, 79);
             this.button28.TabIndex = 152;
+            this.button28.TabStop = false;
             this.button28.Text = "Customer";
             this.button28.UseVisualStyleBackColor = false;
             // 
-            // textBox1
+            // textBoxtTlLineDiscount
             // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.textBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.Red;
-            this.textBox1.Location = new System.Drawing.Point(739, 331);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(159, 15);
-            this.textBox1.TabIndex = 160;
-            this.textBox1.TabStop = false;
+            this.textBoxtTlLineDiscount.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.textBoxtTlLineDiscount.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.textBoxtTlLineDiscount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxtTlLineDiscount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxtTlLineDiscount.ForeColor = System.Drawing.Color.Red;
+            this.textBoxtTlLineDiscount.Location = new System.Drawing.Point(739, 331);
+            this.textBoxtTlLineDiscount.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxtTlLineDiscount.Name = "textBoxtTlLineDiscount";
+            this.textBoxtTlLineDiscount.ReadOnly = true;
+            this.textBoxtTlLineDiscount.Size = new System.Drawing.Size(159, 15);
+            this.textBoxtTlLineDiscount.TabIndex = 160;
+            this.textBoxtTlLineDiscount.TabStop = false;
             // 
             // label4
             // 
@@ -880,20 +824,20 @@
             this.label4.TabIndex = 159;
             this.label4.Text = "Total Line Dis %";
             // 
-            // textBox2
+            // textBoxNetDiscountP
             // 
-            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.textBox2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.Color.Red;
-            this.textBox2.Location = new System.Drawing.Point(739, 299);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(159, 15);
-            this.textBox2.TabIndex = 158;
-            this.textBox2.TabStop = false;
+            this.textBoxNetDiscountP.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.textBoxNetDiscountP.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.textBoxNetDiscountP.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxNetDiscountP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxNetDiscountP.ForeColor = System.Drawing.Color.Red;
+            this.textBoxNetDiscountP.Location = new System.Drawing.Point(739, 299);
+            this.textBoxNetDiscountP.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxNetDiscountP.Name = "textBoxNetDiscountP";
+            this.textBoxNetDiscountP.ReadOnly = true;
+            this.textBoxNetDiscountP.Size = new System.Drawing.Size(159, 15);
+            this.textBoxNetDiscountP.TabIndex = 158;
+            this.textBoxNetDiscountP.TabStop = false;
             // 
             // label5
             // 
@@ -936,34 +880,6 @@
             this.label6.TabIndex = 155;
             this.label6.Text = "Total Line Dis Amount";
             // 
-            // textBox4
-            // 
-            this.textBox4.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.textBox4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.ForeColor = System.Drawing.Color.Red;
-            this.textBox4.Location = new System.Drawing.Point(739, 427);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(159, 15);
-            this.textBox4.TabIndex = 162;
-            this.textBox4.TabStop = false;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.DarkRed;
-            this.label2.Location = new System.Drawing.Point(575, 426);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 16);
-            this.label2.TabIndex = 161;
-            this.label2.Text = "Service";
-            // 
             // textBox5
             // 
             this.textBox5.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -971,7 +887,7 @@
             this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox5.ForeColor = System.Drawing.Color.Red;
-            this.textBox5.Location = new System.Drawing.Point(739, 486);
+            this.textBox5.Location = new System.Drawing.Point(739, 426);
             this.textBox5.Margin = new System.Windows.Forms.Padding(4);
             this.textBox5.Name = "textBox5";
             this.textBox5.ReadOnly = true;
@@ -985,7 +901,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.DarkRed;
-            this.label7.Location = new System.Drawing.Point(577, 485);
+            this.label7.Location = new System.Drawing.Point(577, 425);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(91, 16);
@@ -999,7 +915,7 @@
             this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox6.ForeColor = System.Drawing.Color.Red;
-            this.textBox6.Location = new System.Drawing.Point(739, 516);
+            this.textBox6.Location = new System.Drawing.Point(739, 456);
             this.textBox6.Margin = new System.Windows.Forms.Padding(4);
             this.textBox6.Name = "textBox6";
             this.textBox6.ReadOnly = true;
@@ -1013,34 +929,25 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.DarkRed;
-            this.label8.Location = new System.Drawing.Point(577, 515);
+            this.label8.Location = new System.Drawing.Point(577, 455);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(65, 16);
             this.label8.TabIndex = 165;
             this.label8.Text = "Balance";
             // 
-            // textBox7
+            // TxtPassword
             // 
-            this.textBox7.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox7.Location = new System.Drawing.Point(137, 340);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(177, 20);
-            this.textBox7.TabIndex = 170;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.comboBox1.DataSource = this.itemCatagoryBindingSource;
-            this.comboBox1.DisplayMember = "CATAGORY_NAME";
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(137, 310);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(177, 21);
-            this.comboBox1.TabIndex = 169;
-            this.comboBox1.TabStop = false;
-            this.comboBox1.ValueMember = "ITEMCAT_ID";
+            this.TxtPassword.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.TxtPassword.Location = new System.Drawing.Point(137, 340);
+            this.TxtPassword.Name = "TxtPassword";
+            this.TxtPassword.PasswordChar = '*';
+            this.TxtPassword.Size = new System.Drawing.Size(177, 20);
+            this.TxtPassword.TabIndex = 170;
+            this.TxtPassword.TabStop = false;
+            this.TxtPassword.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox7_TextChanged);
+            this.TxtPassword.TabIndexChanged += new System.EventHandler(this.textBox7_TextChanged);
+            this.TxtPassword.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
             // 
             // label9
             // 
@@ -1070,18 +977,110 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.groupBox1.Controls.Add(this.textBoxQuantity);
             this.groupBox1.Controls.Add(this.comboBoxCatID);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.button_update);
-            this.groupBox1.Controls.Add(this.textBoxBC);
+            this.groupBox1.Controls.Add(this.labelQuantity);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox1.Location = new System.Drawing.Point(20, 386);
+            this.groupBox1.Location = new System.Drawing.Point(19, 407);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(303, 191);
             this.groupBox1.TabIndex = 171;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add Items";
+            // 
+            // textBoxQuantity
+            // 
+            this.textBoxQuantity.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBoxQuantity.Location = new System.Drawing.Point(114, 70);
+            this.textBoxQuantity.Name = "textBoxQuantity";
+            this.textBoxQuantity.Size = new System.Drawing.Size(170, 20);
+            this.textBoxQuantity.TabIndex = 177;
+            this.textBoxQuantity.TabStop = false;
+            // 
+            // Hiddenlabel
+            // 
+            this.Hiddenlabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.Hiddenlabel.AutoSize = true;
+            this.Hiddenlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Hiddenlabel.Location = new System.Drawing.Point(379, 311);
+            this.Hiddenlabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Hiddenlabel.Name = "Hiddenlabel";
+            this.Hiddenlabel.Size = new System.Drawing.Size(77, 16);
+            this.Hiddenlabel.TabIndex = 172;
+            this.Hiddenlabel.Text = "User Name";
+            // 
+            // buttonNP7
+            // 
+            this.buttonNP7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonNP7.BackColor = System.Drawing.Color.DarkGray;
+            this.buttonNP7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNP7.ForeColor = System.Drawing.Color.Red;
+            this.buttonNP7.Location = new System.Drawing.Point(997, 289);
+            this.buttonNP7.Name = "buttonNP7";
+            this.buttonNP7.Size = new System.Drawing.Size(88, 79);
+            this.buttonNP7.TabIndex = 173;
+            this.buttonNP7.TabStop = false;
+            this.buttonNP7.Text = "7";
+            this.buttonNP7.UseVisualStyleBackColor = false;
+            this.buttonNP7.Click += new System.EventHandler(this.buttonNP7_Click);
+            // 
+            // labelCurrenty
+            // 
+            this.labelCurrenty.AutoSize = true;
+            this.labelCurrenty.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCurrenty.Location = new System.Drawing.Point(379, 352);
+            this.labelCurrenty.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelCurrenty.Name = "labelCurrenty";
+            this.labelCurrenty.Size = new System.Drawing.Size(17, 16);
+            this.labelCurrenty.TabIndex = 174;
+            this.labelCurrenty.Text = "Y";
+            // 
+            // labelCurrentx
+            // 
+            this.labelCurrentx.AutoSize = true;
+            this.labelCurrentx.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCurrentx.Location = new System.Drawing.Point(379, 332);
+            this.labelCurrentx.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelCurrentx.Name = "labelCurrentx";
+            this.labelCurrentx.Size = new System.Drawing.Size(16, 16);
+            this.labelCurrentx.TabIndex = 175;
+            this.labelCurrentx.Text = "X";
+            // 
+            // labelInGrid
+            // 
+            this.labelInGrid.AutoSize = true;
+            this.labelInGrid.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelInGrid.Location = new System.Drawing.Point(379, 373);
+            this.labelInGrid.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelInGrid.Name = "labelInGrid";
+            this.labelInGrid.Size = new System.Drawing.Size(43, 16);
+            this.labelInGrid.TabIndex = 176;
+            this.labelInGrid.Text = "InGrid";
+            // 
+            // TxtUserName
+            // 
+            this.TxtUserName.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.TxtUserName.Location = new System.Drawing.Point(137, 311);
+            this.TxtUserName.Name = "TxtUserName";
+            this.TxtUserName.Size = new System.Drawing.Size(177, 20);
+            this.TxtUserName.TabIndex = 177;
+            this.TxtUserName.TabStop = false;
+            // 
+            // buttonChangeLogin
+            // 
+            this.buttonChangeLogin.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.buttonChangeLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.buttonChangeLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonChangeLogin.Location = new System.Drawing.Point(203, 370);
+            this.buttonChangeLogin.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonChangeLogin.Name = "buttonChangeLogin";
+            this.buttonChangeLogin.Size = new System.Drawing.Size(111, 30);
+            this.buttonChangeLogin.TabIndex = 178;
+            this.buttonChangeLogin.Text = "Change Login";
+            this.buttonChangeLogin.UseVisualStyleBackColor = false;
+            this.buttonChangeLogin.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // Invoice
             // 
@@ -1090,20 +1089,24 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1285, 624);
             this.ControlBox = false;
+            this.Controls.Add(this.buttonChangeLogin);
+            this.Controls.Add(this.TxtUserName);
+            this.Controls.Add(this.labelInGrid);
+            this.Controls.Add(this.labelCurrentx);
+            this.Controls.Add(this.labelCurrenty);
+            this.Controls.Add(this.buttonNP7);
+            this.Controls.Add(this.Hiddenlabel);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.TxtPassword);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxtTlLineDiscount);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBoxNetDiscountP);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label6);
@@ -1113,37 +1116,31 @@
             this.Controls.Add(this.button21);
             this.Controls.Add(this.button22);
             this.Controls.Add(this.button23);
-            this.Controls.Add(this.button24);
+            this.Controls.Add(this.buttonNPBack);
             this.Controls.Add(this.button17);
             this.Controls.Add(this.button18);
             this.Controls.Add(this.button19);
             this.Controls.Add(this.button20);
-            this.Controls.Add(this.button13);
-            this.Controls.Add(this.button14);
-            this.Controls.Add(this.button15);
+            this.Controls.Add(this.buttonNP00);
+            this.Controls.Add(this.buttonNPStar);
+            this.Controls.Add(this.buttonNPMinus);
             this.Controls.Add(this.button16);
-            this.Controls.Add(this.button12);
-            this.Controls.Add(this.button11);
-            this.Controls.Add(this.button10);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonNPEnter);
+            this.Controls.Add(this.buttonNPDot);
+            this.Controls.Add(this.buttonNP0);
+            this.Controls.Add(this.buttonNP3);
+            this.Controls.Add(this.buttonNP2);
+            this.Controls.Add(this.buttonNP1);
+            this.Controls.Add(this.buttonNP6);
+            this.Controls.Add(this.buttonNP5);
+            this.Controls.Add(this.buttonNP4);
+            this.Controls.Add(this.buttonNP9);
+            this.Controls.Add(this.buttonNP8);
             this.Controls.Add(this.textBoxVendorName);
             this.Controls.Add(this.buttoncash);
-            this.Controls.Add(this.comboBoxunits);
             this.Controls.Add(this.textBoxbuy);
-            this.Controls.Add(this.textBoxTax);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.textBoxTotal);
             this.Controls.Add(this.labelTotal);
-            this.Controls.Add(this.labelQuantity);
-            this.Controls.Add(this.textBoxQuantity);
             this.Controls.Add(this.buttoncard);
             this.Controls.Add(this.button_cancel);
             this.Controls.Add(this.dataGridViewAll);
@@ -1172,18 +1169,14 @@
         private System.Windows.Forms.TextBox textBoxTotal;
         private System.Windows.Forms.Label labelTotal;
         private System.Windows.Forms.Label labelQuantity;
-        private System.Windows.Forms.TextBox textBoxQuantity;
         private System.Windows.Forms.Button buttoncard;
         private System.Windows.Forms.Button button_update;
         private System.Windows.Forms.Button button_cancel;
         private System.Windows.Forms.DataGridView dataGridViewAll;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label labelSellingCost;
         private System.Windows.Forms.TextBox textBoxSelling;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
-        private System.Windows.Forms.TextBox textBoxTax;
-        private System.Windows.Forms.Label label3;
         private POSDataSetVendorList pOSDataSetVendorList;
         private System.Windows.Forms.BindingSource venderDetailsBindingSource;
         private POSDataSetVendorListTableAdapters.Vender_DetailsTableAdapter vender_DetailsTableAdapter;
@@ -1192,35 +1185,22 @@
         private System.Windows.Forms.BindingSource itemCatagoryBindingSource;
         private POSDataSetItemCataagoryTableAdapters.Item_CatagoryTableAdapter item_CatagoryTableAdapter;
         private System.Windows.Forms.TextBox textBoxbuy;
-        private System.Windows.Forms.ComboBox comboBoxunits;
         private System.Windows.Forms.Button buttoncash;
         private System.Windows.Forms.TextBox textBoxVendorName;
-        private System.Windows.Forms.TextBox textBoxBC;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Catagory_Name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Unit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Unit_Price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BuyingCost;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Grid_Discount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Discount_Amout;
-        private System.Windows.Forms.DataGridViewImageColumn ColumnDelete;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Edit;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Button buttonNP8;
+        private System.Windows.Forms.Button buttonNP9;
+        private System.Windows.Forms.Button buttonNP6;
+        private System.Windows.Forms.Button buttonNP5;
+        private System.Windows.Forms.Button buttonNP4;
+        private System.Windows.Forms.Button buttonNP3;
+        private System.Windows.Forms.Button buttonNP2;
+        private System.Windows.Forms.Button buttonNP1;
+        private System.Windows.Forms.Button buttonNP0;
+        private System.Windows.Forms.Button buttonNPDot;
+        private System.Windows.Forms.Button buttonNPEnter;
+        private System.Windows.Forms.Button buttonNP00;
+        private System.Windows.Forms.Button buttonNPStar;
+        private System.Windows.Forms.Button buttonNPMinus;
         private System.Windows.Forms.Button button16;
         private System.Windows.Forms.Button button17;
         private System.Windows.Forms.Button button18;
@@ -1229,26 +1209,41 @@
         private System.Windows.Forms.Button button21;
         private System.Windows.Forms.Button button22;
         private System.Windows.Forms.Button button23;
-        private System.Windows.Forms.Button button24;
+        private System.Windows.Forms.Button buttonNPBack;
         private System.Windows.Forms.Button button26;
         private System.Windows.Forms.Button button27;
         private System.Windows.Forms.Button button28;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxtTlLineDiscount;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxNetDiscountP;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox TxtPassword;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label Hiddenlabel;
+        private System.Windows.Forms.Button buttonNP7;
+        private System.Windows.Forms.Label labelCurrenty;
+        private System.Windows.Forms.Label labelCurrentx;
+        private System.Windows.Forms.Label labelInGrid;
+        private System.Windows.Forms.TextBox textBoxQuantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnBarCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Catagory_Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnUnit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Unit_Price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Grid_Discount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Discount_Amout;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BuyingCost;
+        private System.Windows.Forms.DataGridViewImageColumn ColumnDelete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Edit;
+        private System.Windows.Forms.TextBox TxtUserName;
+        private System.Windows.Forms.Button buttonChangeLogin;
     }
 }
