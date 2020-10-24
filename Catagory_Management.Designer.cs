@@ -61,6 +61,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.comboBoxDiscountType = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.comboBoxBrand = new System.Windows.Forms.ComboBox();
+            this.buttonLoad = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.itemCatagoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetItemCataagoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetItemCataagory)).BeginInit();
@@ -69,7 +72,7 @@
             // button_cancel
             // 
             this.button_cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_cancel.Location = new System.Drawing.Point(15, 473);
+            this.button_cancel.Location = new System.Drawing.Point(15, 516);
             this.button_cancel.Margin = new System.Windows.Forms.Padding(4);
             this.button_cancel.Name = "button_cancel";
             this.button_cancel.Size = new System.Drawing.Size(88, 52);
@@ -81,7 +84,7 @@
             // textBoxNameUpdate
             // 
             this.textBoxNameUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNameUpdate.Location = new System.Drawing.Point(122, 168);
+            this.textBoxNameUpdate.Location = new System.Drawing.Point(122, 209);
             this.textBoxNameUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxNameUpdate.Name = "textBoxNameUpdate";
             this.textBoxNameUpdate.Size = new System.Drawing.Size(284, 22);
@@ -94,7 +97,7 @@
             this.comboBoxName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxName.FormattingEnabled = true;
-            this.comboBoxName.Location = new System.Drawing.Point(122, 129);
+            this.comboBoxName.Location = new System.Drawing.Point(122, 170);
             this.comboBoxName.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxName.Name = "comboBoxName";
             this.comboBoxName.Size = new System.Drawing.Size(284, 23);
@@ -145,7 +148,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(16, 135);
+            this.label1.Location = new System.Drawing.Point(16, 176);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(103, 16);
@@ -165,7 +168,7 @@
             // textBoxName
             // 
             this.textBoxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxName.Location = new System.Drawing.Point(122, 129);
+            this.textBoxName.Location = new System.Drawing.Point(122, 170);
             this.textBoxName.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(284, 22);
@@ -174,7 +177,7 @@
             // textBoxBuying
             // 
             this.textBoxBuying.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxBuying.Location = new System.Drawing.Point(122, 286);
+            this.textBoxBuying.Location = new System.Drawing.Point(122, 327);
             this.textBoxBuying.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxBuying.Name = "textBoxBuying";
             this.textBoxBuying.Size = new System.Drawing.Size(108, 22);
@@ -184,7 +187,7 @@
             // textBoxSelling
             // 
             this.textBoxSelling.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSelling.Location = new System.Drawing.Point(122, 323);
+            this.textBoxSelling.Location = new System.Drawing.Point(122, 364);
             this.textBoxSelling.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxSelling.Name = "textBoxSelling";
             this.textBoxSelling.Size = new System.Drawing.Size(108, 22);
@@ -195,7 +198,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(16, 329);
+            this.label3.Location = new System.Drawing.Point(16, 370);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(79, 16);
@@ -206,7 +209,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(16, 292);
+            this.label4.Location = new System.Drawing.Point(16, 333);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(79, 16);
@@ -219,7 +222,7 @@
             this.checkBoxActive.Checked = true;
             this.checkBoxActive.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxActive.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxActive.Location = new System.Drawing.Point(122, 439);
+            this.checkBoxActive.Location = new System.Drawing.Point(122, 480);
             this.checkBoxActive.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxActive.Name = "checkBoxActive";
             this.checkBoxActive.Size = new System.Drawing.Size(15, 14);
@@ -230,7 +233,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(16, 439);
+            this.label5.Location = new System.Drawing.Point(16, 477);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(45, 16);
@@ -240,7 +243,7 @@
             // buttonsave
             // 
             this.buttonsave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonsave.Location = new System.Drawing.Point(721, 473);
+            this.buttonsave.Location = new System.Drawing.Point(721, 516);
             this.buttonsave.Margin = new System.Windows.Forms.Padding(4);
             this.buttonsave.Name = "buttonsave";
             this.buttonsave.Size = new System.Drawing.Size(88, 52);
@@ -252,7 +255,7 @@
             // button_update
             // 
             this.button_update.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_update.Location = new System.Drawing.Point(721, 473);
+            this.button_update.Location = new System.Drawing.Point(721, 516);
             this.button_update.Margin = new System.Windows.Forms.Padding(4);
             this.button_update.Name = "button_update";
             this.button_update.Size = new System.Drawing.Size(88, 52);
@@ -264,10 +267,10 @@
             // textBoxBarcode
             // 
             this.textBoxBarcode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxBarcode.Location = new System.Drawing.Point(122, 207);
+            this.textBoxBarcode.Location = new System.Drawing.Point(122, 248);
             this.textBoxBarcode.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxBarcode.Name = "textBoxBarcode";
-            this.textBoxBarcode.Size = new System.Drawing.Size(284, 22);
+            this.textBoxBarcode.Size = new System.Drawing.Size(225, 22);
             this.textBoxBarcode.TabIndex = 4;
             // 
             // label6
@@ -285,7 +288,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(24, 175);
+            this.label8.Location = new System.Drawing.Point(24, 184);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(0, 16);
@@ -304,12 +307,13 @@
             this.comboBoxItemList.Size = new System.Drawing.Size(284, 23);
             this.comboBoxItemList.TabIndex = 1;
             this.comboBoxItemList.ValueMember = "ITEMCAT_ID";
+            this.comboBoxItemList.SelectedIndexChanged += new System.EventHandler(this.comboBoxItemList_SelectedIndexChanged);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(16, 92);
+            this.label9.Location = new System.Drawing.Point(16, 97);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(73, 16);
@@ -320,7 +324,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(16, 213);
+            this.label10.Location = new System.Drawing.Point(16, 254);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(81, 16);
@@ -331,7 +335,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(16, 253);
+            this.label11.Location = new System.Drawing.Point(17, 290);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(31, 16);
@@ -348,7 +352,7 @@
             "Kg",
             "L",
             "Units"});
-            this.comboBoxunits.Location = new System.Drawing.Point(122, 246);
+            this.comboBoxunits.Location = new System.Drawing.Point(122, 287);
             this.comboBoxunits.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxunits.Name = "comboBoxunits";
             this.comboBoxunits.Size = new System.Drawing.Size(108, 23);
@@ -362,7 +366,7 @@
             // textBoxDiscount
             // 
             this.textBoxDiscount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDiscount.Location = new System.Drawing.Point(122, 363);
+            this.textBoxDiscount.Location = new System.Drawing.Point(122, 404);
             this.textBoxDiscount.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxDiscount.Name = "textBoxDiscount";
             this.textBoxDiscount.Size = new System.Drawing.Size(108, 22);
@@ -372,7 +376,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(16, 366);
+            this.label7.Location = new System.Drawing.Point(16, 407);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(62, 16);
@@ -387,7 +391,7 @@
             this.comboBoxDiscountType.Items.AddRange(new object[] {
             "PR",
             "AMNT"});
-            this.comboBoxDiscountType.Location = new System.Drawing.Point(122, 399);
+            this.comboBoxDiscountType.Location = new System.Drawing.Point(122, 440);
             this.comboBoxDiscountType.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxDiscountType.Name = "comboBoxDiscountType";
             this.comboBoxDiscountType.Size = new System.Drawing.Size(108, 23);
@@ -397,20 +401,57 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(16, 406);
+            this.label12.Location = new System.Drawing.Point(16, 447);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(97, 16);
             this.label12.TabIndex = 71;
             this.label12.Text = "DisCount Type";
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(16, 135);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(44, 16);
+            this.label13.TabIndex = 73;
+            this.label13.Text = "Brand";
+            // 
+            // comboBoxBrand
+            // 
+            this.comboBoxBrand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxBrand.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxBrand.FormattingEnabled = true;
+            this.comboBoxBrand.Location = new System.Drawing.Point(122, 130);
+            this.comboBoxBrand.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxBrand.Name = "comboBoxBrand";
+            this.comboBoxBrand.Size = new System.Drawing.Size(284, 23);
+            this.comboBoxBrand.TabIndex = 72;
+            // 
+            // buttonLoad
+            // 
+            this.buttonLoad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLoad.Location = new System.Drawing.Point(355, 248);
+            this.buttonLoad.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonLoad.Name = "buttonLoad";
+            this.buttonLoad.Size = new System.Drawing.Size(51, 22);
+            this.buttonLoad.TabIndex = 74;
+            this.buttonLoad.Text = "Load";
+            this.buttonLoad.UseVisualStyleBackColor = true;
+            this.buttonLoad.Click += new System.EventHandler(this.textBoxBarcode_TextChanged);
+            // 
             // Catagory_Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(830, 538);
+            this.ClientSize = new System.Drawing.Size(830, 579);
             this.ControlBox = false;
+            this.Controls.Add(this.buttonLoad);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.comboBoxBrand);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.comboBoxDiscountType);
             this.Controls.Add(this.label7);
@@ -483,5 +524,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox comboBoxDiscountType;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ComboBox comboBoxBrand;
+        private System.Windows.Forms.Button buttonLoad;
     }
 }

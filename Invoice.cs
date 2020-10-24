@@ -69,13 +69,13 @@ namespace POS
                         String DiscountCol = "";
                     String CategoryName = "";
                     String Unit = "";
-                    Double UnitPrice = 0;
-                    Double DiscountAmnt1 = 0;
-                        sdrsec.Read();
+                    Decimal UnitPrice = 0.0m;
+                    Decimal DiscountAmnt1 = 0.0m;
+                    sdrsec.Read();
                         CategoryName = sdrsec.GetString(1).Trim();
                         Unit = sdrsec.GetString(3).Trim();
-                        UnitPrice = sdrsec.GetDouble(5);
-                        Double DiscountAmount = sdrsec.GetDouble(8);
+                        UnitPrice = sdrsec.GetDecimal(5);
+                        Decimal DiscountAmount = sdrsec.GetDecimal(8);
                         String DiscountType = sdrsec.GetString(9).ToString().Trim();
                         if (DiscountType.Equals("AMNT"))
                         {
@@ -85,9 +85,9 @@ namespace POS
                         if (DiscountType.Equals("PR"))
                         {
                             DiscountCol = DiscountAmount + "%";
-                            DiscountAmnt1 = (sdrsec.GetDouble(5) * DiscountAmount / 100);
+                            DiscountAmnt1 = (sdrsec.GetDecimal(5) * DiscountAmount / 100);
                         }
-                    dataGridViewAll.Rows.Add("N/A", CategoryName, Unit, UnitPrice, DiscountCol, DiscountAmnt1.ToString(),textBoxQuantity.Text, ((UnitPrice-DiscountAmnt1) * double.Parse(textBoxQuantity.Text)).ToString());
+                    dataGridViewAll.Rows.Add("N/A", CategoryName, Unit, UnitPrice, DiscountCol, DiscountAmnt1.ToString(),textBoxQuantity.Text, ((UnitPrice-DiscountAmnt1) * decimal.Parse(textBoxQuantity.Text)).ToString());
                 }
                     catch { }
                
@@ -275,12 +275,12 @@ namespace POS
                     try
                     {
                         String DiscountCol = "";
-                        Double DiscountAmnt1 = 0;
+                        Decimal DiscountAmnt1 = 0;
                         sdrsec.Read();
                         celCN.Value = sdrsec.GetString(1);
                         celU.Value = sdrsec.GetString(3);
-                        celUP.Value = sdrsec.GetDouble(5).ToString().Trim();
-                        Double DiscountAmount = sdrsec.GetDouble(7);
+                        celUP.Value = sdrsec.GetDecimal(5).ToString().Trim();
+                        Decimal DiscountAmount = sdrsec.GetDecimal(7);
                         String DiscountType = sdrsec.GetString(8).ToString().Trim();
                         if (DiscountType.Equals("AMNT"))
                         {
@@ -290,7 +290,7 @@ namespace POS
                         if (DiscountType.Equals("PR"))
                         {
                             DiscountCol = DiscountAmount + "%";
-                            DiscountAmnt1 = (sdrsec.GetDouble(5) * DiscountAmount / 100);
+                            DiscountAmnt1 = (sdrsec.GetDecimal(5) * DiscountAmount / 100);
                         }
 
                         celD.Value = DiscountCol;

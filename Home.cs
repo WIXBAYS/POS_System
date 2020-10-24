@@ -152,6 +152,11 @@ namespace POS
             grn.ShowDialog(this);
         }
 
+        private void DiscountType1MenuItem_Click(object sender, EventArgs e)
+        {
+            Discount_Type1 dis1 = new Discount_Type1();
+            dis1.ShowDialog(this);
+        }
         private void invoiceToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //Invoice invoi = new Invoice();

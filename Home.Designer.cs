@@ -39,12 +39,14 @@
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stockReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dailySalesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gRNReprtsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.gRNReprtsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -61,6 +63,7 @@
             this.gRNToolStripMenuItem,
             this.invoiceToolStripMenuItem,
             this.reportsToolStripMenuItem,
+            this.toolStripMenuItem1,
             this.helpMenu});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
@@ -126,16 +129,23 @@
             // stockReportToolStripMenuItem
             // 
             this.stockReportToolStripMenuItem.Name = "stockReportToolStripMenuItem";
-            this.stockReportToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.stockReportToolStripMenuItem.Size = new System.Drawing.Size(156, 24);
             this.stockReportToolStripMenuItem.Text = "Stock Report";
             this.stockReportToolStripMenuItem.Click += new System.EventHandler(this.stockReportToolStripMenuItem_Click);
             // 
             // dailySalesToolStripMenuItem
             // 
             this.dailySalesToolStripMenuItem.Name = "dailySalesToolStripMenuItem";
-            this.dailySalesToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.dailySalesToolStripMenuItem.Size = new System.Drawing.Size(156, 24);
             this.dailySalesToolStripMenuItem.Text = "Daily Sales";
             this.dailySalesToolStripMenuItem.Click += new System.EventHandler(this.dailySalesToolStripMenuItem_Click);
+            // 
+            // gRNReprtsToolStripMenuItem
+            // 
+            this.gRNReprtsToolStripMenuItem.Name = "gRNReprtsToolStripMenuItem";
+            this.gRNReprtsToolStripMenuItem.Size = new System.Drawing.Size(156, 24);
+            this.gRNReprtsToolStripMenuItem.Text = "GRN Reprts";
+            this.gRNReprtsToolStripMenuItem.Click += new System.EventHandler(this.gRNReprtsToolStripMenuItem_Click);
             // 
             // helpMenu
             // 
@@ -143,14 +153,14 @@
             this.toolStripSeparator8});
             this.helpMenu.Font = new System.Drawing.Font("Segoe UI", 9.3F);
             this.helpMenu.Name = "helpMenu";
-            this.helpMenu.Size = new System.Drawing.Size(61, 23);
-            this.helpMenu.Text = "Logout";
-            this.helpMenu.Click += new System.EventHandler(this.helpMenu_Click);
+            this.helpMenu.Size = new System.Drawing.Size(77, 23);
+            this.helpMenu.Text = "Discount1";
+            this.helpMenu.Click += new System.EventHandler(this.DiscountType1MenuItem_Click);
             // 
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(57, 6);
+            this.toolStripSeparator8.Size = new System.Drawing.Size(177, 6);
             // 
             // statusStrip
             // 
@@ -168,12 +178,19 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
-            // gRNReprtsToolStripMenuItem
+            // toolStripMenuItem1
             // 
-            this.gRNReprtsToolStripMenuItem.Name = "gRNReprtsToolStripMenuItem";
-            this.gRNReprtsToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
-            this.gRNReprtsToolStripMenuItem.Text = "GRN Reprts";
-            this.gRNReprtsToolStripMenuItem.Click += new System.EventHandler(this.gRNReprtsToolStripMenuItem_Click);
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSeparator1});
+            this.toolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI", 9.3F);
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(61, 23);
+            this.toolStripMenuItem1.Text = "Logout";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // Home
             // 
@@ -216,6 +233,8 @@
         private System.Windows.Forms.ToolStripMenuItem stockReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dailySalesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gRNReprtsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }
 

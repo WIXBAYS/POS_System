@@ -70,11 +70,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Brand.cs" />
     <Compile Include="Daily_Sales.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Daily_Sales.Designer.cs">
       <DependentUpon>Daily_Sales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Discounts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Discounts.Designer.cs">
+      <DependentUpon>Discounts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Discount_Type1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Discount_Type1.Designer.cs">
+      <DependentUpon>Discount_Type1.cs</DependentUpon>
     </Compile>
     <Compile Include="GRN_Report.cs">
       <SubType>Form</SubType>
@@ -217,6 +230,12 @@
     </Compile>
     <EmbeddedResource Include="Daily_Sales.resx">
       <DependentUpon>Daily_Sales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Discounts.resx">
+      <DependentUpon>Discounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Discount_Type1.resx">
+      <DependentUpon>Discount_Type1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GRN_Report.resx">
       <DependentUpon>GRN_Report.cs</DependentUpon>
