@@ -71,6 +71,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Brand.cs" />
+    <Compile Include="BrandRegistration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BrandRegistration.Designer.cs">
+      <DependentUpon>BrandRegistration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Daily_Sales.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +139,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>POSDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="POSDataSetBrandData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>POSDataSetBrandData.xsd</DependentUpon>
     </Compile>
     <Compile Include="POSDataSetGRN_ID_List.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -228,6 +239,9 @@
     <Compile Include="Vendor_Management.Designer.cs">
       <DependentUpon>Vendor_Management.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BrandRegistration.resx">
+      <DependentUpon>BrandRegistration.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Daily_Sales.resx">
       <DependentUpon>Daily_Sales.cs</DependentUpon>
     </EmbeddedResource>
@@ -313,6 +327,17 @@
     </None>
     <None Include="POSDataSet2.xss">
       <DependentUpon>POSDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="POSDataSetBrandData.xsc">
+      <DependentUpon>POSDataSetBrandData.xsd</DependentUpon>
+    </None>
+    <None Include="POSDataSetBrandData.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>POSDataSetBrandData.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="POSDataSetBrandData.xss">
+      <DependentUpon>POSDataSetBrandData.xsd</DependentUpon>
     </None>
     <None Include="POSDataSetGRN_ID_List.xsc">
       <DependentUpon>POSDataSetGRN_ID_List.xsd</DependentUpon>

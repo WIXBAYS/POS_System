@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="POSDataSetBrandData" targetNamespace="http://tempuri.org/POSDataSetBrandData.xsd" xmlns:mstns="http://tempuri.org/POSDataSetBrandData.xsd" xmlns="http://tempuri.org/POSDataSetBrandData.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="POSConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="POSConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.POS.Properties.Settings.GlobalReference.Default.POSConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="BrandTableAdapter" GeneratorDataComponentClassName="BrandTableAdapter" Name="Brand" UserDataComponentName="BrandTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="POSConnectionString (Settings)" DbObjectName="POS.dbo.Brand" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT BRAND_ID, BRAND_NAME FROM dbo.Brand</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="BRAND_ID" DataSetColumn="BRAND_ID" />
+              <Mapping SourceColumn="BRAND_NAME" DataSetColumn="BRAND_NAME" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="POSDataSetBrandData" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="POSDataSetBrandData" msprop:Generator_UserDSName="POSDataSetBrandData">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Brand" msprop:Generator_TableClassName="BrandDataTable" msprop:Generator_TableVarName="tableBrand" msprop:Generator_TablePropName="Brand" msprop:Generator_RowDeletingName="BrandRowDeleting" msprop:Generator_RowChangingName="BrandRowChanging" msprop:Generator_RowEvHandlerName="BrandRowChangeEventHandler" msprop:Generator_RowDeletedName="BrandRowDeleted" msprop:Generator_UserTableName="Brand" msprop:Generator_RowChangedName="BrandRowChanged" msprop:Generator_RowEvArgName="BrandRowChangeEvent" msprop:Generator_RowClassName="BrandRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="BRAND_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnBRAND_ID" msprop:Generator_ColumnPropNameInRow="BRAND_ID" msprop:Generator_ColumnPropNameInTable="BRAND_IDColumn" msprop:Generator_UserColumnName="BRAND_ID" type="xs:int" />
+              <xs:element name="BRAND_NAME" msprop:Generator_ColumnVarNameInTable="columnBRAND_NAME" msprop:Generator_ColumnPropNameInRow="BRAND_NAME" msprop:Generator_ColumnPropNameInTable="BRAND_NAMEColumn" msprop:Generator_UserColumnName="BRAND_NAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

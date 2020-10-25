@@ -72,6 +72,7 @@
             this.textBoxNameUpdate.Name = "textBoxNameUpdate";
             this.textBoxNameUpdate.Size = new System.Drawing.Size(284, 15);
             this.textBoxNameUpdate.TabIndex = 3;
+            this.textBoxNameUpdate.TextChanged += new System.EventHandler(this.textBoxNameUpdate_TextChanged);
             // 
             // comboBoxName
             // 
@@ -122,6 +123,7 @@
             this.label4.Size = new System.Drawing.Size(45, 16);
             this.label4.TabIndex = 33;
             this.label4.Text = "Active";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label2
             // 
@@ -133,6 +135,7 @@
             this.label2.Size = new System.Drawing.Size(76, 16);
             this.label2.TabIndex = 34;
             this.label2.Text = "Description";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -144,6 +147,7 @@
             this.label1.Size = new System.Drawing.Size(73, 16);
             this.label1.TabIndex = 35;
             this.label1.Text = "Item Name";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // textBoxName
             // 
@@ -153,6 +157,7 @@
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(284, 22);
             this.textBoxName.TabIndex = 36;
+            this.textBoxName.TextChanged += new System.EventHandler(this.textBoxName_TextChanged);
             // 
             // button_update
             // 
@@ -191,6 +196,7 @@
             this.checkBoxActive.Size = new System.Drawing.Size(12, 11);
             this.checkBoxActive.TabIndex = 5;
             this.checkBoxActive.UseVisualStyleBackColor = true;
+
             // 
             // textBoxLineDiscription
             // 
@@ -202,6 +208,7 @@
             this.textBoxLineDiscription.Name = "textBoxLineDiscription";
             this.textBoxLineDiscription.Size = new System.Drawing.Size(284, 109);
             this.textBoxLineDiscription.TabIndex = 4;
+            this.textBoxLineDiscription.TextChanged += new System.EventHandler(this.textBoxLineDiscription_TextChanged);
             // 
             // label3
             // 
@@ -213,6 +220,7 @@
             this.label3.Size = new System.Drawing.Size(190, 25);
             this.label3.TabIndex = 45;
             this.label3.Text = "Manage Item Details";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // itemsTableAdapter
             // 

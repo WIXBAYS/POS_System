@@ -188,5 +188,18 @@ namespace POS
             GRN_Report GRN_Report = new GRN_Report(0);
             GRN_Report.ShowDialog(this);
         }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Login lg = new Login();
+            lg.Show();
+            this.Dispose();
+        }
+
+        private void brandToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BrandRegistration brandwin = new BrandRegistration();
+            brandwin.ShowDialog(this);
+        }
     }
 }
