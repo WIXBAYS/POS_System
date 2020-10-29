@@ -63,10 +63,15 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.comboBoxBrand = new System.Windows.Forms.ComboBox();
+            this.brandBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pOSDataSetBrand = new POS.POSDataSetBrand();
             this.buttonLoad = new System.Windows.Forms.Button();
+            this.brandTableAdapter = new POS.POSDataSetBrandTableAdapters.BrandTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.itemCatagoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetItemCataagoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetItemCataagory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.brandBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetBrand)).BeginInit();
             this.SuspendLayout();
             // 
             // button_cancel
@@ -307,7 +312,6 @@
             this.comboBoxItemList.Size = new System.Drawing.Size(284, 23);
             this.comboBoxItemList.TabIndex = 1;
             this.comboBoxItemList.ValueMember = "ITEMCAT_ID";
-            this.comboBoxItemList.SelectedIndexChanged += new System.EventHandler(this.comboBoxItemList_SelectedIndexChanged);
             // 
             // label9
             // 
@@ -421,6 +425,8 @@
             // 
             // comboBoxBrand
             // 
+            this.comboBoxBrand.DataSource = this.brandBindingSource;
+            this.comboBoxBrand.DisplayMember = "BRAND_NAME";
             this.comboBoxBrand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxBrand.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxBrand.FormattingEnabled = true;
@@ -429,6 +435,17 @@
             this.comboBoxBrand.Name = "comboBoxBrand";
             this.comboBoxBrand.Size = new System.Drawing.Size(284, 23);
             this.comboBoxBrand.TabIndex = 72;
+            this.comboBoxBrand.ValueMember = "BRAND_ID";
+            // 
+            // brandBindingSource
+            // 
+            this.brandBindingSource.DataMember = "Brand";
+            this.brandBindingSource.DataSource = this.pOSDataSetBrand;
+            // 
+            // pOSDataSetBrand
+            // 
+            this.pOSDataSetBrand.DataSetName = "POSDataSetBrand";
+            this.pOSDataSetBrand.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // buttonLoad
             // 
@@ -441,6 +458,10 @@
             this.buttonLoad.Text = "Load";
             this.buttonLoad.UseVisualStyleBackColor = true;
             this.buttonLoad.Click += new System.EventHandler(this.textBoxBarcode_TextChanged);
+            // 
+            // brandTableAdapter
+            // 
+            this.brandTableAdapter.ClearBeforeFill = true;
             // 
             // Catagory_Management
             // 
@@ -486,6 +507,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.itemCatagoryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetItemCataagoryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetItemCataagory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.brandBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetBrand)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -527,5 +550,8 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox comboBoxBrand;
         private System.Windows.Forms.Button buttonLoad;
+        private POSDataSetBrand pOSDataSetBrand;
+        private System.Windows.Forms.BindingSource brandBindingSource;
+        private POSDataSetBrandTableAdapters.BrandTableAdapter brandTableAdapter;
     }
 }

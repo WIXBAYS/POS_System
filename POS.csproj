@@ -140,6 +140,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>POSDataSet2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="POSDataSetBrand1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>POSDataSetBrand1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="POSDataSetBrandData.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -327,6 +332,17 @@
     </None>
     <None Include="POSDataSet2.xss">
       <DependentUpon>POSDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="POSDataSetBrand1.xsc">
+      <DependentUpon>POSDataSetBrand1.xsd</DependentUpon>
+    </None>
+    <None Include="POSDataSetBrand1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>POSDataSetBrand1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="POSDataSetBrand1.xss">
+      <DependentUpon>POSDataSetBrand1.xsd</DependentUpon>
     </None>
     <None Include="POSDataSetBrandData.xsc">
       <DependentUpon>POSDataSetBrandData.xsd</DependentUpon>

@@ -250,6 +250,8 @@ namespace POS
                     textBoxTotal.Text = sum.ToString();
                     textBoxNetDiscountP.Text = Math.Round((netdiscountp / sum), 2).ToString();
                     textBoxtTlLineDiscount.Text = Math.Round((netdiscountp / sum), 2).ToString();
+                    System.Windows.Forms.SendKeys.Send("{TAB}");
+                    System.Windows.Forms.SendKeys.Send("{TAB}");
                 }
                 else
                 {
@@ -266,6 +268,16 @@ namespace POS
                 DataGridViewTextBoxCell celCN = (DataGridViewTextBoxCell)dataGridViewAll.Rows[currentcell.Y].Cells[1];
                 DataGridViewTextBoxCell celD = (DataGridViewTextBoxCell)dataGridViewAll.Rows[currentcell.Y].Cells[4];
                 DataGridViewTextBoxCell celDA = (DataGridViewTextBoxCell)dataGridViewAll.Rows[currentcell.Y].Cells[5];
+                DataGridViewImageCell celCancel = (DataGridViewImageCell)dataGridViewAll.Rows[currentcell.Y].Cells[8];
+                
+                celCancel.Value= Image.FromFile(System.IO.Path.Combine(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "CancelBtn.png"));
+
+                System.Windows.Forms.SendKeys.Send("{TAB}");
+                System.Windows.Forms.SendKeys.Send("{TAB}");
+                System.Windows.Forms.SendKeys.Send("{TAB}");
+                System.Windows.Forms.SendKeys.Send("{TAB}");
+                System.Windows.Forms.SendKeys.Send("{TAB}");
+
                 string BarCode = Convert.ToString(dataGridViewAll.Rows[currentcell.Y].Cells[0].Value);
 
 

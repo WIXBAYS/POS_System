@@ -46,8 +46,7 @@ namespace POS
                         textBoxBuying.Text= sqd.GetDecimal(4).ToString();
                         textBoxSelling.Text = sqd.GetDecimal(5).ToString();
                         checkBoxActive.Checked = sqd.GetBoolean(6);
-                        comboBoxItemList.SelectedIndex = comboBoxItemList.FindString(sqd.GetString(7));
-                        comboBoxItemList_SelectedIndexChanged(null, null);
+                        comboBoxItemList.SelectedIndex = comboBoxItemList.FindString(sqd.GetString(7).Trim());
 
 
                         textBoxDiscount.Text = sqd.GetDecimal(8).ToString();
@@ -85,6 +84,7 @@ namespace POS
                 String Discription = textBoxLineDiscription.Text;
                 Decimal Discount = decimal.Parse(textBoxDiscount.Text);
                 String DiscountType = comboBoxDiscountType.SelectedItem.ToString();
+                String ItemID = comboBoxItemList.SelectedValue.ToString();
 
                 SqlDataReader sdr = item.GetMaxCatID();
                 int cat_id = 0;
@@ -103,7 +103,7 @@ namespace POS
                     }
                 }
 
-                int x = item.insertItemCatagory(TextcatName, BrandID, Barcode,Unit,buying,Selling,Discription,CheckedStatus, Discount, DiscountType);
+                int x = item.insertItemCatagory(TextcatName, BrandID, Barcode,Unit,buying,Selling,Discription,CheckedStatus, Discount, DiscountType, ItemID);
                 int y = item.insertStockBalanceDefault(cat_id+1 ,0);
 
                 if (x > 0 &&  y>0)
@@ -136,6 +136,7 @@ namespace POS
             {
                 String TextcatName = textBoxNameUpdate.Text;
                 String BrandID = comboBoxBrand.SelectedValue.ToString();
+                String ItemID = comboBoxItemList.SelectedValue.ToString();
                 String Barcode = textBoxBarcode.Text;
                 String Unit = comboBoxunits.SelectedItem.ToString();
                 Decimal Selling = decimal.Parse(textBoxSelling.Text);
@@ -149,7 +150,7 @@ namespace POS
 
 
                 Item item = new Item();
-                int x = item.updateItemCatagory(TextcatName, BrandID, Barcode,Unit,buying,Selling,Discription,CheckedStatus,Catagory_ID, Discount, DiscountType);
+                int x = item.updateItemCatagory(TextcatName, BrandID, Barcode,Unit,buying,Selling,Discription,CheckedStatus,Catagory_ID, Discount, DiscountType, ItemID);
 
                 if (x > 0)
                 {
@@ -176,6 +177,8 @@ namespace POS
 
         private void Catagory_Management_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'pOSDataSetBrand.Brand' table. You can move, or remove it, as needed.
+            this.brandTableAdapter.Fill(this.pOSDataSetBrand.Brand);
             // TODO: This line of code loads data into the 'pOSDataSetItemCataagory.Item_Catagory' table. You can move, or remove it, as needed.
             this.item_CatagoryTableAdapter.Fill(this.pOSDataSetItemCataagory.Item_Catagory);
 
@@ -329,37 +332,7 @@ namespace POS
                 e.Handled = true;
         }
 
-        private void comboBoxItemList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            List<KeyValuePair<string, string>> data = new List<KeyValuePair<string, string>>();
-            SqlDataReader sdr = new Brand().GetBrandDetails(comboBoxItemList.SelectedValue.ToString());
-            try
-            {
-                comboBoxBrand.DataSource = null;
-                comboBoxBrand.Items.Clear();
-                
-            }
-            catch { }
-            if (sdr != null)
-            {
-                while (sdr.Read())
-                {
-                    data.Add(new KeyValuePair<string, string>(sdr.GetInt32(0).ToString().Trim(), sdr.GetString(1).Trim()));
-                }
-                sdr.Dispose(); sdr.Close();
-                // Clear the combobox
-                
-                
-
-                // Bind the combobox
-                comboBoxBrand.DataSource = new BindingSource(data, null);
-                comboBoxBrand.DisplayMember = "Value";
-                comboBoxBrand.ValueMember = "Key";
-                sdr.Dispose();
-                sdr.Close();
-            }
-        }
-
+        
         private void textBoxBarcode_TextChanged(object sender, EventArgs e)
         {
             try
@@ -383,7 +356,6 @@ namespace POS
                             textBoxSelling.Text = sqd.GetDecimal(5).ToString();
                             checkBoxActive.Checked = sqd.GetBoolean(6);
                             comboBoxItemList.SelectedIndex = comboBoxItemList.FindString(sqd.GetString(7));
-                            comboBoxItemList_SelectedIndexChanged(null, null);
                             comboBoxName.SelectedIndex = comboBoxName.FindString(sqd.GetString(1));
 
                             textBoxDiscount.Text = sqd.GetDecimal(8).ToString();
@@ -406,5 +378,31 @@ namespace POS
                 return;
             }
         }
+
+        //private void comboBoxBrand_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    String BrandID = comboBoxBrand.SelectedValue.ToString();
+        //    String ItemID = comboBoxItemList.SelectedValue.ToString();
+        //    List<KeyValuePair<string, string>> data = new List<KeyValuePair<string, string>>();
+        //    SqlDataReader sdr = new Item().GetItemCatagoryDetails_Combobox(ItemID, BrandID);
+        //    if (sdr != null)
+        //    {
+        //        while (sdr.Read())
+        //        {
+        //            var Items = new Dictionary<string, string>();
+
+        //            if (sdr != null)
+        //            {
+        //                {
+        //                    data.Add(new KeyValuePair<string, string>(sdr.GetInt32(0).ToString().Trim(), sdr.GetString(1).Trim()));
+        //                }
+        //                sdr.Dispose(); sdr.Close();
+        //            }
+        //            comboBoxItemList.DataSource = new BindingSource(Items, null);
+        //            comboBoxItemList.DisplayMember = "Value";
+        //            comboBoxItemList.ValueMember = "Key";
+        //        }
+        //    }
+        //}
     }
 }

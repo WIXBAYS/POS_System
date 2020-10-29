@@ -35,8 +35,6 @@
             this.itemCatagoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pOSDataSetItemCataagoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pOSDataSetItemCataagory = new POS.POSDataSetItemCataagory();
-            this.venderDetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.pOSDataSetVendorList = new POS.POSDataSetVendorList();
             this.textBoxTotal = new System.Windows.Forms.TextBox();
             this.labelTotal = new System.Windows.Forms.Label();
             this.labelQuantity = new System.Windows.Forms.Label();
@@ -44,21 +42,10 @@
             this.button_update = new System.Windows.Forms.Button();
             this.button_cancel = new System.Windows.Forms.Button();
             this.dataGridViewAll = new System.Windows.Forms.DataGridView();
-            this.ColumnBarCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Catagory_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Unit_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Grid_Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Discount_Amout = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BuyingCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDelete = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Edit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.labelSellingCost = new System.Windows.Forms.Label();
             this.textBoxSelling = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.vender_DetailsTableAdapter = new POS.POSDataSetVendorListTableAdapters.Vender_DetailsTableAdapter();
             this.item_CatagoryTableAdapter = new POS.POSDataSetItemCataagoryTableAdapters.Item_CatagoryTableAdapter();
             this.textBoxbuy = new System.Windows.Forms.TextBox();
             this.buttoncash = new System.Windows.Forms.Button();
@@ -111,13 +98,25 @@
             this.labelInGrid = new System.Windows.Forms.Label();
             this.TxtUserName = new System.Windows.Forms.TextBox();
             this.buttonChangeLogin = new System.Windows.Forms.Button();
+            this.venderDetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pOSDataSetVendorList = new POS.POSDataSetVendorList();
+            this.vender_DetailsTableAdapter = new POS.POSDataSetVendorListTableAdapters.Vender_DetailsTableAdapter();
+            this.ColumnBarCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Catagory_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Unit_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Grid_Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Discount_Amout = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BuyingCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDelete = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.itemCatagoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetItemCataagoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetItemCataagory)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.venderDetailsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetVendorList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAll)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.venderDetailsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetVendorList)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBoxCatID
@@ -147,16 +146,6 @@
             // 
             this.pOSDataSetItemCataagory.DataSetName = "POSDataSetItemCataagory";
             this.pOSDataSetItemCataagory.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // venderDetailsBindingSource
-            // 
-            this.venderDetailsBindingSource.DataMember = "Vender_Details";
-            this.venderDetailsBindingSource.DataSource = this.pOSDataSetVendorList;
-            // 
-            // pOSDataSetVendorList
-            // 
-            this.pOSDataSetVendorList.DataSetName = "POSDataSetVendorList";
-            this.pOSDataSetVendorList.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // textBoxTotal
             // 
@@ -256,8 +245,7 @@
             this.Discount_Amout,
             this.Quantity,
             this.BuyingCost,
-            this.ColumnDelete,
-            this.Edit});
+            this.ColumnDelete});
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -274,61 +262,6 @@
             this.dataGridViewAll.TabStop = false;
             this.dataGridViewAll.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAll_CellContentClick);
             this.dataGridViewAll.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEnter);
-            // 
-            // ColumnBarCode
-            // 
-            this.ColumnBarCode.HeaderText = "BarCode";
-            this.ColumnBarCode.Name = "ColumnBarCode";
-            // 
-            // Catagory_Name
-            // 
-            this.Catagory_Name.HeaderText = "Category Name";
-            this.Catagory_Name.Name = "Catagory_Name";
-            // 
-            // ColumnUnit
-            // 
-            this.ColumnUnit.HeaderText = "Unit";
-            this.ColumnUnit.Name = "ColumnUnit";
-            this.ColumnUnit.ReadOnly = true;
-            // 
-            // Unit_Price
-            // 
-            this.Unit_Price.HeaderText = "Unit Price";
-            this.Unit_Price.Name = "Unit_Price";
-            this.Unit_Price.ReadOnly = true;
-            // 
-            // Grid_Discount
-            // 
-            this.Grid_Discount.HeaderText = "Discount";
-            this.Grid_Discount.Name = "Grid_Discount";
-            this.Grid_Discount.ReadOnly = true;
-            // 
-            // Discount_Amout
-            // 
-            this.Discount_Amout.HeaderText = "Discount Amount";
-            this.Discount_Amout.Name = "Discount_Amout";
-            this.Discount_Amout.ReadOnly = true;
-            // 
-            // Quantity
-            // 
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.Name = "Quantity";
-            // 
-            // BuyingCost
-            // 
-            this.BuyingCost.HeaderText = "Sub Total";
-            this.BuyingCost.Name = "BuyingCost";
-            // 
-            // ColumnDelete
-            // 
-            this.ColumnDelete.HeaderText = "Delete";
-            this.ColumnDelete.Image = ((System.Drawing.Image)(resources.GetObject("ColumnDelete.Image")));
-            this.ColumnDelete.Name = "ColumnDelete";
-            // 
-            // Edit
-            // 
-            this.Edit.HeaderText = "Edit";
-            this.Edit.Name = "Edit";
             // 
             // labelSellingCost
             // 
@@ -373,10 +306,6 @@
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn1.Width = 45;
-            // 
-            // vender_DetailsTableAdapter
-            // 
-            this.vender_DetailsTableAdapter.ClearBeforeFill = true;
             // 
             // item_CatagoryTableAdapter
             // 
@@ -1082,6 +1011,70 @@
             this.buttonChangeLogin.UseVisualStyleBackColor = false;
             this.buttonChangeLogin.Click += new System.EventHandler(this.button1_Click_1);
             // 
+            // venderDetailsBindingSource
+            // 
+            this.venderDetailsBindingSource.DataMember = "Vender_Details";
+            this.venderDetailsBindingSource.DataSource = this.pOSDataSetVendorList;
+            // 
+            // pOSDataSetVendorList
+            // 
+            this.pOSDataSetVendorList.DataSetName = "POSDataSetVendorList";
+            this.pOSDataSetVendorList.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // vender_DetailsTableAdapter
+            // 
+            this.vender_DetailsTableAdapter.ClearBeforeFill = true;
+            // 
+            // ColumnBarCode
+            // 
+            this.ColumnBarCode.HeaderText = "BarCode";
+            this.ColumnBarCode.Name = "ColumnBarCode";
+            // 
+            // Catagory_Name
+            // 
+            this.Catagory_Name.HeaderText = "Category Name";
+            this.Catagory_Name.Name = "Catagory_Name";
+            // 
+            // ColumnUnit
+            // 
+            this.ColumnUnit.HeaderText = "Unit";
+            this.ColumnUnit.Name = "ColumnUnit";
+            this.ColumnUnit.ReadOnly = true;
+            // 
+            // Unit_Price
+            // 
+            this.Unit_Price.HeaderText = "Unit Price";
+            this.Unit_Price.Name = "Unit_Price";
+            this.Unit_Price.ReadOnly = true;
+            // 
+            // Grid_Discount
+            // 
+            this.Grid_Discount.HeaderText = "Discount";
+            this.Grid_Discount.Name = "Grid_Discount";
+            this.Grid_Discount.ReadOnly = true;
+            // 
+            // Discount_Amout
+            // 
+            this.Discount_Amout.HeaderText = "Discount Amount";
+            this.Discount_Amout.Name = "Discount_Amout";
+            this.Discount_Amout.ReadOnly = true;
+            // 
+            // Quantity
+            // 
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
+            // 
+            // BuyingCost
+            // 
+            this.BuyingCost.HeaderText = "Sub Total";
+            this.BuyingCost.Name = "BuyingCost";
+            // 
+            // ColumnDelete
+            // 
+            this.ColumnDelete.HeaderText = "Delete";
+            this.ColumnDelete.Image = ((System.Drawing.Image)(resources.GetObject("ColumnDelete.Image")));
+            this.ColumnDelete.Name = "ColumnDelete";
+            // 
             // Invoice
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1153,11 +1146,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.itemCatagoryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetItemCataagoryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetItemCataagory)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.venderDetailsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetVendorList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAll)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.venderDetailsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetVendorList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1233,6 +1226,8 @@
         private System.Windows.Forms.Label labelCurrentx;
         private System.Windows.Forms.Label labelInGrid;
         private System.Windows.Forms.TextBox textBoxQuantity;
+        private System.Windows.Forms.TextBox TxtUserName;
+        private System.Windows.Forms.Button buttonChangeLogin;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnBarCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn Catagory_Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnUnit;
@@ -1242,8 +1237,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn BuyingCost;
         private System.Windows.Forms.DataGridViewImageColumn ColumnDelete;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Edit;
-        private System.Windows.Forms.TextBox TxtUserName;
-        private System.Windows.Forms.Button buttonChangeLogin;
     }
 }
