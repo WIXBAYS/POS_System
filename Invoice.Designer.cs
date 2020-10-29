@@ -42,6 +42,15 @@
             this.button_update = new System.Windows.Forms.Button();
             this.button_cancel = new System.Windows.Forms.Button();
             this.dataGridViewAll = new System.Windows.Forms.DataGridView();
+            this.ColumnBarCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Catagory_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Unit_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Grid_Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Discount_Amout = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BuyingCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDelete = new System.Windows.Forms.DataGridViewImageColumn();
             this.labelSellingCost = new System.Windows.Forms.Label();
             this.textBoxSelling = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -101,15 +110,6 @@
             this.venderDetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pOSDataSetVendorList = new POS.POSDataSetVendorList();
             this.vender_DetailsTableAdapter = new POS.POSDataSetVendorListTableAdapters.Vender_DetailsTableAdapter();
-            this.ColumnBarCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Catagory_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Unit_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Grid_Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Discount_Amout = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BuyingCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDelete = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.itemCatagoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetItemCataagoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetItemCataagory)).BeginInit();
@@ -262,6 +262,56 @@
             this.dataGridViewAll.TabStop = false;
             this.dataGridViewAll.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAll_CellContentClick);
             this.dataGridViewAll.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEnter);
+            // 
+            // ColumnBarCode
+            // 
+            this.ColumnBarCode.HeaderText = "BarCode";
+            this.ColumnBarCode.Name = "ColumnBarCode";
+            // 
+            // Catagory_Name
+            // 
+            this.Catagory_Name.HeaderText = "Category Name";
+            this.Catagory_Name.Name = "Catagory_Name";
+            // 
+            // ColumnUnit
+            // 
+            this.ColumnUnit.HeaderText = "Unit";
+            this.ColumnUnit.Name = "ColumnUnit";
+            this.ColumnUnit.ReadOnly = true;
+            // 
+            // Unit_Price
+            // 
+            this.Unit_Price.HeaderText = "Unit Price";
+            this.Unit_Price.Name = "Unit_Price";
+            this.Unit_Price.ReadOnly = true;
+            // 
+            // Grid_Discount
+            // 
+            this.Grid_Discount.HeaderText = "Discount";
+            this.Grid_Discount.Name = "Grid_Discount";
+            this.Grid_Discount.ReadOnly = true;
+            // 
+            // Discount_Amout
+            // 
+            this.Discount_Amout.HeaderText = "Discount Amount";
+            this.Discount_Amout.Name = "Discount_Amout";
+            this.Discount_Amout.ReadOnly = true;
+            // 
+            // Quantity
+            // 
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
+            // 
+            // BuyingCost
+            // 
+            this.BuyingCost.HeaderText = "Sub Total";
+            this.BuyingCost.Name = "BuyingCost";
+            // 
+            // ColumnDelete
+            // 
+            this.ColumnDelete.HeaderText = "Delete";
+            this.ColumnDelete.Image = ((System.Drawing.Image)(resources.GetObject("ColumnDelete.Image")));
+            this.ColumnDelete.Name = "ColumnDelete";
             // 
             // labelSellingCost
             // 
@@ -939,6 +989,7 @@
             this.Hiddenlabel.Size = new System.Drawing.Size(77, 16);
             this.Hiddenlabel.TabIndex = 172;
             this.Hiddenlabel.Text = "User Name";
+            this.Hiddenlabel.Visible = false;
             // 
             // buttonNP7
             // 
@@ -965,6 +1016,7 @@
             this.labelCurrenty.Size = new System.Drawing.Size(17, 16);
             this.labelCurrenty.TabIndex = 174;
             this.labelCurrenty.Text = "Y";
+            this.labelCurrenty.Visible = false;
             // 
             // labelCurrentx
             // 
@@ -976,6 +1028,7 @@
             this.labelCurrentx.Size = new System.Drawing.Size(16, 16);
             this.labelCurrentx.TabIndex = 175;
             this.labelCurrentx.Text = "X";
+            this.labelCurrentx.Visible = false;
             // 
             // labelInGrid
             // 
@@ -987,6 +1040,7 @@
             this.labelInGrid.Size = new System.Drawing.Size(43, 16);
             this.labelInGrid.TabIndex = 176;
             this.labelInGrid.Text = "InGrid";
+            this.labelInGrid.Visible = false;
             // 
             // TxtUserName
             // 
@@ -1024,56 +1078,6 @@
             // vender_DetailsTableAdapter
             // 
             this.vender_DetailsTableAdapter.ClearBeforeFill = true;
-            // 
-            // ColumnBarCode
-            // 
-            this.ColumnBarCode.HeaderText = "BarCode";
-            this.ColumnBarCode.Name = "ColumnBarCode";
-            // 
-            // Catagory_Name
-            // 
-            this.Catagory_Name.HeaderText = "Category Name";
-            this.Catagory_Name.Name = "Catagory_Name";
-            // 
-            // ColumnUnit
-            // 
-            this.ColumnUnit.HeaderText = "Unit";
-            this.ColumnUnit.Name = "ColumnUnit";
-            this.ColumnUnit.ReadOnly = true;
-            // 
-            // Unit_Price
-            // 
-            this.Unit_Price.HeaderText = "Unit Price";
-            this.Unit_Price.Name = "Unit_Price";
-            this.Unit_Price.ReadOnly = true;
-            // 
-            // Grid_Discount
-            // 
-            this.Grid_Discount.HeaderText = "Discount";
-            this.Grid_Discount.Name = "Grid_Discount";
-            this.Grid_Discount.ReadOnly = true;
-            // 
-            // Discount_Amout
-            // 
-            this.Discount_Amout.HeaderText = "Discount Amount";
-            this.Discount_Amout.Name = "Discount_Amout";
-            this.Discount_Amout.ReadOnly = true;
-            // 
-            // Quantity
-            // 
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.Name = "Quantity";
-            // 
-            // BuyingCost
-            // 
-            this.BuyingCost.HeaderText = "Sub Total";
-            this.BuyingCost.Name = "BuyingCost";
-            // 
-            // ColumnDelete
-            // 
-            this.ColumnDelete.HeaderText = "Delete";
-            this.ColumnDelete.Image = ((System.Drawing.Image)(resources.GetObject("ColumnDelete.Image")));
-            this.ColumnDelete.Name = "ColumnDelete";
             // 
             // Invoice
             // 
