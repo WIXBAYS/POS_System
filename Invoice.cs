@@ -19,6 +19,8 @@ namespace POS
         public Invoice()
         {
             InitializeComponent();
+            timer1.Start();
+            Hiddenlabel1.Text = Properties.Settings.Default.username;
         }
 
         private void button_cancel_Click(object sender, EventArgs e)
@@ -77,6 +79,11 @@ namespace POS
                         UnitPrice = sdrsec.GetDecimal(5);
                         Decimal DiscountAmount = sdrsec.GetDecimal(8);
                         String DiscountType = sdrsec.GetString(9).ToString().Trim();
+                    Boolean DiscountPeriodically = sdrsec.GetBoolean(14);
+                    DateTime DiscountFrom = sdrsec.GetDateTime(12);
+                    DateTime DiscountTo = sdrsec.GetDateTime(13);
+                    if (!DiscountPeriodically || (DiscountPeriodically && (DateTime.Now.Date >= DiscountFrom && DateTime.Now.Date <= DiscountTo)))
+                    {
                         if (DiscountType.Equals("AMNT"))
                         {
                             DiscountCol = DiscountAmount + "/=";
@@ -87,22 +94,28 @@ namespace POS
                             DiscountCol = DiscountAmount + "%";
                             DiscountAmnt1 = (sdrsec.GetDecimal(5) * DiscountAmount / 100);
                         }
+                    }
                     dataGridViewAll.Rows.Add("N/A", CategoryName, Unit, UnitPrice, DiscountCol, DiscountAmnt1.ToString(),textBoxQuantity.Text, ((UnitPrice-DiscountAmnt1) * decimal.Parse(textBoxQuantity.Text)).ToString());
                 }
                     catch { }
                
 
                 decimal sum = 0;
+                decimal sumoriginal = 0;
                 decimal netdiscountp = 0;
                 decimal netdiscountline = 0;
                 for (int i = 0; i < dataGridViewAll.Rows.Count; ++i)
                 {
                     sum += Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[7].Value);
                     netdiscountp += Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[5].Value);
+                    netdiscountline += (Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[5].Value) * Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[6].Value));
+                    sumoriginal += (Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[3].Value) * Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[6].Value));
                 }
                 textBoxTotal.Text = sum.ToString();
                 textBoxNetDiscountP.Text = Math.Round((netdiscountp / sum), 2).ToString();
-                textBoxtTlLineDiscount.Text = Math.Round((netdiscountp / sum), 2).ToString();
+                textBoxtTlLineDiscountP.Text = Math.Round((netdiscountline * 100 / sumoriginal), 2).ToString();
+                textBoxtTlLineDiscount.Text = Math.Round((netdiscountline), 2).ToString();
+
 
                 textBoxQuantity.Clear();
                 //textBoxSelling.Clear();
@@ -204,6 +217,7 @@ namespace POS
             {
                 int x = dataGridViewAll.CurrentRow.Index;
                 dataGridViewAll.Rows.Remove(dataGridViewAll.Rows[x]);
+                decimal sumoriginal = 0;
                 decimal sum = 0;
                 decimal netdiscountp = 0;
                 decimal netdiscountline = 0;
@@ -211,10 +225,14 @@ namespace POS
                 {
                     sum += Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[7].Value);
                     netdiscountp += Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[5].Value);
+                    netdiscountline += (Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[5].Value) * Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[6].Value));
+                    sumoriginal += (Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[3].Value) * Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[6].Value));
                 }
+                
                 textBoxTotal.Text = sum.ToString();
-                textBoxNetDiscountP.Text = Math.Round((netdiscountp / sum), 2).ToString();
-                textBoxtTlLineDiscount.Text = Math.Round((netdiscountp / sum), 2).ToString();
+                textBoxNetDiscountP.Text = Math.Round((netdiscountp / sumoriginal), 2).ToString();
+                textBoxtTlLineDiscountP.Text = Math.Round((netdiscountline * 100 / sum), 2).ToString();
+                textBoxtTlLineDiscount.Text = Math.Round((netdiscountline), 2).ToString();
             }
             catch { }
         }
@@ -222,7 +240,7 @@ namespace POS
         private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
             var currentcellVal = dataGridViewAll.CurrentCellAddress;
-            labelCurrentx.Text = currentcellVal.X.ToString();
+            labelD.Text = currentcellVal.X.ToString();
             labelCurrenty.Text = currentcellVal.Y.ToString();
             labelInGrid.Text = "yes";
             int currecty = currentcellVal.Y;
@@ -239,6 +257,7 @@ namespace POS
 
                     DataGridViewTextBoxCell celTTL = (DataGridViewTextBoxCell)dataGridViewAll.Rows[currentcell.Y].Cells[7];
                     celTTL.Value = Total.ToString();
+                    decimal sumoriginal = 0;
                     decimal sum = 0;
                     decimal netdiscountp = 0;
                     decimal netdiscountline = 0;
@@ -246,10 +265,13 @@ namespace POS
                     {
                         sum += Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[7].Value);
                         netdiscountp += Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[5].Value);
+                        netdiscountline += (Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[5].Value) * Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[6].Value));
+                        sumoriginal += (Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[3].Value) * Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[6].Value));
                     }
                     textBoxTotal.Text = sum.ToString();
                     textBoxNetDiscountP.Text = Math.Round((netdiscountp / sum), 2).ToString();
-                    textBoxtTlLineDiscount.Text = Math.Round((netdiscountp / sum), 2).ToString();
+                    textBoxtTlLineDiscountP.Text = Math.Round((netdiscountline*100 / sumoriginal), 2).ToString();
+                    textBoxtTlLineDiscount.Text = Math.Round((netdiscountline), 2).ToString();
                     System.Windows.Forms.SendKeys.Send("{TAB}");
                     System.Windows.Forms.SendKeys.Send("{TAB}");
                 }
@@ -294,15 +316,21 @@ namespace POS
                         celUP.Value = sdrsec.GetDecimal(5).ToString().Trim();
                         Decimal DiscountAmount = sdrsec.GetDecimal(7);
                         String DiscountType = sdrsec.GetString(8).ToString().Trim();
-                        if (DiscountType.Equals("AMNT"))
-                        {
-                            DiscountCol = DiscountAmount + "/=";
-                            DiscountAmnt1 = DiscountAmount;
-                        }
-                        if (DiscountType.Equals("PR"))
-                        {
-                            DiscountCol = DiscountAmount + "%";
-                            DiscountAmnt1 = (sdrsec.GetDecimal(5) * DiscountAmount / 100);
+                        Boolean DiscountPeriodically = sdrsec.GetBoolean(12);
+                        DateTime DiscountFrom= sdrsec.GetDateTime(10);
+                        DateTime DiscountTo = sdrsec.GetDateTime(11);
+                        if (!DiscountPeriodically||(DiscountPeriodically && (DateTime.Now.Date >= DiscountFrom && DateTime.Now.Date <= DiscountTo)))
+                        { 
+                            if (DiscountType.Equals("AMNT"))
+                            {
+                                DiscountCol = DiscountAmount + "/=";
+                                DiscountAmnt1 = DiscountAmount;
+                            }
+                            if (DiscountType.Equals("PR"))
+                            {
+                                DiscountCol = DiscountAmount + "%";
+                                DiscountAmnt1 = (sdrsec.GetDecimal(5) * DiscountAmount / 100);
+                            }
                         }
 
                         celD.Value = DiscountCol;
@@ -359,12 +387,15 @@ namespace POS
                 {
                     TxtPassword.Text += "8";
                 }
+                else if (Hiddenlabel.Text.Equals("textBoxQntty"))
+
+                    textBoxQuantity.Text += "8";
             }
             else
             {
                 try
                 {
-                    DataGridViewTextBoxCell celcrnt = (DataGridViewTextBoxCell)dataGridViewAll.Rows[int.Parse(labelCurrenty.Text)].Cells[int.Parse(labelCurrentx.Text)];
+                    DataGridViewTextBoxCell celcrnt = (DataGridViewTextBoxCell)dataGridViewAll.Rows[int.Parse(labelCurrenty.Text)].Cells[int.Parse(labelD.Text)];
                     string crnt = "";
                     try
                     {
@@ -409,12 +440,15 @@ namespace POS
                 {
                     TxtPassword.Text += "7";
                 }
+                else if (Hiddenlabel.Text.Equals("textBoxQntty"))
+
+                    textBoxQuantity.Text += "7";
             }
             else
             {
                 try
                 {
-                    DataGridViewTextBoxCell celcrnt = (DataGridViewTextBoxCell)dataGridViewAll.Rows[int.Parse(labelCurrenty.Text)].Cells[int.Parse(labelCurrentx.Text)];
+                    DataGridViewTextBoxCell celcrnt = (DataGridViewTextBoxCell)dataGridViewAll.Rows[int.Parse(labelCurrenty.Text)].Cells[int.Parse(labelD.Text)];
                     string crnt = "";
                     try
                     {
@@ -448,12 +482,15 @@ namespace POS
                 {
                     TxtPassword.Text += "9";
                 }
+                else if (Hiddenlabel.Text.Equals("textBoxQntty"))
+
+                    textBoxQuantity.Text += "9";
             }
             else
             {
                 try
                 {
-                    DataGridViewTextBoxCell celcrnt = (DataGridViewTextBoxCell)dataGridViewAll.Rows[int.Parse(labelCurrenty.Text)].Cells[int.Parse(labelCurrentx.Text)];
+                    DataGridViewTextBoxCell celcrnt = (DataGridViewTextBoxCell)dataGridViewAll.Rows[int.Parse(labelCurrenty.Text)].Cells[int.Parse(labelD.Text)];
                     string crnt = "";
                     try
                     {
@@ -478,12 +515,15 @@ namespace POS
                 {
                     TxtPassword.Text += "4";
                 }
+                else if (Hiddenlabel.Text.Equals("textBoxQntty"))
+
+                    textBoxQuantity.Text += "4";
             }
             else
             {
                 try
                 {
-                    DataGridViewTextBoxCell celcrnt = (DataGridViewTextBoxCell)dataGridViewAll.Rows[int.Parse(labelCurrenty.Text)].Cells[int.Parse(labelCurrentx.Text)];
+                    DataGridViewTextBoxCell celcrnt = (DataGridViewTextBoxCell)dataGridViewAll.Rows[int.Parse(labelCurrenty.Text)].Cells[int.Parse(labelD.Text)];
                     string crnt = "";
                     try
                     {
@@ -505,12 +545,15 @@ namespace POS
                 {
                     TxtPassword.Text += "5";
                 }
+                else if (Hiddenlabel.Text.Equals("textBoxQntty"))
+
+                    textBoxQuantity.Text += "5";
             }
             else
             {
                 try
                 {
-                    DataGridViewTextBoxCell celcrnt = (DataGridViewTextBoxCell)dataGridViewAll.Rows[int.Parse(labelCurrenty.Text)].Cells[int.Parse(labelCurrentx.Text)];
+                    DataGridViewTextBoxCell celcrnt = (DataGridViewTextBoxCell)dataGridViewAll.Rows[int.Parse(labelCurrenty.Text)].Cells[int.Parse(labelD.Text)];
                     string crnt = "";
                     try
                     {
@@ -532,12 +575,15 @@ namespace POS
                 {
                     TxtPassword.Text += "6";
                 }
+                else if (Hiddenlabel.Text.Equals("textBoxQntty"))
+
+                    textBoxQuantity.Text += "6";
             }
             else
             {
                 try
                 {
-                    DataGridViewTextBoxCell celcrnt = (DataGridViewTextBoxCell)dataGridViewAll.Rows[int.Parse(labelCurrenty.Text)].Cells[int.Parse(labelCurrentx.Text)];
+                    DataGridViewTextBoxCell celcrnt = (DataGridViewTextBoxCell)dataGridViewAll.Rows[int.Parse(labelCurrenty.Text)].Cells[int.Parse(labelD.Text)];
                     string crnt = "";
                     try
                     {
@@ -559,12 +605,15 @@ namespace POS
                 {
                     TxtPassword.Text += "1";
                 }
+                else if (Hiddenlabel.Text.Equals("textBoxQntty"))
+
+                    textBoxQuantity.Text += "1";
             }
             else
             {
                 try
                 {
-                    DataGridViewTextBoxCell celcrnt = (DataGridViewTextBoxCell)dataGridViewAll.Rows[int.Parse(labelCurrenty.Text)].Cells[int.Parse(labelCurrentx.Text)];
+                    DataGridViewTextBoxCell celcrnt = (DataGridViewTextBoxCell)dataGridViewAll.Rows[int.Parse(labelCurrenty.Text)].Cells[int.Parse(labelD.Text)];
                     string crnt = "";
                     try
                     {
@@ -586,12 +635,15 @@ namespace POS
                 {
                     TxtPassword.Text += "2";
                 }
+                else if (Hiddenlabel.Text.Equals("textBoxQntty"))
+
+                    textBoxQuantity.Text += "2";
             }
             else
             {
                 try
                 {
-                    DataGridViewTextBoxCell celcrnt = (DataGridViewTextBoxCell)dataGridViewAll.Rows[int.Parse(labelCurrenty.Text)].Cells[int.Parse(labelCurrentx.Text)];
+                    DataGridViewTextBoxCell celcrnt = (DataGridViewTextBoxCell)dataGridViewAll.Rows[int.Parse(labelCurrenty.Text)].Cells[int.Parse(labelD.Text)];
                     string crnt = "";
                     try
                     {
@@ -613,12 +665,15 @@ namespace POS
                 {
                     TxtPassword.Text += "3";
                 }
+                else if (Hiddenlabel.Text.Equals("textBoxQntty"))
+
+                    textBoxQuantity.Text += "3";
             }
             else
             {
                 try
                 {
-                    DataGridViewTextBoxCell celcrnt = (DataGridViewTextBoxCell)dataGridViewAll.Rows[int.Parse(labelCurrenty.Text)].Cells[int.Parse(labelCurrentx.Text)];
+                    DataGridViewTextBoxCell celcrnt = (DataGridViewTextBoxCell)dataGridViewAll.Rows[int.Parse(labelCurrenty.Text)].Cells[int.Parse(labelD.Text)];
                     string crnt = "";
                     try
                     {
@@ -640,12 +695,15 @@ namespace POS
                 {
                     TxtPassword.Text += "0";
                 }
+                else if (Hiddenlabel.Text.Equals("textBoxQntty"))
+
+                    textBoxQuantity.Text += "0";
             }
             else
             {
                 try
                 {
-                    DataGridViewTextBoxCell celcrnt = (DataGridViewTextBoxCell)dataGridViewAll.Rows[int.Parse(labelCurrenty.Text)].Cells[int.Parse(labelCurrentx.Text)];
+                    DataGridViewTextBoxCell celcrnt = (DataGridViewTextBoxCell)dataGridViewAll.Rows[int.Parse(labelCurrenty.Text)].Cells[int.Parse(labelD.Text)];
                     string crnt = "";
                     try
                     {
@@ -667,12 +725,15 @@ namespace POS
                 {
                     TxtPassword.Text += ".";
                 }
+                else if (Hiddenlabel.Text.Equals("textBoxQntty"))
+
+                    textBoxQuantity.Text += ".";
             }
             else
             {
                 try
                 {
-                    DataGridViewTextBoxCell celcrnt = (DataGridViewTextBoxCell)dataGridViewAll.Rows[int.Parse(labelCurrenty.Text)].Cells[int.Parse(labelCurrentx.Text)];
+                    DataGridViewTextBoxCell celcrnt = (DataGridViewTextBoxCell)dataGridViewAll.Rows[int.Parse(labelCurrenty.Text)].Cells[int.Parse(labelD.Text)];
                     string crnt = "";
                     try
                     {
@@ -695,13 +756,16 @@ namespace POS
                 {
                     TxtPassword.Text += "00";
                 }
+                else if (Hiddenlabel.Text.Equals("textBoxQntty"))
+
+                    textBoxQuantity.Text += "00";
             }
             else
             {
                 try
                 {
 
-                    DataGridViewTextBoxCell celcrnt = (DataGridViewTextBoxCell)dataGridViewAll.Rows[int.Parse(labelCurrenty.Text)].Cells[int.Parse(labelCurrentx.Text)];
+                    DataGridViewTextBoxCell celcrnt = (DataGridViewTextBoxCell)dataGridViewAll.Rows[int.Parse(labelCurrenty.Text)].Cells[int.Parse(labelD.Text)];
                     string crnt = "";
                     try
                     {
@@ -724,12 +788,13 @@ namespace POS
                 {
                     TxtPassword.Text += "*";
                 }
+                
             }
             else
             {
                 try
                 {
-                    DataGridViewTextBoxCell celcrnt = (DataGridViewTextBoxCell)dataGridViewAll.Rows[int.Parse(labelCurrenty.Text)].Cells[int.Parse(labelCurrentx.Text)];
+                    DataGridViewTextBoxCell celcrnt = (DataGridViewTextBoxCell)dataGridViewAll.Rows[int.Parse(labelCurrenty.Text)].Cells[int.Parse(labelD.Text)];
                     string crnt = "";
                     try
                     {
@@ -751,12 +816,14 @@ namespace POS
                 {
                     TxtPassword.Text += "-";
                 }
+               
+                    
             }
             else
             {
                 try
                 {
-                    DataGridViewTextBoxCell celcrnt = (DataGridViewTextBoxCell)dataGridViewAll.Rows[int.Parse(labelCurrenty.Text)].Cells[int.Parse(labelCurrentx.Text)];
+                    DataGridViewTextBoxCell celcrnt = (DataGridViewTextBoxCell)dataGridViewAll.Rows[int.Parse(labelCurrenty.Text)].Cells[int.Parse(labelD.Text)];
                     string crnt = "";
                     try
                     {
@@ -782,12 +849,18 @@ namespace POS
                     }
                     catch { }
                 }
+                else if(Hiddenlabel.Text.Equals("textBoxQntty"))
+                    try
+                    {
+                        textBoxQuantity.Text = textBoxQuantity.Text.Remove(textBoxQuantity.Text.Length - 1, 1);
+                    }
+                    catch { }
             }
             else
             {
                 try
                 {
-                    DataGridViewTextBoxCell celcrnt = (DataGridViewTextBoxCell)dataGridViewAll.Rows[int.Parse(labelCurrenty.Text)].Cells[int.Parse(labelCurrentx.Text)];
+                    DataGridViewTextBoxCell celcrnt = (DataGridViewTextBoxCell)dataGridViewAll.Rows[int.Parse(labelCurrenty.Text)].Cells[int.Parse(labelD.Text)];
                     string crnt = "";
                     try
                     {
@@ -822,6 +895,7 @@ namespace POS
                 if (!UserName.Equals(""))
                 {
                     Properties.Settings.Default.username = TxtUserName.Text;
+                    Hiddenlabel1.Text=TxtUserName.Text;
                     MessageBox.Show("Login Changed!");
                 }
                 else
@@ -847,6 +921,47 @@ namespace POS
             }
             password = s.ToString();
             return password;
+        }
+
+        private void timer_tick(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            LblTime.Text = DateTime.Now.ToString("yyyy:MM:dd hh:mm:ss");
+        }
+
+        private void textBoxQntty_TextChanged(object sender, EventArgs e)
+        {
+            labelInGrid.Text = "no";
+            Hiddenlabel.Text = "textBoxQntty";
+        }
+
+        private void textBoxQntty_TextChanged(object sender, MouseEventArgs e)
+        {
+            labelInGrid.Text = "no";
+            Hiddenlabel.Text = "textBoxQntty";
+        }
+
+        private void textBoxUN_TextChanged(object sender, EventArgs e)
+        {
+            labelInGrid.Text = "no";
+            Hiddenlabel.Text = "textBoxUN";
+        }
+
+        private void textBoxUN_TextChanged(object sender, MouseEventArgs e)
+        {
+            labelInGrid.Text = "no";
+            Hiddenlabel.Text = "textBoxUN";
+        }
+
+        private void textBoxCAT_TextChanged(object sender, EventArgs e)
+        {
+            labelInGrid.Text = "no";
+            Hiddenlabel.Text = "textBoxCAT";
+        }
+
+        private void textBoxCAT_TextChanged(object sender, MouseEventArgs e)
+        {
+            labelInGrid.Text = "no";
+            Hiddenlabel.Text = "textBoxCAT";
         }
     }
     

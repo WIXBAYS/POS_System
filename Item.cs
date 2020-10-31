@@ -45,6 +45,30 @@ namespace POS
             return dum.updateRecord(selectCommand, ref sqlParams);
         }
 
+        public int updateDiscount(Decimal DISCOUNT,String DISCOUNT_TYPE,DateTime DISCOUNT_FROM,DateTime DISCOUNT_TO,Boolean DISCOUNT_PERIOADICALLY,String ITEMCAT_ID)
+        {
+            String selectCommand = "UPDATE [dbo].[Item_Catagory] SET [DISCOUNT] = @DISCOUNT ,[DISCOUNT_TYPE] = @DISCOUNT_TYPE ,[DISCOUNT_FROM] = @DISCOUNT_FROM ,[DISCOUNT_TO] = @DISCOUNT_TO ,[DISCOUNT_PERIOADICALLY] = @DISCOUNT_PERIOADICALLY WHERE [ITEMCAT_ID]=@ITEMCAT_ID";
+
+            SqlParameter[] sqlParams = new SqlParameter[] {
+                                            new SqlParameter("@DISCOUNT", SqlDbType.Decimal),
+                                            new SqlParameter("@DISCOUNT_TYPE", SqlDbType.VarChar),
+                                            new SqlParameter("@DISCOUNT_FROM", SqlDbType.DateTime),
+                                            new SqlParameter("@DISCOUNT_TO", SqlDbType.DateTime),
+                                            new SqlParameter("@DISCOUNT_PERIOADICALLY", SqlDbType.Bit),
+                                            new SqlParameter("@ITEMCAT_ID", SqlDbType.Int)
+                                       };
+
+            sqlParams[0].Value = DISCOUNT;
+            sqlParams[1].Value = DISCOUNT_TYPE;
+            sqlParams[2].Value = DISCOUNT_FROM;
+            sqlParams[3].Value = DISCOUNT_TO;
+            sqlParams[4].Value = DISCOUNT_PERIOADICALLY;
+            sqlParams[5].Value = ITEMCAT_ID;
+
+            DataUpdateManager dum = new DataUpdateManager();
+            return dum.updateRecord(selectCommand, ref sqlParams);
+        }
+
         public SqlDataReader GetItemDetails(String Item_ID)
         {
             String query = "SELECT [ITEM_NAME],[ITEM_DISCRIPTION],[ITEM_STATUS] FROM [dbo].[Items] where [ITEM_ID]=@Item_ID";
@@ -101,9 +125,18 @@ namespace POS
 
         public SqlDataReader GetItemCatagoryDetails(String Catagory_ID)
         {
-            String query = "SELECT Item_Catagory.BARCODE, Item_Catagory.CATAGORY_NAME, Item_Catagory.CAT_DISCRIPTION, Item_Catagory.UNIT, Item_Catagory.BUYING_COST, Item_Catagory.SELLING_COST,Item_Catagory.CAT_STATUS, Items.ITEM_NAME,Item_Catagory.DISCOUNT,Item_Catagory.DISCOUNT_TYPE,BRAND.BRAND_NAME,BRAND.BRAND_ID FROM Item_Catagory INNER JOIN Brand ON Brand.BRAND_ID=Item_Catagory.BRAND_ID INNER JOIN Items ON Items.ITEM_ID = Item_Catagory.ITEM_ID where Item_Catagory.ITEMCAT_ID = @ItemCatID";
+            String query = "SELECT Item_Catagory.BARCODE, Item_Catagory.CATAGORY_NAME, Item_Catagory.CAT_DISCRIPTION, Item_Catagory.UNIT, Item_Catagory.BUYING_COST, Item_Catagory.SELLING_COST,Item_Catagory.CAT_STATUS, Items.ITEM_NAME,Item_Catagory.DISCOUNT,Item_Catagory.DISCOUNT_TYPE,BRAND.BRAND_NAME,BRAND.BRAND_ID,DISCOUNT_FROM,DISCOUNT_TO,DISCOUNT_PERIOADICALLY FROM Item_Catagory INNER JOIN Brand ON Brand.BRAND_ID=Item_Catagory.BRAND_ID INNER JOIN Items ON Items.ITEM_ID = Item_Catagory.ITEM_ID where Item_Catagory.ITEMCAT_ID = @ItemCatID";
             SqlParameter sqlParam = new SqlParameter("@ItemCatID", SqlDbType.Int);
             sqlParam.Value = Catagory_ID;
+
+            DataReaderManager drm = new DataReaderManager();
+            return drm.getDataReader(query, ref sqlParam);
+        }
+        public SqlDataReader GetItemCatagoryDetailsByBrand(String Brand_ID)
+        {
+            String query = "SELECT Items.ITEM_NAME, Item_Catagory.CATAGORY_NAME, Item_Catagory.CAT_DISCRIPTION, Item_Catagory.UNIT, Item_Catagory.BUYING_COST, Item_Catagory.SELLING_COST,Item_Catagory.CAT_STATUS, Item_Catagory.DISCOUNT,Item_Catagory.DISCOUNT_TYPE,BRAND.BRAND_NAME,BRAND.BRAND_ID,[DISCOUNT_FROM]  ,[DISCOUNT_TO]  ,[DISCOUNT_PERIOADICALLY],Item_Catagory.ITEMCAT_ID FROM Item_Catagory INNER JOIN Brand ON Brand.BRAND_ID=Item_Catagory.BRAND_ID INNER JOIN Items ON Items.ITEM_ID = Item_Catagory.ITEM_ID where Item_Catagory.BRAND_ID = @Brand_ID";
+            SqlParameter sqlParam = new SqlParameter("@Brand_ID", SqlDbType.Int);
+            sqlParam.Value = Brand_ID;
 
             DataReaderManager drm = new DataReaderManager();
             return drm.getDataReader(query, ref sqlParam);
@@ -188,7 +221,7 @@ namespace POS
 
         public SqlDataReader GetCatagoryDetailsByBarcode(String Barcode)
         {
-            String query = "SELECT Item_Catagory.BARCODE, Item_Catagory.CATAGORY_NAME, Item_Catagory.ITEMCAT_ID, Item_Catagory.UNIT, Item_Catagory.BUYING_COST, Item_Catagory.SELLING_COST, Items.ITEM_NAME,Item_Catagory.DISCOUNT ,Item_Catagory.DISCOUNT_TYPE,BRAND.BRAND_NAME FROM Item_Catagory INNER JOIN Brand ON Brand.BRAND_ID=Item_Catagory.BRAND_ID INNER JOIN Items ON Items.ITEM_ID = Item_Catagory.ITEM_ID  where Item_Catagory.BARCODE = @Barcode and Item_Catagory.CAT_STATUS = 1";
+            String query = "SELECT Item_Catagory.BARCODE, Item_Catagory.CATAGORY_NAME, Item_Catagory.ITEMCAT_ID, Item_Catagory.UNIT, Item_Catagory.BUYING_COST, Item_Catagory.SELLING_COST, Items.ITEM_NAME,Item_Catagory.DISCOUNT ,Item_Catagory.DISCOUNT_TYPE,BRAND.BRAND_NAME,DISCOUNT_FROM,DISCOUNT_TO,DISCOUNT_PERIOADICALLY FROM Item_Catagory INNER JOIN Brand ON Brand.BRAND_ID=Item_Catagory.BRAND_ID INNER JOIN Items ON Items.ITEM_ID = Item_Catagory.ITEM_ID  where Item_Catagory.BARCODE = @Barcode and Item_Catagory.CAT_STATUS = 1";
             SqlParameter sqlParam = new SqlParameter("@Barcode", SqlDbType.VarChar);
             sqlParam.Value = Barcode;
 
