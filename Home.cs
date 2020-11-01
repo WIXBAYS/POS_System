@@ -201,5 +201,11 @@ namespace POS
             BrandRegistration brandwin = new BrandRegistration();
             brandwin.ShowDialog(this);
         }
+
+        private void discountForTotalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Discount_Type2 childForm = new Discount_Type2();
+            childForm.ShowDialog(this);
+        }
     }
 }

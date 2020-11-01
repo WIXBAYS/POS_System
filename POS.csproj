@@ -83,6 +83,8 @@
     <Compile Include="Daily_Sales.Designer.cs">
       <DependentUpon>Daily_Sales.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataDeleteManager.cs" />
+    <Compile Include="Discount.cs" />
     <Compile Include="Discounts.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +96,12 @@
     </Compile>
     <Compile Include="Discount_Type1.Designer.cs">
       <DependentUpon>Discount_Type1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Discount_Type2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Discount_Type2.Designer.cs">
+      <DependentUpon>Discount_Type2.cs</DependentUpon>
     </Compile>
     <Compile Include="GRN_Report.cs">
       <SubType>Form</SubType>
@@ -255,6 +263,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Discount_Type1.resx">
       <DependentUpon>Discount_Type1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Discount_Type2.resx">
+      <DependentUpon>Discount_Type2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GRN_Report.resx">
       <DependentUpon>GRN_Report.cs</DependentUpon>

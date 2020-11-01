@@ -33,6 +33,7 @@
             this.venderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.itemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.brandToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.catagoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gRNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.invoiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,14 +41,14 @@
             this.stockReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dailySalesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gRNReprtsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.helpMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.brandToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.discountForTotalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -96,6 +97,13 @@
             this.itemsToolStripMenuItem.Size = new System.Drawing.Size(55, 23);
             this.itemsToolStripMenuItem.Text = "Items";
             this.itemsToolStripMenuItem.Click += new System.EventHandler(this.itemsToolStripMenuItem_Click);
+            // 
+            // brandToolStripMenuItem
+            // 
+            this.brandToolStripMenuItem.Name = "brandToolStripMenuItem";
+            this.brandToolStripMenuItem.Size = new System.Drawing.Size(57, 23);
+            this.brandToolStripMenuItem.Text = "Brand";
+            this.brandToolStripMenuItem.Click += new System.EventHandler(this.brandToolStripMenuItem_Click);
             // 
             // catagoryToolStripMenuItem
             // 
@@ -149,6 +157,22 @@
             this.gRNReprtsToolStripMenuItem.Text = "GRN Reprts";
             this.gRNReprtsToolStripMenuItem.Click += new System.EventHandler(this.gRNReprtsToolStripMenuItem_Click);
             // 
+            // helpMenu
+            // 
+            this.helpMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSeparator8,
+            this.discountForTotalToolStripMenuItem});
+            this.helpMenu.Font = new System.Drawing.Font("Segoe UI", 9.3F);
+            this.helpMenu.Name = "helpMenu";
+            this.helpMenu.Size = new System.Drawing.Size(77, 23);
+            this.helpMenu.Text = "Discount1";
+            this.helpMenu.Click += new System.EventHandler(this.DiscountType1MenuItem_Click);
+            // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(178, 6);
+            // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -163,21 +187,6 @@
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(57, 6);
-            // 
-            // helpMenu
-            // 
-            this.helpMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSeparator8});
-            this.helpMenu.Font = new System.Drawing.Font("Segoe UI", 9.3F);
-            this.helpMenu.Name = "helpMenu";
-            this.helpMenu.Size = new System.Drawing.Size(77, 23);
-            this.helpMenu.Text = "Discount1";
-            this.helpMenu.Click += new System.EventHandler(this.DiscountType1MenuItem_Click);
-            // 
-            // toolStripSeparator8
-            // 
-            this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(177, 6);
             // 
             // statusStrip
             // 
@@ -195,12 +204,12 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
-            // brandToolStripMenuItem
+            // discountForTotalToolStripMenuItem
             // 
-            this.brandToolStripMenuItem.Name = "brandToolStripMenuItem";
-            this.brandToolStripMenuItem.Size = new System.Drawing.Size(57, 23);
-            this.brandToolStripMenuItem.Text = "Brand";
-            this.brandToolStripMenuItem.Click += new System.EventHandler(this.brandToolStripMenuItem_Click);
+            this.discountForTotalToolStripMenuItem.Name = "discountForTotalToolStripMenuItem";
+            this.discountForTotalToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.discountForTotalToolStripMenuItem.Text = "Discount For Total";
+            this.discountForTotalToolStripMenuItem.Click += new System.EventHandler(this.discountForTotalToolStripMenuItem_Click);
             // 
             // Home
             // 
@@ -246,6 +255,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem brandToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem discountForTotalToolStripMenuItem;
     }
 }
 
