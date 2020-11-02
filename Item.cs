@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Data;
+using System.Text;
 
 namespace POS
 {
@@ -47,7 +48,7 @@ namespace POS
 
         public int updateDiscount(Decimal DISCOUNT,String DISCOUNT_TYPE,DateTime DISCOUNT_FROM,DateTime DISCOUNT_TO,Boolean DISCOUNT_PERIOADICALLY,String ITEMCAT_ID)
         {
-            String selectCommand = "UPDATE [dbo].[Item_Catagory] SET [DISCOUNT] = @DISCOUNT ,[DISCOUNT_TYPE] = @DISCOUNT_TYPE ,[DISCOUNT_FROM] = @DISCOUNT_FROM ,[DISCOUNT_TO] = @DISCOUNT_TO ,[DISCOUNT_PERIOADICALLY] = @DISCOUNT_PERIOADICALLY WHERE [ITEMCAT_ID]=@ITEMCAT_ID";
+            String selectCommand = "UPDATE [dbo].[Item_Category] SET [DISCOUNT] = @DISCOUNT ,[DISCOUNT_TYPE] = @DISCOUNT_TYPE ,[DISCOUNT_FROM] = @DISCOUNT_FROM ,[DISCOUNT_TO] = @DISCOUNT_TO ,[DISCOUNT_PERIOADICALLY] = @DISCOUNT_PERIOADICALLY WHERE [ITEMCAT_ID]=@ITEMCAT_ID";
 
             SqlParameter[] sqlParams = new SqlParameter[] {
                                             new SqlParameter("@DISCOUNT", SqlDbType.Decimal),
@@ -87,12 +88,12 @@ namespace POS
             return drm.getDataReader(query);
         }
 
-        public int insertItemCatagory(String Catagory_NAME, String BRAND_ID, String Barcode_No, String Unit, decimal Buying, decimal Selling, String Item_Discription, Boolean ItemStatus, decimal Discount, String Discount_Type, String Item_ID)
+        public int insertItemCategory(String Category_NAME, String BRAND_ID, String Barcode_No, String Unit, decimal Buying, decimal Selling, String Item_Discription, Boolean ItemStatus, decimal Discount, String Discount_Type, String Item_ID, String Category_NAME_UNICODE)
         {
-            String selectCommand = "INSERT INTO [dbo].[Item_Catagory]([CATAGORY_NAME],[BRAND_ID],[BARCODE],[UNIT],[BUYING_COST],[SELLING_COST],[CAT_DISCRIPTION],[CAT_STATUS],[ENTERDE_DATE],[DISCOUNT]  ,[DISCOUNT_TYPE],[ITEM_ID])VALUES(@Catagory_NAME, @BRAND_ID, @Barcode_No, @Unit, @Buying, @Selling, @Item_Discription, @ItemStatus, @EnteredDate, @DISCOUNT,@DISCOUNT_TYPE, @ITEM_ID)";
+            String selectCommand = "INSERT INTO [dbo].[Item_Category]([CATEGORY_NAME],[BRAND_ID],[BARCODE],[UNIT],[BUYING_COST],[SELLING_COST],[CAT_DISCRIPTION],[CAT_STATUS],[ENTERDE_DATE],[DISCOUNT]  ,[DISCOUNT_TYPE],[ITEM_ID],[CATEGORY_NAME_UNICODE])VALUES(N'" + Category_NAME + "', @BRAND_ID, @Barcode_No, @Unit, @Buying, @Selling, @Item_Discription, @ItemStatus, @EnteredDate, @DISCOUNT,@DISCOUNT_TYPE, @ITEM_ID,N'"+ Category_NAME_UNICODE + "')";
 
             SqlParameter[] sqlParams = new SqlParameter[] {
-                                            new SqlParameter("@Catagory_NAME", SqlDbType.VarChar),
+                                            new SqlParameter("@Category_NAME", SqlDbType.VarChar),
                                             new SqlParameter("@BRAND_ID", SqlDbType.Int),
                                             new SqlParameter("@Barcode_No", SqlDbType.VarChar),
                                             new SqlParameter("@Unit", SqlDbType.VarChar),
@@ -104,9 +105,10 @@ namespace POS
                                             new SqlParameter("@DISCOUNT", SqlDbType.Decimal),
                                             new SqlParameter("@DISCOUNT_TYPE", SqlDbType.VarChar),
                                             new SqlParameter("@ITEM_ID", SqlDbType.Int),
+                                            new SqlParameter("@CATEGORY_NAME_UNICODE", SqlDbType.VarChar) 
                                        };
 
-            sqlParams[0].Value = Catagory_NAME;
+            sqlParams[0].Value = Category_NAME;
             sqlParams[1].Value = BRAND_ID;
             sqlParams[2].Value = Barcode_No;
             sqlParams[3].Value = Unit;
@@ -118,6 +120,7 @@ namespace POS
             sqlParams[9].Value = Discount;
             sqlParams[10].Value = Discount_Type;
             sqlParams[11].Value = Item_ID;
+            sqlParams[12].Value = Category_NAME_UNICODE;
 
             DataInsertManager dim = new DataInsertManager();
             return dim.insertRecord(selectCommand, ref sqlParams);
@@ -125,7 +128,7 @@ namespace POS
 
         public SqlDataReader GetItemCatagoryDetails(String Catagory_ID)
         {
-            String query = "SELECT Item_Catagory.BARCODE, Item_Catagory.CATAGORY_NAME, Item_Catagory.CAT_DISCRIPTION, Item_Catagory.UNIT, Item_Catagory.BUYING_COST, Item_Catagory.SELLING_COST,Item_Catagory.CAT_STATUS, Items.ITEM_NAME,Item_Catagory.DISCOUNT,Item_Catagory.DISCOUNT_TYPE,BRAND.BRAND_NAME,BRAND.BRAND_ID,DISCOUNT_FROM,DISCOUNT_TO,DISCOUNT_PERIOADICALLY FROM Item_Catagory INNER JOIN Brand ON Brand.BRAND_ID=Item_Catagory.BRAND_ID INNER JOIN Items ON Items.ITEM_ID = Item_Catagory.ITEM_ID where Item_Catagory.ITEMCAT_ID = @ItemCatID";
+            String query = "SELECT Item_Category.BARCODE, Item_Category.CATEGORY_NAME, Item_Category.CAT_DISCRIPTION, Item_Category.UNIT, Item_Category.BUYING_COST, Item_Category.SELLING_COST,Item_Category.CAT_STATUS, Items.ITEM_NAME,Item_Category.DISCOUNT,Item_Category.DISCOUNT_TYPE,BRAND.BRAND_NAME,BRAND.BRAND_ID,DISCOUNT_FROM,DISCOUNT_TO,DISCOUNT_PERIOADICALLY,CATEGORY_NAME_UNICODE FROM Item_Category INNER JOIN Brand ON Brand.BRAND_ID=Item_Category.BRAND_ID INNER JOIN Items ON Items.ITEM_ID = Item_Category.ITEM_ID where Item_Category.ITEMCAT_ID = @ItemCatID";
             SqlParameter sqlParam = new SqlParameter("@ItemCatID", SqlDbType.Int);
             sqlParam.Value = Catagory_ID;
 
@@ -134,7 +137,7 @@ namespace POS
         }
         public SqlDataReader GetItemCatagoryDetailsByBrand(String Brand_ID)
         {
-            String query = "SELECT Items.ITEM_NAME, Item_Catagory.CATAGORY_NAME, Item_Catagory.CAT_DISCRIPTION, Item_Catagory.UNIT, Item_Catagory.BUYING_COST, Item_Catagory.SELLING_COST,Item_Catagory.CAT_STATUS, Item_Catagory.DISCOUNT,Item_Catagory.DISCOUNT_TYPE,BRAND.BRAND_NAME,BRAND.BRAND_ID,[DISCOUNT_FROM]  ,[DISCOUNT_TO]  ,[DISCOUNT_PERIOADICALLY],Item_Catagory.ITEMCAT_ID FROM Item_Catagory INNER JOIN Brand ON Brand.BRAND_ID=Item_Catagory.BRAND_ID INNER JOIN Items ON Items.ITEM_ID = Item_Catagory.ITEM_ID where Item_Catagory.BRAND_ID = @Brand_ID";
+            String query = "SELECT Items.ITEM_NAME, Item_Category.CATEGORY_NAME, Item_Category.CAT_DISCRIPTION, Item_Category.UNIT, Item_Category.BUYING_COST, Item_Category.SELLING_COST,Item_Category.CAT_STATUS, Item_Category.DISCOUNT,Item_Category.DISCOUNT_TYPE,BRAND.BRAND_NAME,BRAND.BRAND_ID,[DISCOUNT_FROM]  ,[DISCOUNT_TO]  ,[DISCOUNT_PERIOADICALLY],Item_Category.ITEMCAT_ID FROM Item_Category INNER JOIN Brand ON Brand.BRAND_ID=Item_Category.BRAND_ID INNER JOIN Items ON Items.ITEM_ID = Item_Category.ITEM_ID where Item_Category.BRAND_ID = @Brand_ID";
             SqlParameter sqlParam = new SqlParameter("@Brand_ID", SqlDbType.Int);
             sqlParam.Value = Brand_ID;
 
@@ -144,7 +147,7 @@ namespace POS
 
         public SqlDataReader GetItemCatagoryDetails_Combobox(String Item_ID, String Brand_ID)
         {
-            String query = "SELECT Item_Catagory.ITEMCAT_ID, Item_Catagory.CATAGORY_NAME   FROM  [dbo].[Item_Catagory] where Item_Catagory.ITEM_ID = @ItemID AND Item_Catagory.BRAND_ID = @BrandID";
+            String query = "SELECT Item_Category.ITEMCAT_ID, Item_Category.CATEGORY_NAME   FROM  [dbo].[Item_Category] where Item_Category.ITEM_ID = @ItemID AND Item_Category.BRAND_ID = @BrandID";
             SqlParameter[] sqlParams = new SqlParameter[] {
                                             new SqlParameter("@ItemID", SqlDbType.Int),
                                             new SqlParameter("@BrandID", SqlDbType.Int),
@@ -159,20 +162,20 @@ namespace POS
 
         public SqlDataReader GetMaxCatID()
         {
-            String query = "SELECT MAX([ITEMCAT_ID]) FROM [dbo].[Item_Catagory]";
+            String query = "SELECT MAX([ITEMCAT_ID]) FROM [dbo].[Item_Category]";
             DataReaderManager drm = new DataReaderManager();
             return drm.getDataReader(query);
         }
 
-        public int updateItemCatagory(String Catagory_NAME, String BRAND_ID, String Barcode_No, String Unit, Decimal Buying, Decimal Selling, String Item_Discription, Boolean ItemStatus, String Catagory_ID, Decimal Discount, String Discount_Type, String Item_ID)
+        public int updateItemCategory(String Category_NAME, String BRAND_ID, String Barcode_No, String Unit, Decimal Buying, Decimal Selling, String Item_Discription, Boolean ItemStatus, String Catagory_ID, Decimal Discount, String Discount_Type, String Item_ID, String Category_NAME_UNICODE)
         {
-            String selectCommand = "UPDATE [dbo].[Item_Catagory] SET [CATAGORY_NAME] = @Catagory_NAME, [BRAND_ID] = @BRAND_ID, BARCODE = @Barcode_No, [UNIT] = @Unit, [BUYING_COST] = @Buying, [SELLING_COST]= @Selling ,[CAT_DISCRIPTION] = @Catagory_Discription ,[CAT_STATUS] = @ItemStatus , [UPDATED_DATE] = @UpdateddDate, [DISCOUNT]=@DISCOUNT, [DISCOUNT_TYPE]=@DISCOUNT_TYPE, [ITEM_ID]=@ITEM_ID WHERE [ITEMCAT_ID] = @Catagory_ID";
+            String selectCommand = "UPDATE [dbo].[Item_Category] SET [CATEGORY_NAME] = N'"+ Category_NAME + "', [BRAND_ID] = @BRAND_ID, BARCODE = @Barcode_No, [UNIT] = @Unit, [BUYING_COST] = @Buying, [SELLING_COST]= @Selling ,[CAT_DISCRIPTION] = @Catagory_Discription ,[CAT_STATUS] = @ItemStatus , [UPDATED_DATE] = @UpdateddDate, [DISCOUNT]=@DISCOUNT, [DISCOUNT_TYPE]=@DISCOUNT_TYPE, [ITEM_ID]=@ITEM_ID,  [CATEGORY_NAME_UNICODE] = N'"+ Category_NAME_UNICODE + "' WHERE [ITEMCAT_ID] = @Catagory_ID";
 
             SqlParameter[] sqlParams = new SqlParameter[] {
-                                            new SqlParameter("@Catagory_NAME", SqlDbType.VarChar),
+                                            new SqlParameter("@Category_NAME", SqlDbType.Text),
                                             new SqlParameter("@BRAND_ID", SqlDbType.Int),
                                             new SqlParameter("@Barcode_No", SqlDbType.VarChar),
-                                            new SqlParameter("@Unit", SqlDbType.VarChar),
+                                            new SqlParameter("@Unit", SqlDbType.Text),
                                             new SqlParameter("@Buying", SqlDbType.Decimal),
                                             new SqlParameter("@Selling", SqlDbType.Decimal),
                                             new SqlParameter("@Catagory_Discription", SqlDbType.VarChar),
@@ -182,9 +185,10 @@ namespace POS
                                             new SqlParameter("@DISCOUNT", SqlDbType.Decimal),
                                             new SqlParameter("@DISCOUNT_TYPE", SqlDbType.VarChar),
                                             new SqlParameter("@ITEM_ID", SqlDbType.Int),
+                                            new SqlParameter("@CATEGORY_NAME_UNICODE", SqlDbType.VarChar)
                                        };
 
-            sqlParams[0].Value = Catagory_NAME;
+            sqlParams[0].Value = Category_NAME;
             sqlParams[1].Value = BRAND_ID;
             sqlParams[2].Value = Barcode_No;
             sqlParams[3].Value = Unit;
@@ -197,31 +201,32 @@ namespace POS
             sqlParams[10].Value = Discount;
             sqlParams[11].Value = Discount_Type;
             sqlParams[12].Value = Item_ID;
+            sqlParams[13].Value = Category_NAME_UNICODE;
 
             DataUpdateManager dum = new DataUpdateManager();
             return dum.updateRecord(selectCommand, ref sqlParams);
         }
 
-        public int insertStockBalanceDefault(int Catagory_ID, Decimal Balnce)
+        public int insertStockBalanceDefault(int Category_ID, Decimal Balance)
         {
-            String selectCommand = "INSERT INTO [dbo].[Stock_Balance]([ITEMCAT_ID],[BALANCE])VALUES(@Catagory_ID,@Balance)";
+            String selectCommand = "INSERT INTO [dbo].[Stock_Balance]([ITEMCAT_ID],[BALANCE])VALUES(@Category_ID,@Balance)";
 
             SqlParameter[] sqlParams = new SqlParameter[] {
-                                            new SqlParameter("@Catagory_ID", SqlDbType.Int),
+                                            new SqlParameter("@Category_ID", SqlDbType.Int),
                                             new SqlParameter("@Balance", SqlDbType.Decimal),                                   
                                        };
 
-            sqlParams[0].Value = Catagory_ID;
-            sqlParams[1].Value = Balnce;
+            sqlParams[0].Value = Category_ID;
+            sqlParams[1].Value = Balance;
 
 
             DataInsertManager dim = new DataInsertManager();
             return dim.insertRecord(selectCommand, ref sqlParams);
         }
 
-        public SqlDataReader GetCatagoryDetailsByBarcode(String Barcode)
+        public SqlDataReader GetCategoryDetailsByBarcode(String Barcode)
         {
-            String query = "SELECT Item_Catagory.BARCODE, Item_Catagory.CATAGORY_NAME, Item_Catagory.ITEMCAT_ID, Item_Catagory.UNIT, Item_Catagory.BUYING_COST, Item_Catagory.SELLING_COST, Items.ITEM_NAME,Item_Catagory.DISCOUNT ,Item_Catagory.DISCOUNT_TYPE,BRAND.BRAND_NAME,DISCOUNT_FROM,DISCOUNT_TO,DISCOUNT_PERIOADICALLY FROM Item_Catagory INNER JOIN Brand ON Brand.BRAND_ID=Item_Catagory.BRAND_ID INNER JOIN Items ON Items.ITEM_ID = Item_Catagory.ITEM_ID  where Item_Catagory.BARCODE = @Barcode and Item_Catagory.CAT_STATUS = 1";
+            String query = "SELECT Item_Category.BARCODE, Item_Category.CATEGORY_NAME, Item_Category.ITEMCAT_ID, Item_Category.UNIT, Item_Category.BUYING_COST, Item_Category.SELLING_COST, Items.ITEM_NAME,Item_Category.DISCOUNT ,Item_Category.DISCOUNT_TYPE,BRAND.BRAND_NAME,DISCOUNT_FROM,DISCOUNT_TO,DISCOUNT_PERIOADICALLY FROM Item_Category INNER JOIN Brand ON Brand.BRAND_ID=Item_Category.BRAND_ID INNER JOIN Items ON Items.ITEM_ID = Item_Category.ITEM_ID  where Item_Category.BARCODE = @Barcode and Item_Category.CAT_STATUS = 1";
             SqlParameter sqlParam = new SqlParameter("@Barcode", SqlDbType.VarChar);
             sqlParam.Value = Barcode;
 
@@ -229,9 +234,9 @@ namespace POS
             return drm.getDataReader(query, ref sqlParam);
         }
 
-        public SqlDataReader GetCatagoryDetailsByBarcodeAll(String Barcode)
+        public SqlDataReader GetCategoryDetailsByBarcodeAll(String Barcode)
         {
-            String query = "SELECT Item_Catagory.BARCODE, Item_Catagory.CATAGORY_NAME, Item_Catagory.CAT_DISCRIPTION, Item_Catagory.UNIT, Item_Catagory.BUYING_COST, Item_Catagory.SELLING_COST,Item_Catagory.CAT_STATUS, Items.ITEM_NAME,Item_Catagory.DISCOUNT,Item_Catagory.DISCOUNT_TYPE,BRAND.BRAND_NAME,BRAND.BRAND_ID FROM Item_Catagory INNER JOIN Brand ON Brand.BRAND_ID=Item_Catagory.BRAND_ID INNER JOIN Items ON Items.ITEM_ID = Brand.ITEM_ID where Item_Catagory.BARCODE = @Barcode";
+            String query = "SELECT Item_Category.BARCODE, Item_Category.CATEGORY_NAME, Item_Category.CAT_DISCRIPTION, Item_Category.UNIT, Item_Category.BUYING_COST, Item_Category.SELLING_COST,Item_Category.CAT_STATUS, Items.ITEM_NAME,Item_Category.DISCOUNT,Item_Category.DISCOUNT_TYPE,BRAND.BRAND_NAME,BRAND.BRAND_ID FROM Item_Category INNER JOIN Brand ON Brand.BRAND_ID=Item_Category.BRAND_ID INNER JOIN Items ON Items.ITEM_ID = Item_Category.ITEM_ID where Item_Category.BARCODE = @Barcode";
             SqlParameter sqlParam = new SqlParameter("@Barcode", SqlDbType.VarChar);
             sqlParam.Value = Barcode;
 

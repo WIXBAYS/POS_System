@@ -20,17 +20,17 @@ namespace POS {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("POSDataSetItemCataagory")]
+    [global::System.Xml.Serialization.XmlRootAttribute("POSDataSetUnit")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class POSDataSetItemCataagory : global::System.Data.DataSet {
+    public partial class POSDataSetUnit : global::System.Data.DataSet {
         
-        private Item_CatagoryDataTable tableItem_Catagory;
+        private UnitsDataTable tableUnits;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public POSDataSetItemCataagory() {
+        public POSDataSetUnit() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace POS {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected POSDataSetItemCataagory(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected POSDataSetUnit(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace POS {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["Item_Catagory"] != null)) {
-                    base.Tables.Add(new Item_CatagoryDataTable(ds.Tables["Item_Catagory"]));
+                if ((ds.Tables["Units"] != null)) {
+                    base.Tables.Add(new UnitsDataTable(ds.Tables["Units"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace POS {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public Item_CatagoryDataTable Item_Catagory {
+        public UnitsDataTable Units {
             get {
-                return this.tableItem_Catagory;
+                return this.tableUnits;
             }
         }
         
@@ -127,7 +127,7 @@ namespace POS {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            POSDataSetItemCataagory cln = ((POSDataSetItemCataagory)(base.Clone()));
+            POSDataSetUnit cln = ((POSDataSetUnit)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace POS {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["Item_Catagory"] != null)) {
-                    base.Tables.Add(new Item_CatagoryDataTable(ds.Tables["Item_Catagory"]));
+                if ((ds.Tables["Units"] != null)) {
+                    base.Tables.Add(new UnitsDataTable(ds.Tables["Units"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace POS {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableItem_Catagory = ((Item_CatagoryDataTable)(base.Tables["Item_Catagory"]));
+            this.tableUnits = ((UnitsDataTable)(base.Tables["Units"]));
             if ((initTable == true)) {
-                if ((this.tableItem_Catagory != null)) {
-                    this.tableItem_Catagory.InitVars();
+                if ((this.tableUnits != null)) {
+                    this.tableUnits.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace POS {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "POSDataSetItemCataagory";
+            this.DataSetName = "POSDataSetUnit";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/POSDataSetItemCataagory.xsd";
+            this.Namespace = "http://tempuri.org/POSDataSetUnit.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableItem_Catagory = new Item_CatagoryDataTable();
-            base.Tables.Add(this.tableItem_Catagory);
+            this.tableUnits = new UnitsDataTable();
+            base.Tables.Add(this.tableUnits);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeItem_Catagory() {
+        private bool ShouldSerializeUnits() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace POS {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            POSDataSetItemCataagory ds = new POSDataSetItemCataagory();
+            POSDataSetUnit ds = new POSDataSetUnit();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,23 +270,21 @@ namespace POS {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void Item_CatagoryRowChangeEventHandler(object sender, Item_CatagoryRowChangeEvent e);
+        public delegate void UnitsRowChangeEventHandler(object sender, UnitsRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class Item_CatagoryDataTable : global::System.Data.TypedTableBase<Item_CatagoryRow> {
+        public partial class UnitsDataTable : global::System.Data.TypedTableBase<UnitsRow> {
             
-            private global::System.Data.DataColumn columnITEMCAT_ID;
-            
-            private global::System.Data.DataColumn columnCATEGORY_NAME;
+            private global::System.Data.DataColumn columnUNIT_NAME;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Item_CatagoryDataTable() {
-                this.TableName = "Item_Catagory";
+            public UnitsDataTable() {
+                this.TableName = "Units";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -294,7 +292,7 @@ namespace POS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal Item_CatagoryDataTable(global::System.Data.DataTable table) {
+            internal UnitsDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -311,24 +309,16 @@ namespace POS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected Item_CatagoryDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected UnitsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ITEMCAT_IDColumn {
+            public global::System.Data.DataColumn UNIT_NAMEColumn {
                 get {
-                    return this.columnITEMCAT_ID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn CATEGORY_NAMEColumn {
-                get {
-                    return this.columnCATEGORY_NAME;
+                    return this.columnUNIT_NAME;
                 }
             }
             
@@ -343,46 +333,45 @@ namespace POS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Item_CatagoryRow this[int index] {
+            public UnitsRow this[int index] {
                 get {
-                    return ((Item_CatagoryRow)(this.Rows[index]));
+                    return ((UnitsRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event Item_CatagoryRowChangeEventHandler Item_CatagoryRowChanging;
+            public event UnitsRowChangeEventHandler UnitsRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event Item_CatagoryRowChangeEventHandler Item_CatagoryRowChanged;
+            public event UnitsRowChangeEventHandler UnitsRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event Item_CatagoryRowChangeEventHandler Item_CatagoryRowDeleting;
+            public event UnitsRowChangeEventHandler UnitsRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event Item_CatagoryRowChangeEventHandler Item_CatagoryRowDeleted;
+            public event UnitsRowChangeEventHandler UnitsRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddItem_CatagoryRow(Item_CatagoryRow row) {
+            public void AddUnitsRow(UnitsRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Item_CatagoryRow AddItem_CatagoryRow(int ITEMCAT_ID, string CATEGORY_NAME) {
-                Item_CatagoryRow rowItem_CatagoryRow = ((Item_CatagoryRow)(this.NewRow()));
+            public UnitsRow AddUnitsRow(string UNIT_NAME) {
+                UnitsRow rowUnitsRow = ((UnitsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        ITEMCAT_ID,
-                        CATEGORY_NAME};
-                rowItem_CatagoryRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowItem_CatagoryRow);
-                return rowItem_CatagoryRow;
+                        UNIT_NAME};
+                rowUnitsRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowUnitsRow);
+                return rowUnitsRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                Item_CatagoryDataTable cln = ((Item_CatagoryDataTable)(base.Clone()));
+                UnitsDataTable cln = ((UnitsDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -390,52 +379,48 @@ namespace POS {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new Item_CatagoryDataTable();
+                return new UnitsDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columnITEMCAT_ID = base.Columns["ITEMCAT_ID"];
-                this.columnCATEGORY_NAME = base.Columns["CATEGORY_NAME"];
+                this.columnUNIT_NAME = base.Columns["UNIT_NAME"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnITEMCAT_ID = new global::System.Data.DataColumn("ITEMCAT_ID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnITEMCAT_ID);
-                this.columnCATEGORY_NAME = new global::System.Data.DataColumn("CATEGORY_NAME", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCATEGORY_NAME);
-                this.columnITEMCAT_ID.AllowDBNull = false;
-                this.columnCATEGORY_NAME.AllowDBNull = false;
-                this.columnCATEGORY_NAME.MaxLength = 2147483647;
+                this.columnUNIT_NAME = new global::System.Data.DataColumn("UNIT_NAME", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUNIT_NAME);
+                this.columnUNIT_NAME.AllowDBNull = false;
+                this.columnUNIT_NAME.MaxLength = 2147483647;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Item_CatagoryRow NewItem_CatagoryRow() {
-                return ((Item_CatagoryRow)(this.NewRow()));
+            public UnitsRow NewUnitsRow() {
+                return ((UnitsRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new Item_CatagoryRow(builder);
+                return new UnitsRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(Item_CatagoryRow);
+                return typeof(UnitsRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.Item_CatagoryRowChanged != null)) {
-                    this.Item_CatagoryRowChanged(this, new Item_CatagoryRowChangeEvent(((Item_CatagoryRow)(e.Row)), e.Action));
+                if ((this.UnitsRowChanged != null)) {
+                    this.UnitsRowChanged(this, new UnitsRowChangeEvent(((UnitsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -443,8 +428,8 @@ namespace POS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.Item_CatagoryRowChanging != null)) {
-                    this.Item_CatagoryRowChanging(this, new Item_CatagoryRowChangeEvent(((Item_CatagoryRow)(e.Row)), e.Action));
+                if ((this.UnitsRowChanging != null)) {
+                    this.UnitsRowChanging(this, new UnitsRowChangeEvent(((UnitsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -452,8 +437,8 @@ namespace POS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.Item_CatagoryRowDeleted != null)) {
-                    this.Item_CatagoryRowDeleted(this, new Item_CatagoryRowChangeEvent(((Item_CatagoryRow)(e.Row)), e.Action));
+                if ((this.UnitsRowDeleted != null)) {
+                    this.UnitsRowDeleted(this, new UnitsRowChangeEvent(((UnitsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -461,14 +446,14 @@ namespace POS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.Item_CatagoryRowDeleting != null)) {
-                    this.Item_CatagoryRowDeleting(this, new Item_CatagoryRowChangeEvent(((Item_CatagoryRow)(e.Row)), e.Action));
+                if ((this.UnitsRowDeleting != null)) {
+                    this.UnitsRowDeleting(this, new UnitsRowChangeEvent(((UnitsRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemoveItem_CatagoryRow(Item_CatagoryRow row) {
+            public void RemoveUnitsRow(UnitsRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -477,7 +462,7 @@ namespace POS {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                POSDataSetItemCataagory ds = new POSDataSetItemCataagory();
+                POSDataSetUnit ds = new POSDataSetUnit();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -495,7 +480,7 @@ namespace POS {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "Item_CatagoryDataTable";
+                attribute2.FixedValue = "UnitsDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -539,36 +524,25 @@ namespace POS {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class Item_CatagoryRow : global::System.Data.DataRow {
+        public partial class UnitsRow : global::System.Data.DataRow {
             
-            private Item_CatagoryDataTable tableItem_Catagory;
+            private UnitsDataTable tableUnits;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal Item_CatagoryRow(global::System.Data.DataRowBuilder rb) : 
+            internal UnitsRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableItem_Catagory = ((Item_CatagoryDataTable)(this.Table));
+                this.tableUnits = ((UnitsDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int ITEMCAT_ID {
+            public string UNIT_NAME {
                 get {
-                    return ((int)(this[this.tableItem_Catagory.ITEMCAT_IDColumn]));
+                    return ((string)(this[this.tableUnits.UNIT_NAMEColumn]));
                 }
                 set {
-                    this[this.tableItem_Catagory.ITEMCAT_IDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string CATEGORY_NAME {
-                get {
-                    return ((string)(this[this.tableItem_Catagory.CATEGORY_NAMEColumn]));
-                }
-                set {
-                    this[this.tableItem_Catagory.CATEGORY_NAMEColumn] = value;
+                    this[this.tableUnits.UNIT_NAMEColumn] = value;
                 }
             }
         }
@@ -577,22 +551,22 @@ namespace POS {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class Item_CatagoryRowChangeEvent : global::System.EventArgs {
+        public class UnitsRowChangeEvent : global::System.EventArgs {
             
-            private Item_CatagoryRow eventRow;
+            private UnitsRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Item_CatagoryRowChangeEvent(Item_CatagoryRow row, global::System.Data.DataRowAction action) {
+            public UnitsRowChangeEvent(UnitsRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Item_CatagoryRow Row {
+            public UnitsRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -608,7 +582,7 @@ namespace POS {
         }
     }
 }
-namespace POS.POSDataSetItemCataagoryTableAdapters {
+namespace POS.POSDataSetUnitTableAdapters {
     
     
     /// <summary>
@@ -620,7 +594,7 @@ namespace POS.POSDataSetItemCataagoryTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class Item_CatagoryTableAdapter : global::System.ComponentModel.Component {
+    public partial class UnitsTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -634,7 +608,7 @@ namespace POS.POSDataSetItemCataagoryTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public Item_CatagoryTableAdapter() {
+        public UnitsTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -731,9 +705,8 @@ namespace POS.POSDataSetItemCataagoryTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Item_Catagory";
-            tableMapping.ColumnMappings.Add("ITEMCAT_ID", "ITEMCAT_ID");
-            tableMapping.ColumnMappings.Add("CATEGORY_NAME", "CATEGORY_NAME");
+            tableMapping.DataSetTable = "Units";
+            tableMapping.ColumnMappings.Add("UNIT_NAME", "UNIT_NAME");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -747,22 +720,18 @@ namespace POS.POSDataSetItemCataagoryTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ITEMCAT_ID, CATEGORY_NAME FROM dbo.Item_Category";
+            this._commandCollection[0].CommandText = "SELECT UNIT_NAME FROM dbo.Units";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT ITEMCAT_ID, CATAGORY_NAME FROM dbo.Item_Catagory Order By CATAGORY_NAME ";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(POSDataSetItemCataagory.Item_CatagoryDataTable dataTable) {
+        public virtual int Fill(POSDataSetUnit.UnitsDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -775,24 +744,11 @@ namespace POS.POSDataSetItemCataagoryTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual POSDataSetItemCataagory.Item_CatagoryDataTable GetData() {
+        public virtual POSDataSetUnit.UnitsDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            POSDataSetItemCataagory.Item_CatagoryDataTable dataTable = new POSDataSetItemCataagory.Item_CatagoryDataTable();
+            POSDataSetUnit.UnitsDataTable dataTable = new POSDataSetUnit.UnitsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy(POSDataSetItemCataagory.Item_CatagoryDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
         }
     }
     
@@ -864,7 +820,7 @@ namespace POS.POSDataSetItemCataagoryTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateUpdatedRows(POSDataSetItemCataagory dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(POSDataSetUnit dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -874,7 +830,7 @@ namespace POS.POSDataSetItemCataagoryTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateInsertedRows(POSDataSetItemCataagory dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(POSDataSetUnit dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -884,7 +840,7 @@ namespace POS.POSDataSetItemCataagoryTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateDeletedRows(POSDataSetItemCataagory dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(POSDataSetUnit dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             return result;
         }
@@ -918,7 +874,7 @@ namespace POS.POSDataSetItemCataagoryTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public virtual int UpdateAll(POSDataSetItemCataagory dataSet) {
+        public virtual int UpdateAll(POSDataSetUnit dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

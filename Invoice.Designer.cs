@@ -31,7 +31,7 @@ namespace POS
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Invoice));
             this.comboBoxCatID = new System.Windows.Forms.ComboBox();
             this.itemCatagoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -44,6 +44,15 @@ namespace POS
             this.button_update = new System.Windows.Forms.Button();
             this.button_cancel = new System.Windows.Forms.Button();
             this.dataGridViewAll = new System.Windows.Forms.DataGridView();
+            this.ColumnBarCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Catagory_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Unit_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Grid_Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Discount_Amout = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BuyingCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDelete = new System.Windows.Forms.DataGridViewImageColumn();
             this.labelSellingCost = new System.Windows.Forms.Label();
             this.textBoxSelling = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -84,9 +93,9 @@ namespace POS
             this.label5 = new System.Windows.Forms.Label();
             this.textBoxtTlLineDiscount = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBoxDueAmount = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBoxBalance = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.TxtPassword = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -107,15 +116,8 @@ namespace POS
             this.labelD = new System.Windows.Forms.Label();
             this.Hiddenlabel = new System.Windows.Forms.Label();
             this.Hiddenlabel1 = new System.Windows.Forms.Label();
-            this.ColumnBarCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Catagory_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Unit_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Grid_Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Discount_Amout = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BuyingCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDelete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.textBoxNetDiscount = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.itemCatagoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetItemCataagoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetItemCataagory)).BeginInit();
@@ -129,7 +131,7 @@ namespace POS
             // comboBoxCatID
             // 
             this.comboBoxCatID.DataSource = this.itemCatagoryBindingSource;
-            this.comboBoxCatID.DisplayMember = "CATAGORY_NAME";
+            this.comboBoxCatID.DisplayMember = "CATEGORY_NAME";
             this.comboBoxCatID.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxCatID.FormattingEnabled = true;
             this.comboBoxCatID.Location = new System.Drawing.Point(117, 32);
@@ -164,8 +166,8 @@ namespace POS
             this.textBoxTotal.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxTotal.Enabled = false;
             this.textBoxTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTotal.ForeColor = System.Drawing.Color.Red;
-            this.textBoxTotal.Location = new System.Drawing.Point(740, 396);
+            this.textBoxTotal.ForeColor = System.Drawing.Color.DarkRed;
+            this.textBoxTotal.Location = new System.Drawing.Point(740, 418);
             this.textBoxTotal.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxTotal.Name = "textBoxTotal";
             this.textBoxTotal.ReadOnly = true;
@@ -179,7 +181,7 @@ namespace POS
             this.labelTotal.AutoSize = true;
             this.labelTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTotal.ForeColor = System.Drawing.Color.DarkRed;
-            this.labelTotal.Location = new System.Drawing.Point(575, 395);
+            this.labelTotal.Location = new System.Drawing.Point(539, 417);
             this.labelTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTotal.Name = "labelTotal";
             this.labelTotal.Size = new System.Drawing.Size(44, 16);
@@ -257,14 +259,14 @@ namespace POS
             this.Quantity,
             this.BuyingCost,
             this.ColumnDelete});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewAll.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewAll.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewAll.GridColor = System.Drawing.SystemColors.ButtonFace;
             this.dataGridViewAll.Location = new System.Drawing.Point(16, 37);
             this.dataGridViewAll.Name = "dataGridViewAll";
@@ -273,6 +275,56 @@ namespace POS
             this.dataGridViewAll.TabStop = false;
             this.dataGridViewAll.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAll_CellContentClick);
             this.dataGridViewAll.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEnter);
+            // 
+            // ColumnBarCode
+            // 
+            this.ColumnBarCode.HeaderText = "BarCode";
+            this.ColumnBarCode.Name = "ColumnBarCode";
+            // 
+            // Catagory_Name
+            // 
+            this.Catagory_Name.HeaderText = "Category Name";
+            this.Catagory_Name.Name = "Catagory_Name";
+            // 
+            // ColumnUnit
+            // 
+            this.ColumnUnit.HeaderText = "Unit";
+            this.ColumnUnit.Name = "ColumnUnit";
+            this.ColumnUnit.ReadOnly = true;
+            // 
+            // Unit_Price
+            // 
+            this.Unit_Price.HeaderText = "Unit Price";
+            this.Unit_Price.Name = "Unit_Price";
+            this.Unit_Price.ReadOnly = true;
+            // 
+            // Grid_Discount
+            // 
+            this.Grid_Discount.HeaderText = "Discount";
+            this.Grid_Discount.Name = "Grid_Discount";
+            this.Grid_Discount.ReadOnly = true;
+            // 
+            // Discount_Amout
+            // 
+            this.Discount_Amout.HeaderText = "Dis. Amount Per Unit";
+            this.Discount_Amout.Name = "Discount_Amout";
+            this.Discount_Amout.ReadOnly = true;
+            // 
+            // Quantity
+            // 
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
+            // 
+            // BuyingCost
+            // 
+            this.BuyingCost.HeaderText = "Sub Total";
+            this.BuyingCost.Name = "BuyingCost";
+            // 
+            // ColumnDelete
+            // 
+            this.ColumnDelete.HeaderText = "Delete";
+            this.ColumnDelete.Image = ((System.Drawing.Image)(resources.GetObject("ColumnDelete.Image")));
+            this.ColumnDelete.Name = "ColumnDelete";
             // 
             // labelSellingCost
             // 
@@ -743,7 +795,7 @@ namespace POS
             this.textBoxtTlLineDiscountP.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxtTlLineDiscountP.Enabled = false;
             this.textBoxtTlLineDiscountP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxtTlLineDiscountP.ForeColor = System.Drawing.Color.Red;
+            this.textBoxtTlLineDiscountP.ForeColor = System.Drawing.Color.Green;
             this.textBoxtTlLineDiscountP.Location = new System.Drawing.Point(739, 331);
             this.textBoxtTlLineDiscountP.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxtTlLineDiscountP.Name = "textBoxtTlLineDiscountP";
@@ -757,8 +809,8 @@ namespace POS
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.DarkRed;
-            this.label4.Location = new System.Drawing.Point(574, 332);
+            this.label4.ForeColor = System.Drawing.Color.Green;
+            this.label4.Location = new System.Drawing.Point(538, 332);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(121, 16);
@@ -772,8 +824,8 @@ namespace POS
             this.textBoxNetDiscountP.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxNetDiscountP.Enabled = false;
             this.textBoxNetDiscountP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNetDiscountP.ForeColor = System.Drawing.Color.Red;
-            this.textBoxNetDiscountP.Location = new System.Drawing.Point(739, 299);
+            this.textBoxNetDiscountP.ForeColor = System.Drawing.Color.Green;
+            this.textBoxNetDiscountP.Location = new System.Drawing.Point(739, 360);
             this.textBoxNetDiscountP.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxNetDiscountP.Name = "textBoxNetDiscountP";
             this.textBoxNetDiscountP.ReadOnly = true;
@@ -786,13 +838,13 @@ namespace POS
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.DarkRed;
-            this.label5.Location = new System.Drawing.Point(575, 299);
+            this.label5.ForeColor = System.Drawing.Color.Green;
+            this.label5.Location = new System.Drawing.Point(539, 360);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(113, 16);
+            this.label5.Size = new System.Drawing.Size(147, 16);
             this.label5.TabIndex = 157;
-            this.label5.Text = "Net Discount %";
+            this.label5.Text = "Total Bill Discount%";
             // 
             // textBoxtTlLineDiscount
             // 
@@ -801,8 +853,8 @@ namespace POS
             this.textBoxtTlLineDiscount.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxtTlLineDiscount.Enabled = false;
             this.textBoxtTlLineDiscount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxtTlLineDiscount.ForeColor = System.Drawing.Color.Red;
-            this.textBoxtTlLineDiscount.Location = new System.Drawing.Point(739, 362);
+            this.textBoxtTlLineDiscount.ForeColor = System.Drawing.Color.Green;
+            this.textBoxtTlLineDiscount.Location = new System.Drawing.Point(738, 302);
             this.textBoxtTlLineDiscount.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxtTlLineDiscount.Name = "textBoxtTlLineDiscount";
             this.textBoxtTlLineDiscount.ReadOnly = true;
@@ -815,58 +867,58 @@ namespace POS
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.DarkRed;
-            this.label6.Location = new System.Drawing.Point(575, 360);
+            this.label6.ForeColor = System.Drawing.Color.Green;
+            this.label6.Location = new System.Drawing.Point(538, 300);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(159, 16);
             this.label6.TabIndex = 155;
             this.label6.Text = "Total Line Dis Amount";
             // 
-            // textBox5
+            // textBoxDueAmount
             // 
-            this.textBox5.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.textBox5.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox5.Enabled = false;
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.ForeColor = System.Drawing.Color.Red;
-            this.textBox5.Location = new System.Drawing.Point(739, 426);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(159, 15);
-            this.textBox5.TabIndex = 164;
-            this.textBox5.TabStop = false;
+            this.textBoxDueAmount.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.textBoxDueAmount.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.textBoxDueAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxDueAmount.Enabled = false;
+            this.textBoxDueAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxDueAmount.ForeColor = System.Drawing.Color.Green;
+            this.textBoxDueAmount.Location = new System.Drawing.Point(739, 448);
+            this.textBoxDueAmount.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxDueAmount.Name = "textBoxDueAmount";
+            this.textBoxDueAmount.ReadOnly = true;
+            this.textBoxDueAmount.Size = new System.Drawing.Size(159, 15);
+            this.textBoxDueAmount.TabIndex = 164;
+            this.textBoxDueAmount.TabStop = false;
             // 
             // label7
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.DarkRed;
-            this.label7.Location = new System.Drawing.Point(577, 425);
+            this.label7.ForeColor = System.Drawing.Color.Green;
+            this.label7.Location = new System.Drawing.Point(541, 447);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(91, 16);
             this.label7.TabIndex = 163;
             this.label7.Text = "Due Amount";
             // 
-            // textBox6
+            // textBoxBalance
             // 
-            this.textBox6.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.textBox6.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox6.Enabled = false;
-            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.ForeColor = System.Drawing.Color.Red;
-            this.textBox6.Location = new System.Drawing.Point(739, 456);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(159, 15);
-            this.textBox6.TabIndex = 166;
-            this.textBox6.TabStop = false;
+            this.textBoxBalance.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.textBoxBalance.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.textBoxBalance.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxBalance.Enabled = false;
+            this.textBoxBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxBalance.ForeColor = System.Drawing.Color.DarkRed;
+            this.textBoxBalance.Location = new System.Drawing.Point(739, 478);
+            this.textBoxBalance.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxBalance.Name = "textBoxBalance";
+            this.textBoxBalance.ReadOnly = true;
+            this.textBoxBalance.Size = new System.Drawing.Size(159, 15);
+            this.textBoxBalance.TabIndex = 166;
+            this.textBoxBalance.TabStop = false;
             // 
             // label8
             // 
@@ -874,7 +926,7 @@ namespace POS
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.DarkRed;
-            this.label8.Location = new System.Drawing.Point(577, 455);
+            this.label8.Location = new System.Drawing.Point(541, 477);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(65, 16);
@@ -1093,55 +1145,34 @@ namespace POS
             this.Hiddenlabel1.TabIndex = 185;
             this.Hiddenlabel1.Text = "label3";
             // 
-            // ColumnBarCode
+            // textBoxNetDiscount
             // 
-            this.ColumnBarCode.HeaderText = "BarCode";
-            this.ColumnBarCode.Name = "ColumnBarCode";
+            this.textBoxNetDiscount.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.textBoxNetDiscount.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.textBoxNetDiscount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxNetDiscount.Enabled = false;
+            this.textBoxNetDiscount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxNetDiscount.ForeColor = System.Drawing.Color.Green;
+            this.textBoxNetDiscount.Location = new System.Drawing.Point(738, 389);
+            this.textBoxNetDiscount.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxNetDiscount.Name = "textBoxNetDiscount";
+            this.textBoxNetDiscount.ReadOnly = true;
+            this.textBoxNetDiscount.Size = new System.Drawing.Size(159, 15);
+            this.textBoxNetDiscount.TabIndex = 187;
+            this.textBoxNetDiscount.TabStop = false;
             // 
-            // Catagory_Name
+            // label3
             // 
-            this.Catagory_Name.HeaderText = "Category Name";
-            this.Catagory_Name.Name = "Catagory_Name";
-            // 
-            // ColumnUnit
-            // 
-            this.ColumnUnit.HeaderText = "Unit";
-            this.ColumnUnit.Name = "ColumnUnit";
-            this.ColumnUnit.ReadOnly = true;
-            // 
-            // Unit_Price
-            // 
-            this.Unit_Price.HeaderText = "Unit Price";
-            this.Unit_Price.Name = "Unit_Price";
-            this.Unit_Price.ReadOnly = true;
-            // 
-            // Grid_Discount
-            // 
-            this.Grid_Discount.HeaderText = "Discount";
-            this.Grid_Discount.Name = "Grid_Discount";
-            this.Grid_Discount.ReadOnly = true;
-            // 
-            // Discount_Amout
-            // 
-            this.Discount_Amout.HeaderText = "Dis. Amount Per Unit";
-            this.Discount_Amout.Name = "Discount_Amout";
-            this.Discount_Amout.ReadOnly = true;
-            // 
-            // Quantity
-            // 
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.Name = "Quantity";
-            // 
-            // BuyingCost
-            // 
-            this.BuyingCost.HeaderText = "Sub Total";
-            this.BuyingCost.Name = "BuyingCost";
-            // 
-            // ColumnDelete
-            // 
-            this.ColumnDelete.HeaderText = "Delete";
-            this.ColumnDelete.Image = ((System.Drawing.Image)(resources.GetObject("ColumnDelete.Image")));
-            this.ColumnDelete.Name = "ColumnDelete";
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Green;
+            this.label3.Location = new System.Drawing.Point(538, 389);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(189, 16);
+            this.label3.TabIndex = 186;
+            this.label3.Text = "Total Bill Discount Amount";
             // 
             // Invoice
             // 
@@ -1150,6 +1181,8 @@ namespace POS
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1285, 624);
             this.ControlBox = false;
+            this.Controls.Add(this.textBoxNetDiscount);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.Hiddenlabel1);
             this.Controls.Add(this.Hiddenlabel);
             this.Controls.Add(this.labelD);
@@ -1164,9 +1197,9 @@ namespace POS
             this.Controls.Add(this.TxtPassword);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.textBoxBalance);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.textBoxDueAmount);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBoxtTlLineDiscountP);
             this.Controls.Add(this.label4);
@@ -1284,9 +1317,9 @@ namespace POS
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBoxtTlLineDiscount;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBoxDueAmount;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBoxBalance;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox TxtPassword;
         private System.Windows.Forms.Label label9;
@@ -1313,5 +1346,7 @@ namespace POS
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn BuyingCost;
         private System.Windows.Forms.DataGridViewImageColumn ColumnDelete;
+        private System.Windows.Forms.TextBox textBoxNetDiscount;
+        private System.Windows.Forms.Label label3;
     }
 }

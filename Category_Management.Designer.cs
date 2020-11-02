@@ -1,6 +1,6 @@
 ﻿namespace POS
 {
-    partial class Catagory_Management
+    partial class Category_Management
     {
         /// <summary>
         /// Required designer variable.
@@ -56,6 +56,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.comboBoxunits = new System.Windows.Forms.ComboBox();
+            this.unitsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pOSDataSetUnit = new POS.POSDataSetUnit();
             this.item_CatagoryTableAdapter = new POS.POSDataSetItemCataagoryTableAdapters.Item_CatagoryTableAdapter();
             this.textBoxDiscount = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -67,9 +69,14 @@
             this.pOSDataSetBrand = new POS.POSDataSetBrand();
             this.buttonLoad = new System.Windows.Forms.Button();
             this.brandTableAdapter = new POS.POSDataSetBrandTableAdapters.BrandTableAdapter();
+            this.textBoxNameUpdateUnicode = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.unitsTableAdapter = new POS.POSDataSetUnitTableAdapters.UnitsTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.itemCatagoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetItemCataagoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetItemCataagory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.unitsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetUnit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.brandBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetBrand)).BeginInit();
             this.SuspendLayout();
@@ -98,7 +105,7 @@
             // comboBoxName
             // 
             this.comboBoxName.DataSource = this.itemCatagoryBindingSource;
-            this.comboBoxName.DisplayMember = "CATAGORY_NAME";
+            this.comboBoxName.DisplayMember = "CATEGORY_NAME";
             this.comboBoxName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxName.FormattingEnabled = true;
@@ -158,7 +165,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(103, 16);
             this.label1.TabIndex = 43;
-            this.label1.Text = "Catagory Name";
+            this.label1.Text = "Category Name";
             // 
             // textBoxLineDiscription
             // 
@@ -348,20 +355,27 @@
             // 
             // comboBoxunits
             // 
-            this.comboBoxunits.DisplayMember = "VENDER_NAME";
+            this.comboBoxunits.DataSource = this.unitsBindingSource;
+            this.comboBoxunits.DisplayMember = "UNIT_NAME";
             this.comboBoxunits.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxunits.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxunits.FormattingEnabled = true;
-            this.comboBoxunits.Items.AddRange(new object[] {
-            "Kg",
-            "L",
-            "Units"});
             this.comboBoxunits.Location = new System.Drawing.Point(122, 287);
             this.comboBoxunits.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxunits.Name = "comboBoxunits";
             this.comboBoxunits.Size = new System.Drawing.Size(108, 23);
             this.comboBoxunits.TabIndex = 6;
-            this.comboBoxunits.ValueMember = "VENDER_ID";
+            this.comboBoxunits.ValueMember = "UNIT_NAME";
+            // 
+            // unitsBindingSource
+            // 
+            this.unitsBindingSource.DataMember = "Units";
+            this.unitsBindingSource.DataSource = this.pOSDataSetUnit;
+            // 
+            // pOSDataSetUnit
+            // 
+            this.pOSDataSetUnit.DataSetName = "POSDataSetUnit";
+            this.pOSDataSetUnit.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // item_CatagoryTableAdapter
             // 
@@ -463,13 +477,39 @@
             // 
             this.brandTableAdapter.ClearBeforeFill = true;
             // 
-            // Catagory_Management
+            // textBoxNameUpdateUnicode
+            // 
+            this.textBoxNameUpdateUnicode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxNameUpdateUnicode.Location = new System.Drawing.Point(573, 254);
+            this.textBoxNameUpdateUnicode.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxNameUpdateUnicode.Name = "textBoxNameUpdateUnicode";
+            this.textBoxNameUpdateUnicode.Size = new System.Drawing.Size(236, 22);
+            this.textBoxNameUpdateUnicode.TabIndex = 75;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(442, 260);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(124, 16);
+            this.label14.TabIndex = 76;
+            this.label14.Text = "Category Name Bill";
+            // 
+            // unitsTableAdapter
+            // 
+            this.unitsTableAdapter.ClearBeforeFill = true;
+            // 
+            // Category_Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(830, 579);
             this.ControlBox = false;
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.textBoxNameUpdateUnicode);
             this.Controls.Add(this.buttonLoad);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.comboBoxBrand);
@@ -501,12 +541,14 @@
             this.Controls.Add(this.textBoxLineDiscription);
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.button_cancel);
-            this.Name = "Catagory_Management";
+            this.Name = "Category_Management";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.Catagory_Management_Load);
             ((System.ComponentModel.ISupportInitialize)(this.itemCatagoryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetItemCataagoryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetItemCataagory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.unitsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetUnit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.brandBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetBrand)).EndInit();
             this.ResumeLayout(false);
@@ -553,5 +595,10 @@
         private POSDataSetBrand pOSDataSetBrand;
         private System.Windows.Forms.BindingSource brandBindingSource;
         private POSDataSetBrandTableAdapters.BrandTableAdapter brandTableAdapter;
+        private System.Windows.Forms.TextBox textBoxNameUpdateUnicode;
+        private System.Windows.Forms.Label label14;
+        private POSDataSetUnit pOSDataSetUnit;
+        private System.Windows.Forms.BindingSource unitsBindingSource;
+        private POSDataSetUnitTableAdapters.UnitsTableAdapter unitsTableAdapter;
     }
 }

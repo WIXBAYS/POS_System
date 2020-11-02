@@ -11,11 +11,11 @@ using System.Windows.Forms;
 
 namespace POS
 {
-    public partial class Catagory_Management : Form
+    public partial class Category_Management : Form
     {
 
         Item item = new Item();
-        public Catagory_Management()
+        public Category_Management()
         {
             InitializeComponent();
         }
@@ -52,6 +52,7 @@ namespace POS
                         textBoxDiscount.Text = sqd.GetDecimal(8).ToString();
                         comboBoxDiscountType.SelectedIndex = comboBoxDiscountType.FindString(sqd.GetString(9).Trim());
                         comboBoxBrand.SelectedIndex = comboBoxBrand.FindString(sqd.GetString(10).Trim());
+                        textBoxNameUpdateUnicode.Text = sqd.GetString(15).ToString();
                         comboBoxName.Refresh();
                     }
                     sqd.Close();
@@ -77,7 +78,7 @@ namespace POS
                 String TextcatName = textBoxName.Text;
                 String BrandID = comboBoxBrand.SelectedValue.ToString();
                 String Barcode = textBoxBarcode.Text;       
-                String Unit = comboBoxunits.SelectedItem.ToString();
+                String Unit = comboBoxunits.SelectedValue.ToString();
                 Decimal Selling = decimal.Parse(textBoxSelling.Text);
                 Decimal buying = decimal.Parse(textBoxBuying.Text);
                 bool CheckedStatus = checkBoxActive.Checked;
@@ -85,6 +86,7 @@ namespace POS
                 Decimal Discount = decimal.Parse(textBoxDiscount.Text);
                 String DiscountType = comboBoxDiscountType.SelectedItem.ToString();
                 String ItemID = comboBoxItemList.SelectedValue.ToString();
+                String TextcatNameUnicode = textBoxNameUpdateUnicode.Text;
 
                 SqlDataReader sdr = item.GetMaxCatID();
                 int cat_id = 0;
@@ -103,7 +105,7 @@ namespace POS
                     }
                 }
 
-                int x = item.insertItemCatagory(TextcatName, BrandID, Barcode,Unit,buying,Selling,Discription,CheckedStatus, Discount, DiscountType, ItemID);
+                int x = item.insertItemCategory(TextcatName, BrandID, Barcode,Unit,buying,Selling,Discription,CheckedStatus, Discount, DiscountType, ItemID, TextcatNameUnicode);
                 int y = item.insertStockBalanceDefault(cat_id+1 ,0);
 
                 if (x > 0 &&  y>0)
@@ -138,7 +140,7 @@ namespace POS
                 String BrandID = comboBoxBrand.SelectedValue.ToString();
                 String ItemID = comboBoxItemList.SelectedValue.ToString();
                 String Barcode = textBoxBarcode.Text;
-                String Unit = comboBoxunits.SelectedItem.ToString();
+                String Unit = comboBoxunits.SelectedValue.ToString();
                 Decimal Selling = decimal.Parse(textBoxSelling.Text);
                 Decimal buying = decimal.Parse(textBoxBuying.Text);
                 String Discription = textBoxLineDiscription.Text;
@@ -147,10 +149,11 @@ namespace POS
                 String DiscountType = comboBoxDiscountType.SelectedItem.ToString();
 
                 String Catagory_ID = comboBoxName.SelectedValue.ToString();
+                String TextcatNameUnicode = textBoxNameUpdateUnicode.Text;
 
 
                 Item item = new Item();
-                int x = item.updateItemCatagory(TextcatName, BrandID, Barcode,Unit,buying,Selling,Discription,CheckedStatus,Catagory_ID, Discount, DiscountType, ItemID);
+                int x = item.updateItemCategory(TextcatName, BrandID, Barcode,Unit,buying,Selling,Discription,CheckedStatus,Catagory_ID, Discount, DiscountType, ItemID, TextcatNameUnicode);
 
                 if (x > 0)
                 {
@@ -177,6 +180,8 @@ namespace POS
 
         private void Catagory_Management_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'pOSDataSetUnit.Units' table. You can move, or remove it, as needed.
+            this.unitsTableAdapter.Fill(this.pOSDataSetUnit.Units);
             // TODO: This line of code loads data into the 'pOSDataSetBrand.Brand' table. You can move, or remove it, as needed.
             this.brandTableAdapter.Fill(this.pOSDataSetBrand.Brand);
             // TODO: This line of code loads data into the 'pOSDataSetItemCataagory.Item_Catagory' table. You can move, or remove it, as needed.
@@ -248,6 +253,7 @@ namespace POS
             textBoxBarcode.Clear();
             textBoxSelling.Clear();
             textBoxDiscount.Clear();
+            textBoxNameUpdateUnicode.Clear();
             checkBoxActive.Checked = false;
         }
 
@@ -342,7 +348,7 @@ namespace POS
                 {
                     BARCODE = textBoxBarcode.Text.Trim();
 
-                    SqlDataReader sqd = item.GetCatagoryDetailsByBarcodeAll(BARCODE);
+                    SqlDataReader sqd = item.GetCategoryDetailsByBarcodeAll(BARCODE);
 
                     if (sqd != null)
                     {

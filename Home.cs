@@ -136,7 +136,7 @@ namespace POS
 
         private void catagoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Catagory_Management childForm = new Catagory_Management();
+            Category_Management childForm = new Category_Management();
             childForm.ShowDialog(this);
         }
 

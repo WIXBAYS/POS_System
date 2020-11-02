@@ -132,11 +132,11 @@
     <Compile Include="DataInsertManager.cs" />
     <Compile Include="DataReaderManager.cs" />
     <Compile Include="DataUpdateManager.cs" />
-    <Compile Include="Catagory_Management.cs">
+    <Compile Include="Category_Management.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Catagory_Management.Designer.cs">
-      <DependentUpon>Catagory_Management.cs</DependentUpon>
+    <Compile Include="Category_Management.Designer.cs">
+      <DependentUpon>Category_Management.cs</DependentUpon>
     </Compile>
     <Compile Include="POSDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -163,6 +163,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>POSDataSetGRN_ID_List.xsd</DependentUpon>
     </Compile>
+    <Compile Include="POSDataSetItemCataagory.cs">
+      <DependentUpon>POSDataSetItemCataagory.xsd</DependentUpon>
+    </Compile>
     <Compile Include="POSDataSetItemCataagory.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -182,6 +185,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>POSDataSetTemp_GNR_Data.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="POSDataSetUnit.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>POSDataSetUnit.xsd</DependentUpon>
     </Compile>
     <Compile Include="POSDataSetVendorList.cs">
       <DependentUpon>POSDataSetVendorList.xsd</DependentUpon>
@@ -283,8 +291,8 @@
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Catagory_Management.resx">
-      <DependentUpon>Catagory_Management.cs</DependentUpon>
+    <EmbeddedResource Include="Category_Management.resx">
+      <DependentUpon>Category_Management.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Loading.resx">
       <DependentUpon>Loading.cs</DependentUpon>
@@ -431,6 +439,17 @@
     </None>
     <None Include="POSDataSetTemp_GNR_Data.xss">
       <DependentUpon>POSDataSetTemp_GNR_Data.xsd</DependentUpon>
+    </None>
+    <None Include="POSDataSetUnit.xsc">
+      <DependentUpon>POSDataSetUnit.xsd</DependentUpon>
+    </None>
+    <None Include="POSDataSetUnit.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>POSDataSetUnit.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="POSDataSetUnit.xss">
+      <DependentUpon>POSDataSetUnit.xsd</DependentUpon>
     </None>
     <None Include="POSDataSetVendorList.xsc">
       <DependentUpon>POSDataSetVendorList.xsd</DependentUpon>

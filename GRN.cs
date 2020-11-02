@@ -174,7 +174,7 @@ namespace POS
             comboBoxunits.Text = "";
             String Barcode = textBoxBarcode.Text.Trim();
             String Unit;
-            SqlDataReader sdr = new Item().GetCatagoryDetailsByBarcode(Barcode);
+            SqlDataReader sdr = new Item().GetCategoryDetailsByBarcode(Barcode);
             if (sdr != null)
             {
                 sdr.Read();

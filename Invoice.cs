@@ -32,8 +32,6 @@ namespace POS
         {
             // TODO: This line of code loads data into the 'pOSDataSetItemCataagory.Item_Catagory' table. You can move, or remove it, as needed.
             this.item_CatagoryTableAdapter.Fill(this.pOSDataSetItemCataagory.Item_Catagory);
-            // TODO: This line of code loads data into the 'pOSDataSetVendorList.Vender_Details' table. You can move, or remove it, as needed.
-            this.vender_DetailsTableAdapter.Fill(this.pOSDataSetVendorList.Vender_Details);
 
         }
 
@@ -76,8 +74,8 @@ namespace POS
                     sdrsec.Read();
                         CategoryName = sdrsec.GetString(1).Trim();
                         Unit = sdrsec.GetString(3).Trim();
-                        UnitPrice = sdrsec.GetDecimal(5);
-                        Decimal DiscountAmount = sdrsec.GetDecimal(8);
+                        UnitPrice = Math.Round(sdrsec.GetDecimal(5), 2);
+                        Decimal DiscountAmount = Math.Round(sdrsec.GetDecimal(8), 2);
                         String DiscountType = sdrsec.GetString(9).ToString().Trim();
                     Boolean DiscountPeriodically = sdrsec.GetBoolean(14);
                     DateTime DiscountFrom = sdrsec.GetDateTime(12);
@@ -92,29 +90,15 @@ namespace POS
                         if (DiscountType.Equals("PR"))
                         {
                             DiscountCol = DiscountAmount + "%";
-                            DiscountAmnt1 = (sdrsec.GetDecimal(5) * DiscountAmount / 100);
+                            DiscountAmnt1 = Math.Round((sdrsec.GetDecimal(5) * DiscountAmount / 100), 2);
                         }
                     }
                     dataGridViewAll.Rows.Add("N/A", CategoryName, Unit, UnitPrice, DiscountCol, DiscountAmnt1.ToString(),textBoxQuantity.Text, ((UnitPrice-DiscountAmnt1) * decimal.Parse(textBoxQuantity.Text)).ToString());
                 }
                     catch { }
-               
 
-                decimal sum = 0;
-                decimal sumoriginal = 0;
-                decimal netdiscountp = 0;
-                decimal netdiscountline = 0;
-                for (int i = 0; i < dataGridViewAll.Rows.Count; ++i)
-                {
-                    sum += Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[7].Value);
-                    netdiscountp += Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[5].Value);
-                    netdiscountline += (Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[5].Value) * Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[6].Value));
-                    sumoriginal += (Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[3].Value) * Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[6].Value));
-                }
-                textBoxTotal.Text = sum.ToString();
-                textBoxNetDiscountP.Text = Math.Round((netdiscountp / sum), 2).ToString();
-                textBoxtTlLineDiscountP.Text = Math.Round((netdiscountline * 100 / sumoriginal), 2).ToString();
-                textBoxtTlLineDiscount.Text = Math.Round((netdiscountline), 2).ToString();
+
+                SetSummery();
 
 
                 textBoxQuantity.Clear();
@@ -217,22 +201,36 @@ namespace POS
             {
                 int x = dataGridViewAll.CurrentRow.Index;
                 dataGridViewAll.Rows.Remove(dataGridViewAll.Rows[x]);
+                SetSummery();
+            }
+            catch { }
+        }
+
+        public void SetSummery()
+        {
+            try
+            {
                 decimal sumoriginal = 0;
                 decimal sum = 0;
                 decimal netdiscountp = 0;
+                decimal netdiscount = 0;
                 decimal netdiscountline = 0;
-                for (int i = 0; i < dataGridViewAll.Rows.Count; ++i)
+                for (       int i = 0; i < dataGridViewAll.Rows.Count; ++i)
                 {
                     sum += Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[7].Value);
                     netdiscountp += Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[5].Value);
                     netdiscountline += (Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[5].Value) * Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[6].Value));
                     sumoriginal += (Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[3].Value) * Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[6].Value));
                 }
-                
-                textBoxTotal.Text = sum.ToString();
-                textBoxNetDiscountP.Text = Math.Round((netdiscountp / sumoriginal), 2).ToString();
-                textBoxtTlLineDiscountP.Text = Math.Round((netdiscountline * 100 / sum), 2).ToString();
+                netdiscount = GetTotalBillDiscount(sum);
+                netdiscountp = netdiscount / sum * 100;
+                textBoxTotal.Text = Math.Round(sum, 2).ToString();
+                textBoxNetDiscountP.Text = Math.Round(netdiscountp, 2).ToString();
+                textBoxNetDiscount.Text = Math.Round((netdiscount), 2).ToString();
+                textBoxtTlLineDiscountP.Text = Math.Round((netdiscountline * 100 / sumoriginal), 2).ToString();
                 textBoxtTlLineDiscount.Text = Math.Round((netdiscountline), 2).ToString();
+                textBoxDueAmount.Text = Math.Round((netdiscount + netdiscountline), 2).ToString();
+                textBoxBalance.Text = Math.Round((sum - netdiscount - netdiscountline), 2).ToString();
             }
             catch { }
         }
@@ -253,25 +251,11 @@ namespace POS
                 if (Quantity != 0)
                 {
                     Double Total = (UnitPrice - DiscountAmount) * Quantity;
-
+                    
 
                     DataGridViewTextBoxCell celTTL = (DataGridViewTextBoxCell)dataGridViewAll.Rows[currentcell.Y].Cells[7];
                     celTTL.Value = Total.ToString();
-                    decimal sumoriginal = 0;
-                    decimal sum = 0;
-                    decimal netdiscountp = 0;
-                    decimal netdiscountline = 0;
-                    for (int i = 0; i < dataGridViewAll.Rows.Count; ++i)
-                    {
-                        sum += Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[7].Value);
-                        netdiscountp += Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[5].Value);
-                        netdiscountline += (Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[5].Value) * Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[6].Value));
-                        sumoriginal += (Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[3].Value) * Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[6].Value));
-                    }
-                    textBoxTotal.Text = sum.ToString();
-                    textBoxNetDiscountP.Text = Math.Round((netdiscountp / sum), 2).ToString();
-                    textBoxtTlLineDiscountP.Text = Math.Round((netdiscountline*100 / sumoriginal), 2).ToString();
-                    textBoxtTlLineDiscount.Text = Math.Round((netdiscountline), 2).ToString();
+                    SetSummery();
                     System.Windows.Forms.SendKeys.Send("{TAB}");
                     System.Windows.Forms.SendKeys.Send("{TAB}");
                 }
@@ -303,7 +287,7 @@ namespace POS
                 string BarCode = Convert.ToString(dataGridViewAll.Rows[currentcell.Y].Cells[0].Value);
 
 
-                SqlDataReader sdrsec = new Item().GetCatagoryDetailsByBarcode(BarCode);
+                SqlDataReader sdrsec = new Item().GetCategoryDetailsByBarcode(BarCode);
                 if (sdrsec != null)
                 {
                     try
@@ -334,7 +318,7 @@ namespace POS
                         }
 
                         celD.Value = DiscountCol;
-                        celDA.Value = DiscountAmnt1.ToString();
+                        celDA.Value = Math.Round((DiscountAmnt1), 2).ToString(); 
                         sdrsec.Dispose();
                         sdrsec.Close();
                     }
@@ -354,6 +338,33 @@ namespace POS
             }
         }
 
+        private decimal GetTotalBillDiscount(Decimal BillAmount)
+        {
+            Decimal DiscountAmount = 0.0m;
+            SqlDataReader sdr =new Discount().GetDiscountForTotal(BillAmount);
+            if (sdr != null)
+            {
+                sdr.Read();
+                Boolean DiscountPeriodically = sdr.GetBoolean(0);
+                Decimal Discount = sdr.GetDecimal(1);
+                String DiscountType = sdr.GetString(2);
+                DateTime DiscountFrom = sdr.GetDateTime(3);
+                DateTime DiscountTo = sdr.GetDateTime(4);
+                if(!DiscountPeriodically || (DiscountPeriodically && (DateTime.Now.Date >= DiscountFrom && DateTime.Now.Date <= DiscountTo)))
+                {
+                    if (DiscountType.Equals("AMNT"))
+                    {
+                        DiscountAmount = Discount;
+                    }
+                    if (DiscountType.Equals("PR"))
+                    {
+                        DiscountAmount = (BillAmount * Discount / 100);
+                    }
+                }
+            }
+            return DiscountAmount;
+            
+        }
         private void textBoxtextBoxBarcode_TextChanged(object sender, EventArgs e)
         {
 

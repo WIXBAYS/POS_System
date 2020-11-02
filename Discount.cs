@@ -18,6 +18,18 @@ namespace POS
             return drm.getDataReader(query);
         }
 
+        public SqlDataReader GetDiscountForTotal(Decimal TotalAmount)
+        {
+            String query = "SELECT  [DISCOUNT_PERIOADICALLY] ,[DISCOUNT] ,[DISCOUNT_TYPE] ,[DISCOUNT_FROM] ,[DISCOUNT_TO],[DISCOUNT_ID] FROM  [dbo].[Discount_Type2] WHERE [AMOUNT_FROM] <= @TotalAmount AND [AMOUNT_TO]>=@TotalAmount";
+
+            SqlParameter[] sqlParams = new SqlParameter[] {
+                                            new SqlParameter("@TotalAmount", SqlDbType.Decimal),
+            };
+            sqlParams[0].Value = TotalAmount;
+            DataReaderManager drm = new DataReaderManager();
+            return drm.getDataReader(query,ref sqlParams);
+        }
+
         public int DeleteDiscountForTotal()
         {
             String query = "delete FROM [dbo].[Discount_Type2]";
