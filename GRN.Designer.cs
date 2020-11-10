@@ -53,7 +53,6 @@
             this.textBoxBarcode = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.comboBoxunits = new System.Windows.Forms.ComboBox();
             this.button_update = new System.Windows.Forms.Button();
             this.textBoxQuantity = new System.Windows.Forms.TextBox();
             this.labelQuantity = new System.Windows.Forms.Label();
@@ -66,12 +65,26 @@
             this.label3 = new System.Windows.Forms.Label();
             this.comboBoxCatID = new System.Windows.Forms.ComboBox();
             this.buttonGNReport = new System.Windows.Forms.Button();
+            this.unitsTableAdapterBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pOSDataSetUnit = new POS.POSDataSetUnit();
+            this.pOSDataSetUnitBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pOSDataSetUnitBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.textBoxUnit = new System.Windows.Forms.TextBox();
+            this.pOSDataSetVenderDetails = new POS.POSDataSetVenderDetails();
+            this.venderDetailsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.vender_DetailsTableAdapter1 = new POS.POSDataSetVenderDetailsTableAdapters.Vender_DetailsTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.itemCatagoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetItemCataagoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetItemCataagory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAll)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.venderDetailsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOSDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.unitsTableAdapterBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetUnit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetUnitBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetUnitBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetVenderDetails)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.venderDetailsBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // itemCatagoryBindingSource
@@ -200,7 +213,6 @@
             this.textBoxTotal.Size = new System.Drawing.Size(159, 22);
             this.textBoxTotal.TabIndex = 90;
             this.textBoxTotal.TabStop = false;
-
             // 
             // label1
             // 
@@ -211,7 +223,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(103, 16);
             this.label1.TabIndex = 69;
-            this.label1.Text = "Catagory Name";
+            this.label1.Text = "Category Name";
             // 
             // textBoxBuying
             // 
@@ -289,18 +301,6 @@
             this.label11.Size = new System.Drawing.Size(0, 16);
             this.label11.TabIndex = 81;
             // 
-            // comboBoxunits
-            // 
-            this.comboBoxunits.DisplayMember = "VENDER_NAME";
-            this.comboBoxunits.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBoxunits.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.comboBoxunits.FormattingEnabled = true;
-            this.comboBoxunits.Location = new System.Drawing.Point(311, 201);
-            this.comboBoxunits.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBoxunits.Name = "comboBoxunits";
-            this.comboBoxunits.Size = new System.Drawing.Size(99, 21);
-            this.comboBoxunits.TabIndex = 3;
-            // 
             // button_update
             // 
             this.button_update.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
@@ -348,7 +348,7 @@
             // 
             // comboBoxVender
             // 
-            this.comboBoxVender.DataSource = this.venderDetailsBindingSource;
+            this.comboBoxVender.DataSource = this.venderDetailsBindingSource1;
             this.comboBoxVender.DisplayMember = "VENDER_NAME";
             this.comboBoxVender.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxVender.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
@@ -399,7 +399,7 @@
             // comboBoxCatID
             // 
             this.comboBoxCatID.DataSource = this.itemCatagoryBindingSource;
-            this.comboBoxCatID.DisplayMember = "CATAGORY_NAME";
+            this.comboBoxCatID.DisplayMember = "CATEGORY_NAME";
             this.comboBoxCatID.FormattingEnabled = true;
             this.comboBoxCatID.Location = new System.Drawing.Point(126, 124);
             this.comboBoxCatID.Name = "comboBoxCatID";
@@ -423,6 +423,51 @@
             this.buttonGNReport.Visible = false;
             this.buttonGNReport.Click += new System.EventHandler(this.buttonGNReport_Click);
             // 
+            // unitsTableAdapterBindingSource
+            // 
+            this.unitsTableAdapterBindingSource.DataSource = typeof(POS.POSDataSetUnitTableAdapters.UnitsTableAdapter);
+            // 
+            // pOSDataSetUnit
+            // 
+            this.pOSDataSetUnit.DataSetName = "POSDataSetUnit";
+            this.pOSDataSetUnit.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // pOSDataSetUnitBindingSource
+            // 
+            this.pOSDataSetUnitBindingSource.DataSource = this.pOSDataSetUnit;
+            this.pOSDataSetUnitBindingSource.Position = 0;
+            // 
+            // pOSDataSetUnitBindingSource1
+            // 
+            this.pOSDataSetUnitBindingSource1.DataSource = this.pOSDataSetUnit;
+            this.pOSDataSetUnitBindingSource1.Position = 0;
+            // 
+            // textBoxUnit
+            // 
+            this.textBoxUnit.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.textBoxUnit.Location = new System.Drawing.Point(302, 201);
+            this.textBoxUnit.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxUnit.Name = "textBoxUnit";
+            this.textBoxUnit.ReadOnly = true;
+            this.textBoxUnit.Size = new System.Drawing.Size(108, 17);
+            this.textBoxUnit.TabIndex = 98;
+            this.textBoxUnit.TabStop = false;
+            // 
+            // pOSDataSetVenderDetails
+            // 
+            this.pOSDataSetVenderDetails.DataSetName = "POSDataSetVenderDetails";
+            this.pOSDataSetVenderDetails.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // venderDetailsBindingSource1
+            // 
+            this.venderDetailsBindingSource1.DataMember = "Vender_Details";
+            this.venderDetailsBindingSource1.DataSource = this.pOSDataSetVenderDetails;
+            // 
+            // vender_DetailsTableAdapter1
+            // 
+            this.vender_DetailsTableAdapter1.ClearBeforeFill = true;
+            // 
             // GNR
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -430,6 +475,7 @@
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(865, 450);
             this.ControlBox = false;
+            this.Controls.Add(this.textBoxUnit);
             this.Controls.Add(this.buttonGNReport);
             this.Controls.Add(this.comboBoxCatID);
             this.Controls.Add(this.label3);
@@ -444,7 +490,6 @@
             this.Controls.Add(this.button_update);
             this.Controls.Add(this.button_cancel);
             this.Controls.Add(this.dataGridViewAll);
-            this.Controls.Add(this.comboBoxunits);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.textBoxBarcode);
@@ -462,6 +507,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAll)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.venderDetailsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOSDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.unitsTableAdapterBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetUnit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetUnitBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetUnitBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetVenderDetails)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.venderDetailsBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -485,7 +536,6 @@
         private System.Windows.Forms.TextBox textBoxBarcode;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox comboBoxunits;
         private System.Windows.Forms.Button button_update;
         private System.Windows.Forms.TextBox textBoxQuantity;
         private System.Windows.Forms.Label labelQuantity;
@@ -505,5 +555,13 @@
         private System.Windows.Forms.DataGridViewImageColumn ColumnDelete;
         private System.Windows.Forms.ComboBox comboBoxCatID;
         private System.Windows.Forms.Button buttonGNReport;
+        private System.Windows.Forms.BindingSource unitsTableAdapterBindingSource;
+        private POSDataSetUnit pOSDataSetUnit;
+        private System.Windows.Forms.BindingSource pOSDataSetUnitBindingSource;
+        private System.Windows.Forms.BindingSource pOSDataSetUnitBindingSource1;
+        private System.Windows.Forms.TextBox textBoxUnit;
+        private POSDataSetVenderDetails pOSDataSetVenderDetails;
+        private System.Windows.Forms.BindingSource venderDetailsBindingSource1;
+        private POSDataSetVenderDetailsTableAdapters.Vender_DetailsTableAdapter vender_DetailsTableAdapter1;
     }
 }

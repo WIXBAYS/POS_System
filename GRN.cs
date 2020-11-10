@@ -19,7 +19,7 @@ namespace POS
             textBoxBarcode.Select();
         }
 
-        int GNR_No_For_Reort = 0;
+        int GRN_No_For_Reort = 0;
 
         private void buttonsave_Click(object sender, EventArgs e)
         {
@@ -51,26 +51,25 @@ namespace POS
 
                 decimal Quantity = Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[2].Value);
                 string Units = dataGridViewAll.Rows[i].Cells[3].Value.ToString().Trim();
-                if (Units.Equals("g") || Units.Equals("ml")) Quantity = Quantity / 1000;
-                else if (Units.Equals("mg")) Quantity = Quantity / 1000000;
                 
-                x = stock.InsertTransaction(GRN_No, Convert.ToInt32(dataGridViewAll.Rows[i].Cells[0].Value), Quantity, "STOCK_ADD", Quantity, 0, Current_Stock_Balance, (Quantity + Current_Stock_Balance), Properties.Settings.Default.username, DateTime.Parse("1900-01-01"), comboBoxVender.SelectedValue.ToString().Trim());
+                
+                x = stock.InsertTransaction(GRN_No, Convert.ToInt32(dataGridViewAll.Rows[i].Cells[0].Value), Quantity, "STOCK_ADD", Quantity, 0,0,0, Current_Stock_Balance, (Quantity + Current_Stock_Balance), Properties.Settings.Default.username, DateTime.Parse("1900-01-01"), comboBoxVender.SelectedValue.ToString().Trim());
                 if (x > 0)
                 {
                     y = stock.UpdateStockBalance(Convert.ToInt32(dataGridViewAll.Rows[i].Cells[0].Value), Quantity);
-                    GNR_No_For_Reort = GRN_No;
+                    GRN_No_For_Reort = GRN_No;
                 }
                 
             }
             if (x > 0 && y > 0)
             {
                 MessageBox.Show(" Successfully Added");
-                dataGridViewAll.ClearSelection();
+                dataGridViewAll.Rows.Clear();
                 textBoxQuantity.Text = "";
                 textBoxBarcode.Text = "";
                 textBoxBuying.Text = "";
                 textBoxSelling.Text = "";
-                comboBoxunits.Text = "";
+                textBoxUnit.Text = "";
                 comboBoxCatID.Text = "";
                 comboBoxVender.Text = "";
                 buttonGNReport.Visible = true;
@@ -87,10 +86,8 @@ namespace POS
             Decimal Cost = 0.0m;
             if (TextVAlidation())
             { 
-                if (comboBoxunits.Text.Equals("L") || comboBoxunits.Text.Equals("Kg") || comboBoxunits.Text.Equals("Units")) Cost = decimal.Parse(textBoxQuantity.Text) * decimal.Parse(textBoxBuying.Text);
-                else if (comboBoxunits.Text.Equals("ml") || comboBoxunits.Text.Equals("g")) Cost = decimal.Parse(textBoxQuantity.Text) * decimal.Parse(textBoxBuying.Text)/1000;
-                else if(comboBoxunits.Text.Equals("mg")) Cost = decimal.Parse(textBoxQuantity.Text) * decimal.Parse(textBoxBuying.Text) / 1000000;
-                dataGridViewAll.Rows.Add(comboBoxCatID.SelectedValue.ToString().Trim(), comboBoxCatID.Text.Trim(), textBoxQuantity.Text.Trim(), comboBoxunits.Text, Cost);
+                Cost = decimal.Parse(textBoxQuantity.Text) * decimal.Parse(textBoxBuying.Text);
+                dataGridViewAll.Rows.Add(comboBoxCatID.SelectedValue.ToString().Trim(), comboBoxCatID.Text.Trim(), textBoxQuantity.Text.Trim(), textBoxUnit.Text, Cost);
                 Stock stock = new Stock();
 
                 decimal sum = 0;
@@ -105,12 +102,14 @@ namespace POS
             textBoxBarcode.Text = "";
             textBoxBuying.Text = "";
             textBoxSelling.Text = "";
-            comboBoxunits.Text = "";
+            textBoxUnit.Text = "";
             comboBoxCatID.Text = "";
         }
 
         private void GRN_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'pOSDataSetVenderDetails.Vender_Details' table. You can move, or remove it, as needed.
+            this.vender_DetailsTableAdapter1.Fill(this.pOSDataSetVenderDetails.Vender_Details);
             // TODO: This line of code loads data into the 'pOSDataSet1.Vender_Details' table. You can move, or remove it, as needed.
             this.vender_DetailsTableAdapter.Fill(this.pOSDataSet1.Vender_Details);
             // TODO: This line of code loads data into the 'pOSDataSetItemCataagory.Item_Catagory' table. You can move, or remove it, as needed.
@@ -148,13 +147,13 @@ namespace POS
                 else
                     textBoxQuantity.BackColor = Color.White;
 
-                if (comboBoxunits.Text.Trim() == String.Empty)
+                if (textBoxUnit.Text.Trim() == String.Empty)
                 {
-                    comboBoxunits.BackColor = Color.LightPink;
+                    textBoxUnit.BackColor = Color.LightPink;
                     valid = false;
                 }
                 else
-                    comboBoxunits.BackColor = Color.White;
+                    textBoxUnit.BackColor = Color.White;
 
                 if (comboBoxVender.Text.Trim() == String.Empty)
                 {
@@ -170,36 +169,21 @@ namespace POS
 
         private void textBoxBarcode_TextChanged(object sender, EventArgs e)
         {
-            comboBoxunits.Items.Clear();
-            comboBoxunits.Text = "";
+            textBoxUnit.Text = "";
             String Barcode = textBoxBarcode.Text.Trim();
             String Unit;
             SqlDataReader sdr = new Item().GetCategoryDetailsByBarcode(Barcode);
             if (sdr != null)
             {
                 sdr.Read();
-                Unit = sdr.GetString(3);
+                textBoxUnit.Text = sdr.GetString(3);
 
-                textBoxBuying.Text = sdr.GetDouble(4).ToString();
-                textBoxSelling.Text = sdr.GetDouble(5).ToString();
+                textBoxBuying.Text = sdr.GetDecimal(4).ToString();
+                textBoxSelling.Text = sdr.GetDecimal(5).ToString();
                 comboBoxCatID.SelectedValue= sdr.GetInt32(2).ToString();
                 comboBoxCatID.Text = sdr.GetString(1).ToString();
                 sdr.Close();
-                if (Unit.Equals("L"))
-                {
-                    comboBoxunits.Items.Add("L");
-                    comboBoxunits.Items.Add("ml");
-                }
-                else if (Unit.Equals("Kg"))
-                {
-                    comboBoxunits.Items.Add("Kg");
-                    comboBoxunits.Items.Add("g");
-                    comboBoxunits.Items.Add("mg");
-                }
-                else
-                {
-                    comboBoxunits.Items.Add("Units");
-                }
+                
 
                 buttonGNReport.Visible = false;
             }
@@ -208,15 +192,14 @@ namespace POS
                 textBoxQuantity.Clear();
                 textBoxBuying.Clear();
                 textBoxSelling.Clear();
-                comboBoxunits.Text = "";
+                textBoxUnit.Text = "";
                 comboBoxCatID.Text = "";
             }
         }
 
         private void comboBoxCatID_SelectedIndexChanged(object sender, EventArgs e)
         {
-            comboBoxunits.Items.Clear();
-            comboBoxunits.Text = "";
+            textBoxUnit.Text = "";
             textBoxBarcode.Text = "";
             String CatID = comboBoxCatID.SelectedValue.ToString().Trim();
             String Unit;
@@ -224,27 +207,13 @@ namespace POS
             if (sdr != null)
             {
                 sdr.Read();
-                Unit = sdr.GetString(3);
+                textBoxUnit.Text= sdr.GetString(3);
                 textBoxBarcode.Text = sdr.GetString(0);
-                textBoxBuying.Text = sdr.GetDouble(4).ToString();
-                textBoxSelling.Text = sdr.GetDouble(5).ToString();
+                textBoxBuying.Text = sdr.GetDecimal(4).ToString();
+                textBoxSelling.Text = sdr.GetDecimal(5).ToString();
                 
                 sdr.Close();
-                if (Unit.Equals("L"))
-                {
-                    comboBoxunits.Items.Add("L");
-                    comboBoxunits.Items.Add("ml");
-                }
-                else if (Unit.Equals("Kg"))
-                {
-                    comboBoxunits.Items.Add("Kg");
-                    comboBoxunits.Items.Add("g");
-                    comboBoxunits.Items.Add("mg");
-                }
-                else
-                {
-                    comboBoxunits.Items.Add("Units");
-                }
+                
 
                 buttonGNReport.Visible = false;
             }
@@ -253,7 +222,7 @@ namespace POS
                 textBoxQuantity.Clear();
                 textBoxBuying.Clear();
                 textBoxSelling.Clear();
-                comboBoxunits.Text = "";
+                textBoxUnit.Text = "";
                 comboBoxCatID.Text = "";
             }
 
@@ -261,10 +230,10 @@ namespace POS
 
         private void buttonGNReport_Click(object sender, EventArgs e)
         {
-            if (GNR_No_For_Reort > 0)
+            if (GRN_No_For_Reort > 0)
             {
-                GRN_Report GNRREP = new GRN_Report(GNR_No_For_Reort);
-                GNRREP.Show();
+                GRN_Report GRNREP = new GRN_Report(GRN_No_For_Reort);
+                GRNREP.Show();
             }
         }
     }

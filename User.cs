@@ -54,6 +54,24 @@ namespace POS
             return dim.insertRecord(selectCommand, ref sqlParams);
         }
 
+        public int insertCustomer(String CUSTOMER_NAME, String CONTACT_NO)
+        {
+            String selectCommand = "INSERT INTO [dbo].[Customer] ([CUSTOMER_NAME] ,[CONTACT_NO]  ,[ENTERED_DATE])  VALUES  (@CUSTOMER_NAME ,@CONTACT_NO  ,GETDATE())";
+
+            SqlParameter[] sqlParams = new SqlParameter[] {
+                                            new SqlParameter("@CUSTOMER_NAME", SqlDbType.Char,100),
+                                            new SqlParameter("@CONTACT_NO", SqlDbType.Char,10)
+                                       };
+
+            sqlParams[0].Value = CUSTOMER_NAME;
+            sqlParams[1].Value = CONTACT_NO;
+
+
+
+            DataInsertManager dim = new DataInsertManager();
+            return dim.insertRecord(selectCommand, ref sqlParams);
+        }
+
 
         public int updatetUser(String NIC, Boolean STATUS, String FIRST_NAME, String LAST_NAME, String CONTACT_NO, String ADDRESS_NO, String STREET, String CITY, String DISTRICT, int STORE_ID)
         {

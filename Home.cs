@@ -207,5 +207,11 @@ namespace POS
             Discount_Type2 childForm = new Discount_Type2();
             childForm.ShowDialog(this);
         }
+
+        private void rerurnExchangeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Item_Return ireturn = new Item_Return();
+            ireturn.ShowDialog(this);
+        }
     }
 }

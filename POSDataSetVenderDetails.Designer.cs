@@ -20,17 +20,17 @@ namespace POS {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("POSDataSetStockBlance")]
+    [global::System.Xml.Serialization.XmlRootAttribute("POSDataSetVenderDetails")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class POSDataSetStockBlance : global::System.Data.DataSet {
+    public partial class POSDataSetVenderDetails : global::System.Data.DataSet {
         
-        private Stock_BalanceDataTable tableStock_Balance;
+        private Vender_DetailsDataTable tableVender_Details;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public POSDataSetStockBlance() {
+        public POSDataSetVenderDetails() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace POS {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected POSDataSetStockBlance(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected POSDataSetVenderDetails(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace POS {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["Stock_Balance"] != null)) {
-                    base.Tables.Add(new Stock_BalanceDataTable(ds.Tables["Stock_Balance"]));
+                if ((ds.Tables["Vender_Details"] != null)) {
+                    base.Tables.Add(new Vender_DetailsDataTable(ds.Tables["Vender_Details"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace POS {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public Stock_BalanceDataTable Stock_Balance {
+        public Vender_DetailsDataTable Vender_Details {
             get {
-                return this.tableStock_Balance;
+                return this.tableVender_Details;
             }
         }
         
@@ -127,7 +127,7 @@ namespace POS {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            POSDataSetStockBlance cln = ((POSDataSetStockBlance)(base.Clone()));
+            POSDataSetVenderDetails cln = ((POSDataSetVenderDetails)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace POS {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["Stock_Balance"] != null)) {
-                    base.Tables.Add(new Stock_BalanceDataTable(ds.Tables["Stock_Balance"]));
+                if ((ds.Tables["Vender_Details"] != null)) {
+                    base.Tables.Add(new Vender_DetailsDataTable(ds.Tables["Vender_Details"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace POS {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableStock_Balance = ((Stock_BalanceDataTable)(base.Tables["Stock_Balance"]));
+            this.tableVender_Details = ((Vender_DetailsDataTable)(base.Tables["Vender_Details"]));
             if ((initTable == true)) {
-                if ((this.tableStock_Balance != null)) {
-                    this.tableStock_Balance.InitVars();
+                if ((this.tableVender_Details != null)) {
+                    this.tableVender_Details.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace POS {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "POSDataSetStockBlance";
+            this.DataSetName = "POSDataSetVenderDetails";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/POSDataSetStockBlance.xsd";
+            this.Namespace = "http://tempuri.org/POSDataSetVenderDetails.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableStock_Balance = new Stock_BalanceDataTable();
-            base.Tables.Add(this.tableStock_Balance);
+            this.tableVender_Details = new Vender_DetailsDataTable();
+            base.Tables.Add(this.tableVender_Details);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeStock_Balance() {
+        private bool ShouldSerializeVender_Details() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace POS {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            POSDataSetStockBlance ds = new POSDataSetStockBlance();
+            POSDataSetVenderDetails ds = new POSDataSetVenderDetails();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,31 +270,23 @@ namespace POS {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void Stock_BalanceRowChangeEventHandler(object sender, Stock_BalanceRowChangeEvent e);
+        public delegate void Vender_DetailsRowChangeEventHandler(object sender, Vender_DetailsRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class Stock_BalanceDataTable : global::System.Data.TypedTableBase<Stock_BalanceRow> {
+        public partial class Vender_DetailsDataTable : global::System.Data.TypedTableBase<Vender_DetailsRow> {
             
-            private global::System.Data.DataColumn columnBALANCE;
+            private global::System.Data.DataColumn columnVENDER_ID;
             
-            private global::System.Data.DataColumn columnITEM_NAME;
-            
-            private global::System.Data.DataColumn columnUPDATED_DATE;
-            
-            private global::System.Data.DataColumn columnCATEGORY_NAME;
-            
-            private global::System.Data.DataColumn columnBUYING_COST;
-            
-            private global::System.Data.DataColumn columnSELLING_COST;
+            private global::System.Data.DataColumn columnVENDER_NAME;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Stock_BalanceDataTable() {
-                this.TableName = "Stock_Balance";
+            public Vender_DetailsDataTable() {
+                this.TableName = "Vender_Details";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -302,7 +294,7 @@ namespace POS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal Stock_BalanceDataTable(global::System.Data.DataTable table) {
+            internal Vender_DetailsDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -319,56 +311,24 @@ namespace POS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected Stock_BalanceDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected Vender_DetailsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn BALANCEColumn {
+            public global::System.Data.DataColumn VENDER_IDColumn {
                 get {
-                    return this.columnBALANCE;
+                    return this.columnVENDER_ID;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ITEM_NAMEColumn {
+            public global::System.Data.DataColumn VENDER_NAMEColumn {
                 get {
-                    return this.columnITEM_NAME;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn UPDATED_DATEColumn {
-                get {
-                    return this.columnUPDATED_DATE;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn CATEGORY_NAMEColumn {
-                get {
-                    return this.columnCATEGORY_NAME;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn BUYING_COSTColumn {
-                get {
-                    return this.columnBUYING_COST;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn SELLING_COSTColumn {
-                get {
-                    return this.columnSELLING_COST;
+                    return this.columnVENDER_NAME;
                 }
             }
             
@@ -383,50 +343,46 @@ namespace POS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Stock_BalanceRow this[int index] {
+            public Vender_DetailsRow this[int index] {
                 get {
-                    return ((Stock_BalanceRow)(this.Rows[index]));
+                    return ((Vender_DetailsRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event Stock_BalanceRowChangeEventHandler Stock_BalanceRowChanging;
+            public event Vender_DetailsRowChangeEventHandler Vender_DetailsRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event Stock_BalanceRowChangeEventHandler Stock_BalanceRowChanged;
+            public event Vender_DetailsRowChangeEventHandler Vender_DetailsRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event Stock_BalanceRowChangeEventHandler Stock_BalanceRowDeleting;
+            public event Vender_DetailsRowChangeEventHandler Vender_DetailsRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event Stock_BalanceRowChangeEventHandler Stock_BalanceRowDeleted;
+            public event Vender_DetailsRowChangeEventHandler Vender_DetailsRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddStock_BalanceRow(Stock_BalanceRow row) {
+            public void AddVender_DetailsRow(Vender_DetailsRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Stock_BalanceRow AddStock_BalanceRow(decimal BALANCE, string ITEM_NAME, System.DateTime UPDATED_DATE, string CATEGORY_NAME, decimal BUYING_COST, decimal SELLING_COST) {
-                Stock_BalanceRow rowStock_BalanceRow = ((Stock_BalanceRow)(this.NewRow()));
+            public Vender_DetailsRow AddVender_DetailsRow(string VENDER_NAME) {
+                Vender_DetailsRow rowVender_DetailsRow = ((Vender_DetailsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        BALANCE,
-                        ITEM_NAME,
-                        UPDATED_DATE,
-                        CATEGORY_NAME,
-                        BUYING_COST,
-                        SELLING_COST};
-                rowStock_BalanceRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowStock_BalanceRow);
-                return rowStock_BalanceRow;
+                        null,
+                        VENDER_NAME};
+                rowVender_DetailsRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowVender_DetailsRow);
+                return rowVender_DetailsRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                Stock_BalanceDataTable cln = ((Stock_BalanceDataTable)(base.Clone()));
+                Vender_DetailsDataTable cln = ((Vender_DetailsDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -434,68 +390,56 @@ namespace POS {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new Stock_BalanceDataTable();
+                return new Vender_DetailsDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columnBALANCE = base.Columns["BALANCE"];
-                this.columnITEM_NAME = base.Columns["ITEM_NAME"];
-                this.columnUPDATED_DATE = base.Columns["UPDATED_DATE"];
-                this.columnCATEGORY_NAME = base.Columns["CATEGORY_NAME"];
-                this.columnBUYING_COST = base.Columns["BUYING_COST"];
-                this.columnSELLING_COST = base.Columns["SELLING_COST"];
+                this.columnVENDER_ID = base.Columns["VENDER_ID"];
+                this.columnVENDER_NAME = base.Columns["VENDER_NAME"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnBALANCE = new global::System.Data.DataColumn("BALANCE", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBALANCE);
-                this.columnITEM_NAME = new global::System.Data.DataColumn("ITEM_NAME", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnITEM_NAME);
-                this.columnUPDATED_DATE = new global::System.Data.DataColumn("UPDATED_DATE", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUPDATED_DATE);
-                this.columnCATEGORY_NAME = new global::System.Data.DataColumn("CATEGORY_NAME", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCATEGORY_NAME);
-                this.columnBUYING_COST = new global::System.Data.DataColumn("BUYING_COST", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBUYING_COST);
-                this.columnSELLING_COST = new global::System.Data.DataColumn("SELLING_COST", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSELLING_COST);
-                this.columnBALANCE.AllowDBNull = false;
-                this.columnITEM_NAME.AllowDBNull = false;
-                this.columnITEM_NAME.MaxLength = 2147483647;
-                this.columnCATEGORY_NAME.AllowDBNull = false;
-                this.columnCATEGORY_NAME.MaxLength = 2147483647;
-                this.columnBUYING_COST.AllowDBNull = false;
-                this.columnSELLING_COST.AllowDBNull = false;
+                this.columnVENDER_ID = new global::System.Data.DataColumn("VENDER_ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVENDER_ID);
+                this.columnVENDER_NAME = new global::System.Data.DataColumn("VENDER_NAME", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVENDER_NAME);
+                this.columnVENDER_ID.AutoIncrement = true;
+                this.columnVENDER_ID.AutoIncrementSeed = -1;
+                this.columnVENDER_ID.AutoIncrementStep = -1;
+                this.columnVENDER_ID.AllowDBNull = false;
+                this.columnVENDER_ID.ReadOnly = true;
+                this.columnVENDER_NAME.AllowDBNull = false;
+                this.columnVENDER_NAME.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Stock_BalanceRow NewStock_BalanceRow() {
-                return ((Stock_BalanceRow)(this.NewRow()));
+            public Vender_DetailsRow NewVender_DetailsRow() {
+                return ((Vender_DetailsRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new Stock_BalanceRow(builder);
+                return new Vender_DetailsRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(Stock_BalanceRow);
+                return typeof(Vender_DetailsRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.Stock_BalanceRowChanged != null)) {
-                    this.Stock_BalanceRowChanged(this, new Stock_BalanceRowChangeEvent(((Stock_BalanceRow)(e.Row)), e.Action));
+                if ((this.Vender_DetailsRowChanged != null)) {
+                    this.Vender_DetailsRowChanged(this, new Vender_DetailsRowChangeEvent(((Vender_DetailsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -503,8 +447,8 @@ namespace POS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.Stock_BalanceRowChanging != null)) {
-                    this.Stock_BalanceRowChanging(this, new Stock_BalanceRowChangeEvent(((Stock_BalanceRow)(e.Row)), e.Action));
+                if ((this.Vender_DetailsRowChanging != null)) {
+                    this.Vender_DetailsRowChanging(this, new Vender_DetailsRowChangeEvent(((Vender_DetailsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -512,8 +456,8 @@ namespace POS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.Stock_BalanceRowDeleted != null)) {
-                    this.Stock_BalanceRowDeleted(this, new Stock_BalanceRowChangeEvent(((Stock_BalanceRow)(e.Row)), e.Action));
+                if ((this.Vender_DetailsRowDeleted != null)) {
+                    this.Vender_DetailsRowDeleted(this, new Vender_DetailsRowChangeEvent(((Vender_DetailsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -521,14 +465,14 @@ namespace POS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.Stock_BalanceRowDeleting != null)) {
-                    this.Stock_BalanceRowDeleting(this, new Stock_BalanceRowChangeEvent(((Stock_BalanceRow)(e.Row)), e.Action));
+                if ((this.Vender_DetailsRowDeleting != null)) {
+                    this.Vender_DetailsRowDeleting(this, new Vender_DetailsRowChangeEvent(((Vender_DetailsRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemoveStock_BalanceRow(Stock_BalanceRow row) {
+            public void RemoveVender_DetailsRow(Vender_DetailsRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -537,7 +481,7 @@ namespace POS {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                POSDataSetStockBlance ds = new POSDataSetStockBlance();
+                POSDataSetVenderDetails ds = new POSDataSetVenderDetails();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -555,7 +499,7 @@ namespace POS {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "Stock_BalanceDataTable";
+                attribute2.FixedValue = "Vender_DetailsDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -599,98 +543,37 @@ namespace POS {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class Stock_BalanceRow : global::System.Data.DataRow {
+        public partial class Vender_DetailsRow : global::System.Data.DataRow {
             
-            private Stock_BalanceDataTable tableStock_Balance;
+            private Vender_DetailsDataTable tableVender_Details;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal Stock_BalanceRow(global::System.Data.DataRowBuilder rb) : 
+            internal Vender_DetailsRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableStock_Balance = ((Stock_BalanceDataTable)(this.Table));
+                this.tableVender_Details = ((Vender_DetailsDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal BALANCE {
+            public int VENDER_ID {
                 get {
-                    return ((decimal)(this[this.tableStock_Balance.BALANCEColumn]));
+                    return ((int)(this[this.tableVender_Details.VENDER_IDColumn]));
                 }
                 set {
-                    this[this.tableStock_Balance.BALANCEColumn] = value;
+                    this[this.tableVender_Details.VENDER_IDColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string ITEM_NAME {
+            public string VENDER_NAME {
                 get {
-                    return ((string)(this[this.tableStock_Balance.ITEM_NAMEColumn]));
+                    return ((string)(this[this.tableVender_Details.VENDER_NAMEColumn]));
                 }
                 set {
-                    this[this.tableStock_Balance.ITEM_NAMEColumn] = value;
+                    this[this.tableVender_Details.VENDER_NAMEColumn] = value;
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime UPDATED_DATE {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableStock_Balance.UPDATED_DATEColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'UPDATED_DATE\' in table \'Stock_Balance\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableStock_Balance.UPDATED_DATEColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string CATEGORY_NAME {
-                get {
-                    return ((string)(this[this.tableStock_Balance.CATEGORY_NAMEColumn]));
-                }
-                set {
-                    this[this.tableStock_Balance.CATEGORY_NAMEColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal BUYING_COST {
-                get {
-                    return ((decimal)(this[this.tableStock_Balance.BUYING_COSTColumn]));
-                }
-                set {
-                    this[this.tableStock_Balance.BUYING_COSTColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal SELLING_COST {
-                get {
-                    return ((decimal)(this[this.tableStock_Balance.SELLING_COSTColumn]));
-                }
-                set {
-                    this[this.tableStock_Balance.SELLING_COSTColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsUPDATED_DATENull() {
-                return this.IsNull(this.tableStock_Balance.UPDATED_DATEColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetUPDATED_DATENull() {
-                this[this.tableStock_Balance.UPDATED_DATEColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -698,22 +581,22 @@ namespace POS {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class Stock_BalanceRowChangeEvent : global::System.EventArgs {
+        public class Vender_DetailsRowChangeEvent : global::System.EventArgs {
             
-            private Stock_BalanceRow eventRow;
+            private Vender_DetailsRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Stock_BalanceRowChangeEvent(Stock_BalanceRow row, global::System.Data.DataRowAction action) {
+            public Vender_DetailsRowChangeEvent(Vender_DetailsRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Stock_BalanceRow Row {
+            public Vender_DetailsRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -729,7 +612,7 @@ namespace POS {
         }
     }
 }
-namespace POS.POSDataSetStockBlanceTableAdapters {
+namespace POS.POSDataSetVenderDetailsTableAdapters {
     
     
     /// <summary>
@@ -741,7 +624,7 @@ namespace POS.POSDataSetStockBlanceTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class Stock_BalanceTableAdapter : global::System.ComponentModel.Component {
+    public partial class Vender_DetailsTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -755,7 +638,7 @@ namespace POS.POSDataSetStockBlanceTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public Stock_BalanceTableAdapter() {
+        public Vender_DetailsTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -852,13 +735,9 @@ namespace POS.POSDataSetStockBlanceTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Stock_Balance";
-            tableMapping.ColumnMappings.Add("BALANCE", "BALANCE");
-            tableMapping.ColumnMappings.Add("ITEM_NAME", "ITEM_NAME");
-            tableMapping.ColumnMappings.Add("UPDATED_DATE", "UPDATED_DATE");
-            tableMapping.ColumnMappings.Add("CATEGORY_NAME", "CATEGORY_NAME");
-            tableMapping.ColumnMappings.Add("BUYING_COST", "BUYING_COST");
-            tableMapping.ColumnMappings.Add("SELLING_COST", "SELLING_COST");
+            tableMapping.DataSetTable = "Vender_Details";
+            tableMapping.ColumnMappings.Add("VENDER_ID", "VENDER_ID");
+            tableMapping.ColumnMappings.Add("VENDER_NAME", "VENDER_NAME");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -875,11 +754,7 @@ namespace POS.POSDataSetStockBlanceTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        Items.ITEM_NAME, Item_Category.CATEGORY_NAME, Item_Category.BUYING_COST, Item_Category.SELLING_COST, Item_Category.UPDATED_DATE, Stock_Balance.BALANCE
-FROM            Stock_Balance INNER JOIN
-                         Item_Category ON Stock_Balance.ITEMCAT_ID = Item_Category.ITEMCAT_ID INNER JOIN
-                         Items ON Item_Category.ITEM_ID = Items.ITEM_ID
-						 where Item_Category.CAT_STATUS = 1";
+            this._commandCollection[0].CommandText = "SELECT VENDER_ID, VENDER_NAME FROM dbo.Vender_Details";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -887,7 +762,7 @@ FROM            Stock_Balance INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(POSDataSetStockBlance.Stock_BalanceDataTable dataTable) {
+        public virtual int Fill(POSDataSetVenderDetails.Vender_DetailsDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -900,9 +775,9 @@ FROM            Stock_Balance INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual POSDataSetStockBlance.Stock_BalanceDataTable GetData() {
+        public virtual POSDataSetVenderDetails.Vender_DetailsDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            POSDataSetStockBlance.Stock_BalanceDataTable dataTable = new POSDataSetStockBlance.Stock_BalanceDataTable();
+            POSDataSetVenderDetails.Vender_DetailsDataTable dataTable = new POSDataSetVenderDetails.Vender_DetailsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -976,7 +851,7 @@ FROM            Stock_Balance INNER JOIN
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateUpdatedRows(POSDataSetStockBlance dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(POSDataSetVenderDetails dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -986,7 +861,7 @@ FROM            Stock_Balance INNER JOIN
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateInsertedRows(POSDataSetStockBlance dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(POSDataSetVenderDetails dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -996,7 +871,7 @@ FROM            Stock_Balance INNER JOIN
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateDeletedRows(POSDataSetStockBlance dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(POSDataSetVenderDetails dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             return result;
         }
@@ -1030,7 +905,7 @@ FROM            Stock_Balance INNER JOIN
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public virtual int UpdateAll(POSDataSetStockBlance dataSet) {
+        public virtual int UpdateAll(POSDataSetVenderDetails dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

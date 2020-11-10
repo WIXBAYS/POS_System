@@ -40,26 +40,16 @@ namespace POS
             this.textBoxTotal = new System.Windows.Forms.TextBox();
             this.labelTotal = new System.Windows.Forms.Label();
             this.labelQuantity = new System.Windows.Forms.Label();
-            this.buttoncard = new System.Windows.Forms.Button();
+            this.buttonComplete = new System.Windows.Forms.Button();
             this.button_update = new System.Windows.Forms.Button();
             this.button_cancel = new System.Windows.Forms.Button();
             this.dataGridViewAll = new System.Windows.Forms.DataGridView();
-            this.ColumnBarCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Catagory_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Unit_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Grid_Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Discount_Amout = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BuyingCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDelete = new System.Windows.Forms.DataGridViewImageColumn();
             this.labelSellingCost = new System.Windows.Forms.Label();
             this.textBoxSelling = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.item_CatagoryTableAdapter = new POS.POSDataSetItemCataagoryTableAdapters.Item_CatagoryTableAdapter();
             this.textBoxbuy = new System.Windows.Forms.TextBox();
-            this.buttoncash = new System.Windows.Forms.Button();
             this.textBoxVendorName = new System.Windows.Forms.TextBox();
             this.buttonNP8 = new System.Windows.Forms.Button();
             this.buttonNP9 = new System.Windows.Forms.Button();
@@ -81,11 +71,7 @@ namespace POS
             this.button19 = new System.Windows.Forms.Button();
             this.button20 = new System.Windows.Forms.Button();
             this.button21 = new System.Windows.Forms.Button();
-            this.button22 = new System.Windows.Forms.Button();
-            this.button23 = new System.Windows.Forms.Button();
             this.buttonNPBack = new System.Windows.Forms.Button();
-            this.button26 = new System.Windows.Forms.Button();
-            this.button27 = new System.Windows.Forms.Button();
             this.button28 = new System.Windows.Forms.Button();
             this.textBoxtTlLineDiscountP = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -95,7 +81,7 @@ namespace POS
             this.label6 = new System.Windows.Forms.Label();
             this.textBoxDueAmount = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBoxBalance = new System.Windows.Forms.TextBox();
+            this.textBoxInvoice = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.TxtPassword = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -108,8 +94,6 @@ namespace POS
             this.TxtUserName = new System.Windows.Forms.TextBox();
             this.buttonChangeLogin = new System.Windows.Forms.Button();
             this.venderDetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.pOSDataSetVendorList = new POS.POSDataSetVendorList();
-            this.vender_DetailsTableAdapter = new POS.POSDataSetVendorListTableAdapters.Vender_DetailsTableAdapter();
             this.label2 = new System.Windows.Forms.Label();
             this.timer1 = new System.Timers.Timer();
             this.LblTime = new System.Windows.Forms.Label();
@@ -118,14 +102,43 @@ namespace POS
             this.Hiddenlabel1 = new System.Windows.Forms.Label();
             this.textBoxNetDiscount = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.textBoxBalanceAmount = new System.Windows.Forms.TextBox();
+            this.labelBalance = new System.Windows.Forms.Label();
+            this.textBoxPaidAmount = new System.Windows.Forms.TextBox();
+            this.labelPaidAmount = new System.Windows.Forms.Label();
+            this.checkBoxCardPayment = new System.Windows.Forms.CheckBox();
+            this.textBoxVoucherAmount = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBoxBarCode = new System.Windows.Forms.TextBox();
+            this.labelBarCodeVoucher = new System.Windows.Forms.Label();
+            this.textBoxVoucherNo = new System.Windows.Forms.TextBox();
+            this.labelVoucherNo = new System.Windows.Forms.Label();
+            this.labelVoucherVisible = new System.Windows.Forms.Label();
+            this.buttonAddVoucher = new System.Windows.Forms.Button();
+            this.dataGridViewVoucher = new System.Windows.Forms.DataGridView();
+            this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnVoucherNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCancel = new System.Windows.Forms.DataGridViewImageColumn();
+            this.labelVoucherID = new System.Windows.Forms.Label();
+            this.ColumnBarCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Catagory_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Unit_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Grid_Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Discount_Amout = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BuyingCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCategoryID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDelete = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.itemCatagoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetItemCataagoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetItemCataagory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAll)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.venderDetailsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetVendorList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timer1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVoucher)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBoxCatID
@@ -167,7 +180,7 @@ namespace POS
             this.textBoxTotal.Enabled = false;
             this.textBoxTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxTotal.ForeColor = System.Drawing.Color.DarkRed;
-            this.textBoxTotal.Location = new System.Drawing.Point(740, 418);
+            this.textBoxTotal.Location = new System.Drawing.Point(737, 393);
             this.textBoxTotal.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxTotal.Name = "textBoxTotal";
             this.textBoxTotal.ReadOnly = true;
@@ -181,7 +194,7 @@ namespace POS
             this.labelTotal.AutoSize = true;
             this.labelTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTotal.ForeColor = System.Drawing.Color.DarkRed;
-            this.labelTotal.Location = new System.Drawing.Point(539, 417);
+            this.labelTotal.Location = new System.Drawing.Point(549, 393);
             this.labelTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTotal.Name = "labelTotal";
             this.labelTotal.Size = new System.Drawing.Size(44, 16);
@@ -199,20 +212,19 @@ namespace POS
             this.labelQuantity.TabIndex = 110;
             this.labelQuantity.Text = "Quantiy";
             // 
-            // buttoncard
+            // buttonComplete
             // 
-            this.buttoncard.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.buttoncard.BackColor = System.Drawing.Color.LimeGreen;
-            this.buttoncard.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttoncard.Location = new System.Drawing.Point(804, 539);
-            this.buttoncard.Margin = new System.Windows.Forms.Padding(4);
-            this.buttoncard.Name = "buttoncard";
-            this.buttoncard.Size = new System.Drawing.Size(96, 78);
-            this.buttoncard.TabIndex = 109;
-            this.buttoncard.TabStop = false;
-            this.buttoncard.Text = "Card";
-            this.buttoncard.UseVisualStyleBackColor = false;
-            this.buttoncard.Click += new System.EventHandler(this.buttonsave_Click);
+            this.buttonComplete.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.buttonComplete.BackColor = System.Drawing.Color.LimeGreen;
+            this.buttonComplete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonComplete.Location = new System.Drawing.Point(729, 602);
+            this.buttonComplete.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonComplete.Name = "buttonComplete";
+            this.buttonComplete.Size = new System.Drawing.Size(175, 36);
+            this.buttonComplete.TabIndex = 13;
+            this.buttonComplete.Text = "Process Payment";
+            this.buttonComplete.UseVisualStyleBackColor = false;
+            this.buttonComplete.Click += new System.EventHandler(this.buttonsave_Click);
             // 
             // button_update
             // 
@@ -224,6 +236,7 @@ namespace POS
             this.button_update.Name = "button_update";
             this.button_update.Size = new System.Drawing.Size(100, 79);
             this.button_update.TabIndex = 3;
+            this.button_update.TabStop = false;
             this.button_update.Text = "Add";
             this.button_update.UseVisualStyleBackColor = false;
             this.button_update.Click += new System.EventHandler(this.button_update_Click);
@@ -233,10 +246,10 @@ namespace POS
             this.button_cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button_cancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.button_cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_cancel.Location = new System.Drawing.Point(906, 37);
+            this.button_cancel.Location = new System.Drawing.Point(906, 32);
             this.button_cancel.Margin = new System.Windows.Forms.Padding(4);
             this.button_cancel.Name = "button_cancel";
-            this.button_cancel.Size = new System.Drawing.Size(88, 78);
+            this.button_cancel.Size = new System.Drawing.Size(88, 86);
             this.button_cancel.TabIndex = 108;
             this.button_cancel.TabStop = false;
             this.button_cancel.Text = "Exit";
@@ -258,6 +271,7 @@ namespace POS
             this.Discount_Amout,
             this.Quantity,
             this.BuyingCost,
+            this.ColumnCategoryID,
             this.ColumnDelete});
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
@@ -270,68 +284,18 @@ namespace POS
             this.dataGridViewAll.GridColor = System.Drawing.SystemColors.ButtonFace;
             this.dataGridViewAll.Location = new System.Drawing.Point(16, 37);
             this.dataGridViewAll.Name = "dataGridViewAll";
-            this.dataGridViewAll.Size = new System.Drawing.Size(888, 244);
+            this.dataGridViewAll.Size = new System.Drawing.Size(880, 212);
             this.dataGridViewAll.TabIndex = 107;
             this.dataGridViewAll.TabStop = false;
             this.dataGridViewAll.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAll_CellContentClick);
             this.dataGridViewAll.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEnter);
-            // 
-            // ColumnBarCode
-            // 
-            this.ColumnBarCode.HeaderText = "BarCode";
-            this.ColumnBarCode.Name = "ColumnBarCode";
-            // 
-            // Catagory_Name
-            // 
-            this.Catagory_Name.HeaderText = "Category Name";
-            this.Catagory_Name.Name = "Catagory_Name";
-            // 
-            // ColumnUnit
-            // 
-            this.ColumnUnit.HeaderText = "Unit";
-            this.ColumnUnit.Name = "ColumnUnit";
-            this.ColumnUnit.ReadOnly = true;
-            // 
-            // Unit_Price
-            // 
-            this.Unit_Price.HeaderText = "Unit Price";
-            this.Unit_Price.Name = "Unit_Price";
-            this.Unit_Price.ReadOnly = true;
-            // 
-            // Grid_Discount
-            // 
-            this.Grid_Discount.HeaderText = "Discount";
-            this.Grid_Discount.Name = "Grid_Discount";
-            this.Grid_Discount.ReadOnly = true;
-            // 
-            // Discount_Amout
-            // 
-            this.Discount_Amout.HeaderText = "Dis. Amount Per Unit";
-            this.Discount_Amout.Name = "Discount_Amout";
-            this.Discount_Amout.ReadOnly = true;
-            // 
-            // Quantity
-            // 
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.Name = "Quantity";
-            // 
-            // BuyingCost
-            // 
-            this.BuyingCost.HeaderText = "Sub Total";
-            this.BuyingCost.Name = "BuyingCost";
-            // 
-            // ColumnDelete
-            // 
-            this.ColumnDelete.HeaderText = "Delete";
-            this.ColumnDelete.Image = ((System.Drawing.Image)(resources.GetObject("ColumnDelete.Image")));
-            this.ColumnDelete.Name = "ColumnDelete";
             // 
             // labelSellingCost
             // 
             this.labelSellingCost.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.labelSellingCost.AutoSize = true;
             this.labelSellingCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSellingCost.Location = new System.Drawing.Point(41, 154);
+            this.labelSellingCost.Location = new System.Drawing.Point(41, 173);
             this.labelSellingCost.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelSellingCost.Name = "labelSellingCost";
             this.labelSellingCost.Size = new System.Drawing.Size(79, 16);
@@ -344,7 +308,7 @@ namespace POS
             this.textBoxSelling.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxSelling.Enabled = false;
             this.textBoxSelling.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.textBoxSelling.Location = new System.Drawing.Point(188, 157);
+            this.textBoxSelling.Location = new System.Drawing.Point(188, 176);
             this.textBoxSelling.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxSelling.Name = "textBoxSelling";
             this.textBoxSelling.Size = new System.Drawing.Size(123, 17);
@@ -379,32 +343,17 @@ namespace POS
             this.textBoxbuy.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBoxbuy.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxbuy.Enabled = false;
-            this.textBoxbuy.Location = new System.Drawing.Point(44, 190);
+            this.textBoxbuy.Location = new System.Drawing.Point(44, 209);
             this.textBoxbuy.Name = "textBoxbuy";
             this.textBoxbuy.Size = new System.Drawing.Size(123, 13);
             this.textBoxbuy.TabIndex = 123;
-            // 
-            // buttoncash
-            // 
-            this.buttoncash.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.buttoncash.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.buttoncash.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttoncash.Location = new System.Drawing.Point(577, 538);
-            this.buttoncash.Margin = new System.Windows.Forms.Padding(4);
-            this.buttoncash.Name = "buttoncash";
-            this.buttoncash.Size = new System.Drawing.Size(101, 79);
-            this.buttoncash.TabIndex = 125;
-            this.buttoncash.TabStop = false;
-            this.buttoncash.Text = "Cash";
-            this.buttoncash.UseVisualStyleBackColor = false;
-            this.buttoncash.Click += new System.EventHandler(this.buttoncash_Click);
             // 
             // textBoxVendorName
             // 
             this.textBoxVendorName.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBoxVendorName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxVendorName.Enabled = false;
-            this.textBoxVendorName.Location = new System.Drawing.Point(188, 190);
+            this.textBoxVendorName.Location = new System.Drawing.Point(188, 209);
             this.textBoxVendorName.Name = "textBoxVendorName";
             this.textBoxVendorName.Size = new System.Drawing.Size(123, 13);
             this.textBoxVendorName.TabIndex = 126;
@@ -416,7 +365,7 @@ namespace POS
             this.buttonNP8.BackColor = System.Drawing.Color.DarkGray;
             this.buttonNP8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonNP8.ForeColor = System.Drawing.Color.Red;
-            this.buttonNP8.Location = new System.Drawing.Point(1086, 289);
+            this.buttonNP8.Location = new System.Drawing.Point(1085, 240);
             this.buttonNP8.Name = "buttonNP8";
             this.buttonNP8.Size = new System.Drawing.Size(88, 79);
             this.buttonNP8.TabIndex = 129;
@@ -431,7 +380,7 @@ namespace POS
             this.buttonNP9.BackColor = System.Drawing.Color.DarkGray;
             this.buttonNP9.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonNP9.ForeColor = System.Drawing.Color.Red;
-            this.buttonNP9.Location = new System.Drawing.Point(1175, 289);
+            this.buttonNP9.Location = new System.Drawing.Point(1174, 240);
             this.buttonNP9.Name = "buttonNP9";
             this.buttonNP9.Size = new System.Drawing.Size(88, 79);
             this.buttonNP9.TabIndex = 130;
@@ -446,7 +395,7 @@ namespace POS
             this.buttonNP6.BackColor = System.Drawing.Color.DarkGray;
             this.buttonNP6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonNP6.ForeColor = System.Drawing.Color.Red;
-            this.buttonNP6.Location = new System.Drawing.Point(1175, 372);
+            this.buttonNP6.Location = new System.Drawing.Point(1174, 323);
             this.buttonNP6.Name = "buttonNP6";
             this.buttonNP6.Size = new System.Drawing.Size(88, 79);
             this.buttonNP6.TabIndex = 133;
@@ -461,7 +410,7 @@ namespace POS
             this.buttonNP5.BackColor = System.Drawing.Color.DarkGray;
             this.buttonNP5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonNP5.ForeColor = System.Drawing.Color.Red;
-            this.buttonNP5.Location = new System.Drawing.Point(1086, 372);
+            this.buttonNP5.Location = new System.Drawing.Point(1085, 323);
             this.buttonNP5.Name = "buttonNP5";
             this.buttonNP5.Size = new System.Drawing.Size(88, 79);
             this.buttonNP5.TabIndex = 132;
@@ -476,7 +425,7 @@ namespace POS
             this.buttonNP4.BackColor = System.Drawing.Color.DarkGray;
             this.buttonNP4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonNP4.ForeColor = System.Drawing.Color.Red;
-            this.buttonNP4.Location = new System.Drawing.Point(997, 372);
+            this.buttonNP4.Location = new System.Drawing.Point(996, 323);
             this.buttonNP4.Name = "buttonNP4";
             this.buttonNP4.Size = new System.Drawing.Size(88, 79);
             this.buttonNP4.TabIndex = 131;
@@ -491,7 +440,7 @@ namespace POS
             this.buttonNP3.BackColor = System.Drawing.Color.DarkGray;
             this.buttonNP3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonNP3.ForeColor = System.Drawing.Color.Red;
-            this.buttonNP3.Location = new System.Drawing.Point(1175, 455);
+            this.buttonNP3.Location = new System.Drawing.Point(1174, 406);
             this.buttonNP3.Name = "buttonNP3";
             this.buttonNP3.Size = new System.Drawing.Size(88, 79);
             this.buttonNP3.TabIndex = 136;
@@ -506,7 +455,7 @@ namespace POS
             this.buttonNP2.BackColor = System.Drawing.Color.DarkGray;
             this.buttonNP2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonNP2.ForeColor = System.Drawing.Color.Red;
-            this.buttonNP2.Location = new System.Drawing.Point(1086, 455);
+            this.buttonNP2.Location = new System.Drawing.Point(1085, 406);
             this.buttonNP2.Name = "buttonNP2";
             this.buttonNP2.Size = new System.Drawing.Size(88, 79);
             this.buttonNP2.TabIndex = 135;
@@ -521,7 +470,7 @@ namespace POS
             this.buttonNP1.BackColor = System.Drawing.Color.DarkGray;
             this.buttonNP1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonNP1.ForeColor = System.Drawing.Color.Red;
-            this.buttonNP1.Location = new System.Drawing.Point(997, 455);
+            this.buttonNP1.Location = new System.Drawing.Point(996, 406);
             this.buttonNP1.Name = "buttonNP1";
             this.buttonNP1.Size = new System.Drawing.Size(88, 79);
             this.buttonNP1.TabIndex = 134;
@@ -536,7 +485,7 @@ namespace POS
             this.buttonNP0.BackColor = System.Drawing.Color.DarkGray;
             this.buttonNP0.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonNP0.ForeColor = System.Drawing.Color.Red;
-            this.buttonNP0.Location = new System.Drawing.Point(997, 538);
+            this.buttonNP0.Location = new System.Drawing.Point(996, 489);
             this.buttonNP0.Name = "buttonNP0";
             this.buttonNP0.Size = new System.Drawing.Size(88, 79);
             this.buttonNP0.TabIndex = 137;
@@ -551,7 +500,7 @@ namespace POS
             this.buttonNPDot.BackColor = System.Drawing.Color.DarkGray;
             this.buttonNPDot.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonNPDot.ForeColor = System.Drawing.Color.Red;
-            this.buttonNPDot.Location = new System.Drawing.Point(1086, 538);
+            this.buttonNPDot.Location = new System.Drawing.Point(1085, 489);
             this.buttonNPDot.Name = "buttonNPDot";
             this.buttonNPDot.Size = new System.Drawing.Size(88, 79);
             this.buttonNPDot.TabIndex = 138;
@@ -566,7 +515,7 @@ namespace POS
             this.buttonNPEnter.BackColor = System.Drawing.Color.LightCyan;
             this.buttonNPEnter.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonNPEnter.ForeColor = System.Drawing.Color.DarkGreen;
-            this.buttonNPEnter.Location = new System.Drawing.Point(1175, 538);
+            this.buttonNPEnter.Location = new System.Drawing.Point(1174, 489);
             this.buttonNPEnter.Name = "buttonNPEnter";
             this.buttonNPEnter.Size = new System.Drawing.Size(88, 79);
             this.buttonNPEnter.TabIndex = 139;
@@ -580,7 +529,7 @@ namespace POS
             this.buttonNP00.BackColor = System.Drawing.Color.DarkGray;
             this.buttonNP00.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonNP00.ForeColor = System.Drawing.Color.Red;
-            this.buttonNP00.Location = new System.Drawing.Point(906, 539);
+            this.buttonNP00.Location = new System.Drawing.Point(905, 490);
             this.buttonNP00.Name = "buttonNP00";
             this.buttonNP00.Size = new System.Drawing.Size(88, 79);
             this.buttonNP00.TabIndex = 143;
@@ -595,7 +544,7 @@ namespace POS
             this.buttonNPStar.BackColor = System.Drawing.Color.DarkGray;
             this.buttonNPStar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonNPStar.ForeColor = System.Drawing.Color.Red;
-            this.buttonNPStar.Location = new System.Drawing.Point(906, 456);
+            this.buttonNPStar.Location = new System.Drawing.Point(905, 407);
             this.buttonNPStar.Name = "buttonNPStar";
             this.buttonNPStar.Size = new System.Drawing.Size(88, 79);
             this.buttonNPStar.TabIndex = 142;
@@ -610,7 +559,7 @@ namespace POS
             this.buttonNPMinus.BackColor = System.Drawing.Color.DarkGray;
             this.buttonNPMinus.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonNPMinus.ForeColor = System.Drawing.Color.Red;
-            this.buttonNPMinus.Location = new System.Drawing.Point(906, 373);
+            this.buttonNPMinus.Location = new System.Drawing.Point(905, 324);
             this.buttonNPMinus.Name = "buttonNPMinus";
             this.buttonNPMinus.Size = new System.Drawing.Size(88, 79);
             this.buttonNPMinus.TabIndex = 141;
@@ -625,7 +574,7 @@ namespace POS
             this.button16.BackColor = System.Drawing.Color.LightCyan;
             this.button16.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button16.ForeColor = System.Drawing.Color.DarkGreen;
-            this.button16.Location = new System.Drawing.Point(907, 122);
+            this.button16.Location = new System.Drawing.Point(996, 36);
             this.button16.Name = "button16";
             this.button16.Size = new System.Drawing.Size(88, 79);
             this.button16.TabIndex = 140;
@@ -639,7 +588,7 @@ namespace POS
             this.button17.BackColor = System.Drawing.Color.DarkGray;
             this.button17.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button17.ForeColor = System.Drawing.Color.Red;
-            this.button17.Location = new System.Drawing.Point(906, 206);
+            this.button17.Location = new System.Drawing.Point(905, 118);
             this.button17.Name = "button17";
             this.button17.Size = new System.Drawing.Size(88, 79);
             this.button17.TabIndex = 147;
@@ -653,7 +602,7 @@ namespace POS
             this.button18.BackColor = System.Drawing.Color.DarkGray;
             this.button18.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button18.ForeColor = System.Drawing.Color.Black;
-            this.button18.Location = new System.Drawing.Point(1175, 205);
+            this.button18.Location = new System.Drawing.Point(1174, 117);
             this.button18.Name = "button18";
             this.button18.Size = new System.Drawing.Size(88, 79);
             this.button18.TabIndex = 146;
@@ -667,7 +616,7 @@ namespace POS
             this.button19.BackColor = System.Drawing.Color.DarkGray;
             this.button19.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button19.ForeColor = System.Drawing.Color.Black;
-            this.button19.Location = new System.Drawing.Point(1086, 205);
+            this.button19.Location = new System.Drawing.Point(1085, 117);
             this.button19.Name = "button19";
             this.button19.Size = new System.Drawing.Size(88, 79);
             this.button19.TabIndex = 145;
@@ -681,7 +630,7 @@ namespace POS
             this.button20.BackColor = System.Drawing.Color.DarkGray;
             this.button20.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button20.ForeColor = System.Drawing.Color.Blue;
-            this.button20.Location = new System.Drawing.Point(997, 205);
+            this.button20.Location = new System.Drawing.Point(996, 117);
             this.button20.Name = "button20";
             this.button20.Size = new System.Drawing.Size(88, 79);
             this.button20.TabIndex = 144;
@@ -695,41 +644,14 @@ namespace POS
             this.button21.BackColor = System.Drawing.Color.Gray;
             this.button21.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button21.ForeColor = System.Drawing.Color.White;
-            this.button21.Location = new System.Drawing.Point(997, 122);
+            this.button21.Location = new System.Drawing.Point(1174, 36);
             this.button21.Name = "button21";
             this.button21.Size = new System.Drawing.Size(88, 79);
             this.button21.TabIndex = 151;
             this.button21.TabStop = false;
             this.button21.Text = "Voucher";
             this.button21.UseVisualStyleBackColor = false;
-            // 
-            // button22
-            // 
-            this.button22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button22.BackColor = System.Drawing.Color.Gray;
-            this.button22.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button22.ForeColor = System.Drawing.Color.White;
-            this.button22.Location = new System.Drawing.Point(1175, 121);
-            this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(88, 79);
-            this.button22.TabIndex = 150;
-            this.button22.TabStop = false;
-            this.button22.Text = "Line Discount";
-            this.button22.UseVisualStyleBackColor = false;
-            // 
-            // button23
-            // 
-            this.button23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button23.BackColor = System.Drawing.Color.Gray;
-            this.button23.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button23.ForeColor = System.Drawing.Color.White;
-            this.button23.Location = new System.Drawing.Point(1086, 121);
-            this.button23.Name = "button23";
-            this.button23.Size = new System.Drawing.Size(88, 79);
-            this.button23.TabIndex = 149;
-            this.button23.TabStop = false;
-            this.button23.Text = "Bill Close";
-            this.button23.UseVisualStyleBackColor = false;
+            this.button21.Click += new System.EventHandler(this.button21_Click);
             // 
             // buttonNPBack
             // 
@@ -737,7 +659,7 @@ namespace POS
             this.buttonNPBack.BackColor = System.Drawing.Color.DarkGray;
             this.buttonNPBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonNPBack.ForeColor = System.Drawing.Color.Red;
-            this.buttonNPBack.Location = new System.Drawing.Point(907, 289);
+            this.buttonNPBack.Location = new System.Drawing.Point(906, 240);
             this.buttonNPBack.Name = "buttonNPBack";
             this.buttonNPBack.Size = new System.Drawing.Size(88, 79);
             this.buttonNPBack.TabIndex = 148;
@@ -746,47 +668,20 @@ namespace POS
             this.buttonNPBack.UseVisualStyleBackColor = false;
             this.buttonNPBack.Click += new System.EventHandler(this.buttonNPBack_Click);
             // 
-            // button26
-            // 
-            this.button26.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button26.BackColor = System.Drawing.Color.Gray;
-            this.button26.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button26.ForeColor = System.Drawing.Color.White;
-            this.button26.Location = new System.Drawing.Point(1175, 36);
-            this.button26.Name = "button26";
-            this.button26.Size = new System.Drawing.Size(88, 79);
-            this.button26.TabIndex = 154;
-            this.button26.TabStop = false;
-            this.button26.Text = "Net Discount";
-            this.button26.UseVisualStyleBackColor = false;
-            // 
-            // button27
-            // 
-            this.button27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button27.BackColor = System.Drawing.Color.Gray;
-            this.button27.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button27.ForeColor = System.Drawing.Color.White;
-            this.button27.Location = new System.Drawing.Point(1086, 36);
-            this.button27.Name = "button27";
-            this.button27.Size = new System.Drawing.Size(88, 79);
-            this.button27.TabIndex = 153;
-            this.button27.TabStop = false;
-            this.button27.Text = "Line Discount Amount";
-            this.button27.UseVisualStyleBackColor = false;
-            // 
             // button28
             // 
             this.button28.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button28.BackColor = System.Drawing.Color.Gray;
             this.button28.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button28.ForeColor = System.Drawing.Color.White;
-            this.button28.Location = new System.Drawing.Point(997, 36);
+            this.button28.Location = new System.Drawing.Point(1085, 35);
             this.button28.Name = "button28";
             this.button28.Size = new System.Drawing.Size(88, 79);
             this.button28.TabIndex = 152;
             this.button28.TabStop = false;
             this.button28.Text = "Customer";
             this.button28.UseVisualStyleBackColor = false;
+            this.button28.Click += new System.EventHandler(this.button28_Click);
             // 
             // textBoxtTlLineDiscountP
             // 
@@ -796,7 +691,7 @@ namespace POS
             this.textBoxtTlLineDiscountP.Enabled = false;
             this.textBoxtTlLineDiscountP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxtTlLineDiscountP.ForeColor = System.Drawing.Color.Green;
-            this.textBoxtTlLineDiscountP.Location = new System.Drawing.Point(739, 331);
+            this.textBoxtTlLineDiscountP.Location = new System.Drawing.Point(739, 306);
             this.textBoxtTlLineDiscountP.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxtTlLineDiscountP.Name = "textBoxtTlLineDiscountP";
             this.textBoxtTlLineDiscountP.ReadOnly = true;
@@ -810,7 +705,7 @@ namespace POS
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Green;
-            this.label4.Location = new System.Drawing.Point(538, 332);
+            this.label4.Location = new System.Drawing.Point(549, 306);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(121, 16);
@@ -825,7 +720,7 @@ namespace POS
             this.textBoxNetDiscountP.Enabled = false;
             this.textBoxNetDiscountP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxNetDiscountP.ForeColor = System.Drawing.Color.Green;
-            this.textBoxNetDiscountP.Location = new System.Drawing.Point(739, 360);
+            this.textBoxNetDiscountP.Location = new System.Drawing.Point(739, 335);
             this.textBoxNetDiscountP.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxNetDiscountP.Name = "textBoxNetDiscountP";
             this.textBoxNetDiscountP.ReadOnly = true;
@@ -839,7 +734,7 @@ namespace POS
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Green;
-            this.label5.Location = new System.Drawing.Point(539, 360);
+            this.label5.Location = new System.Drawing.Point(549, 335);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(147, 16);
@@ -854,7 +749,7 @@ namespace POS
             this.textBoxtTlLineDiscount.Enabled = false;
             this.textBoxtTlLineDiscount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxtTlLineDiscount.ForeColor = System.Drawing.Color.Green;
-            this.textBoxtTlLineDiscount.Location = new System.Drawing.Point(738, 302);
+            this.textBoxtTlLineDiscount.Location = new System.Drawing.Point(738, 277);
             this.textBoxtTlLineDiscount.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxtTlLineDiscount.Name = "textBoxtTlLineDiscount";
             this.textBoxtTlLineDiscount.ReadOnly = true;
@@ -868,7 +763,7 @@ namespace POS
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Green;
-            this.label6.Location = new System.Drawing.Point(538, 300);
+            this.label6.Location = new System.Drawing.Point(549, 272);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(159, 16);
@@ -883,7 +778,7 @@ namespace POS
             this.textBoxDueAmount.Enabled = false;
             this.textBoxDueAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxDueAmount.ForeColor = System.Drawing.Color.Green;
-            this.textBoxDueAmount.Location = new System.Drawing.Point(739, 448);
+            this.textBoxDueAmount.Location = new System.Drawing.Point(739, 423);
             this.textBoxDueAmount.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxDueAmount.Name = "textBoxDueAmount";
             this.textBoxDueAmount.ReadOnly = true;
@@ -897,28 +792,28 @@ namespace POS
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Green;
-            this.label7.Location = new System.Drawing.Point(541, 447);
+            this.label7.Location = new System.Drawing.Point(549, 422);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(91, 16);
             this.label7.TabIndex = 163;
             this.label7.Text = "Due Amount";
             // 
-            // textBoxBalance
+            // textBoxInvoice
             // 
-            this.textBoxBalance.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.textBoxBalance.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.textBoxBalance.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxBalance.Enabled = false;
-            this.textBoxBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxBalance.ForeColor = System.Drawing.Color.DarkRed;
-            this.textBoxBalance.Location = new System.Drawing.Point(739, 478);
-            this.textBoxBalance.Margin = new System.Windows.Forms.Padding(4);
-            this.textBoxBalance.Name = "textBoxBalance";
-            this.textBoxBalance.ReadOnly = true;
-            this.textBoxBalance.Size = new System.Drawing.Size(159, 15);
-            this.textBoxBalance.TabIndex = 166;
-            this.textBoxBalance.TabStop = false;
+            this.textBoxInvoice.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.textBoxInvoice.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.textBoxInvoice.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxInvoice.Enabled = false;
+            this.textBoxInvoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxInvoice.ForeColor = System.Drawing.Color.DarkRed;
+            this.textBoxInvoice.Location = new System.Drawing.Point(739, 453);
+            this.textBoxInvoice.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxInvoice.Name = "textBoxInvoice";
+            this.textBoxInvoice.ReadOnly = true;
+            this.textBoxInvoice.Size = new System.Drawing.Size(159, 15);
+            this.textBoxInvoice.TabIndex = 166;
+            this.textBoxInvoice.TabStop = false;
             // 
             // label8
             // 
@@ -926,17 +821,17 @@ namespace POS
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.DarkRed;
-            this.label8.Location = new System.Drawing.Point(541, 477);
+            this.label8.Location = new System.Drawing.Point(549, 452);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(65, 16);
+            this.label8.Size = new System.Drawing.Size(113, 16);
             this.label8.TabIndex = 165;
-            this.label8.Text = "Balance";
+            this.label8.Text = "Invoice Amount";
             // 
             // TxtPassword
             // 
             this.TxtPassword.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.TxtPassword.Location = new System.Drawing.Point(137, 340);
+            this.TxtPassword.Location = new System.Drawing.Point(137, 326);
             this.TxtPassword.Name = "TxtPassword";
             this.TxtPassword.PasswordChar = '*';
             this.TxtPassword.Size = new System.Drawing.Size(177, 20);
@@ -951,7 +846,7 @@ namespace POS
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(27, 340);
+            this.label9.Location = new System.Drawing.Point(27, 326);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(68, 16);
@@ -963,7 +858,7 @@ namespace POS
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(27, 311);
+            this.label11.Location = new System.Drawing.Point(27, 297);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(77, 16);
@@ -980,7 +875,7 @@ namespace POS
             this.groupBox1.Controls.Add(this.button_update);
             this.groupBox1.Controls.Add(this.labelQuantity);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox1.Location = new System.Drawing.Point(19, 407);
+            this.groupBox1.Location = new System.Drawing.Point(19, 413);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(303, 191);
             this.groupBox1.TabIndex = 171;
@@ -1005,7 +900,7 @@ namespace POS
             this.buttonNP7.BackColor = System.Drawing.Color.DarkGray;
             this.buttonNP7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonNP7.ForeColor = System.Drawing.Color.Red;
-            this.buttonNP7.Location = new System.Drawing.Point(997, 289);
+            this.buttonNP7.Location = new System.Drawing.Point(996, 240);
             this.buttonNP7.Name = "buttonNP7";
             this.buttonNP7.Size = new System.Drawing.Size(88, 79);
             this.buttonNP7.TabIndex = 173;
@@ -1018,7 +913,7 @@ namespace POS
             // 
             this.labelCurrenty.AutoSize = true;
             this.labelCurrenty.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCurrenty.Location = new System.Drawing.Point(379, 531);
+            this.labelCurrenty.Location = new System.Drawing.Point(445, 277);
             this.labelCurrenty.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelCurrenty.Name = "labelCurrenty";
             this.labelCurrenty.Size = new System.Drawing.Size(17, 16);
@@ -1030,7 +925,7 @@ namespace POS
             // 
             this.labelInGrid.AutoSize = true;
             this.labelInGrid.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelInGrid.Location = new System.Drawing.Point(379, 552);
+            this.labelInGrid.Location = new System.Drawing.Point(461, 277);
             this.labelInGrid.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelInGrid.Name = "labelInGrid";
             this.labelInGrid.Size = new System.Drawing.Size(43, 16);
@@ -1041,7 +936,7 @@ namespace POS
             // TxtUserName
             // 
             this.TxtUserName.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.TxtUserName.Location = new System.Drawing.Point(137, 311);
+            this.TxtUserName.Location = new System.Drawing.Point(137, 297);
             this.TxtUserName.Name = "TxtUserName";
             this.TxtUserName.Size = new System.Drawing.Size(177, 20);
             this.TxtUserName.TabIndex = 177;
@@ -1055,28 +950,16 @@ namespace POS
             this.buttonChangeLogin.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.buttonChangeLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.buttonChangeLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonChangeLogin.Location = new System.Drawing.Point(203, 370);
+            this.buttonChangeLogin.Location = new System.Drawing.Point(203, 356);
             this.buttonChangeLogin.Margin = new System.Windows.Forms.Padding(4);
             this.buttonChangeLogin.Name = "buttonChangeLogin";
             this.buttonChangeLogin.Size = new System.Drawing.Size(111, 30);
             this.buttonChangeLogin.TabIndex = 178;
+            this.buttonChangeLogin.TabStop = false;
             this.buttonChangeLogin.Text = "Change Login";
             this.buttonChangeLogin.UseVisualStyleBackColor = false;
             this.buttonChangeLogin.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // venderDetailsBindingSource
-            // 
-            this.venderDetailsBindingSource.DataMember = "Vender_Details";
-            this.venderDetailsBindingSource.DataSource = this.pOSDataSetVendorList;
-            // 
-            // pOSDataSetVendorList
-            // 
-            this.pOSDataSetVendorList.DataSetName = "POSDataSetVendorList";
-            this.pOSDataSetVendorList.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // vender_DetailsTableAdapter
-            // 
-            this.vender_DetailsTableAdapter.ClearBeforeFill = true;
+            
             // 
             // label2
             // 
@@ -1112,7 +995,7 @@ namespace POS
             // 
             this.labelD.AutoSize = true;
             this.labelD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelD.Location = new System.Drawing.Point(379, 344);
+            this.labelD.Location = new System.Drawing.Point(395, 278);
             this.labelD.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelD.Name = "labelD";
             this.labelD.Size = new System.Drawing.Size(48, 16);
@@ -1125,7 +1008,7 @@ namespace POS
             this.Hiddenlabel.AutoSize = true;
             this.Hiddenlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Hiddenlabel.ForeColor = System.Drawing.Color.Blue;
-            this.Hiddenlabel.Location = new System.Drawing.Point(351, 311);
+            this.Hiddenlabel.Location = new System.Drawing.Point(351, 278);
             this.Hiddenlabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Hiddenlabel.Name = "Hiddenlabel";
             this.Hiddenlabel.Size = new System.Drawing.Size(45, 16);
@@ -1153,7 +1036,7 @@ namespace POS
             this.textBoxNetDiscount.Enabled = false;
             this.textBoxNetDiscount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxNetDiscount.ForeColor = System.Drawing.Color.Green;
-            this.textBoxNetDiscount.Location = new System.Drawing.Point(738, 389);
+            this.textBoxNetDiscount.Location = new System.Drawing.Point(738, 364);
             this.textBoxNetDiscount.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxNetDiscount.Name = "textBoxNetDiscount";
             this.textBoxNetDiscount.ReadOnly = true;
@@ -1167,20 +1050,328 @@ namespace POS
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Green;
-            this.label3.Location = new System.Drawing.Point(538, 389);
+            this.label3.Location = new System.Drawing.Point(549, 363);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(189, 16);
             this.label3.TabIndex = 186;
             this.label3.Text = "Total Bill Discount Amount";
             // 
+            // textBoxBalanceAmount
+            // 
+            this.textBoxBalanceAmount.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.textBoxBalanceAmount.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.textBoxBalanceAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxBalanceAmount.Enabled = false;
+            this.textBoxBalanceAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxBalanceAmount.ForeColor = System.Drawing.Color.Blue;
+            this.textBoxBalanceAmount.Location = new System.Drawing.Point(739, 568);
+            this.textBoxBalanceAmount.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxBalanceAmount.Name = "textBoxBalanceAmount";
+            this.textBoxBalanceAmount.ReadOnly = true;
+            this.textBoxBalanceAmount.Size = new System.Drawing.Size(159, 15);
+            this.textBoxBalanceAmount.TabIndex = 12;
+            // 
+            // labelBalance
+            // 
+            this.labelBalance.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.labelBalance.AutoSize = true;
+            this.labelBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBalance.ForeColor = System.Drawing.Color.Blue;
+            this.labelBalance.Location = new System.Drawing.Point(549, 567);
+            this.labelBalance.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelBalance.Name = "labelBalance";
+            this.labelBalance.Size = new System.Drawing.Size(65, 16);
+            this.labelBalance.TabIndex = 190;
+            this.labelBalance.Text = "Balance";
+            // 
+            // textBoxPaidAmount
+            // 
+            this.textBoxPaidAmount.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.textBoxPaidAmount.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.textBoxPaidAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxPaidAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPaidAmount.ForeColor = System.Drawing.Color.Blue;
+            this.textBoxPaidAmount.Location = new System.Drawing.Point(739, 539);
+            this.textBoxPaidAmount.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxPaidAmount.Name = "textBoxPaidAmount";
+            this.textBoxPaidAmount.Size = new System.Drawing.Size(159, 15);
+            this.textBoxPaidAmount.TabIndex = 11;
+            this.textBoxPaidAmount.Leave += new System.EventHandler(this.textBoxPaidAmount_MouseLeave);
+            // 
+            // labelPaidAmount
+            // 
+            this.labelPaidAmount.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.labelPaidAmount.AutoSize = true;
+            this.labelPaidAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPaidAmount.ForeColor = System.Drawing.Color.Blue;
+            this.labelPaidAmount.Location = new System.Drawing.Point(549, 539);
+            this.labelPaidAmount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelPaidAmount.Name = "labelPaidAmount";
+            this.labelPaidAmount.Size = new System.Drawing.Size(95, 16);
+            this.labelPaidAmount.TabIndex = 188;
+            this.labelPaidAmount.Text = "Paid Amount";
+            // 
+            // checkBoxCardPayment
+            // 
+            this.checkBoxCardPayment.AutoSize = true;
+            this.checkBoxCardPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxCardPayment.Location = new System.Drawing.Point(594, 478);
+            this.checkBoxCardPayment.Name = "checkBoxCardPayment";
+            this.checkBoxCardPayment.Size = new System.Drawing.Size(100, 19);
+            this.checkBoxCardPayment.TabIndex = 10;
+            this.checkBoxCardPayment.Text = "CardPayment";
+            this.checkBoxCardPayment.UseVisualStyleBackColor = true;
+            this.checkBoxCardPayment.CheckedChanged += new System.EventHandler(this.checkBoxCardPayment_CheckedChanged);
+            // 
+            // textBoxVoucherAmount
+            // 
+            this.textBoxVoucherAmount.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.textBoxVoucherAmount.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.textBoxVoucherAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxVoucherAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxVoucherAmount.ForeColor = System.Drawing.Color.Blue;
+            this.textBoxVoucherAmount.Location = new System.Drawing.Point(740, 513);
+            this.textBoxVoucherAmount.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxVoucherAmount.Name = "textBoxVoucherAmount";
+            this.textBoxVoucherAmount.Size = new System.Drawing.Size(159, 15);
+            this.textBoxVoucherAmount.TabIndex = 191;
+            this.textBoxVoucherAmount.TabStop = false;
+            this.textBoxVoucherAmount.Text = "0";
+            // 
+            // label10
+            // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Blue;
+            this.label10.Location = new System.Drawing.Point(549, 513);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(120, 16);
+            this.label10.TabIndex = 192;
+            this.label10.Text = "Voucher Amount";
+            // 
+            // textBoxBarCode
+            // 
+            this.textBoxBarCode.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBoxBarCode.Location = new System.Drawing.Point(424, 397);
+            this.textBoxBarCode.MaxLength = 10;
+            this.textBoxBarCode.Name = "textBoxBarCode";
+            this.textBoxBarCode.Size = new System.Drawing.Size(108, 20);
+            this.textBoxBarCode.TabIndex = 75;
+            this.textBoxBarCode.TabStop = false;
+            this.textBoxBarCode.Visible = false;
+            this.textBoxBarCode.Leave += new System.EventHandler(this.textBoxLoadByBarCode);
+            // 
+            // labelBarCodeVoucher
+            // 
+            this.labelBarCodeVoucher.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.labelBarCodeVoucher.AutoSize = true;
+            this.labelBarCodeVoucher.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBarCodeVoucher.Location = new System.Drawing.Point(338, 399);
+            this.labelBarCodeVoucher.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelBarCodeVoucher.Name = "labelBarCodeVoucher";
+            this.labelBarCodeVoucher.Size = new System.Drawing.Size(62, 16);
+            this.labelBarCodeVoucher.TabIndex = 212;
+            this.labelBarCodeVoucher.Text = "BarCode";
+            this.labelBarCodeVoucher.Visible = false;
+            // 
+            // textBoxVoucherNo
+            // 
+            this.textBoxVoucherNo.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBoxVoucherNo.Location = new System.Drawing.Point(424, 425);
+            this.textBoxVoucherNo.MaxLength = 100;
+            this.textBoxVoucherNo.Name = "textBoxVoucherNo";
+            this.textBoxVoucherNo.Size = new System.Drawing.Size(107, 20);
+            this.textBoxVoucherNo.TabIndex = 76;
+            this.textBoxVoucherNo.Visible = false;
+            this.textBoxVoucherNo.Leave += new System.EventHandler(this.textBoxLoadByVoucherNo);
+            // 
+            // labelVoucherNo
+            // 
+            this.labelVoucherNo.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.labelVoucherNo.AutoSize = true;
+            this.labelVoucherNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelVoucherNo.Location = new System.Drawing.Point(338, 429);
+            this.labelVoucherNo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelVoucherNo.Name = "labelVoucherNo";
+            this.labelVoucherNo.Size = new System.Drawing.Size(79, 16);
+            this.labelVoucherNo.TabIndex = 211;
+            this.labelVoucherNo.Text = "Voucher No";
+            this.labelVoucherNo.Visible = false;
+            // 
+            // labelVoucherVisible
+            // 
+            this.labelVoucherVisible.AutoSize = true;
+            this.labelVoucherVisible.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelVoucherVisible.ForeColor = System.Drawing.Color.Blue;
+            this.labelVoucherVisible.Location = new System.Drawing.Point(335, 278);
+            this.labelVoucherVisible.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelVoucherVisible.Name = "labelVoucherVisible";
+            this.labelVoucherVisible.Size = new System.Drawing.Size(15, 16);
+            this.labelVoucherVisible.TabIndex = 213;
+            this.labelVoucherVisible.Text = "1";
+            this.labelVoucherVisible.Visible = false;
+            // 
+            // buttonAddVoucher
+            // 
+            this.buttonAddVoucher.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.buttonAddVoucher.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.buttonAddVoucher.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAddVoucher.Location = new System.Drawing.Point(453, 452);
+            this.buttonAddVoucher.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonAddVoucher.Name = "buttonAddVoucher";
+            this.buttonAddVoucher.Size = new System.Drawing.Size(78, 24);
+            this.buttonAddVoucher.TabIndex = 178;
+            this.buttonAddVoucher.TabStop = false;
+            this.buttonAddVoucher.Text = "Add";
+            this.buttonAddVoucher.UseVisualStyleBackColor = false;
+            this.buttonAddVoucher.Visible = false;
+            this.buttonAddVoucher.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // dataGridViewVoucher
+            // 
+            this.dataGridViewVoucher.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewVoucher.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnID,
+            this.ColumnVoucherNo,
+            this.ColumnAmount,
+            this.ColumnCancel});
+            this.dataGridViewVoucher.Location = new System.Drawing.Point(328, 489);
+            this.dataGridViewVoucher.Name = "dataGridViewVoucher";
+            this.dataGridViewVoucher.Size = new System.Drawing.Size(214, 94);
+            this.dataGridViewVoucher.TabIndex = 214;
+            this.dataGridViewVoucher.Visible = false;
+            this.dataGridViewVoucher.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewVoucher_CellContentClick);
+            // 
+            // ColumnID
+            // 
+            this.ColumnID.HeaderText = "ID";
+            this.ColumnID.Name = "ColumnID";
+            this.ColumnID.Visible = false;
+            // 
+            // ColumnVoucherNo
+            // 
+            this.ColumnVoucherNo.HeaderText = "No";
+            this.ColumnVoucherNo.Name = "ColumnVoucherNo";
+            this.ColumnVoucherNo.Width = 50;
+            // 
+            // ColumnAmount
+            // 
+            this.ColumnAmount.HeaderText = "Amount";
+            this.ColumnAmount.Name = "ColumnAmount";
+            this.ColumnAmount.Width = 80;
+            // 
+            // ColumnCancel
+            // 
+            this.ColumnCancel.HeaderText = "Cancel";
+            this.ColumnCancel.Image = ((System.Drawing.Image)(resources.GetObject("ColumnCancel.Image")));
+            this.ColumnCancel.Name = "ColumnCancel";
+            this.ColumnCancel.Width = 40;
+            // 
+            // labelVoucherID
+            // 
+            this.labelVoucherID.AutoSize = true;
+            this.labelVoucherID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelVoucherID.ForeColor = System.Drawing.Color.Blue;
+            this.labelVoucherID.Location = new System.Drawing.Point(512, 278);
+            this.labelVoucherID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelVoucherID.Name = "labelVoucherID";
+            this.labelVoucherID.Size = new System.Drawing.Size(15, 16);
+            this.labelVoucherID.TabIndex = 215;
+            this.labelVoucherID.Text = "0";
+            this.labelVoucherID.Visible = false;
+            // 
+            // ColumnBarCode
+            // 
+            this.ColumnBarCode.FillWeight = 117.2625F;
+            this.ColumnBarCode.HeaderText = "BarCode";
+            this.ColumnBarCode.Name = "ColumnBarCode";
+            // 
+            // Catagory_Name
+            // 
+            this.Catagory_Name.FillWeight = 106.4265F;
+            this.Catagory_Name.HeaderText = "Category Name";
+            this.Catagory_Name.Name = "Catagory_Name";
+            // 
+            // ColumnUnit
+            // 
+            this.ColumnUnit.FillWeight = 115.9944F;
+            this.ColumnUnit.HeaderText = "Unit";
+            this.ColumnUnit.Name = "ColumnUnit";
+            this.ColumnUnit.ReadOnly = true;
+            // 
+            // Unit_Price
+            // 
+            this.Unit_Price.FillWeight = 97.49506F;
+            this.Unit_Price.HeaderText = "Unit Price";
+            this.Unit_Price.Name = "Unit_Price";
+            this.Unit_Price.ReadOnly = true;
+            // 
+            // Grid_Discount
+            // 
+            this.Grid_Discount.FillWeight = 131.758F;
+            this.Grid_Discount.HeaderText = "Discount";
+            this.Grid_Discount.Name = "Grid_Discount";
+            this.Grid_Discount.ReadOnly = true;
+            // 
+            // Discount_Amout
+            // 
+            this.Discount_Amout.FillWeight = 120.7522F;
+            this.Discount_Amout.HeaderText = "Dis. Amount Per Unit";
+            this.Discount_Amout.Name = "Discount_Amout";
+            this.Discount_Amout.ReadOnly = true;
+            // 
+            // Quantity
+            // 
+            this.Quantity.FillWeight = 108.0643F;
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
+            // 
+            // BuyingCost
+            // 
+            this.BuyingCost.FillWeight = 99.30529F;
+            this.BuyingCost.HeaderText = "Sub Total";
+            this.BuyingCost.Name = "BuyingCost";
+            // 
+            // ColumnCategoryID
+            // 
+            this.ColumnCategoryID.HeaderText = "CategoryID";
+            this.ColumnCategoryID.Name = "ColumnCategoryID";
+            this.ColumnCategoryID.Visible = false;
+            // 
+            // ColumnDelete
+            // 
+            this.ColumnDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.ColumnDelete.FillWeight = 2.941738F;
+            this.ColumnDelete.HeaderText = "Delete";
+            this.ColumnDelete.Image = ((System.Drawing.Image)(resources.GetObject("ColumnDelete.Image")));
+            this.ColumnDelete.Name = "ColumnDelete";
+            this.ColumnDelete.Width = 44;
+            // 
             // Invoice
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(1285, 624);
+            this.ClientSize = new System.Drawing.Size(1284, 663);
             this.ControlBox = false;
+            this.Controls.Add(this.labelVoucherID);
+            this.Controls.Add(this.dataGridViewVoucher);
+            this.Controls.Add(this.buttonAddVoucher);
+            this.Controls.Add(this.labelVoucherVisible);
+            this.Controls.Add(this.textBoxBarCode);
+            this.Controls.Add(this.labelBarCodeVoucher);
+            this.Controls.Add(this.textBoxVoucherNo);
+            this.Controls.Add(this.labelVoucherNo);
+            this.Controls.Add(this.textBoxVoucherAmount);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.checkBoxCardPayment);
+            this.Controls.Add(this.textBoxBalanceAmount);
+            this.Controls.Add(this.labelBalance);
+            this.Controls.Add(this.textBoxPaidAmount);
+            this.Controls.Add(this.labelPaidAmount);
             this.Controls.Add(this.textBoxNetDiscount);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.Hiddenlabel1);
@@ -1197,7 +1388,7 @@ namespace POS
             this.Controls.Add(this.TxtPassword);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.textBoxBalance);
+            this.Controls.Add(this.textBoxInvoice);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.textBoxDueAmount);
             this.Controls.Add(this.label7);
@@ -1207,12 +1398,8 @@ namespace POS
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBoxtTlLineDiscount);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.button26);
-            this.Controls.Add(this.button27);
             this.Controls.Add(this.button28);
             this.Controls.Add(this.button21);
-            this.Controls.Add(this.button22);
-            this.Controls.Add(this.button23);
             this.Controls.Add(this.buttonNPBack);
             this.Controls.Add(this.button17);
             this.Controls.Add(this.button18);
@@ -1234,11 +1421,10 @@ namespace POS
             this.Controls.Add(this.buttonNP9);
             this.Controls.Add(this.buttonNP8);
             this.Controls.Add(this.textBoxVendorName);
-            this.Controls.Add(this.buttoncash);
             this.Controls.Add(this.textBoxbuy);
             this.Controls.Add(this.textBoxTotal);
             this.Controls.Add(this.labelTotal);
-            this.Controls.Add(this.buttoncard);
+            this.Controls.Add(this.buttonComplete);
             this.Controls.Add(this.button_cancel);
             this.Controls.Add(this.dataGridViewAll);
             this.Controls.Add(this.labelSellingCost);
@@ -1254,8 +1440,8 @@ namespace POS
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.venderDetailsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetVendorList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timer1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVoucher)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1267,7 +1453,7 @@ namespace POS
         private System.Windows.Forms.TextBox textBoxTotal;
         private System.Windows.Forms.Label labelTotal;
         private System.Windows.Forms.Label labelQuantity;
-        private System.Windows.Forms.Button buttoncard;
+        private System.Windows.Forms.Button buttonComplete;
         private System.Windows.Forms.Button button_update;
         private System.Windows.Forms.Button button_cancel;
         private System.Windows.Forms.DataGridView dataGridViewAll;
@@ -1275,15 +1461,12 @@ namespace POS
         private System.Windows.Forms.TextBox textBoxSelling;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
-        private POSDataSetVendorList pOSDataSetVendorList;
         private System.Windows.Forms.BindingSource venderDetailsBindingSource;
-        private POSDataSetVendorListTableAdapters.Vender_DetailsTableAdapter vender_DetailsTableAdapter;
         private System.Windows.Forms.BindingSource pOSDataSetItemCataagoryBindingSource;
         private POSDataSetItemCataagory pOSDataSetItemCataagory;
         private System.Windows.Forms.BindingSource itemCatagoryBindingSource;
         private POSDataSetItemCataagoryTableAdapters.Item_CatagoryTableAdapter item_CatagoryTableAdapter;
         private System.Windows.Forms.TextBox textBoxbuy;
-        private System.Windows.Forms.Button buttoncash;
         private System.Windows.Forms.TextBox textBoxVendorName;
         private System.Windows.Forms.Button buttonNP8;
         private System.Windows.Forms.Button buttonNP9;
@@ -1305,11 +1488,7 @@ namespace POS
         private System.Windows.Forms.Button button19;
         private System.Windows.Forms.Button button20;
         private System.Windows.Forms.Button button21;
-        private System.Windows.Forms.Button button22;
-        private System.Windows.Forms.Button button23;
         private System.Windows.Forms.Button buttonNPBack;
-        private System.Windows.Forms.Button button26;
-        private System.Windows.Forms.Button button27;
         private System.Windows.Forms.Button button28;
         private System.Windows.Forms.TextBox textBoxtTlLineDiscountP;
         private System.Windows.Forms.Label label4;
@@ -1319,7 +1498,7 @@ namespace POS
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBoxDueAmount;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBoxBalance;
+        private System.Windows.Forms.TextBox textBoxInvoice;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox TxtPassword;
         private System.Windows.Forms.Label label9;
@@ -1337,6 +1516,27 @@ namespace POS
         private System.Windows.Forms.Label labelD;
         private System.Windows.Forms.Label Hiddenlabel;
         private System.Windows.Forms.Label Hiddenlabel1;
+        private System.Windows.Forms.TextBox textBoxNetDiscount;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBoxBalanceAmount;
+        private System.Windows.Forms.Label labelBalance;
+        public System.Windows.Forms.TextBox textBoxPaidAmount;
+        private System.Windows.Forms.Label labelPaidAmount;
+        private System.Windows.Forms.CheckBox checkBoxCardPayment;
+        public System.Windows.Forms.TextBox textBoxVoucherAmount;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textBoxBarCode;
+        private System.Windows.Forms.Label labelBarCodeVoucher;
+        private System.Windows.Forms.TextBox textBoxVoucherNo;
+        private System.Windows.Forms.Label labelVoucherNo;
+        private System.Windows.Forms.Label labelVoucherVisible;
+        private System.Windows.Forms.DataGridView dataGridViewVoucher;
+        private System.Windows.Forms.Button buttonAddVoucher;
+        private System.Windows.Forms.Label labelVoucherID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnVoucherNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnAmount;
+        private System.Windows.Forms.DataGridViewImageColumn ColumnCancel;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnBarCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn Catagory_Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnUnit;
@@ -1345,8 +1545,7 @@ namespace POS
         private System.Windows.Forms.DataGridViewTextBoxColumn Discount_Amout;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn BuyingCost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCategoryID;
         private System.Windows.Forms.DataGridViewImageColumn ColumnDelete;
-        private System.Windows.Forms.TextBox textBoxNetDiscount;
-        private System.Windows.Forms.Label label3;
     }
 }

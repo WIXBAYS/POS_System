@@ -43,12 +43,13 @@
             this.gRNReprtsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.discountForTotalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.discountForTotalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rerurnExchangeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -67,7 +68,8 @@
             this.invoiceToolStripMenuItem,
             this.reportsToolStripMenuItem,
             this.helpMenu,
-            this.toolStripMenuItem1});
+            this.toolStripMenuItem1,
+            this.rerurnExchangeToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
@@ -173,6 +175,13 @@
             this.toolStripSeparator8.Name = "toolStripSeparator8";
             this.toolStripSeparator8.Size = new System.Drawing.Size(178, 6);
             // 
+            // discountForTotalToolStripMenuItem
+            // 
+            this.discountForTotalToolStripMenuItem.Name = "discountForTotalToolStripMenuItem";
+            this.discountForTotalToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.discountForTotalToolStripMenuItem.Text = "Discount For Total";
+            this.discountForTotalToolStripMenuItem.Click += new System.EventHandler(this.discountForTotalToolStripMenuItem_Click);
+            // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -186,7 +195,7 @@
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(57, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // statusStrip
             // 
@@ -204,12 +213,12 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
-            // discountForTotalToolStripMenuItem
+            // rerurnExchangeToolStripMenuItem
             // 
-            this.discountForTotalToolStripMenuItem.Name = "discountForTotalToolStripMenuItem";
-            this.discountForTotalToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.discountForTotalToolStripMenuItem.Text = "Discount For Total";
-            this.discountForTotalToolStripMenuItem.Click += new System.EventHandler(this.discountForTotalToolStripMenuItem_Click);
+            this.rerurnExchangeToolStripMenuItem.Name = "rerurnExchangeToolStripMenuItem";
+            this.rerurnExchangeToolStripMenuItem.Size = new System.Drawing.Size(124, 23);
+            this.rerurnExchangeToolStripMenuItem.Text = "Rerurn/Exchange";
+            this.rerurnExchangeToolStripMenuItem.Click += new System.EventHandler(this.rerurnExchangeToolStripMenuItem_Click);
             // 
             // Home
             // 
@@ -256,6 +265,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem brandToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem discountForTotalToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rerurnExchangeToolStripMenuItem;
     }
 }
 

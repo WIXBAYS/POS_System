@@ -100,7 +100,7 @@ namespace POS
                             DiscountAmnt1 = Math.Round((sdrsec.GetDecimal(5) * DiscountAmount / 100), 2);
                         }
                     }
-                    dataGridViewAll.Rows.Add("N/A", CategoryName, Unit, UnitPrice, DiscountCol, DiscountAmnt1.ToString(),textBoxQuantity.Text, ((UnitPrice-DiscountAmnt1) * decimal.Parse(textBoxQuantity.Text)).ToString());
+                    dataGridViewAll.Rows.Add("N/A", CategoryName, Unit, UnitPrice, DiscountCol, DiscountAmnt1.ToString(),textBoxQuantity.Text, ((UnitPrice-DiscountAmnt1) * decimal.Parse(textBoxQuantity.Text)).ToString(), CatID);
                 }
                     catch { }
 
@@ -134,8 +134,10 @@ namespace POS
         private void buttonsave_Click(object sender, EventArgs e)
         {
             StockUpdate("Credit");
-            BillPrint bp = new BillPrint();
-            bp.Show();        
+        }
+
+                }
+            }
         }
 
         private void buttoncash_Click(object sender, EventArgs e)
@@ -143,7 +145,35 @@ namespace POS
             StockUpdate("Cash");
         }
 
+        public int checkstockbalance()
+        {
+            int CategoryID = 0;
+            Stock stock = new Stock();
+            Decimal Current_Stock_Balance = 0.0m;
+            for (int i = 0; i < dataGridViewAll.Rows.Count; ++i)
+            {
+                SqlDataReader sdr1 = stock.GetStockBalance(Convert.ToInt32(dataGridViewAll.Rows[i].Cells[8].Value));
+                try
+                {
+                    sdr1.Read();
+                    Current_Stock_Balance = sdr1.GetDecimal(0);
+                    sdr1.Close();
+                }
+                catch { }
 
+                decimal Quantity = Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[6].Value);
+
+
+                if (Current_Stock_Balance < Quantity)
+                {
+
+                    CategoryID = Convert.ToInt32(dataGridViewAll.Rows[i].Cells[8].Value);
+                    return CategoryID;
+                }
+
+            }
+            return CategoryID;
+        }
         private void StockUpdate(String PaymentType)
         {
             Stock stock = new Stock();
@@ -165,44 +195,53 @@ namespace POS
 
             for (int i = 0; i < dataGridViewAll.Rows.Count; ++i)
             {
-                SqlDataReader sdr1 = stock.GetStockBalance(Convert.ToInt32(dataGridViewAll.Rows[i].Cells[0].Value));
+                decimal sum = Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[7].Value);
+                decimal netdiscountline = (Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[5].Value) * Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[6].Value));
+                decimal sumoriginal = (Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[3].Value) * Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[6].Value));
+                SqlDataReader sdr1 = stock.GetStockBalance(Convert.ToInt32(dataGridViewAll.Rows[i].Cells[8].Value));
                 try
                 {
                     sdr1.Read();
                     Current_Stock_Balance = sdr1.GetDecimal(0);
                     sdr1.Close();
+                    decimal Quantity = Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[6].Value);
+                    x = stock.InsertTransaction(Invoce_No, Convert.ToInt32(dataGridViewAll.Rows[i].Cells[8].Value), Quantity, "Customer_Invoice", 0, sumoriginal, netdiscountline, sum, Current_Stock_Balance, (Current_Stock_Balance - Quantity), Properties.Settings.Default.username, DateTime.Parse("1900-01-01"), "0");
+                    if (x > 0)
+                    {
+                        y = stock.UpdateStockBalance(Convert.ToInt32(dataGridViewAll.Rows[i].Cells[8].Value), Quantity * -1);
+                    }
+
                 }
                 catch { }
 
-                decimal Quantity = Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[6].Value);
-                //string Units = dataGridViewAll.Rows[i].Cells[2].Value.ToString().Trim();
-                //if (Units.Equals("g") || Units.Equals("ml")) Quantity = Quantity / 1000;
-                //else if (Units.Equals("mg")) Quantity = Quantity / 1000000;
+                decimal Quantity = Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[2].Value);
+                string Units = dataGridViewAll.Rows[i].Cells[3].Value.ToString().Trim();
+                if (Units.Equals("g") || Units.Equals("ml")) Quantity = Quantity / 1000;
+                else if (Units.Equals("mg")) Quantity = Quantity / 1000000;
 
-                //if (Current_Stock_Balance >= Quantity)
-                //{
+                if (Current_Stock_Balance >= Quantity)
+                {
 
-                //    x = stock.InsertTransaction(Invoce_No, Convert.ToInt32(dataGridViewAll.Rows[i].Cells[0].Value), Quantity, "Customer_Invoice", Quantity, 0, Current_Stock_Balance, (Current_Stock_Balance - Quantity), Properties.Settings.Default.username, DateTime.Parse("1900-01-01"), "0");
-                //    if (x > 0)
-                //    {
-                //        y = stock.UpdateStockBalance(Convert.ToInt32(dataGridViewAll.Rows[i].Cells[0].Value), Quantity * -1);
+                    x = stock.InsertTransaction(Invoce_No, Convert.ToInt32(dataGridViewAll.Rows[i].Cells[0].Value), Quantity, "Customer_Invoice", Quantity, 0, Current_Stock_Balance, (Current_Stock_Balance - Quantity), Properties.Settings.Default.username, DateTime.Parse("1900-01-01"), "0");
+                    if (x > 0)
+                    {
+                        y = stock.UpdateStockBalance(Convert.ToInt32(dataGridViewAll.Rows[i].Cells[0].Value), Quantity * -1);
 
-                //    }
-                //}
-                //else { MessageBox.Show(" Stock Balance Error"); }
+                    }
+                }
+                else { MessageBox.Show(" Stock Balance Error"); }
 
             }
-            //z = stock.InsertIvoice(Invoce_No, decimal.Parse(textBoxTotal.Text), 0, 0, DateTime.Now);
-            InvoiceNumber = Invoce_No.ToString();
-            //if (x > 0 && y > 0 && z > 0)
-            //{
-            //    MessageBox.Show(" Successfully Added");
-            //    dataGridViewAll.ClearSelection();
-            //    textBoxQuantity.Clear();
-            //    dataGridViewAll.Text = "";
-            //    textBoxSelling.Clear();
-            //    comboBoxCatID.Text = "";
-            //}
+            z = stock.InsertIvoice(Invoce_No, decimal.Parse(textBoxTotal.Text), 0, 0, DateTime.Now);
+            if (x > 0 && y > 0 && z > 0)
+            {
+                MessageBox.Show(" Successfully Added");
+                dataGridViewAll.ClearSelection();
+                textBoxQuantity.Clear();
+                dataGridViewAll.Text = "";
+                textBoxSelling.Clear();
+                comboBoxCatID.Text = "";
+            }
         }
 
         private void dataGridViewAll_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -234,13 +273,13 @@ namespace POS
                 }
                 netdiscount = GetTotalBillDiscount(sum);
                 netdiscountp = netdiscount / sum * 100;
-                textBoxTotal.Text = Math.Round(sum, 2).ToString();
+                textBoxTotal.Text = Math.Round(sumoriginal, 2).ToString();
                 textBoxNetDiscountP.Text = Math.Round(netdiscountp, 2).ToString();
                 textBoxNetDiscount.Text = Math.Round((netdiscount), 2).ToString();
                 textBoxtTlLineDiscountP.Text = Math.Round((netdiscountline * 100 / sumoriginal), 2).ToString();
                 textBoxtTlLineDiscount.Text = Math.Round((netdiscountline), 2).ToString();
                 textBoxDueAmount.Text = Math.Round((netdiscount + netdiscountline), 2).ToString();
-                textBoxBalance.Text = Math.Round((sum - netdiscount - netdiscountline), 2).ToString();
+                textBoxInvoice.Text = Math.Round((sumoriginal - netdiscount - netdiscountline), 2).ToString();
             }
             catch { }
         }
@@ -284,8 +323,9 @@ namespace POS
                 DataGridViewTextBoxCell celCN = (DataGridViewTextBoxCell)dataGridViewAll.Rows[currentcell.Y].Cells[1];
                 DataGridViewTextBoxCell celD = (DataGridViewTextBoxCell)dataGridViewAll.Rows[currentcell.Y].Cells[4];
                 DataGridViewTextBoxCell celDA = (DataGridViewTextBoxCell)dataGridViewAll.Rows[currentcell.Y].Cells[5];
-                DataGridViewImageCell celCancel = (DataGridViewImageCell)dataGridViewAll.Rows[currentcell.Y].Cells[8];
-                
+                DataGridViewImageCell celCancel = (DataGridViewImageCell)dataGridViewAll.Rows[currentcell.Y].Cells[9];
+                DataGridViewTextBoxCell celCI = (DataGridViewTextBoxCell)dataGridViewAll.Rows[currentcell.Y].Cells[8];
+
                 celCancel.Value= Image.FromFile(System.IO.Path.Combine(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "CancelBtn.png"));
 
                 System.Windows.Forms.SendKeys.Send("{TAB}");
@@ -307,6 +347,7 @@ namespace POS
                         sdrsec.Read();
                         celCN.Value = sdrsec.GetString(1);
                         celU.Value = sdrsec.GetString(3);
+                        celCI.Value = sdrsec.GetInt32(2).ToString().Trim();
                         celUP.Value = sdrsec.GetDecimal(5).ToString().Trim();
                         Decimal DiscountAmount = sdrsec.GetDecimal(7);
                         String DiscountType = sdrsec.GetString(8).ToString().Trim();
@@ -390,11 +431,6 @@ namespace POS
 
 
         
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -983,6 +1019,192 @@ namespace POS
         {
             labelInGrid.Text = "no";
             Hiddenlabel.Text = "textBoxCAT";
+        }
+
+        private void button28_Click(object sender, EventArgs e)
+        {
+            new CustomerData().Show();
+        }
+
+        private void button21_Click(object sender, EventArgs e)
+        {
+            if(labelVoucherVisible.Text.Equals("1"))
+            {
+
+                labelBarCodeVoucher.Visible = true;
+                labelVoucherNo.Visible = true;
+                textBoxBarCode.Visible = true;
+                textBoxVoucherNo.Visible = true;
+                buttonAddVoucher.Visible = true;
+                dataGridViewVoucher.Visible = true;
+                labelVoucherVisible.Text = "0";
+            }
+            else if (labelVoucherVisible.Text.Equals("0"))
+            {
+
+                labelBarCodeVoucher.Visible = false;
+                labelVoucherNo.Visible = false;
+                textBoxBarCode.Visible = false;
+                textBoxVoucherNo.Visible = false;
+                buttonAddVoucher.Visible = false;
+                dataGridViewVoucher.Visible = false;
+                labelVoucherVisible.Text = "1";
+            }
+        }
+
+        private void textBoxLoadByVoucherNo(object sender, EventArgs e)
+        {
+            SqlDataReader sdr = new Voucher().getVoucherbyVoucher_No(textBoxVoucherNo.Text);
+            if (sdr != null)
+            {
+                sdr.Read();
+                labelVoucherID.Text= sdr.GetInt32(0).ToString();
+                String BarCode = sdr.GetString(1);
+                Decimal Amount = sdr.GetDecimal(2);
+                Boolean Status = sdr.GetBoolean(3);
+                if (!Status)
+                {
+                    textBoxBarCode.Text = BarCode.Trim();
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Voucher Already Issued");
+                    textBoxBarCode.Clear();
+                    textBoxVoucherNo.Clear();
+
+                }
+                sdr.Close();
+            }
+            else
+            {
+                MessageBox.Show("Invalid Voucher Details");
+                textBoxBarCode.Clear();
+                textBoxVoucherNo.Clear();
+
+            }
+        }
+
+        private void textBoxLoadByBarCode(object sender, EventArgs e)
+        {
+            SqlDataReader sdr = new Voucher().getVoucherbyBrCode(textBoxBarCode.Text);
+            if (sdr != null)
+            {
+                sdr.Read();
+                labelVoucherID.Text = sdr.GetInt32(0).ToString();
+                String Voucher_No = sdr.GetString(1);
+                Decimal Amount = sdr.GetDecimal(2);
+                Boolean Status = sdr.GetBoolean(3);
+                if (!Status)
+                {
+                    textBoxVoucherNo.Text = Voucher_No.Trim();
+                }
+                else
+                {
+                    MessageBox.Show("Voucher Already Issued");
+                    textBoxVoucherNo.Clear();
+                    textBoxBarCode.Clear();
+                }
+                sdr.Close();
+            }
+            else
+            {
+                MessageBox.Show("Invalid Voucher Details");
+                textBoxVoucherNo.Clear();
+                textBoxBarCode.Clear();
+            }
+
+        }
+
+        private void checkBoxCardPayment_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!checkBoxCardPayment.Checked)
+            {
+
+                labelPaidAmount.Visible = true;
+                labelBalance.Visible = true;
+                textBoxPaidAmount.Visible = true;
+                textBoxBalanceAmount.Visible = true;
+                
+
+            }
+            else
+            {
+                labelPaidAmount.Visible = false;
+                labelBalance.Visible = false;
+                textBoxPaidAmount.Visible = false;
+                textBoxBalanceAmount.Visible = false;
+            }
+
+        }
+
+        private void textBoxPaidAmount_MouseLeave(object sender, EventArgs e)
+        {
+            try
+            {
+                if(decimal.Parse(textBoxPaidAmount.Text) + decimal.Parse(textBoxVoucherAmount.Text) - decimal.Parse(textBoxInvoice.Text)>0)
+                textBoxBalanceAmount.Text = (decimal.Parse(textBoxPaidAmount.Text) + decimal.Parse(textBoxVoucherAmount.Text) - decimal.Parse(textBoxInvoice.Text)).ToString();
+            else MessageBox.Show("Invalid Paying Amount!");
+            }
+            catch
+            {
+                MessageBox.Show("Invalid Amounts!");
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Decimal Amount = 0.0m;
+            int exist = 0;
+            SqlDataReader sdr = new Voucher().getVoucherbyVoucher_No(textBoxVoucherNo.Text);
+            if (sdr != null)
+            {
+                sdr.Read();
+                Amount= sdr.GetDecimal(2);
+                sdr.Close();
+            }
+            for (int i = 0; i < dataGridViewVoucher.Rows.Count; ++i)
+            {
+                if (textBoxVoucherNo.Text.Trim().Equals(Convert.ToString(dataGridViewVoucher.Rows[i].Cells[1].Value).Trim())) exist = 1;
+            }
+            if (exist == 0)
+            {
+                dataGridViewVoucher.Rows.Add(labelVoucherID.Text, textBoxVoucherNo.Text, Amount);
+                SetVoucherSummery();
+            }
+            else
+            {
+                MessageBox.Show("Voucher Already Inserted!");
+                textBoxVoucherNo.Clear();
+                labelVoucherID.Text = "0" ;
+                textBoxBarCode.Clear();
+            }
+        }
+
+        private void dataGridViewVoucher_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.ColumnIndex == 3)
+                {
+                    int x = dataGridViewVoucher.CurrentRow.Index;
+                    dataGridViewVoucher.Rows.Remove(dataGridViewVoucher.Rows[x]);
+                    SetVoucherSummery();
+                }
+               
+            }
+            catch { }
+            
+        }
+
+        public void SetVoucherSummery()
+        {
+            Decimal Sum = 0.0m;
+            for (int i = 0; i < dataGridViewVoucher.Rows.Count; ++i)
+            {
+                Sum += (Convert.ToDecimal(dataGridViewVoucher.Rows[i].Cells[2].Value));
+            }
+            textBoxVoucherAmount.Text = Sum.ToString();
         }
     }
     

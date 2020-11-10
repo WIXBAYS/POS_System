@@ -27,7 +27,7 @@ namespace POS
                 // TODO: This line of code loads data into the 'pOSDataSetGRN_ID_List.Transaction' table. You can move, or remove it, as needed.
                 this.transactionTableAdapter.Fill(this.pOSDataSetGRN_ID_List.Transaction);
                 // TODO: This line of code loads data into the 'POSDataSetTemp_GNR_Data.GNR_Temp' table. You can move, or remove it, as needed.
-                this.GNR_TempTableAdapter.Fill(this.POSDataSetTemp_GNR_Data.GNR_Temp, GNR_Pass_ID);
+                this.GRN_TempTableAdapter.Fill(this.POSDataSetTemp_GRN_Data.GNR_Temp, GNR_Pass_ID);
 
                 this.reportViewer1.RefreshReport();
             }
@@ -37,11 +37,17 @@ namespace POS
 
         private void comboBox_GRN_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-            // TODO: This line of code loads data into the 'POSDataSetTemp_GNR_Data.GNR_Temp' table. You can move, or remove it, as needed.
-            this.GNR_TempTableAdapter.Fill(this.POSDataSetTemp_GNR_Data.GNR_Temp, int.Parse(comboBox_GRN.SelectedValue.ToString()));
+            try
+            {
+                // TODO: This line of code loads data into the 'POSDataSetTemp_GNR_Data.GNR_Temp' table. You can move, or remove it, as needed.
+                this.GRN_TempTableAdapter.Fill(this.POSDataSetTemp_GRN_Data.GNR_Temp, int.Parse(comboBox_GRN.SelectedValue.ToString()));
 
-            this.reportViewer1.RefreshReport();
+                this.reportViewer1.RefreshReport();
+            }
+            catch { }
         }
+
+        
+
     }
 }

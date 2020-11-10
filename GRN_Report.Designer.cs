@@ -30,37 +30,37 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.GNR_TempBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.POSDataSetTemp_GNR_Data = new POS.POSDataSetTemp_GNR_Data();
+            this.GRN_TempBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.POSDataSetTemp_GRN_Data = new POS.POSDataSetTemp_GRN_Data();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.GNR_TempTableAdapter = new POS.POSDataSetTemp_GNR_DataTableAdapters.GNR_TempTableAdapter();
+            this.GRN_TempTableAdapter = new POS.POSDataSetTemp_GNR_DataTableAdapters.GNR_TempTableAdapter();
             this.comboBox_GRN = new System.Windows.Forms.ComboBox();
             this.transactionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pOSDataSetGRN_ID_List = new POS.POSDataSetGRN_ID_List();
             this.label1 = new System.Windows.Forms.Label();
             this.transactionTableAdapter = new POS.POSDataSetGRN_ID_ListTableAdapters.TransactionTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.GNR_TempBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.POSDataSetTemp_GNR_Data)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GRN_TempBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.POSDataSetTemp_GRN_Data)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.transactionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetGRN_ID_List)).BeginInit();
             this.SuspendLayout();
             // 
             // GNR_TempBindingSource
             // 
-            this.GNR_TempBindingSource.DataMember = "GNR_Temp";
-            this.GNR_TempBindingSource.DataSource = this.POSDataSetTemp_GNR_Data;
+            this.GRN_TempBindingSource.DataMember = "GNR_Temp";
+            this.GRN_TempBindingSource.DataSource = this.POSDataSetTemp_GRN_Data;
             // 
             // POSDataSetTemp_GNR_Data
             // 
-            this.POSDataSetTemp_GNR_Data.DataSetName = "POSDataSetTemp_GNR_Data";
-            this.POSDataSetTemp_GNR_Data.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.POSDataSetTemp_GRN_Data.DataSetName = "POSDataSetTemp_GNR_Data";
+            this.POSDataSetTemp_GRN_Data.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // reportViewer1
             // 
             reportDataSource1.Name = "DataSet_GNR_TEMP";
-            reportDataSource1.Value = this.GNR_TempBindingSource;
+            reportDataSource1.Value = this.GRN_TempBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "POS.GNR_Report_GNR_Form.rdlc";
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "POS.GRN_Report_GRN_Form.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 42);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
@@ -69,7 +69,7 @@
             // 
             // GNR_TempTableAdapter
             // 
-            this.GNR_TempTableAdapter.ClearBeforeFill = true;
+            this.GRN_TempTableAdapter.ClearBeforeFill = true;
             // 
             // comboBox_GRN
             // 
@@ -110,7 +110,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(947, 450);
+            this.ClientSize = new System.Drawing.Size(975, 470);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox_GRN);
             this.Controls.Add(this.reportViewer1);
@@ -118,10 +118,10 @@
             this.MinimizeBox = false;
             this.Name = "GRN_Report";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "GNR Report";
+            this.Text = "GRN Report";
             this.Load += new System.EventHandler(this.GNR_Report_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.GNR_TempBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.POSDataSetTemp_GNR_Data)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GRN_TempBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.POSDataSetTemp_GRN_Data)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.transactionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetGRN_ID_List)).EndInit();
             this.ResumeLayout(false);
@@ -132,9 +132,9 @@
         #endregion
 
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
-        private System.Windows.Forms.BindingSource GNR_TempBindingSource;
-        private POSDataSetTemp_GNR_Data POSDataSetTemp_GNR_Data;
-        private POSDataSetTemp_GNR_DataTableAdapters.GNR_TempTableAdapter GNR_TempTableAdapter;
+        private System.Windows.Forms.BindingSource GRN_TempBindingSource;
+        private POSDataSetTemp_GRN_Data POSDataSetTemp_GRN_Data;
+        private POSDataSetTemp_GNR_DataTableAdapters.GNR_TempTableAdapter GRN_TempTableAdapter;
         private System.Windows.Forms.ComboBox comboBox_GRN;
         private System.Windows.Forms.Label label1;
         private POSDataSetGRN_ID_List pOSDataSetGRN_ID_List;
