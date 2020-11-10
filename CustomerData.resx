@@ -117,23 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="GRN_TempBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing">
-    <value>226, 17</value>
-  </data>
-  <data name="POSDataSetTemp_GRN_Data.TrayLocation" type="System.Drawing.Point, System.Drawing">
-    <value>17, 17</value>
-  </data>
-  <data name="GRN_TempTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing">
-    <value>417, 17</value>
-  </data>
-  <data name="transactionBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing">
-    <value>786, 17</value>
-  </data>
-  <data name="pOSDataSetGRN_ID_List.TrayLocation" type="System.Drawing.Point, System.Drawing">
-    <value>603, 17</value>
-  </data>
-  <data name="transactionTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing">
-    <value>17, 56</value>
-  </data>
 </root>

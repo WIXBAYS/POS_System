@@ -12,7 +12,7 @@
               <DbSource ConnectionRef="POSConnectionString (Settings)" DbObjectName="POS.dbo.[Transaction]" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT DISTINCT INVOICE_NO ,CONCAT([INVOICE_NO] ,' - ',[ENTERED_DATE]) AS Combine FROM dbo.[Transaction]</CommandText>
+                    <CommandText>SELECT DISTINCT INVOICE_NO ,CONCAT([INVOICE_NO] ,' - ',CONVERT(nvarchar, [ENTERED_DATE],120))AS Combine  FROM dbo.[Transaction] WHERE TRANSACTION_TYPE='STOCK_ADD'  order by INVOICE_NO DESC</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>

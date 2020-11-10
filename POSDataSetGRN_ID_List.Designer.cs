@@ -767,8 +767,9 @@ namespace POS.POSDataSetGRN_ID_ListTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT DISTINCT INVOICE_NO ,CONCAT([INVOICE_NO] ,\' - \',[ENTERED_DATE]) AS Combine" +
-                " FROM dbo.[Transaction]";
+            this._commandCollection[0].CommandText = "SELECT DISTINCT INVOICE_NO ,CONCAT([INVOICE_NO] ,\' - \',CONVERT(nvarchar, [ENTERED" +
+                "_DATE],120))AS Combine  FROM dbo.[Transaction] WHERE TRANSACTION_TYPE=\'STOCK_ADD" +
+                "\'  order by INVOICE_NO DESC";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

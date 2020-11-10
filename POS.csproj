@@ -77,6 +77,12 @@
     <Compile Include="BrandRegistration.Designer.cs">
       <DependentUpon>BrandRegistration.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomerData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerData.Designer.cs">
+      <DependentUpon>CustomerData.cs</DependentUpon>
+    </Compile>
     <Compile Include="Daily_Sales.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,6 +144,12 @@
     <Compile Include="Category_Management.Designer.cs">
       <DependentUpon>Category_Management.cs</DependentUpon>
     </Compile>
+    <Compile Include="Item_Return.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Item_Return.Designer.cs">
+      <DependentUpon>Item_Return.cs</DependentUpon>
+    </Compile>
     <Compile Include="POSDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -147,6 +159,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>POSDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="POSDataSet31.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>POSDataSet31.xsd</DependentUpon>
     </Compile>
     <Compile Include="POSDataSetBrand1.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -181,15 +198,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>POSDataSetStockBlance.xsd</DependentUpon>
     </Compile>
-    <Compile Include="POSDataSetTemp_GNR_Data.Designer.cs">
+    <Compile Include="POSDataSetTemp_GRN_Data.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>POSDataSetTemp_GNR_Data.xsd</DependentUpon>
+      <DependentUpon>POSDataSetTemp_GRN_Data.xsd</DependentUpon>
     </Compile>
     <Compile Include="POSDataSetUnit.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>POSDataSetUnit.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="POSDataSetVenderDetails.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>POSDataSetVenderDetails.xsd</DependentUpon>
     </Compile>
     <Compile Include="POSDataSetVendorList.cs">
       <DependentUpon>POSDataSetVendorList.xsd</DependentUpon>
@@ -260,8 +282,18 @@
     <Compile Include="Vendor_Management.Designer.cs">
       <DependentUpon>Vendor_Management.cs</DependentUpon>
     </Compile>
+    <Compile Include="Voucher.cs" />
+    <Compile Include="VoucherManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VoucherManage.Designer.cs">
+      <DependentUpon>VoucherManage.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="BrandRegistration.resx">
       <DependentUpon>BrandRegistration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerData.resx">
+      <DependentUpon>CustomerData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Daily_Sales.resx">
       <DependentUpon>Daily_Sales.cs</DependentUpon>
@@ -278,7 +310,7 @@
     <EmbeddedResource Include="GRN_Report.resx">
       <DependentUpon>GRN_Report.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GNR_Report_GNR_Form.rdlc" />
+    <EmbeddedResource Include="GRN_Report_GRN_Form.rdlc" />
     <EmbeddedResource Include="GRN.resx">
       <DependentUpon>GRN.cs</DependentUpon>
     </EmbeddedResource>
@@ -293,6 +325,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Category_Management.resx">
       <DependentUpon>Category_Management.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Item_Return.resx">
+      <DependentUpon>Item_Return.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Loading.resx">
       <DependentUpon>Loading.cs</DependentUpon>
@@ -317,6 +352,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vendor_Management.resx">
       <DependentUpon>Vendor_Management.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VoucherManage.resx">
+      <DependentUpon>VoucherManage.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="POSDataSet.xsc">
@@ -351,6 +389,17 @@
     </None>
     <None Include="POSDataSet2.xss">
       <DependentUpon>POSDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="POSDataSet31.xsc">
+      <DependentUpon>POSDataSet31.xsd</DependentUpon>
+    </None>
+    <None Include="POSDataSet31.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>POSDataSet31.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="POSDataSet31.xss">
+      <DependentUpon>POSDataSet31.xsd</DependentUpon>
     </None>
     <None Include="POSDataSetBrand1.xsc">
       <DependentUpon>POSDataSetBrand1.xsd</DependentUpon>
@@ -429,16 +478,16 @@
     <None Include="POSDataSetSTORE.xss">
       <DependentUpon>POSDataSetSTORE.xsd</DependentUpon>
     </None>
-    <None Include="POSDataSetTemp_GNR_Data.xsc">
-      <DependentUpon>POSDataSetTemp_GNR_Data.xsd</DependentUpon>
+    <None Include="POSDataSetTemp_GRN_Data.xsc">
+      <DependentUpon>POSDataSetTemp_GRN_Data.xsd</DependentUpon>
     </None>
-    <None Include="POSDataSetTemp_GNR_Data.xsd">
+    <None Include="POSDataSetTemp_GRN_Data.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>POSDataSetTemp_GNR_Data.Designer.cs</LastGenOutput>
+      <LastGenOutput>POSDataSetTemp_GRN_Data.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="POSDataSetTemp_GNR_Data.xss">
-      <DependentUpon>POSDataSetTemp_GNR_Data.xsd</DependentUpon>
+    <None Include="POSDataSetTemp_GRN_Data.xss">
+      <DependentUpon>POSDataSetTemp_GRN_Data.xsd</DependentUpon>
     </None>
     <None Include="POSDataSetUnit.xsc">
       <DependentUpon>POSDataSetUnit.xsd</DependentUpon>
@@ -451,6 +500,17 @@
     <None Include="POSDataSetUnit.xss">
       <DependentUpon>POSDataSetUnit.xsd</DependentUpon>
     </None>
+    <None Include="POSDataSetVenderDetails.xsc">
+      <DependentUpon>POSDataSetVenderDetails.xsd</DependentUpon>
+    </None>
+    <None Include="POSDataSetVenderDetails.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>POSDataSetVenderDetails.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="POSDataSetVenderDetails.xss">
+      <DependentUpon>POSDataSetVenderDetails.xsd</DependentUpon>
+    </None>
     <None Include="POSDataSetVendorList.xsc">
       <DependentUpon>POSDataSetVendorList.xsd</DependentUpon>
     </None>
@@ -462,6 +522,9 @@
     <None Include="POSDataSetVendorList.xss">
       <DependentUpon>POSDataSetVendorList.xsd</DependentUpon>
     </None>
+    <None Include="Properties\DataSources\POS.POSDataSetUnitTableAdapters.TableAdapterManager+UpdateOrderOption.datasource" />
+    <None Include="Properties\DataSources\POS.POSDataSetUnitTableAdapters.TableAdapterManager.datasource" />
+    <None Include="Properties\DataSources\POS.POSDataSetUnitTableAdapters.UnitsTableAdapter.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
