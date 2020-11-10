@@ -14,6 +14,13 @@ namespace POS
 {
     public partial class Invoice : Form
     {
+
+
+        public static string InvoiceNumber = "";
+        public static string Total = "";
+        public static string Total_Discount_Amount = "";
+        public static string InvoiceDateTime = "";
+
         bool executionenable = true;
 
         public Invoice()
@@ -127,6 +134,8 @@ namespace POS
         private void buttonsave_Click(object sender, EventArgs e)
         {
             StockUpdate("Credit");
+            BillPrint bp = new BillPrint();
+            bp.Show();        
         }
 
         private void buttoncash_Click(object sender, EventArgs e)
@@ -165,34 +174,35 @@ namespace POS
                 }
                 catch { }
 
-                decimal Quantity = Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[2].Value);
-                string Units = dataGridViewAll.Rows[i].Cells[3].Value.ToString().Trim();
-                if (Units.Equals("g") || Units.Equals("ml")) Quantity = Quantity / 1000;
-                else if (Units.Equals("mg")) Quantity = Quantity / 1000000;
+                decimal Quantity = Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[6].Value);
+                //string Units = dataGridViewAll.Rows[i].Cells[2].Value.ToString().Trim();
+                //if (Units.Equals("g") || Units.Equals("ml")) Quantity = Quantity / 1000;
+                //else if (Units.Equals("mg")) Quantity = Quantity / 1000000;
 
-                if (Current_Stock_Balance >= Quantity)
-                {
+                //if (Current_Stock_Balance >= Quantity)
+                //{
 
-                    x = stock.InsertTransaction(Invoce_No, Convert.ToInt32(dataGridViewAll.Rows[i].Cells[0].Value), Quantity, "Customer_Invoice", Quantity, 0, Current_Stock_Balance, (Current_Stock_Balance - Quantity), Properties.Settings.Default.username, DateTime.Parse("1900-01-01"), "0");
-                    if (x > 0)
-                    {
-                        y = stock.UpdateStockBalance(Convert.ToInt32(dataGridViewAll.Rows[i].Cells[0].Value), Quantity * -1);
+                //    x = stock.InsertTransaction(Invoce_No, Convert.ToInt32(dataGridViewAll.Rows[i].Cells[0].Value), Quantity, "Customer_Invoice", Quantity, 0, Current_Stock_Balance, (Current_Stock_Balance - Quantity), Properties.Settings.Default.username, DateTime.Parse("1900-01-01"), "0");
+                //    if (x > 0)
+                //    {
+                //        y = stock.UpdateStockBalance(Convert.ToInt32(dataGridViewAll.Rows[i].Cells[0].Value), Quantity * -1);
 
-                    }
-                }
-                else { MessageBox.Show(" Stock Balance Error"); }
+                //    }
+                //}
+                //else { MessageBox.Show(" Stock Balance Error"); }
 
             }
-            z = stock.InsertIvoice(Invoce_No, decimal.Parse(textBoxTotal.Text), 0, 0, DateTime.Now);
-            if (x > 0 && y > 0 && z > 0)
-            {
-                MessageBox.Show(" Successfully Added");
-                dataGridViewAll.ClearSelection();
-                textBoxQuantity.Clear();
-                dataGridViewAll.Text = "";
-                textBoxSelling.Clear();
-                comboBoxCatID.Text = "";
-            }
+            //z = stock.InsertIvoice(Invoce_No, decimal.Parse(textBoxTotal.Text), 0, 0, DateTime.Now);
+            InvoiceNumber = Invoce_No.ToString();
+            //if (x > 0 && y > 0 && z > 0)
+            //{
+            //    MessageBox.Show(" Successfully Added");
+            //    dataGridViewAll.ClearSelection();
+            //    textBoxQuantity.Clear();
+            //    dataGridViewAll.Text = "";
+            //    textBoxSelling.Clear();
+            //    comboBoxCatID.Text = "";
+            //}
         }
 
         private void dataGridViewAll_CellContentClick(object sender, DataGridViewCellEventArgs e)
