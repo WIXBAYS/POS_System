@@ -14,14 +14,14 @@ namespace POS
 {
     public partial class Invoice : Form
     {
-
-
-        public static string InvoiceNumber = "";
-        public static string Total = "";
-        public static string Total_Discount_Amount = "";
-        public static string InvoiceDateTime = "";
-
         bool executionenable = true;
+        public static string InvoiceNumber;
+        public static string TotalAmount;
+        public static string DiscountAmount;
+        public static string LineDiscountAmount;
+        public static string DateTimeInvoice;
+        public static string PaidAmount;
+        public static string Balance;
 
         public Invoice()
         {
@@ -39,7 +39,7 @@ namespace POS
         {
             // TODO: This line of code loads data into the 'pOSDataSetItemCataagory.Item_Catagory' table. You can move, or remove it, as needed.
             this.item_CatagoryTableAdapter.Fill(this.pOSDataSetItemCataagory.Item_Catagory);
-
+            buttonBill_Print.Enabled = false;
         }
 
 
@@ -133,8 +133,18 @@ namespace POS
 
         private void buttonsave_Click(object sender, EventArgs e)
         {
-            StockUpdate("Credit");
-        }
+            int CategoryID = checkstockbalance();
+            if (CategoryID == 0)
+            {
+                StockUpdate("Credit");
+            }
+            else
+            {
+                SqlDataReader sdr = new Item().GetItemCatagoryDetails(CategoryID.ToString());
+                if(sdr!=null)
+                {
+                    sdr.Read();
+                    MessageBox.Show(" Stock Balance Error -"+ sdr.GetString(1).Trim()); 
 
                 }
             }
@@ -191,7 +201,9 @@ namespace POS
             int y = 0;
             int x = 0;
             int z = 0;
+
             int Invoce_No = Current_Invoice_No + 1;
+            InvoiceNumber = Invoce_No.ToString();
 
             for (int i = 0; i < dataGridViewAll.Rows.Count; ++i)
             {
@@ -210,37 +222,54 @@ namespace POS
                     {
                         y = stock.UpdateStockBalance(Convert.ToInt32(dataGridViewAll.Rows[i].Cells[8].Value), Quantity * -1);
                     }
-
                 }
                 catch { }
 
-                decimal Quantity = Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[2].Value);
-                string Units = dataGridViewAll.Rows[i].Cells[3].Value.ToString().Trim();
-                if (Units.Equals("g") || Units.Equals("ml")) Quantity = Quantity / 1000;
-                else if (Units.Equals("mg")) Quantity = Quantity / 1000000;
-
-                if (Current_Stock_Balance >= Quantity)
-                {
-
-                    x = stock.InsertTransaction(Invoce_No, Convert.ToInt32(dataGridViewAll.Rows[i].Cells[0].Value), Quantity, "Customer_Invoice", Quantity, 0, Current_Stock_Balance, (Current_Stock_Balance - Quantity), Properties.Settings.Default.username, DateTime.Parse("1900-01-01"), "0");
-                    if (x > 0)
-                    {
-                        y = stock.UpdateStockBalance(Convert.ToInt32(dataGridViewAll.Rows[i].Cells[0].Value), Quantity * -1);
-
-                    }
-                }
-                else { MessageBox.Show(" Stock Balance Error"); }
-
             }
-            z = stock.InsertIvoice(Invoce_No, decimal.Parse(textBoxTotal.Text), 0, 0, DateTime.Now);
+            z = stock.InsertIvoice(Invoce_No, decimal.Parse(textBoxTotal.Text), decimal.Parse(textBoxNetDiscount.Text), decimal.Parse(textBoxtTlLineDiscount.Text),0.0m, DateTime.Now,decimal.Parse(textBoxPaidAmount.Text), decimal.Parse(textBoxVoucherAmount.Text), decimal.Parse(textBoxBalanceAmount.Text));
+            
+            TotalAmount = textBoxTotal.Text;
+            DiscountAmount = textBoxNetDiscount.Text;
+            LineDiscountAmount = textBoxtTlLineDiscount.Text;
+            DateTimeInvoice =  DateTime.Now.ToString();
+            PaidAmount = textBoxPaidAmount.Text;
+            Balance = textBoxBalanceAmount.Text;
+
+            if(z>0)
+            {
+                Voucher voucher = new Voucher();
+                for (int i = 0; i < dataGridViewVoucher.Rows.Count; ++i)
+                {
+                    voucher.updateVoucher(Convert.ToInt32(dataGridViewVoucher.Rows[i].Cells[0].Value), Invoce_No);
+                }
+            }
             if (x > 0 && y > 0 && z > 0)
             {
-                MessageBox.Show(" Successfully Added");
-                dataGridViewAll.ClearSelection();
+                BillPrint bp = new BillPrint();
+                bp.Show();
+
+                //MessageBox.Show(" Successfully Added");
+                dataGridViewAll.Rows.Clear(); ;
                 textBoxQuantity.Clear();
                 dataGridViewAll.Text = "";
                 textBoxSelling.Clear();
                 comboBoxCatID.Text = "";
+                textBoxTotal.Clear();
+                textBoxNetDiscountP.Clear();
+                textBoxNetDiscount.Clear();
+                textBoxtTlLineDiscountP.Clear();
+                textBoxtTlLineDiscount.Clear();
+                textBoxDueAmount.Clear();
+                textBoxInvoice.Clear();
+                textBoxPaidAmount.Clear();
+                textBoxBalanceAmount.Clear();
+                textBoxVoucherAmount.Clear();
+                textBoxBarCode.Clear();
+                textBoxVoucherNo.Clear();
+                dataGridViewVoucher.Rows.Clear();       
+                if (labelVoucherVisible.Text!="1")button21_Click(null, null);
+
+
             }
         }
 
@@ -1205,6 +1234,11 @@ namespace POS
                 Sum += (Convert.ToDecimal(dataGridViewVoucher.Rows[i].Cells[2].Value));
             }
             textBoxVoucherAmount.Text = Sum.ToString();
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+
         }
     }
     

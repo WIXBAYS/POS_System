@@ -22,11 +22,20 @@ namespace POS
         {
 
             this.reportViewer1.RefreshReport();
-            ReportParameter[] parms = new ReportParameter[1];
+            ReportParameter[] parms = new ReportParameter[7];
             parms[0] = new ReportParameter("InvoiceNo", Invoice.InvoiceNumber);
-            
+            parms[1] = new ReportParameter("TotalAmount", Invoice.TotalAmount);
+            parms[2] = new ReportParameter("DiscountAmount", Invoice.DiscountAmount);
+            parms[3] = new ReportParameter("LineDiscountAmount", Invoice.LineDiscountAmount);
+            parms[4] = new ReportParameter("DateTimeInvoice", Invoice.DateTimeInvoice);
+            parms[5] = new ReportParameter("PaidAmount", Invoice.PaidAmount);
+            parms[6] = new ReportParameter("Balance", Invoice.Balance);
+
             this.reportViewer1.LocalReport.SetParameters(parms);
+
+            this.TransactionTableAdapter.Fill(this.POSDataSetBillItems.Transaction, int.Parse(Invoice.InvoiceNumber));
             this.reportViewer1.RefreshReport();
+
         }
     }
 }

@@ -28,18 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.POSDataSetBillItems = new POS.POSDataSetBillItems();
+            this.TransactionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.TransactionTableAdapter = new POS.POSDataSetBillItemsTableAdapters.TransactionTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.POSDataSetBillItems)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TransactionBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "POS.Bill_Report.rdlc";
+            reportDataSource1.Name = "DataSetBillItemscat";
+            reportDataSource1.Value = this.TransactionBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "POS.BillReport.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.Size = new System.Drawing.Size(323, 450);
             this.reportViewer1.TabIndex = 0;
+            // 
+            // POSDataSetBillItems
+            // 
+            this.POSDataSetBillItems.DataSetName = "POSDataSetBillItems";
+            this.POSDataSetBillItems.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // TransactionBindingSource
+            // 
+            this.TransactionBindingSource.DataMember = "Transaction";
+            this.TransactionBindingSource.DataSource = this.POSDataSetBillItems;
+            // 
+            // TransactionTableAdapter
+            // 
+            this.TransactionTableAdapter.ClearBeforeFill = true;
             // 
             // BillPrint
             // 
@@ -50,6 +74,8 @@
             this.Name = "BillPrint";
             this.Text = "BillPrint";
             this.Load += new System.EventHandler(this.BillPrint_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.POSDataSetBillItems)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TransactionBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -57,5 +83,8 @@
         #endregion
 
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private System.Windows.Forms.BindingSource TransactionBindingSource;
+        private POSDataSetBillItems POSDataSetBillItems;
+        private POSDataSetBillItemsTableAdapters.TransactionTableAdapter TransactionTableAdapter;
     }
 }

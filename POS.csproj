@@ -171,6 +171,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>POSDataSet31.xsd</DependentUpon>
     </Compile>
+    <Compile Include="POSDataSetBillItems.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>POSDataSetBillItems.xsd</DependentUpon>
+    </Compile>
     <Compile Include="POSDataSetBrand1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -288,6 +293,11 @@
     <Compile Include="Vendor_Management.Designer.cs">
       <DependentUpon>Vendor_Management.cs</DependentUpon>
     </Compile>
+    <Compile Include="Voucher.cs" />
+    <EmbeddedResource Include="BillPrint.resx">
+      <DependentUpon>BillPrint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BillReport.rdlc" />
     <EmbeddedResource Include="BrandRegistration.resx">
       <DependentUpon>BrandRegistration.cs</DependentUpon>
     </EmbeddedResource>
@@ -399,6 +409,17 @@
     </None>
     <None Include="POSDataSet31.xss">
       <DependentUpon>POSDataSet31.xsd</DependentUpon>
+    </None>
+    <None Include="POSDataSetBillItems.xsc">
+      <DependentUpon>POSDataSetBillItems.xsd</DependentUpon>
+    </None>
+    <None Include="POSDataSetBillItems.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>POSDataSetBillItems.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="POSDataSetBillItems.xss">
+      <DependentUpon>POSDataSetBillItems.xsd</DependentUpon>
     </None>
     <None Include="POSDataSetBrand1.xsc">
       <DependentUpon>POSDataSetBrand1.xsd</DependentUpon>
