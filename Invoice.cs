@@ -208,11 +208,12 @@ namespace POS
                     Current_Stock_Balance = sdr1.GetDecimal(0);
                     sdr1.Close();
                     decimal Quantity = Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[6].Value);
-                    x = stock.InsertTransaction(Invoce_No, Convert.ToInt32(dataGridViewAll.Rows[i].Cells[8].Value), Quantity, "Customer_Invoice", 0, sumoriginal, netdiscountline, sum, Current_Stock_Balance, (Current_Stock_Balance - Quantity), Properties.Settings.Default.username, DateTime.Parse("1900-01-01"), "0");
+                    x = stock.InsertTransaction(Invoce_No, Convert.ToInt32(dataGridViewAll.Rows[i].Cells[8].Value), Quantity, "Customer_Invoice", 0, sumoriginal, netdiscountline, sum, Current_Stock_Balance, (Current_Stock_Balance - Quantity), Properties.Settings.Default.username, DateTime.Parse("1900-01-01"), "0",0);
                     if (x > 0)
                     {
                         y = stock.UpdateStockBalance(Convert.ToInt32(dataGridViewAll.Rows[i].Cells[8].Value), Quantity * -1);
                     }
+                    
 
                 }
                 catch { }
@@ -1214,6 +1215,11 @@ namespace POS
                 Sum += (Convert.ToDecimal(dataGridViewVoucher.Rows[i].Cells[2].Value));
             }
             textBoxVoucherAmount.Text = Sum.ToString();
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
     

@@ -44,6 +44,16 @@ namespace POS
             this.button_update = new System.Windows.Forms.Button();
             this.button_cancel = new System.Windows.Forms.Button();
             this.dataGridViewAll = new System.Windows.Forms.DataGridView();
+            this.ColumnBarCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Catagory_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Unit_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Grid_Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Discount_Amout = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BuyingCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCategoryID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDelete = new System.Windows.Forms.DataGridViewImageColumn();
             this.labelSellingCost = new System.Windows.Forms.Label();
             this.textBoxSelling = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -121,16 +131,7 @@ namespace POS
             this.ColumnAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnCancel = new System.Windows.Forms.DataGridViewImageColumn();
             this.labelVoucherID = new System.Windows.Forms.Label();
-            this.ColumnBarCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Catagory_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Unit_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Grid_Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Discount_Amout = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BuyingCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnCategoryID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDelete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.itemCatagoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetItemCataagoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetItemCataagory)).BeginInit();
@@ -289,6 +290,73 @@ namespace POS
             this.dataGridViewAll.TabStop = false;
             this.dataGridViewAll.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAll_CellContentClick);
             this.dataGridViewAll.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEnter);
+            // 
+            // ColumnBarCode
+            // 
+            this.ColumnBarCode.FillWeight = 117.2625F;
+            this.ColumnBarCode.HeaderText = "BarCode";
+            this.ColumnBarCode.Name = "ColumnBarCode";
+            // 
+            // Catagory_Name
+            // 
+            this.Catagory_Name.FillWeight = 106.4265F;
+            this.Catagory_Name.HeaderText = "Category Name";
+            this.Catagory_Name.Name = "Catagory_Name";
+            // 
+            // ColumnUnit
+            // 
+            this.ColumnUnit.FillWeight = 115.9944F;
+            this.ColumnUnit.HeaderText = "Unit";
+            this.ColumnUnit.Name = "ColumnUnit";
+            this.ColumnUnit.ReadOnly = true;
+            // 
+            // Unit_Price
+            // 
+            this.Unit_Price.FillWeight = 97.49506F;
+            this.Unit_Price.HeaderText = "Unit Price";
+            this.Unit_Price.Name = "Unit_Price";
+            this.Unit_Price.ReadOnly = true;
+            // 
+            // Grid_Discount
+            // 
+            this.Grid_Discount.FillWeight = 131.758F;
+            this.Grid_Discount.HeaderText = "Discount";
+            this.Grid_Discount.Name = "Grid_Discount";
+            this.Grid_Discount.ReadOnly = true;
+            // 
+            // Discount_Amout
+            // 
+            this.Discount_Amout.FillWeight = 120.7522F;
+            this.Discount_Amout.HeaderText = "Dis. Amount Per Unit";
+            this.Discount_Amout.Name = "Discount_Amout";
+            this.Discount_Amout.ReadOnly = true;
+            // 
+            // Quantity
+            // 
+            this.Quantity.FillWeight = 108.0643F;
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
+            // 
+            // BuyingCost
+            // 
+            this.BuyingCost.FillWeight = 99.30529F;
+            this.BuyingCost.HeaderText = "Sub Total";
+            this.BuyingCost.Name = "BuyingCost";
+            // 
+            // ColumnCategoryID
+            // 
+            this.ColumnCategoryID.HeaderText = "CategoryID";
+            this.ColumnCategoryID.Name = "ColumnCategoryID";
+            this.ColumnCategoryID.Visible = false;
+            // 
+            // ColumnDelete
+            // 
+            this.ColumnDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.ColumnDelete.FillWeight = 2.941738F;
+            this.ColumnDelete.HeaderText = "Delete";
+            this.ColumnDelete.Image = ((System.Drawing.Image)(resources.GetObject("ColumnDelete.Image")));
+            this.ColumnDelete.Name = "ColumnDelete";
+            this.ColumnDelete.Width = 44;
             // 
             // labelSellingCost
             // 
@@ -959,7 +1027,6 @@ namespace POS
             this.buttonChangeLogin.Text = "Change Login";
             this.buttonChangeLogin.UseVisualStyleBackColor = false;
             this.buttonChangeLogin.Click += new System.EventHandler(this.button1_Click_1);
-            
             // 
             // label2
             // 
@@ -1283,72 +1350,17 @@ namespace POS
             this.labelVoucherID.Text = "0";
             this.labelVoucherID.Visible = false;
             // 
-            // ColumnBarCode
+            // button2
             // 
-            this.ColumnBarCode.FillWeight = 117.2625F;
-            this.ColumnBarCode.HeaderText = "BarCode";
-            this.ColumnBarCode.Name = "ColumnBarCode";
-            // 
-            // Catagory_Name
-            // 
-            this.Catagory_Name.FillWeight = 106.4265F;
-            this.Catagory_Name.HeaderText = "Category Name";
-            this.Catagory_Name.Name = "Catagory_Name";
-            // 
-            // ColumnUnit
-            // 
-            this.ColumnUnit.FillWeight = 115.9944F;
-            this.ColumnUnit.HeaderText = "Unit";
-            this.ColumnUnit.Name = "ColumnUnit";
-            this.ColumnUnit.ReadOnly = true;
-            // 
-            // Unit_Price
-            // 
-            this.Unit_Price.FillWeight = 97.49506F;
-            this.Unit_Price.HeaderText = "Unit Price";
-            this.Unit_Price.Name = "Unit_Price";
-            this.Unit_Price.ReadOnly = true;
-            // 
-            // Grid_Discount
-            // 
-            this.Grid_Discount.FillWeight = 131.758F;
-            this.Grid_Discount.HeaderText = "Discount";
-            this.Grid_Discount.Name = "Grid_Discount";
-            this.Grid_Discount.ReadOnly = true;
-            // 
-            // Discount_Amout
-            // 
-            this.Discount_Amout.FillWeight = 120.7522F;
-            this.Discount_Amout.HeaderText = "Dis. Amount Per Unit";
-            this.Discount_Amout.Name = "Discount_Amout";
-            this.Discount_Amout.ReadOnly = true;
-            // 
-            // Quantity
-            // 
-            this.Quantity.FillWeight = 108.0643F;
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.Name = "Quantity";
-            // 
-            // BuyingCost
-            // 
-            this.BuyingCost.FillWeight = 99.30529F;
-            this.BuyingCost.HeaderText = "Sub Total";
-            this.BuyingCost.Name = "BuyingCost";
-            // 
-            // ColumnCategoryID
-            // 
-            this.ColumnCategoryID.HeaderText = "CategoryID";
-            this.ColumnCategoryID.Name = "ColumnCategoryID";
-            this.ColumnCategoryID.Visible = false;
-            // 
-            // ColumnDelete
-            // 
-            this.ColumnDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.ColumnDelete.FillWeight = 2.941738F;
-            this.ColumnDelete.HeaderText = "Delete";
-            this.ColumnDelete.Image = ((System.Drawing.Image)(resources.GetObject("ColumnDelete.Image")));
-            this.ColumnDelete.Name = "ColumnDelete";
-            this.ColumnDelete.Width = 44;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(19, 611);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(94, 30);
+            this.button2.TabIndex = 216;
+            this.button2.Text = "Cancel";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // Invoice
             // 
@@ -1357,6 +1369,7 @@ namespace POS
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1284, 663);
             this.ControlBox = false;
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.labelVoucherID);
             this.Controls.Add(this.dataGridViewVoucher);
             this.Controls.Add(this.buttonAddVoucher);
@@ -1547,5 +1560,6 @@ namespace POS
         private System.Windows.Forms.DataGridViewTextBoxColumn BuyingCost;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCategoryID;
         private System.Windows.Forms.DataGridViewImageColumn ColumnDelete;
+        private System.Windows.Forms.Button button2;
     }
 }

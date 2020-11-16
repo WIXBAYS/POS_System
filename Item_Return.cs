@@ -33,6 +33,7 @@ namespace POS
             Stock stock = new Stock();
             SqlDataReader sdr = stock.GetInvoiceDetails(comboBoxInvoiceNo.SelectedValue.ToString());
             if (sdr != null)
+            {
                 while (sdr.Read())
                 {
                     int TransactionID = sdr.GetInt32(0);
@@ -43,9 +44,12 @@ namespace POS
                     Decimal DiscountAmount = sdr.GetDecimal(5);
                     Decimal CatQuantity = sdr.GetDecimal(6);
                     Decimal NetAmount = sdr.GetDecimal(7);
-                    dataGridViewAll.Rows.Add(TransactionID, Barcode, CategoryName, Unit, UnitPrice, DiscountAmount, CatQuantity, NetAmount);
+                    int CategoryID = sdr.GetInt32(8);
+                    dataGridViewAll.Rows.Add(TransactionID, Barcode, CategoryName, Unit, UnitPrice, DiscountAmount, CatQuantity, NetAmount, CategoryID);
                 }
-            sdr.Close();
+                sdr.Close();
+                SetSummery();
+            }
         }
 
         private void dataGridViewAll_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -56,6 +60,7 @@ namespace POS
             {
                 int TransactionID = Convert.ToInt32(dataGridViewAll.Rows[currentcellVal.Y].Cells[0].Value);
                 stock.RecallItem(false, TransactionID);
+                int y = stock.UpdateStockBalance(Convert.ToInt32(dataGridViewAll.Rows[currentcellVal.Y].Cells[8].Value), Convert.ToInt32(dataGridViewAll.Rows[currentcellVal.Y].Cells[6].Value));
                 int x = dataGridViewAll.CurrentRow.Index;
                 dataGridViewAll.Rows.Remove(dataGridViewAll.Rows[x]);
                 SetSummery();
@@ -187,6 +192,74 @@ namespace POS
                 dataGridView1.Rows.Remove(dataGridView1.Rows[x]);
                 SetSummery();
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Stock stock = new Stock();
+            int Current_Exchange_No = 0;
+            decimal Current_Stock_Balance = 0.0m;
+            SqlDataReader sdr = stock.GetMaxExchangeNo();
+            Decimal TotalAmount = 0.0m;
+            Decimal Quantity = 0.0m;
+            Decimal UnitPrice = 0.0m;
+            Decimal Discount = 0.0m;
+            try
+            {
+                sdr.Read();
+                Current_Exchange_No = sdr.GetInt32(0);
+                sdr.Close();
+            }
+            catch { }
+
+            int y = 0;
+            int x = 0;
+            int z = 0;
+            int Invoce_No = Current_Exchange_No + 1;
+            for (int i = 0; i < dataGridView1.Rows.Count; ++i)
+            {
+
+                try
+                {
+                    TotalAmount = Convert.ToDecimal(dataGridView1.Rows[i].Cells[5].Value);
+                    Quantity = Convert.ToDecimal(dataGridView1.Rows[i].Cells[2].Value);
+                    UnitPrice = Convert.ToDecimal(dataGridView1.Rows[i].Cells[1].Value);
+                    Discount = Convert.ToDecimal(dataGridView1.Rows[i].Cells[4].Value);
+                    SqlDataReader sdr1 = stock.GetStockBalance(Convert.ToInt32(dataGridView1.Rows[i].Cells[6].Value));
+                    try
+                    {
+                        sdr1.Read();
+                        Current_Stock_Balance = sdr1.GetDecimal(0);
+                        sdr1.Close();
+                        if (Current_Stock_Balance < Quantity)
+                        {
+                            MessageBox.Show("Not Enough items in the stock", "Error");
+                        }
+                        else
+                        {
+                            x = stock.InsertTransaction(Invoce_No, Convert.ToInt32(dataGridView1.Rows[i].Cells[6].Value), Quantity, "Exchange", 0, (Quantity * UnitPrice), Discount, TotalAmount, Current_Stock_Balance, (Current_Stock_Balance - Quantity), Properties.Settings.Default.username, DateTime.Parse("1900-01-01"), "0", int.Parse(comboBoxInvoiceNo.SelectedValue.ToString()));
+                            if (x > 0)
+                            {
+                                y = stock.UpdateStockBalance(Convert.ToInt32(dataGridView1.Rows[i].Cells[6].Value), Quantity * -1);
+                            }
+                        }
+
+                    }
+                    catch { }
+                }
+                catch { }
+                textBoxExchangedAmount.Text = TotalAmount.ToString();
+            }
+            dataGridViewAll.Rows.Clear();
+            dataGridView1.Rows.Clear();
+            textBoxReturnedAmount.Text = "";
+            textBoxExchangedAmount.Text = "";
+            textBoxBalanceAmount.Text = ""; 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

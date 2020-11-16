@@ -53,7 +53,7 @@ namespace POS
                 string Units = dataGridViewAll.Rows[i].Cells[3].Value.ToString().Trim();
                 
                 
-                x = stock.InsertTransaction(GRN_No, Convert.ToInt32(dataGridViewAll.Rows[i].Cells[0].Value), Quantity, "STOCK_ADD", Quantity, 0,0,0, Current_Stock_Balance, (Quantity + Current_Stock_Balance), Properties.Settings.Default.username, DateTime.Parse("1900-01-01"), comboBoxVender.SelectedValue.ToString().Trim());
+                x = stock.InsertTransaction(GRN_No, Convert.ToInt32(dataGridViewAll.Rows[i].Cells[0].Value), Quantity, "STOCK_ADD", Quantity, 0,0,0, Current_Stock_Balance, (Quantity + Current_Stock_Balance), Properties.Settings.Default.username, DateTime.Parse("1900-01-01"), comboBoxVender.SelectedValue.ToString().Trim(),0);
                 if (x > 0)
                 {
                     y = stock.UpdateStockBalance(Convert.ToInt32(dataGridViewAll.Rows[i].Cells[0].Value), Quantity);

@@ -7,9 +7,9 @@ namespace POS
     class Stock
     {
 
-        public int InsertTransaction(int INVOICE_NO,int ITEMCAT_ID,decimal CAT_QUANTITY, String TRANSACTION_TYPE,decimal BUYING_COST,  decimal SELLING_COST,decimal DISCOUNT_AMOUNT,decimal NET_AMOUNT, decimal CURR_STOCK_BALANCE,decimal NEW_STOCK_BALANCE, string USER_NAME, DateTime EXPIERY_DATE,string VENDER)
+        public int InsertTransaction(int INVOICE_NO,int ITEMCAT_ID,decimal CAT_QUANTITY, String TRANSACTION_TYPE,decimal BUYING_COST,  decimal SELLING_COST,decimal DISCOUNT_AMOUNT,decimal NET_AMOUNT, decimal CURR_STOCK_BALANCE,decimal NEW_STOCK_BALANCE, string USER_NAME, DateTime EXPIERY_DATE,string VENDER,int INVOICE_NO_REFNDER)
         {
-            String selectCommand = "INSERT INTO [dbo].[Transaction] ([INVOICE_NO] ,[ITEMCAT_ID],[CAT_QUANTITY],[TRANSACTION_TYPE] ,[BUYING_COST] ,[SELLING_COST],[DISCOUNT_AMOUNT],[NET_AMOUNT],[CURR_STOCK_BALANCE],[NEW_STOCK_BALANCE] ,[USER_NAME] ,[ENTERED_DATE],[EXPIERY_DATE],[Vender/Customer]) VALUES(@INVOICE_NO,@ITEMCAT_ID,@CAT_QUANTITY,@TRANSACTION_TYPE ,@BUYING_COST,@SELLING_COST,@DISCOUNT_AMOUNT,@NET_AMOUNT,@CURR_STOCK_BALANCE,@NEW_STOCK_BALANCE,@USER_NAME,GetDate(),@EXPIERY_DATE,@VENDER)";
+            String selectCommand = "INSERT INTO [dbo].[Transaction] ([INVOICE_NO] ,[ITEMCAT_ID],[CAT_QUANTITY],[TRANSACTION_TYPE] ,[BUYING_COST] ,[SELLING_COST],[DISCOUNT_AMOUNT],[NET_AMOUNT],[CURR_STOCK_BALANCE],[NEW_STOCK_BALANCE] ,[USER_NAME] ,[ENTERED_DATE],[EXPIERY_DATE],[Vender/Customer],[INVOICE_NO_REF]) VALUES(@INVOICE_NO,@ITEMCAT_ID,@CAT_QUANTITY,@TRANSACTION_TYPE ,@BUYING_COST,@SELLING_COST,@DISCOUNT_AMOUNT,@NET_AMOUNT,@CURR_STOCK_BALANCE,@NEW_STOCK_BALANCE,@USER_NAME,GetDate(),@EXPIERY_DATE,@VENDER,@INVOICE_NO_REF)";
 
             SqlParameter[] sqlParams = new SqlParameter[] {
                                             new SqlParameter("@INVOICE_NO", SqlDbType.Int),
@@ -25,6 +25,8 @@ namespace POS
                                             new SqlParameter("@USER_NAME", SqlDbType.Char),
                                             new SqlParameter("@EXPIERY_DATE", SqlDbType.DateTime),
                                             new SqlParameter("@VENDER", SqlDbType.Char),
+                                            new SqlParameter("@INVOICE_NO_REF", SqlDbType.Int),
+                                            
                                        };
 
             sqlParams[0].Value = INVOICE_NO;
@@ -39,7 +41,8 @@ namespace POS
             sqlParams[9].Value = NEW_STOCK_BALANCE;
             sqlParams[10].Value = USER_NAME;
             sqlParams[11].Value = EXPIERY_DATE;
-            sqlParams[12].Value = VENDER;
+            sqlParams[12].Value = VENDER; 
+            sqlParams[13].Value = INVOICE_NO_REFNDER;
 
             DataInsertManager dim = new DataInsertManager();
             return dim.insertRecord(selectCommand, ref sqlParams);
@@ -87,6 +90,13 @@ namespace POS
             DataReaderManager drm = new DataReaderManager();
             return drm.getDataReader(query);
         }
+        public SqlDataReader GetMaxExchangeNo()
+        {
+            String query = "SELECT MAX([INVOICE_NO])  FROM [POS].[dbo].[Transaction] WHERE [TRANSACTION_TYPE]='Exchange'";
+
+            DataReaderManager drm = new DataReaderManager();
+            return drm.getDataReader(query);
+        }
 
         public SqlDataReader GetMaxGRNNo()
         {
@@ -128,7 +138,7 @@ namespace POS
 
         public SqlDataReader GetInvoiceDetails(String INVOICE_NO)
         {
-            String query = "SELECT[Transaction].TRANSACTION_ID, Item_Category.BARCODE, Item_Category.CATEGORY_NAME, Item_Category.UNIT, Item_Category.SELLING_COST / [Transaction].CAT_QUANTITY AS UNIT_PRICE, [Transaction].DISCOUNT_AMOUNT, [Transaction].CAT_QUANTITY, [Transaction].NET_AMOUNT FROM[Transaction] INNER JOIN  Item_Category ON[Transaction].ITEMCAT_ID = Item_Category.ITEMCAT_ID WHERE([Transaction].TRANSACTION_TYPE = 'Customer_Invoice') AND([Transaction].INVOICE_NO = @INVOICE_NO)";
+            String query = "SELECT[Transaction].TRANSACTION_ID, Item_Category.BARCODE, Item_Category.CATEGORY_NAME, Item_Category.UNIT, Item_Category.SELLING_COST / [Transaction].CAT_QUANTITY AS UNIT_PRICE, [Transaction].DISCOUNT_AMOUNT, [Transaction].CAT_QUANTITY, [Transaction].NET_AMOUNT,[Transaction].ITEMCAT_ID FROM[Transaction] INNER JOIN  Item_Category ON [Transaction].ITEMCAT_ID = Item_Category.ITEMCAT_ID WHERE([Transaction].TRANSACTION_TYPE = 'Customer_Invoice') AND [TRANSACTION_STATUS]='1' AND([Transaction].INVOICE_NO = @INVOICE_NO)";
             SqlParameter sqlParam = new SqlParameter("@INVOICE_NO", SqlDbType.Int);
             sqlParam.Value = INVOICE_NO;
 
