@@ -78,7 +78,7 @@ namespace POS
             this.button16 = new System.Windows.Forms.Button();
             this.button17 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
-            this.button19 = new System.Windows.Forms.Button();
+            this.buttonBill_Print = new System.Windows.Forms.Button();
             this.button20 = new System.Windows.Forms.Button();
             this.button21 = new System.Windows.Forms.Button();
             this.buttonNPBack = new System.Windows.Forms.Button();
@@ -131,7 +131,6 @@ namespace POS
             this.ColumnAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnCancel = new System.Windows.Forms.DataGridViewImageColumn();
             this.labelVoucherID = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.itemCatagoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetItemCataagoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOSDataSetItemCataagory)).BeginInit();
@@ -678,19 +677,20 @@ namespace POS
             this.button18.Text = "Open Drawer";
             this.button18.UseVisualStyleBackColor = false;
             // 
-            // button19
+            // buttonBill_Print
             // 
-            this.button19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button19.BackColor = System.Drawing.Color.DarkGray;
-            this.button19.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button19.ForeColor = System.Drawing.Color.Black;
-            this.button19.Location = new System.Drawing.Point(1085, 117);
-            this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(88, 79);
-            this.button19.TabIndex = 145;
-            this.button19.TabStop = false;
-            this.button19.Text = "Print";
-            this.button19.UseVisualStyleBackColor = false;
+            this.buttonBill_Print.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonBill_Print.BackColor = System.Drawing.Color.DarkGray;
+            this.buttonBill_Print.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBill_Print.ForeColor = System.Drawing.Color.Black;
+            this.buttonBill_Print.Location = new System.Drawing.Point(1085, 117);
+            this.buttonBill_Print.Name = "buttonBill_Print";
+            this.buttonBill_Print.Size = new System.Drawing.Size(88, 79);
+            this.buttonBill_Print.TabIndex = 145;
+            this.buttonBill_Print.TabStop = false;
+            this.buttonBill_Print.Text = "Print";
+            this.buttonBill_Print.UseVisualStyleBackColor = false;
+            this.buttonBill_Print.Click += new System.EventHandler(this.button19_Click);
             // 
             // button20
             // 
@@ -1350,18 +1350,6 @@ namespace POS
             this.labelVoucherID.Text = "0";
             this.labelVoucherID.Visible = false;
             // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(19, 611);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(94, 30);
-            this.button2.TabIndex = 216;
-            this.button2.Text = "Cancel";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
-            // 
             // Invoice
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1369,7 +1357,6 @@ namespace POS
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1284, 663);
             this.ControlBox = false;
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.labelVoucherID);
             this.Controls.Add(this.dataGridViewVoucher);
             this.Controls.Add(this.buttonAddVoucher);
@@ -1416,7 +1403,7 @@ namespace POS
             this.Controls.Add(this.buttonNPBack);
             this.Controls.Add(this.button17);
             this.Controls.Add(this.button18);
-            this.Controls.Add(this.button19);
+            this.Controls.Add(this.buttonBill_Print);
             this.Controls.Add(this.button20);
             this.Controls.Add(this.buttonNP00);
             this.Controls.Add(this.buttonNPStar);
@@ -1498,7 +1485,7 @@ namespace POS
         private System.Windows.Forms.Button button16;
         private System.Windows.Forms.Button button17;
         private System.Windows.Forms.Button button18;
-        private System.Windows.Forms.Button button19;
+        private System.Windows.Forms.Button buttonBill_Print;
         private System.Windows.Forms.Button button20;
         private System.Windows.Forms.Button button21;
         private System.Windows.Forms.Button buttonNPBack;
@@ -1560,6 +1547,5 @@ namespace POS
         private System.Windows.Forms.DataGridViewTextBoxColumn BuyingCost;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCategoryID;
         private System.Windows.Forms.DataGridViewImageColumn ColumnDelete;
-        private System.Windows.Forms.Button button2;
     }
 }

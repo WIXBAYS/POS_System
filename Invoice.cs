@@ -15,6 +15,13 @@ namespace POS
     public partial class Invoice : Form
     {
         bool executionenable = true;
+        public static string InvoiceNumber;
+        public static string TotalAmount;
+        public static string DiscountAmount;
+        public static string LineDiscountAmount;
+        public static string DateTimeInvoice;
+        public static string PaidAmount;
+        public static string Balance;
 
         public Invoice()
         {
@@ -32,7 +39,7 @@ namespace POS
         {
             // TODO: This line of code loads data into the 'pOSDataSetItemCataagory.Item_Catagory' table. You can move, or remove it, as needed.
             this.item_CatagoryTableAdapter.Fill(this.pOSDataSetItemCataagory.Item_Catagory);
-
+            buttonBill_Print.Enabled = false;
         }
 
 
@@ -194,7 +201,9 @@ namespace POS
             int y = 0;
             int x = 0;
             int z = 0;
+
             int Invoce_No = Current_Invoice_No + 1;
+            InvoiceNumber = Invoce_No.ToString();
 
             for (int i = 0; i < dataGridViewAll.Rows.Count; ++i)
             {
@@ -208,18 +217,24 @@ namespace POS
                     Current_Stock_Balance = sdr1.GetDecimal(0);
                     sdr1.Close();
                     decimal Quantity = Convert.ToDecimal(dataGridViewAll.Rows[i].Cells[6].Value);
-                    x = stock.InsertTransaction(Invoce_No, Convert.ToInt32(dataGridViewAll.Rows[i].Cells[8].Value), Quantity, "Customer_Invoice", 0, sumoriginal, netdiscountline, sum, Current_Stock_Balance, (Current_Stock_Balance - Quantity), Properties.Settings.Default.username, DateTime.Parse("1900-01-01"), "0",0);
+                    x = stock.InsertTransaction(Invoce_No, Convert.ToInt32(dataGridViewAll.Rows[i].Cells[8].Value), Quantity, "Customer_Invoice", 0, sumoriginal, netdiscountline, sum, Current_Stock_Balance, (Current_Stock_Balance - Quantity), Properties.Settings.Default.username, DateTime.Parse("1900-01-01"), "0");
                     if (x > 0)
                     {
                         y = stock.UpdateStockBalance(Convert.ToInt32(dataGridViewAll.Rows[i].Cells[8].Value), Quantity * -1);
                     }
-                    
-
                 }
                 catch { }
 
             }
             z = stock.InsertIvoice(Invoce_No, decimal.Parse(textBoxTotal.Text), decimal.Parse(textBoxNetDiscount.Text), decimal.Parse(textBoxtTlLineDiscount.Text),0.0m, DateTime.Now,decimal.Parse(textBoxPaidAmount.Text), decimal.Parse(textBoxVoucherAmount.Text), decimal.Parse(textBoxBalanceAmount.Text));
+            
+            TotalAmount = textBoxTotal.Text;
+            DiscountAmount = textBoxNetDiscount.Text;
+            LineDiscountAmount = textBoxtTlLineDiscount.Text;
+            DateTimeInvoice =  DateTime.Now.ToString();
+            PaidAmount = textBoxPaidAmount.Text;
+            Balance = textBoxBalanceAmount.Text;
+
             if(z>0)
             {
                 Voucher voucher = new Voucher();
@@ -230,13 +245,15 @@ namespace POS
             }
             if (x > 0 && y > 0 && z > 0)
             {
-                MessageBox.Show(" Successfully Added");
+                BillPrint bp = new BillPrint();
+                bp.Show();
+
+                //MessageBox.Show(" Successfully Added");
                 dataGridViewAll.Rows.Clear(); ;
                 textBoxQuantity.Clear();
                 dataGridViewAll.Text = "";
                 textBoxSelling.Clear();
                 comboBoxCatID.Text = "";
-
                 textBoxTotal.Clear();
                 textBoxNetDiscountP.Clear();
                 textBoxNetDiscount.Clear();
@@ -249,8 +266,10 @@ namespace POS
                 textBoxVoucherAmount.Clear();
                 textBoxBarCode.Clear();
                 textBoxVoucherNo.Clear();
-                dataGridViewVoucher.Rows.Clear();
-                if(labelVoucherVisible.Text!="1")button21_Click(null, null);
+                dataGridViewVoucher.Rows.Clear();       
+                if (labelVoucherVisible.Text!="1")button21_Click(null, null);
+
+
             }
         }
 
@@ -1217,9 +1236,9 @@ namespace POS
             textBoxVoucherAmount.Text = Sum.ToString();
         }
 
-        private void button2_Click_1(object sender, EventArgs e)
+        private void button19_Click(object sender, EventArgs e)
         {
-            this.Close();
+
         }
     }
     

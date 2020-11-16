@@ -70,6 +70,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BillPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BillPrint.Designer.cs">
+      <DependentUpon>BillPrint.cs</DependentUpon>
+    </Compile>
     <Compile Include="Brand.cs" />
     <Compile Include="BrandRegistration.cs">
       <SubType>Form</SubType>
@@ -164,6 +170,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>POSDataSet31.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="POSDataSetBillItems.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>POSDataSetBillItems.xsd</DependentUpon>
     </Compile>
     <Compile Include="POSDataSetBrand1.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -283,12 +294,10 @@
       <DependentUpon>Vendor_Management.cs</DependentUpon>
     </Compile>
     <Compile Include="Voucher.cs" />
-    <Compile Include="VoucherManage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="VoucherManage.Designer.cs">
-      <DependentUpon>VoucherManage.cs</DependentUpon>
-    </Compile>
+    <EmbeddedResource Include="BillPrint.resx">
+      <DependentUpon>BillPrint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BillReport.rdlc" />
     <EmbeddedResource Include="BrandRegistration.resx">
       <DependentUpon>BrandRegistration.cs</DependentUpon>
     </EmbeddedResource>
@@ -400,6 +409,17 @@
     </None>
     <None Include="POSDataSet31.xss">
       <DependentUpon>POSDataSet31.xsd</DependentUpon>
+    </None>
+    <None Include="POSDataSetBillItems.xsc">
+      <DependentUpon>POSDataSetBillItems.xsd</DependentUpon>
+    </None>
+    <None Include="POSDataSetBillItems.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>POSDataSetBillItems.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="POSDataSetBillItems.xss">
+      <DependentUpon>POSDataSetBillItems.xsd</DependentUpon>
     </None>
     <None Include="POSDataSetBrand1.xsc">
       <DependentUpon>POSDataSetBrand1.xsd</DependentUpon>
